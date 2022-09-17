@@ -1,6 +1,8 @@
 import React from 'react'
 import NavBar from './NavBar'
-
+import 'tw-elements';
+import SignIn from './SignIn';
+import Explore from '../../Pages/Explore';
 
 const Header = () => {
 return(
@@ -10,12 +12,10 @@ return(
     >
       <NavBar/>
       <div className="flex flex-col justify-center text-center items-center h-3/4">
-        <h1 className="text-white text-2xl font-medium text-transform: uppercase">Life is Traveling so enjoy every moment</h1>
-        <h1 className="md:text-5xl text-3xl text-white font-semibold py-5">
-         
-        </h1>
-        <div className="text-xl">
-          
+        <h1 className="text-4xl font-medium text-transform: uppercase text-yellow">Life is Traveling so enjoy every moment</h1>
+        
+        <div className="text-2xl p-4">
+          <Explore/>
         </div>
       </div>
     </section>

@@ -1,13 +1,14 @@
 import React from 'react'
 
-const Explore = () => {
+const SignIn = () => {
   return (
     <div>
       <button className='bg-yellow text-gray-dark px-6 py-2 rounded-full'>
-        Explore
+        Signin
       </button>
     </div>
+    
   )
 }
 
-export default Explore
+export default SignIn
