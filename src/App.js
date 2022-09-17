@@ -1,4 +1,5 @@
 import React from "react";
+import Destinations from "./components/Destinations";
 import Header from "./components/landing-page/Header";
 
 
@@ -8,6 +9,7 @@ function App() {
     <div>
      
       <Header/>
+      <Destinations/>
     </div>
   );
 }
