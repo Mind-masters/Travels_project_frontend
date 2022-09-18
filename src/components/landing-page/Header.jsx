@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
 import 'tw-elements';
-import SignIn from './SignIn';
+//import SignIn from './SignIn';
 import Explore from '../../Pages/Explore';
 
 const Header = () => {
