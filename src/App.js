@@ -30,7 +30,7 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, login, logout, authenticatedUser }}>
-      {/* <MainNavigation /> */}
+      <MainNavigation />
       <Routing />
     </AuthContext.Provider>
   )
