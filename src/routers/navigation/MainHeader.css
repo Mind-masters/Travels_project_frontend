@@ -1,0 +1,20 @@
+.main-header {
+  width: 100%;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.589);
+  box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  
+}
+
+/* @media (min-width: 1000px) {
+  .main-header {
+    height: ;
+  }
+} */
+
+

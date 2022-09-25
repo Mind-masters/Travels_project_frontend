@@ -1,0 +1,25 @@
+.defaultButton{
+    width: 100%;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 1.5em;
+    background-color: #F3DE1B;
+    cursor: pointer;
+    margin: 0 auto;
+    transition-duration: 0.2s;
+    font-style:oblique;
+    padding: 3px 5px;
+}
+
+.defaultButton:hover{
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.navButton{
+    background-color: #F3DE1B;
+    width: 100%;
+    font-size: 1.4em;
+    padding: 0 2vw;
+    border-radius: 30px;
+}
