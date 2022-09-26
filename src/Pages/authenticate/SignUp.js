@@ -6,7 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { notify } from "./toast";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import "./index.css";
+import Card from "../../components/shared/UI/Card";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -39,6 +40,7 @@ const SignUp = () => {
   const submitHandler = async(event) => {
     event.preventDefault();
     if (!Object.keys(errors).length) {
+      console.log("data: ", data)
     //   // Pushing data to database usuing PHP script
     //   const urlApi = `https://lightem.senatorhost.com/login-react/index.php?email=${data.email.toLowerCase()}&password=${data.password}&register=true`;
     //   const pushData = async () => {
@@ -68,7 +70,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <Card>
       <form className={styles.formLogin} onSubmit={submitHandler} autoComplete="off">
         <h2>Sign Up</h2>
         <div>
@@ -110,7 +112,7 @@ const SignUp = () => {
         </div>
       </form>
       <ToastContainer />
-    </div>
+    </Card>
   );
 };
 

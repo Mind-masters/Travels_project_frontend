@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { notify } from "./toast";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./index.css";
+import Card from "../../components/shared/UI/Card";
 
 const Login = () => {
   const [data, setData] = useState({
@@ -46,7 +48,7 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <Card>
       <form className={styles.formLogin} onSubmit={submitHandler} autoComplete="off">
         <h2>Sign In</h2>
         <div>
@@ -68,7 +70,7 @@ const Login = () => {
         </div>
       </form>
       <ToastContainer />
-    </div>
+    </Card>
   );
 };
 

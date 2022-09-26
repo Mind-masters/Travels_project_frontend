@@ -5,7 +5,7 @@ import NavLinks from './NavLinks';
 import SideDrawer from './SideDrawer';
 import Backdrop from '../../components/shared/UI/Backdrop';
 import navLogo from "../../assets/logo.PNG"
-import './MainNavigation.css';
+import styles from './MainNavigation.module.css';
 
 const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -22,25 +22,25 @@ const MainNavigation = props => {
     <React.Fragment>
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
-        <nav className="main-navigation__drawer-nav">
+        <nav className={styles.drawerNav}>
           <NavLinks extra={true} />
         </nav>
       </SideDrawer>
 
       <MainHeader>
-        <button className="main-navigation__menu-btn" onClick={openDrawerHandler}>
+        <button className={styles.navigationMenuBtn} onClick={openDrawerHandler}>
           <span />
           <span />
           <span />
         </button>
-        <h1 className="main-navigation__title">
+        <h1 className={styles.navigationTitle}>
           <Link to="/">
-            <img className='link_image' alt="" src={navLogo} />
+            <img className={styles.linkImage} alt="" src={navLogo} />
           </Link>
         </h1>
 
 
-        <nav className="main-navigation__header-nav">
+        <nav className={styles.headerNav}>
           <NavLinks extra={false}/>
         </nav>
         

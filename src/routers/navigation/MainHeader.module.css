@@ -1,4 +1,4 @@
-.main-header {
+.mainHeader {
   width: 100%;
   min-height: 10vh;
   display: flex;
@@ -10,11 +10,5 @@
   top: 0;
   
 }
-
-/* @media (min-width: 1000px) {
-  .main-header {
-    height: ;
-  }
-} */
 
 
