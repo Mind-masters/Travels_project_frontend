@@ -2,40 +2,41 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../components/contextAPI/AuthContext';
-import './NavLinks.css';
+import styles from './NavLinks.module.css';
 import Button from '../../components/shared/UI/button/Button';
+import "./index.css"
 
 const NavLinks = props => {
 
   const User = useContext(AuthContext);
 
-  return <ul className="nav-links">
+  return <ul className={styles.navLinks}>
 
-    <li className='hover_change-color'>
+    <li className="onFocus">
       <NavLink to="/explore" exact>Explore</NavLink>
     </li>
 
-    <li className='hover_change-color'>
+    <li className="onFocus">
       <NavLink to="/places" exact>Places</NavLink>
     </li>
 
-    <li className='hover_change-color'>
+    <li className="onFocus">
       <NavLink to="/about" exact>About us</NavLink>
     </li>
 
-    <li className='hover_change-color'>
+    <li className="onFocus">
       <NavLink to="/contact" >Contact</NavLink>
     </li>
     
-    <li className='nav-btn'>
+    <li className={styles.navButton}>
       {!User.isLoggedIn ? 
 
       <Button CustomClassName="navButton">
-        <NavLink to={"/auth/login"}>Login</NavLink>
+        <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
       </Button>
       :
       <Button CustomClassName="navButton">
-        <NavLink to={"/logout"}>Logout</NavLink>
+        <NavLink className={"btn"} to={"/logout"}>Logout</NavLink>
       </Button>
       }
     </li>

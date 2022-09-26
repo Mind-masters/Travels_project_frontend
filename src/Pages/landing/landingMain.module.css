@@ -1,14 +1,7 @@
-.container{
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    height: 300vh;
-    width: 100%;
-}
 
-.welcome-page{
+.welcomePage{
     height: 100vh;
-    background-image: url("../../../assets/lookin_background.jpg");
+    background-image: url("../../assets/lookin_background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -18,7 +11,7 @@
     justify-content: center;
 }
 
-.custom-details{
+.customDetails{
     width: 40%;
     height: 25vh;
     display: flex;
@@ -26,18 +19,18 @@
     flex-direction: column;
 }
 
-.custom-details .custom-button{
+.customDetails .customButton{
     width: 25%;
     margin: 0 auto;
 }
 
-.custom-header{
+.customHeader{
     font-size: 2rem;
     font-weight: bold;
     color: antiquewhite;
 }
 
-.welcome-page:before{
+.welcomePage:before{
     content: '';
     width: 100%;
     height: 2rem;

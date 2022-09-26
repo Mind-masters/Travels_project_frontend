@@ -4,11 +4,7 @@
   border: 1px solid var(--secondary-color);
   padding: 25px;
   border-radius: 11px;
-  min-width: 500px;
-}
-
-.opa{
-  border: 2px solid red;
+  min-width: 40%;
 }
 
 .container {
@@ -169,13 +165,18 @@
   align-items: center;
   justify-content: center;
   margin: 19px 0;
-  border: 2px solid red;
+}
 
+@media (max-width: 1100px) {
+  .formLogin {
+    width: 80%;
+    padding: 16px;
+  }
 }
 
 @media (max-width: 568px) {
   .formLogin {
-    min-width: 300px;
+    width: 80%;
     padding: 16px;
   }
   .formLogin input[type="text"],

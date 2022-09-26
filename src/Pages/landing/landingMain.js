@@ -1,18 +1,18 @@
 import React from 'react'
-import "./landingMain.css";
+import styles from "./landingMain.module.css";
 import Destinations from "./landingDestinations"
-import Button from '../../shared/UI/button/Button';
+import Button from '../../components/shared/UI/button/Button';
 import { NavLink } from 'react-router-dom';
 
 const LandingMain = () => {
   return (
-    <div className="container">
+    <div className={styles.container}>
 
-        <div className='welcome-page'>
-          <div className='custom-details'>
-            <h1 className="custom-header">Life is Traveling so enjoy every moment</h1>
+        <div className={styles.welcomePage}>
+          <div className={styles.customDetails}>
+            <h1 className={styles.customHeader}>Life is Traveling so enjoy every moment</h1>
 
-            <div className='custom-button'>
+            <div className={styles.customButton}>
               <Button>
                 <NavLink to={"/explore"}>Explore</NavLink>
               </Button>
