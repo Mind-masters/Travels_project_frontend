@@ -41,6 +41,33 @@ const SignUp = () => {
     event.preventDefault();
     if (!Object.keys(errors).length) {
       console.log("data: ", data)
+
+
+      try {
+        
+        const Req = await fetch(`https://traveling-server.herokuapp.com/api/v1/client/auth/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type" : "application/json",
+            "accept" : "application/json"
+          },
+          body: JSON.stringify({
+            email: data.email,
+            password: data.password
+          })
+        });
+
+        if(!Req.ok)throw new Error("Server side error");
+
+        const responseData = await Req.json();
+
+        console.log("request from server: ", responseData)
+        
+
+        
+      } catch (error) {
+        
+      }
     //   // Pushing data to database usuing PHP script
     //   const urlApi = `https://lightem.senatorhost.com/login-react/index.php?email=${data.email.toLowerCase()}&password=${data.password}&register=true`;
     //   const pushData = async () => {

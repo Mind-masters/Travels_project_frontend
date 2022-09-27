@@ -1,0 +1,6 @@
+.container{
+    border: 2px solid red;
+    height: 50vh;
+    align-self: center;
+    justify-self: flex-end;
+}
