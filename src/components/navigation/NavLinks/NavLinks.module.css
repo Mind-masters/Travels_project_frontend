@@ -9,6 +9,7 @@
   letter-spacing: 2px;
   font-style: italic;
   align-items: center;
+  border: 2px solid red;
 }
 
 .navLinks li {
