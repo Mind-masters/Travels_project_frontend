@@ -7,7 +7,7 @@ import {AuthContext} from "../components/contextAPI/AuthContext";
 const PrivateRouter = () => {
   console.log("private route is called");
 
-  const auth = false;
+  const auth = true;
   return auth ? <MainLayout /> : <Navigate to="/auth/login" />;
 };
 

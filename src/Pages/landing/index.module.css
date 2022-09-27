@@ -24,6 +24,12 @@
     margin: 0 auto;
 }
 
+.customButton a{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+
+}
+
 .customHeader{
     font-size: 2rem;
     font-weight: bold;

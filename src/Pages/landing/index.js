@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from "./landingMain.module.css";
-import Destinations from "./landingDestinations"
+import styles from "./index.module.css";
+import Destinations from "./subtopics/destinations/destinations"
 import Button from '../../components/shared/UI/button/Button';
 import { NavLink } from 'react-router-dom';
 
@@ -20,6 +20,7 @@ const LandingMain = () => {
             
           </div>
         </div>
+
         
         {/* <div className="text-2xl p-4">
           <Explore/>
@@ -28,6 +29,7 @@ const LandingMain = () => {
         <div className="text-2xl p-4">
           <Destinations/>
         </div>
+
 
         {/* all other sekctions like Destinations, Explore and so on... */}
     </div>
