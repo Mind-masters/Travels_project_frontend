@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import AuthLayout from "../components/shared/layouts/AuthLayout";
 import LandingPage from "../Pages/landing";
-import ExplorePage from "../Pages/explore/explore";
+import ExplorePage from "../Pages/explore";
 // import PrivateRouter from "./privateRouter";
 import Login from "../Pages/authenticate/Login";
 import SignUp from "../Pages/authenticate/SignUp";
