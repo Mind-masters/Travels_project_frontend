@@ -1,8 +1,8 @@
 import Routing from './routers';
 import React from "react";
-import {AuthContext} from "./components/contextAPI/AuthContext";
+import {AuthContext} from "./contextAPI/AuthContext";
 import { useState, useCallback } from 'react'
-import MainNavigation from "./routers/navigation/MainNavigation";
+import MainNavigation from "./components/navigation";
 
 
 function App() {
@@ -25,8 +25,6 @@ function App() {
     setAuthenticatedUser(null);
     setIsLoggedIn(false)
   }, [])
-
-
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, login, logout, authenticatedUser }}>

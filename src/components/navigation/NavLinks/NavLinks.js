@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-import { AuthContext } from '../../components/contextAPI/AuthContext';
+import { AuthContext } from '../../../contextAPI/AuthContext';
 import styles from './NavLinks.module.css';
-import Button from '../../components/shared/UI/button/Button';
+import Button from '../../shared/UI/button/Button';
 import "./index.css"
 
 const NavLinks = props => {

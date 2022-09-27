@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import AuthLayout from "../components/shared/layouts/AuthLayout";
-import LandingPage from "../Pages/landing/landingMain";
+import LandingPage from "../Pages/landing";
 import ExplorePage from "../Pages/explore/explore";
 // import PrivateRouter from "./privateRouter";
 import Login from "../Pages/authenticate/Login";
@@ -12,8 +12,8 @@ const Routing = () => {
     <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        {/* <Route path="/landing" element={<PrivateRouter />}>
-          <Route index element={<h1>Home page</h1>} />
+        {/* <Route path="/" element={<PrivateRouter />}>
+          <Route index element={<p>hello</p>} />
         </Route> */}
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/auth" element={<AuthLayout />}>

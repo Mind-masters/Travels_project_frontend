@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import MainHeader from './MainHeader';
-import NavLinks from './NavLinks';
-import SideDrawer from './SideDrawer';
-import Backdrop from '../../components/shared/UI/Backdrop';
+import MainHeader from './NavHeader/MainHeader';
+import NavLinks from './NavLinks/NavLinks';
+import SideDrawer from './SideDrawer/SideDrawer';
+import Backdrop from '../shared/UI/Backdrop';
 import navLogo from "../../assets/logo.PNG"
-import styles from './MainNavigation.module.css';
+import styles from './index.module.css';
 
 const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
