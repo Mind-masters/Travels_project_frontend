@@ -1,8 +1,18 @@
 .onFocus a:hover,
 .onFocus a:active,
 .onFocus a.active {
-  background-color: #F3DE1B;
-  border-color: #292929;
-  color: rgb(18, 16, 14);
-  border: none;
+  color: #F3DE1B;
+  /* color: rgb(18, 16, 14); */
+}
+
+.onFocus a{
+  color: #d3c1c1;
+}
+
+.onAuth{
+  margin-left: auto;
+}
+
+.onAuth a{
+  color: #292929;
 }

@@ -17,7 +17,7 @@ const NavLinks = props => {
     </li>
 
     <li className="onFocus">
-      <NavLink to="/places" exact>Places</NavLink>
+      <NavLink to="/places" exact>Your trip</NavLink>
     </li>
 
     <li className="onFocus">
@@ -28,10 +28,12 @@ const NavLinks = props => {
       <NavLink to="/contact" >Contact</NavLink>
     </li>
     
-    <li className={styles.navButton}>
+    <li className='onAuth'>
       {!User.isLoggedIn ? 
 
-      <Button CustomClassName="navButton">
+      // <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
+
+      <Button >
         <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
       </Button>
       :

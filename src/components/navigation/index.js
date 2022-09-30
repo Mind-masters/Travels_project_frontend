@@ -41,7 +41,7 @@ const MainNavigation = props => {
 
 
         <nav className={styles.headerNav}>
-          <NavLinks extra={false}/>
+          <NavLinks/>
         </nav>
         
       </MainHeader>
