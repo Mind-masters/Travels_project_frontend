@@ -3,6 +3,7 @@ import styles from "./index.module.css";
 import Destinations from "./subtopics/destinations/destinations"
 import Button from '../../components/shared/UI/button/Button';
 import { NavLink } from 'react-router-dom';
+import { Popdestinations } from './subtopics/destinations/popdestinations';
 
 const LandingMain = () => {
   return (
@@ -28,6 +29,7 @@ const LandingMain = () => {
 
         <div className="text-2xl p-4">
           <Destinations/>
+          <Popdestinations/>
         </div>
 
 
