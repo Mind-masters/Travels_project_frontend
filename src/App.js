@@ -3,7 +3,7 @@ import React from "react";
 import {AuthContext} from "./contextAPI/AuthContext";
 import { useState, useCallback } from 'react'
 import MainNavigation from "./components/navigation";
-
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -30,6 +30,7 @@ function App() {
     <AuthContext.Provider value={{ isLoggedIn, login, logout, authenticatedUser }}>
       <MainNavigation />
       <Routing />
+      <ToastContainer />
     </AuthContext.Provider>
   )
 }
