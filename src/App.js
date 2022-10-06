@@ -12,13 +12,14 @@ function App() {
 
   const login = useCallback((user) => {
 
-    if(!user.id){
+    if(!user.status === "success"){
       setIsLoggedIn(false);
       return;
     }
+    const {data, token} = user;
 
     setIsLoggedIn(true)
-    setAuthenticatedUser(user)
+    setAuthenticatedUser({data, token})
   }, [])
 
   const logout = useCallback(() => {

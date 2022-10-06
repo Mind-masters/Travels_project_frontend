@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 import "./index.css";
 import Card from "../../components/shared/UI/Card";
 import LoadingSpinner from "../../components/shared/UI/LoadingSpinner"
-
-
+import { useContext } from "react";
+import { AuthContext } from "../../contextAPI/AuthContext";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -21,6 +21,7 @@ const SignUp = () => {
   });
 
   const navigation = useNavigate();
+  const User = useContext(AuthContext);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -44,7 +45,6 @@ const SignUp = () => {
   const submitHandler = async(event) => {
     event.preventDefault();
     if (!Object.keys(errors).length) {
-      console.log("data: ", data)
 
 
       try {
@@ -67,13 +67,17 @@ const SignUp = () => {
         const responseData = await Req.json();
 
         if(!Req.ok && responseData.details){
-          throw new Error(responseData.details[0])
+          throw new Error(responseData.details[0].message)
         }
 
         notify("You signed Up successfully", "success");
+        User.login(responseData);
+
         navigation("/")
+
         
       } catch (error) {
+        setIsLoading(false);
         notify(error.message, "error");
       }
 
