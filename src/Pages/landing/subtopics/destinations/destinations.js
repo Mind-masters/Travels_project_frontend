@@ -1,28 +1,63 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import {FiChevronRight, FiChevronLeft} from 'react-icons/fi';
+import './destination.css';
+import data from './data';
 
 
 const Destinations = () => {
+  const [destination, setDestination] = useState(data);
+  const [index, setIndex] = useState(0);
+
+  useEffect(()=>{
+    const lastIndex = destination.length -1;
+    if(index < 0){
+      setIndex(lastIndex)
+    }/*when we ran out of items*/
+    if(index > lastIndex){
+      setIndex(0)
+    }
+  }, [index, destination])
+/*For SetInterval */
+  useEffect(()=>{
+ let slider = setInterval(() => {
+  setIndex(index + 1)
+}, 3000);
+return () => clearInterval(slider);
+},[index])
   return (
-    <div>
-      <h1 className=' text-transform: uppercase flex flex-col justify-center text-center items-center h-3/4
-      text-4xl font-medium text-dark-gray font-weight: 800 m-8 p-9'>types of destinations</h1>
-    {/*cards */}
-    <div className="flex p-4">
-    <div className="rounded-lg shadow-lg bg-white max-w-sm">
-    <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
-      <img className="rounded-t-lg" src="https://images.pexels.com/photos/775201/pexels-photo-775201.jpeg?auto=compress&cs=tinysrgb&w=600" alt=""/>
-    </a>
-    <div className="p-0 ">
+    <section className='section'>
+      <div className='title'>
+      <h2>
+        <span>...types of Destinations...</span>
+        </h2>
+      </div>
+      <div className='section-center'>
+      {destination.map((place, placeIndex)=>{
+      const {id, image, name} = place
+
+      let position = 'nextSlide';
+      if(placeIndex === index){
+        position = 'activeSlide';
+      }
+      if(placeIndex === index - 1 ||(index === 0 && placeIndex === destination.length -1)){
+        position = 'lastSlide';
+      }
+      return (
+      <article className={position} key={id}>
+        <img src={image} alt={name} className="place-img"/>
+        <h3>{name}</h3>
+      </article>
+      )
+      })}
       
-      <button type="button" className=" inline-block px-6 py-2.5 bg-blue-600 bg-black
-     text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg 
-     focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg
-      transition duration-150 ease-in-out">FOREST</button>
-    </div>
-  </div>
-  
-</div>
-</div>
+      <button className='prev' onClick={()=> setIndex(index -1)}>
+      <FiChevronLeft/>
+      </button>
+      <button className='next' onClick={()=> setIndex(index +1)}>
+      <FiChevronRight/>
+      </button>
+      </div>
+</section>
     
   )
 }
