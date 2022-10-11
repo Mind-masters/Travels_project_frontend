@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import styles from './NavLinks.module.css';
-import Button from '../../shared/UI/button/Button';
 import "./index.css"
+import UserDropDown from './dropDown';
 
 const NavLinks = props => {
 
@@ -31,15 +31,10 @@ const NavLinks = props => {
     <li className='onAuth'>
       {!User.isLoggedIn ? 
 
-      // <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
-
-      <Button >
-        <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
-      </Button>
+      <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
       :
-      <Button CustomClassName="navButton">
-        <NavLink className={"btn"} to={"/logout"}>Logout</NavLink>
-      </Button>
+      
+      <UserDropDown />
       }
     </li>
   </ul>
