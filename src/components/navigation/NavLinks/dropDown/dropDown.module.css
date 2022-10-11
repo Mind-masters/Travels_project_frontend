@@ -1,0 +1,11 @@
+.dropDownContainer{
+    border: 2px solid red;
+    position: relative;
+    width: 50%;
+    background-color: aqua;
+    text-align: center;
+}
+
+.user_logo{
+    width: 2rem;
+}
