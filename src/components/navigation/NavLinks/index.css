@@ -10,15 +10,17 @@
 }
 
 .onAuth{
-  border: 2px solid rgb(0, 255, 13);
   text-align: center;
   display: flex;
   justify-content: center;
+  width: 25%;
+  margin-left: auto;
 }
 
 .onAuth a{
-  color: #dadada;
+  color: rgb(23, 22, 20);
   text-align: center;
-  width: 50%;
-  border: 2px solid rgb(61, 8, 117);
+  background-color: #F3DE1B;
+  font-weight: 600;
+  padding: 0.8rem 2.8rem;
 }
