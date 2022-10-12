@@ -2,12 +2,12 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import MainLayout from "../components/shared/layouts/MainLayout";
 import { useContext } from "react";
-import {AuthContext} from "../components/contextAPI/AuthContext";
+import {AuthContext} from "../contextAPI/AuthContext";
 
 const PrivateRouter = () => {
-  console.log("private route is called");
+  const User = useContext(AuthContext);
 
-  const auth = true;
+  const auth = User.isLoggedIn;
   return auth ? <MainLayout /> : <Navigate to="/auth/login" />;
 };
 

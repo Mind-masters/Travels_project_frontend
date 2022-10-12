@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import styles from "./dropDown.module.css";
 import { AuthContext } from '../../../../contextAPI/AuthContext';
-
+import { useNavigate } from 'react-router-dom';
 // logos
 import user_logo from "../../../../assets/dropDown/user_logo.png"
 import coints_logo from "../../../../assets/dropDown/coints_logo.png"
@@ -12,10 +12,12 @@ import { NavLink } from 'react-router-dom';
 const UserDropDown = () => {
 
     const [dropDownMenu, showDropDownMenu] = useState(false);
-
+    const navigate = useNavigate();
     const User = useContext(AuthContext);
 
     const logoutHandler = () => {
+        User.logout();
+        navigate("/")
         console.log("logging you out, user: ", User)
     }
 
@@ -50,6 +52,8 @@ const UserDropDown = () => {
                 </div>
 
             </div>
+
+
 
             }
 
