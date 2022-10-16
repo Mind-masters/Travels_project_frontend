@@ -46,4 +46,168 @@
     color: orange;
   }
 
+  .first-gallery{
+    width: 100%;
+    margin-left: 50px;
+    display: flex;
+    margin-top: 20px;
+  }
+  .first-gallery img{
+    border-radius: 5%;
+    margin-left: 50px;
+    width: 50%;
+
+  }
+  .second-gallery img{
+    width: 50%;
+    padding: 10px;
+    border-radius: 10%;
+  }
+
+  @media screen and (max-width: 500px) {
+    .first-gallery{
+      margin-left:30;
+      display: flex;
+      margin-top:0;
+      align-items: center;
+    }
+
+    .first-gallery img{
+      border-radius: 5%;
+      margin-left: 10px;
+      
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .dest-name h2{
+   font-size: 20px;
+     margin: auto;
+     
+    }
+    }
+  /* .box{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    
+   
+  }
   
+  
+  
+  .dest-name{
+    display: flex;
+   justify-content: space-between;
+  }
+.dest-name span{
+  float: right;
+} */
+
+
+
+nav { 
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  color: #6A6A6A; 
+  padding: 0 25px 0 25px; 
+}
+  
+nav li:hover {
+  color: #6945FF; 
+  font-weight: bolder;
+}
+
+nav li { 
+  font-size: 15px;
+  display: inline-block; 
+  list-style-type: none;
+  font-weight: bold;
+}
+.dest-name{
+float:left;
+padding: 10px;
+}
+.dest-name h2{
+font-size: 32px;
+font-weight: 700;
+}
+/* .menu-div{
+float:right;
+margin-right: 20%;
+} */
+.parent-box{
+max-width:1140px;
+width:70%;
+margin:0 auto;
+}
+.clearfix{
+display:inline-block;
+ width:100%;
+
+}
+@media screen and (max-width: 700px) {
+  .parent-box{
+    max-width:1140px;
+    width:70%;
+    margin:0 auto;
+    }
+    
+    .dest-name h2{
+      font-size: 16px;
+      font-weight: 700;
+      }
+}
+.map-icon{
+  color: palevioletred;
+  font-size: 40px;
+}
+
+.description{
+  width: 80%;
+  margin: auto;
+  text-align: justify;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+#read-more{
+  font-weight: bold;
+  color: #6945FF;
+  cursor: pointer;
+  }
+
+  .likes-comment{
+    display: flex;
+    margin-left:90px ;
+    padding: 23px;
+  }
+
+  @media (max-width: 500px) {
+  
+    .likes-comment{
+      display: flex;
+      margin: auto;
+      
+    }
+  
+  }
+  .likes{
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .comment{
+    color: blueviolet;
+    font-size: 30px;
+    margin-left: 23px;
+    cursor: pointer;
+  }

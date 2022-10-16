@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --main-color: #F3DE1B;
+  --main-color: var(--main-color-hover);
   --secondary-color: #d7e3ef;
   --box-shadow: 0 0 7px 0 var(--secondary-color);
   --main-color-hover: #dcc91b;
