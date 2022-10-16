@@ -126,7 +126,8 @@ Variables
     margin: 5rem auto;
     max-width: var(--max-width);
   }
-  
+
+   
   @media screen and (min-width: 992px) {
     .section {
       width: 95vw;
@@ -147,6 +148,7 @@ Variables
     justify-content: center;
     font-weight: 500;
     text-transform: uppercase;
+    font-family: 'Inter, Montserrat, Playfair Display';
   }
   .title span {
     font-size: 0.85em;
@@ -189,9 +191,11 @@ Variables
     text-transform: uppercase;
     color: var(--clr-primary-5);
     margin-bottom: 0.25rem;
+    font-family: 'Inter, Montserrat, Playfair Display';
     width: 10rem;
     margin: auto;
     cursor: pointer;
+    font-weight: bold;
     background-color: var(--clr-grey-1) ;
   }
   .title {
