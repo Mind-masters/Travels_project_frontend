@@ -45,7 +45,7 @@ return () => clearInterval(slider);
       return (
       <article className={position} key={id}>
         <img src={image} alt={name} className="place-img"/>
-        <h3>{name}</h3>
+        <h3 className='name-text'>{name}</h3>
       </article>
       )
       })}

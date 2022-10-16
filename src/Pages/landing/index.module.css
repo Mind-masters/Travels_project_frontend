@@ -12,7 +12,7 @@
 }
 
 .customDetails{
-    width: 40%;
+    width: 50%;
     height: 25vh;
     display: flex;
     justify-content: space-around;
@@ -34,7 +34,11 @@
     font-size: 2rem;
     font-weight: bold;
     color: antiquewhite;
-}
+    font-family: 'Inter, Montserrat, Playfair Display';
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 50px;
+    }
 
 .welcomePage:before{
     content: '';
