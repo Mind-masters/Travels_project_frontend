@@ -1,6 +1,6 @@
 import React from 'react';
 import {useLocation} from "react-router-dom"
-import styles from "./MainHeader.module.css";
+import styles from "./Headers.module.css";
 
 const MainHeader = props => {
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import MainHeader from './NavHeader/MainHeader';
+import MainHeader from './NavHeader';
+import StatusHeader from './NavHeader/StatusHeader';
 import NavLinks from './NavLinks/NavLinks';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from '../shared/UI/Backdrop';
@@ -27,23 +28,25 @@ const MainNavigation = props => {
           <NavLinks extra={true} />
         </nav>
       </SideDrawer> */}
+      <StatusHeader />
 
       <MainHeader>
         {/* <button className={styles.navigationMenuBtn} onClick={openDrawerHandler}>
           <span />
           <span />
           <span />
-        </button>
-        <h1 className={styles.navigationTitle}>
+        </button> */}
+
+        {/* <h1 className={styles.navigationTitle}>
           <Link to="/">
             <img className={styles.linkImage} alt="" src={navLogo} />
           </Link>
         </h1> */}
 
 
-        {/* <nav className={styles.headerNav}>
+        <nav className={styles.headerNav}>
           <NavLinks/>
-        </nav> */}
+        </nav>
         
       </MainHeader>
 
