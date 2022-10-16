@@ -1,6 +1,9 @@
 import React from 'react'
 import './popdestinations.css'
 import {FaStar} from 'react-icons/fa';
+import {FaMapMarkerAlt} from 'react-icons/fa';
+import {FcLike} from 'react-icons/fc';
+import {BsPen} from 'react-icons/bs';
 
 export const Popdestinations = () => {
   return (
@@ -23,29 +26,44 @@ export const Popdestinations = () => {
           <span>...</span>
           </div>
         </div>
-      <div className="grid grid-rows-3 grid-flow-col gap-4 ml-9">
-     <div className="row-span-3 ... ml-40 mt-10"><img className='' src='https://images.pexels.com/photos/1662770/pexels-photo-1662770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''></img></div>
-   <div className="col-span-2 ..."><img src='https://images.pexels.com/photos/705075/pexels-photo-705075.jpeg?auto=compress&cs=tinysrgb&w=600' alt='' width="50%"></img></div>
-    <div className="row-span-2 col-span-2 ..."><img src='https://images.pexels.com/photos/225203/pexels-photo-225203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='' width="50%"></img></div>
-  </div>
-
-  {/* <div className="grid grid-rows-3 grid-flow-col gap-4 mt-10">
-  <div className="row-span-3 ... ml-40"><img src='https://images.pexels.com/photos/974320/pexels-photo-974320.jpeg?auto=compress&cs=tinysrgb&w=600' className='w-fit h-fit'></img></div>
-  <div className="col-span-2 ..."><img src='https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&w=600' className='w-80'></img></div>
-  <div className="row-span-2 col-span-2 ..."><img src='https://images.pexels.com/photos/236171/pexels-photo-236171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' className='w-80'></img></div>
-</div> */}
-<div>
-  <div>
-    <h2>Green Hills, Gujarat</h2>
-    <span>View on Map</span>
-  </div>
+        {/*landing Gallery */}
+        <div className='first-gallery'>
+          <img src='https://images.pexels.com/photos/1662770/pexels-photo-1662770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''></img>
+        <div className='second-gallery'>
+          <img src='https://images.pexels.com/photos/705075/pexels-photo-705075.jpeg?auto=compress&cs=tinysrgb&w=600' alt=''></img>
+          <img src='https://images.pexels.com/photos/225203/pexels-photo-225203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''></img>
+        </div>
+        </div>
+      
+    <div className="parent-box">
+        <div className="clearfix">
+            <div className="dest-name">
+            <h2>Green Hills, Gujarat</h2>
+            </div>
+            {/* <div class="menu-div">
+                <nav>
+                    <ul>
+                    <li><FaMapMarkerAlt className='map-icon'/></li>
+                        <li>View on Map</li>
+                        
+                    </ul>
+                </nav>
+            </div> */}
+        </div>
+    </div>
+    <div className='description'>
+      
   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
     been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of 
-    type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the 
+    . It has survived not only five centuries, but also the 
     leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-     release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
-     like Aldus PageMaker including versions of Lorem Ipsum.</p>
-</div>
+     release of Letraset sheets containing passages, and more recently with desktop publishing software 
+     like Aldu.  ...<span id='read-more'>See More</span></p>
+    </div>
+    <div className='likes-comment'>
+    <span><FcLike className='likes'/></span><h3>23 likes</h3>
+    <span><BsPen className='comment'/></span><h3>8 comments</h3>
+    </div>
 </section>
   )
 }
