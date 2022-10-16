@@ -21,6 +21,10 @@ const NavLinks = props => {
     </li>
 
     <li className="onFocus">
+      <NavLink to="/places" exact>Your trip</NavLink>
+    </li>
+
+    <li className="onFocus">
       <NavLink to="/about" exact>About us</NavLink>
     </li>
 
@@ -28,15 +32,9 @@ const NavLinks = props => {
       <NavLink to="/contact" >Contact</NavLink>
     </li>
     
-    <li className='onAuth'>
-      {!User.isLoggedIn ? 
+    {/* <li className='onAuth'>
 
-      <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
-      :
-      
-      <UserDropDown />
-      }
-    </li>
+    </li> */}
   </ul>
 };
 
