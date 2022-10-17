@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { validate } from "./validate";
-import styles from "./SignUp.module.css";
+import styles from "./Authenticate.module.css";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { notify } from "./toast";
 import { Link } from "react-router-dom";
-import "./index.css";
 import Card from "../../components/shared/UI/Card";
 import LoadingSpinner from "../../components/shared/UI/LoadingSpinner"
 import { useContext } from "react";
 import { AuthContext } from "../../contextAPI/AuthContext";
-
+import logo from "../../assets/authentication-signup-logo.png"
 const SignUp = () => {
   const [data, setData] = useState({
     name: "",
@@ -101,7 +100,7 @@ const SignUp = () => {
         
         :
 
-        <form className={styles.formLogin} onSubmit={submitHandler} autoComplete="off">
+        <form className={styles.formContainer} onSubmit={submitHandler} autoComplete="off">
           <h2>Sign Up</h2>
           <div>
             <div className={errors.name && touched.name ? styles.unCompleted : !errors.name && touched.name ? styles.completed : undefined}>
@@ -143,6 +142,7 @@ const SignUp = () => {
         </form>
 
       }
+      <img src={logo} alt="" className={styles.signupLogo} />
     </Card>
   );
 };
