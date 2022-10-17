@@ -1,8 +1,8 @@
 .card {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(222, 237, 243);
-  /* border: 2px solid red; */
+  background-color: rgb(250, 248, 246);
+  border: 2px solid red;
 }

@@ -5,3 +5,16 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --main-color: var(--main-color-hover);
+    --secondary-color: #d7e3ef;
+    --box-shadow: 0 0 7px 0 var(--secondary-color);
+    --main-color-hover: #FFDE59;
+}
