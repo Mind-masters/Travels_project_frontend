@@ -8,6 +8,9 @@
 .onFocus a{
   color: #d3c1c1;
 }
+.onFocus img{
+  width: 2rem;
+}
 
 .onAuth{
   text-align: center;

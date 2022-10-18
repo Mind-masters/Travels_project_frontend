@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contextAPI/AuthContext';
 import styles from './NavLinks.module.css';
 import "./index.css"
 import UserDropDown from './dropDown';
-
+import homeLinkLogo from "../../../assets/home-link-logo.png"
 const NavLinks = props => {
 
   const User = useContext(AuthContext);
@@ -21,7 +21,9 @@ const NavLinks = props => {
     </li>
 
     <li className="onFocus">
-      <NavLink to="/places" exact>Your trip</NavLink>
+      <NavLink to="/" exact>
+        <img alt='home-logo' src={homeLinkLogo} />
+      </NavLink>
     </li>
 
     <li className="onFocus">
@@ -31,10 +33,7 @@ const NavLinks = props => {
     <li className="onFocus">
       <NavLink to="/contact" >Contact</NavLink>
     </li>
-    
-    {/* <li className='onAuth'>
 
-    </li> */}
   </ul>
 };
 

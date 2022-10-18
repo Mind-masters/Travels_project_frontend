@@ -1,10 +1,4 @@
-.container{
-  border: 2px solid red;
-  background-color: blue;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 .navigationMenuBtn {
   height: 3rem;
@@ -18,7 +12,10 @@
   cursor: pointer;
 }
 
-
+.kazkas{
+  position: absolute;
+  width: 100%;
+}
 
 .linkImage{
   width: 4rem;
@@ -62,7 +59,8 @@
   .headerNav {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 60%;
+    margin: auto;
   }
 }
 
