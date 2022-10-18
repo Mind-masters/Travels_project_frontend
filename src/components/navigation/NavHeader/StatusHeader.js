@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import styles from "./Headers.module.css";
 import logo from "../../../assets/logo.PNG"
 import { useContext } from 'react';
@@ -12,7 +12,7 @@ const StatusHeader = props => {
 
     return <header className={`${styles.statusHeader}`}>
         <h1>Tripmaster</h1>
-        <img src={logo} alt="logo" className={styles.logo} />
+        <img src={logo} alt="logo" />
 
         {!User.isLoggedIn ? 
 

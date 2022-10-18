@@ -1,15 +1,18 @@
+
 .mainHeader {
-  width: 70%;
+  width: 100%;
   min-height: 10vh;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.889);
+  background-color: rgba(0, 0, 0, 0.797);
   box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507);
-  position: relative;
-  /* z-index: 100; */
   transition-duration: 0.2s;
-  background-color: aqua;
-  border: 2px solid red;
+}
+
+.mainHeaderFixed{
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
 
 .statusHeader{
@@ -17,7 +20,18 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
   background-color: #202120;
+  padding: 5px;
+}
+
+.statusHeader h1, .statusHeader a{
+  color: #FFBD59;
+  font-size: 2rem;
+}
+
+.statusHeader img{
+  width: 8rem;
 }
 
 .transparent{
