@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import MainHeader from './NavHeader/NavHeader';
 import StatusHeader from './NavHeader/StatusHeader';
 import NavLinks from './NavLinks/NavLinks';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from '../shared/UI/Backdrop';
-import navLogo from "../../assets/logo.PNG"
 import styles from './index.module.css';
+import {useLocation} from "react-router-dom"
 
 const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+
+  const location = useLocation();
+  const authPath = location.pathname === "/";
+
 
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
@@ -20,7 +23,7 @@ const MainNavigation = props => {
   };
 
   return (
-    <div className={styles.kazkas}>
+    <div className={styles.navContainer}>
       
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
       <SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
@@ -28,7 +31,7 @@ const MainNavigation = props => {
           <NavLinks extra={true} />
         </nav>
       </SideDrawer>
-      <StatusHeader />
+      {authPath && <StatusHeader />}
 
       <MainHeader>
         <button className={styles.navigationMenuBtn} onClick={openDrawerHandler}>
@@ -36,12 +39,6 @@ const MainNavigation = props => {
           <span />
           <span />
         </button>
-
-        {/* <h1 className={styles.navigationTitle}>
-          <Link to="/">
-            <img className={styles.linkImage} alt="" src={navLogo} />
-          </Link>
-        </h1> */}
 
 
         <nav className={styles.headerNav}>

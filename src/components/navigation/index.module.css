@@ -12,7 +12,7 @@
   cursor: pointer;
 }
 
-.kazkas{
+.navContainer{
   position: absolute;
   width: 100%;
 }
@@ -49,6 +49,11 @@
 
 .drawerNav {
   height: 100%;
+  border: 2px solid red;
+}
+
+.drawerNav a{
+  color: aqua;
 }
 
 @media (min-width: 1000px) {
@@ -59,8 +64,9 @@
   .headerNav {
     display: flex;
     justify-content: center;
-    width: 60%;
+    width: 70%;
     margin: auto;
+
   }
 }
 
