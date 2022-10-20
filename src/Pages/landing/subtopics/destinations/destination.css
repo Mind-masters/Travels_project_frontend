@@ -272,4 +272,108 @@ Variables
   article.nextSlide {
     transform: translateX(100%);
   } 
+
+  /*new destinations*/
+  .destinations{
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+  }
+  .dest-container{
+  padding: 0 10vw;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  }
+
+  .dest-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dest-card{
+    flex: 0 0 auto;
+    width: 250px;
+    height: 450px;
+    margin-right: 20px;
+  }
+
+  .dest-image{
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+   padding: 3px;
+  box-shadow: 3px 3px #888888;
+  border-radius: 10%;
+  }
+  .dest-thumb{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+.yellow{
+  background-color: yellow;
+}
+  .dest-btn{
+    position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  width: 90%;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  background: #002DB3;
+  color: #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  cursor: pointer;
   
+  }
+  .red{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 90%;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    background: red;
+    color: #fff;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .yellow{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 90%;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    background: yellow;
+    color: #000;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+
+  .dest-card:hover .dest-btn {
+    opacity: 1;
+  }
+  
+  .dest-btn:hover {
+    background: #ff7d7d;
+    color: #fff;
+  }

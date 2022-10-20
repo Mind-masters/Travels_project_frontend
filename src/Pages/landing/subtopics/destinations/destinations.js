@@ -57,6 +57,49 @@ return () => clearInterval(slider);
       <FiChevronRight/>
       </button>
       </div>
+      <div className='destinations'>
+      <button className='prev' onClick={()=> setIndex(index -1)}>
+      <FiChevronLeft/>
+      </button>
+      <button className='next' onClick={()=> setIndex(index +1)}>
+      <FiChevronRight/>
+      </button>
+        <h1>New Slid</h1>
+        <div className='dest-container'>
+          <div className='dest-card'>
+            <div className='dest-image'>
+            {/* <span className='rating'>yyyuy</span> */}
+            <img  className='dest-thumb' src='https://images.pexels.com/photos/70365/forest-sunbeams-trees-sunlight-70365.jpeg?auto=compress&cs=tinysrgb&w=600' alt=''></img>
+             <button className='red'>forest</button>
+            </div>
+          </div>
+          
+          <div className='dest-card'>
+            <div className='dest-image'>
+            {/* <span className='rating'>yyyuy</span> */}
+            <img  className='dest-thumb' src='https://images.pexels.com/photos/753339/pexels-photo-753339.jpeg?auto=compress&cs=tinysrgb&w=600' alt=''></img>
+             <button className='yellow'>culture</button>
+            </div>
+          </div>
+
+          <div className='dest-card'>
+            <div className='dest-image'>
+            {/* <span className='rating'>yyyuy</span> */}
+            <img  className='dest-thumb' src='https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg?auto=compress&cs=tinysrgb&w=600' alt=''></img>
+             <button className='red'>hills</button>
+            </div>
+          </div>
+
+          {/* <div className='dest-card'>
+            <div className='dest-image'>
+            <span className='rating'>yyyuy</span>
+            <img  className='dest-thumb' src='https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg?auto=compress&cs=tinysrgb&w=600' alt=''></img>
+             <button className='dest-btn'>town</button>
+            </div>
+          </div> */}
+          
+        </div>
+      </div>
 </section>
     
   )
