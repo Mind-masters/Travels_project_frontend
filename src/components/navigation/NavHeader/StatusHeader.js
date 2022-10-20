@@ -9,19 +9,46 @@ import UserDropDown from '../NavLinks/dropDown';
 const StatusHeader = props => {
 
     const User = useContext(AuthContext);
+    const ActiveUser = User.authenticatedUser || null;
+    const UserData = ActiveUser ? ActiveUser.data : null
 
-    return <header className={`${styles.statusHeader}`}>
-        <h1>Tripmaster</h1>
-        <img src={logo} alt="logo" />
+    console.log("user: ", User)
 
-        {!User.isLoggedIn ? 
+    return <header className={`${styles.statusHeaderContainer}`}>
 
-            <NavLink className={"btn"} to={"/auth/login"}>Login</NavLink>
+        <div className={`${styles.statusHeader}`}>
 
-            :
+            <div className={styles.none}>
+                <h1>Tripmaster</h1>
+            </div>
 
-            <UserDropDown />
-        }
+            <div className={styles.userData}>
+                {
+                    UserData?
+                    <>
+                        <p className={`${!UserData.is_new_login && styles.hidden}`} >+ 1</p>
+
+                        <p className={styles.points}>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</p>
+                    </>
+                    :
+                    <img src={logo} alt="logo" />
+
+                }
+            </div>
+
+
+            <div>
+                {!User.isLoggedIn ? 
+
+                    <NavLink className={styles.login_link} to={"/auth/login"}>Login</NavLink>
+
+                    :
+
+                    <UserDropDown />
+                }
+            </div>
+
+        </div>
     </header>;
 };
 

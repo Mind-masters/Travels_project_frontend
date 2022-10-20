@@ -22,16 +22,12 @@
 
 
 
-@media (min-width: 1000px) {
+@media (max-width: 1000px) {
   .navLinks {
-    flex-direction: row;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-
-  .side-menu{
-    display: none;
-  }
-
 
   .navLinks a {
     text-decoration: none;

@@ -14,6 +14,8 @@ const UserDropDown = () => {
     const [dropDownMenu, showDropDownMenu] = useState(false);
     const navigate = useNavigate();
     const User = useContext(AuthContext);
+    const ActiveUser = User.authenticatedUser || null;
+    const UserData = ActiveUser ? ActiveUser.data : null
 
     const logoutHandler = () => {
         User.logout();
@@ -23,13 +25,13 @@ const UserDropDown = () => {
 
     return (
 
-        <div className={styles.dropDownContainer}>
+        <div className={styles.container}>
             
             <img className={styles.user_logo} src={user_logo} alt="" onClick={()=>showDropDownMenu(!dropDownMenu)} />
 
-            {dropDownMenu && 
+            {dropDownMenu && ActiveUser &&
             
-            <div className={styles.container}>
+            <div className={styles.dropDownContainer}>
 
                 <div className={styles.profile_link}>
                     <NavLink to={"/profile"}>Visit your profile</NavLink>
@@ -38,7 +40,7 @@ const UserDropDown = () => {
                 <div className={styles.body}>
                     <div>
                         <img src={star_logo} alt="" />
-                        <h1>You have 22 points</h1>
+                        <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
                     </div>
 
                     <div>

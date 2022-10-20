@@ -7,6 +7,7 @@
   background-color: rgba(0, 0, 0, 0.797);
   box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507);
   transition-duration: 0.2s;
+
 }
 
 .mainHeaderFixed{
@@ -15,23 +16,68 @@
   z-index: 100;
 }
 
-.statusHeader{
+.statusHeaderContainer{
   width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   position: relative;
   background-color: #202120;
-  padding: 5px;
+  padding: 1rem;
 }
 
-.statusHeader h1, .statusHeader a{
+.statusHeader{
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+
+.none h1, .login_link{
   color: #FFBD59;
+  align-self: auto;
+  margin: auto;
+  padding: 0;
+  margin: 0;
   font-size: 2rem;
 }
 
-.statusHeader img{
+.statusHeader div{
+  flex: 1;
+  text-align: center;
+  margin: auto;
+}
+
+.userData img{
   width: 8rem;
+  margin: auto;
+}
+
+.userData{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userData p{
+  font-size: 1rem;
+  color: #FFBD59;
+  margin: 0 5px;
+  padding: 5px;
+}
+
+.userData .points{
+  background-color: rgba(128, 120, 120, 0.06);
+  padding: 10px 0;
+  width: 45%;
+  border-radius: 50px;
+  color: #939078;
+
+}
+
+.hidden{
+  /* visibility: hidden; */
+  display: none;
+
 }
 
 .transparent{
@@ -48,3 +94,33 @@
 }
 
 
+@media (max-width: 650px) {
+
+
+  .statusHeader div h1, .statusHeader div a{
+
+    font-size: 1.5rem;
+  }
+
+  .statusHeader{
+    width: 100%
+  }
+
+  .userData img{
+    width: 6rem;
+  }
+}
+
+@media (max-width: 470px) {
+
+  .none{
+    display: none;
+  }
+
+  .userData .points{
+    padding: 5px 0;
+    width: 50%;
+  
+  }
+
+}
