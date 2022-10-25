@@ -8,7 +8,7 @@ import Rating from './Rating';
 import { TfiPencil } from "react-icons/tfi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const index = () => {
+const PlaceItem = () => {
   const [showComments, setShowComments] = useState(false)
   const onClick = () => setShowComments(true)
   return (
@@ -65,4 +65,4 @@ const index = () => {
   )
 }
 
-export default index
+export default PlaceItem

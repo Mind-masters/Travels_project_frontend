@@ -3,7 +3,7 @@ import { useState } from 'react'
 import styles from "./index.module.css";
 import { FcLike } from "react-icons/fc";
 
-const like = () => {
+const Like = () => {
     const [like,setLike] = useState(0);
     const [likeactive,setLikeactive] = useState(false);
     function likeFun(){
@@ -23,4 +23,4 @@ const like = () => {
   )
 }
 
-export default like
+export default Like
