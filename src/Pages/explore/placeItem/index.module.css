@@ -1,0 +1,81 @@
+
+.postHead{
+    display: flex;
+    justify-content: space-between;
+}
+.follow{
+    cursor: pointer;
+    text-align: center;
+    height: 25px;
+    width: 90px;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    background-color: whitesmoke;
+    box-shadow: 0px 3px 3px rgb(164, 161, 161);
+}
+.map{
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    text-align: center;
+    height: 25px;
+    width: 120px;
+    border-radius: 20px;
+    background-color: whitesmoke;
+    box-shadow: 0px 3px 3px rgb(164, 161, 161);
+}
+.Starrating{
+    cursor: pointer;
+}
+.image{
+    border-radius: 50%;
+    /* height: 100px;
+    width: 100px; */
+}
+.tittle{
+    cursor: pointer;
+    font-weight: bold;
+}
+.image{
+    border-radius: 50%;
+}
+.placeName{
+    font-weight: bold;
+}
+.menu{
+    font-weight: bold;
+}
+.map{
+    font-weight: bold;
+}
+.bottomHead{
+    display: flex;
+    justify-content: space-between;
+}
+.likeComm{
+    display: flex; 
+    justify-content: space-between;
+}
+.like{
+    font-weight: bold;
+}
+.btnFollow{
+    font-weight: bold;
+
+}
+.discription{
+    max-width: 300px;
+    width: 100%;
+    color: gray;
+}
+.desbtn{
+    font-weight: bold;
+}
+.btncomm{
+    font-weight: bold;
+}
+.icon{
+    color: rgb(209, 35, 35);
+    
+    position: fixed;
+}

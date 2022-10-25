@@ -5,9 +5,10 @@ import PlaceItem from "../placeItem";
 const index = () => {
   return (
     <div>
+      <h3>Explore Destination</h3>
         <PlaceItem />
-        <PlaceItem />
-        <PlaceItem />
+        {/* <PlaceItem />
+        <PlaceItem /> */}
     </div>
   )
 }
