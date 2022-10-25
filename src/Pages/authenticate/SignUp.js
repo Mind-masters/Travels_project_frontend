@@ -72,7 +72,7 @@ const SignUp = () => {
         notify("You signed Up successfully", "success");
         User.login(responseData);
 
-        navigation("/")
+        navigation("/new-member")
 
         
       } catch (error) {

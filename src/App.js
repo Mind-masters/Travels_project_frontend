@@ -2,7 +2,7 @@ import Routing from './routers';
 import React from "react";
 import {AuthContext} from "./contextAPI/AuthContext";
 import { useState, useCallback } from 'react'
-import MainNavigation from "./components/navigation";
+import MainNavigation from "./components/navigation/Container";
 import { ToastContainer } from 'react-toastify';
 
 function App() {

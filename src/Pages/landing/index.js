@@ -4,11 +4,20 @@ import Destinations from "./subtopics/destinations/destinations"
 import Button from '../../components/shared/UI/button/Button';
 import { NavLink } from 'react-router-dom';
 import { Popdestinations } from './subtopics/destinations/popdestinations';
+import NewUser from './newUserModal';
 
-const LandingMain = () => {
+
+const LandingMain = (props) => {
+
+  console.log("parent url? ", props)
   return (
-    <div className={styles.container}>
 
+    <div>
+
+        {
+          props.extra &&
+          <NewUser />
+        }
         <div className={styles.welcomePage}>
           <div className={styles.customDetails}>
             <h1 className={styles.customHeader}>Life is Traveling so enjoy every moment</h1>
@@ -22,15 +31,16 @@ const LandingMain = () => {
           </div>
         </div>
 
+
         
         {/* <div className="text-2xl p-4">
           <Explore/>
         </div> */}
 
-        <div className="text-2xl p-4">
+        {/* <div className="text-2xl p-4">
           <Destinations/>
           <Popdestinations/>
-        </div>
+        </div> */}
 
 
         {/* all other sekctions like Destinations, Explore and so on... */}

@@ -3,7 +3,7 @@
     font-family: 'Inter, Montserrat, Playfair Display';
 }
 .welcomePage{
-    height: 100vh;
+    height: 2000vh;
     background-image: url("../../assets/lookin_background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
