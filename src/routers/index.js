@@ -16,6 +16,10 @@ const Routing = () => {
         <Route path="/profile" element={<PrivateRouter />}>
           <Route index element={<Profile />} />
         </Route>
+
+        <Route path="/new-member" element={<PrivateRouter />}>
+          <Route index element={<LandingPage extra={true} />} />
+        </Route>
         <Route path="/explore" element={<ExplorePage />} />
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<Login />} />

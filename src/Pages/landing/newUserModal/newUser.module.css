@@ -1,0 +1,61 @@
+
+.modal_content{
+    width: 24%;
+    height: 67vh;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.modal_content div{
+    /* border: 2px solid red; */
+    width: 100%;
+    text-align: center;
+}
+
+.logo_container img{
+    width: 6rem;
+    margin: auto;
+}
+
+/* .logo_container, .about_container{
+    border: 2px solid red;
+
+} */
+
+.about_container h1{
+    font-size: 2.2rem;
+}
+
+.about_container p{
+    font-size: 1.2rem;
+}
+
+.scroll_container{
+    height: 70vh;
+    overflow: scroll;
+}
+
+.scroll_container button{
+    padding: 10px;
+    background-color: rgba(188, 188, 188, 0.396);
+    border-radius: 60px;
+    margin: 3px
+}
+
+.button_container{
+    width: 50%;
+    background-color: #e1d57998;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    box-shadow: 0px 0px 20px 2rem rgb(255, 255, 255);
+
+    /* border: 2px solid red; */
+
+}

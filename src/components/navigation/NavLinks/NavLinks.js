@@ -1,16 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../../contextAPI/AuthContext';
-import styles from './NavLinks.module.css';
-import "./index.css"
-import UserDropDown from './dropDown';
 import homeLinkLogo from "../../../assets/home-link-logo.png"
+import styles from './NavLinks.module.css';
+import "./onFocusStyles.css"
+
+
 const NavLinks = props => {
 
-  const User = useContext(AuthContext);
-
-  return <ul className={styles.navLinks}>
+  return <ul className={styles.nav_links_container}>
 
     <li className="onFocus">
       <NavLink to="/explore" exact>Explore</NavLink>

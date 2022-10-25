@@ -1,27 +1,13 @@
-import "./Modal.css"
+import styles from "./Modal.module.css"
 import  ReactDOM from "react-dom";
 import Backdrop from "./Backdrop";
 import { CSSTransition } from "react-transition-group";
 import { Fragment } from "react";
 
 const ModalOverlay = props => {
-    const {isError} = props;
-
     const content = (
-        <div className={`modal_container ${props.className}`}>
-            <header className={`modal__header ${isError && 'error'}`}>
-                <h2>{props.header}</h2>
-            </header>
-
-            <form onSubmit={props.onSubmit ? props.onSubmit : event => event.preventDefault()}>
-                <div className={`modal__content ${props.contentClass}`}>
-                    {props.children}
-                </div>
-
-                <footer className={`modal__footer ${props.footerClass}`}>
-                    {props.footer}
-                </footer>
-            </form>
+        <div className={styles.modal_container}>
+            {props.children}
         </div>
     )
 

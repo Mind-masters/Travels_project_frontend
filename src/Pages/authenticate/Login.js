@@ -57,7 +57,7 @@ const Login = () => {
 
         setIsLoading(false);
 
-        navigate("/explore")
+        navigate("/")
         
       } catch (error) {
         setIsLoading(false)
@@ -117,7 +117,7 @@ const Login = () => {
           </div>
         </form>
       }
-      <img src={logo} alt="" className={styles.imageContainer} />
+      <img src={logo} alt="" className={styles.loginLogo} />
       <ToastContainer />
     </Card>
   );

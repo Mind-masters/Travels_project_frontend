@@ -1,45 +1,38 @@
-.navLinks {
-  list-style: none;
-  margin: 0;
-  padding: 3px;
-  width: 100%;
-  height: 100%;
+
+.nav_links_container{
   display: flex;
-  letter-spacing: 2px;
-  align-items: center;
-  justify-content: space-around;
-  font-style: italic;
-
+  width: 70%;
+  margin: auto;
 }
 
-
-.navLinks a {
-  text-decoration: none;
-  padding: 0.5rem 2rem;
-  border-radius: 30px;
-  
+.nav_links_container a{
+  font-size: 1.6rem;
 }
 
 
 
+/* navigation links styles for desktop screen */
+@media (min-width: 1000px) {
+  .nav_links_container{ 
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+
+/* navigation links styles for desktop screen */
 @media (max-width: 1000px) {
-  .navLinks {
-    display: flex;
+
+  .nav_links_container{
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
-
-  .navLinks a {
-    text-decoration: none;
-    font-size: 1vw;
+  
+  .nav_links_container li{
+    margin: 1rem 0;
     display: flex;
     align-items: center;
   }
-
-  .navButton a{
-    padding: 2px;
-    color: #292929;
-  }
-
-
 }
