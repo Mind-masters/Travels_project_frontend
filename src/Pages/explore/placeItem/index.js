@@ -3,10 +3,13 @@ import { useState } from 'react';
 import styles from "./index.module.css";
 import Like from './Like';
 import Comments from "./comments/Comments";
+import SeeMoreContent from "./SeeMoreContent"
 import Follow from './Follow';
 import Rating from './Rating';
 import { TfiPencil } from "react-icons/tfi";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import images1 from '../../../assets/travel.jpg'
+import images2 from '../../../assets/travel-background.jpg'
 
 const PlaceItem = () => {
   const [showComments, setShowComments] = useState(false)
@@ -15,7 +18,7 @@ const PlaceItem = () => {
     <div className={styles.main}>
       <div className={styles.postHead}>
 
-        <div className={styles.image}><img src='../../travel.jpg'/></div>
+        <div className={styles.image}><img src={images1} className={styles.child}/></div>
 
         <div className={styles.tittle}>Jeson Derulo</div>
 
@@ -33,8 +36,9 @@ const PlaceItem = () => {
       </div>
 
       <div className={styles.imageField}>
-        image
+        <img src={images2} className={styles.imageFieldChild}/>
       </div>
+      <br></br>
       <div className={styles.bottomHead}>
         <div className={styles.placeName}>Aravallis, island</div>
         <div className={styles.map}>
@@ -43,14 +47,7 @@ const PlaceItem = () => {
         </div>
       </div>
       <div className={styles.discription}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-        when an unknown printer took a galley of type and scrambled it to make a type 
-        specimen book. 
-        <button className={styles.desbtn}> ...See more</button>
-        <br></br>
-        It has survived not only five centuries, but also the leap 
-        into electronic typesetting, remaining essentially unchanged.
+        {/* <SeeMoreContent/> */}
       </div>
       <br></br>
       <div className={styles.likeComm}>
