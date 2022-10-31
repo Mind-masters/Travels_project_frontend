@@ -9,7 +9,6 @@ import NewUser from './newUserModal';
 
 const LandingMain = (props) => {
 
-  console.log("parent url? ", props)
   return (
 
     <div>
