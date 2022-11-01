@@ -13,8 +13,7 @@ const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   const location = useLocation();
-  const authPath = location.pathname === "/";
-
+  const authPath = props.home ? false : location.pathname === "/";
 
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
@@ -35,12 +34,15 @@ const MainNavigation = props => {
 
       {authPath && <StatusHeader />}
 
-      <MainHeader>
-        <MobileNavButton onClick={openDrawerHandler} />
-        <div className={styles.desktop_navigation}>
-          <NavLinks  />
-        </div>
-      </MainHeader>
+    
+      { !authPath &&
+        <MainHeader>
+          <MobileNavButton onClick={openDrawerHandler} />
+          <div className={styles.desktop_navigation}>
+            <NavLinks  />
+          </div>
+        </MainHeader>
+      }
 
     </div>
   );
