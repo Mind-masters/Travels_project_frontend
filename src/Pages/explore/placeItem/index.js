@@ -15,7 +15,7 @@ const PlaceItem = () => {
     <div className={styles.main}>
       <div className={styles.postHead}>
 
-        <div className={styles.image}><img src='../../travel.jpg'/></div>
+        <div className={styles.image}><img src='https://images.pexels.com/photos/326058/pexels-photo-326058.jpeg?auto=compress&cs=tinysrgb&w=600'/></div>
 
         <div className={styles.tittle}>Jeson Derulo</div>
 

@@ -261,6 +261,7 @@ Variables
     height: 100%;
     opacity: 0;
     transition: var(--transition);
+    color: yellow;
   }
    article.activeSlide {
     opacity: 1;
