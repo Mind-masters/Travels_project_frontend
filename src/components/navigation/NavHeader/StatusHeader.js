@@ -12,14 +12,12 @@ const StatusHeader = props => {
     const ActiveUser = User.authenticatedUser || null;
     const UserData = ActiveUser ? ActiveUser.data : null
 
-    console.log("user: ", User)
-
     return <header className={`${styles.statusHeaderContainer}`}>
 
         <div className={`${styles.statusHeader}`}>
 
             <div className={styles.none}>
-                <h1>Tripmaster</h1>
+                <h1><span>Trip</span>Master</h1>
             </div>
 
             <div className={styles.userData}>

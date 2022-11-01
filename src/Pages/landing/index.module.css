@@ -3,16 +3,101 @@
     font-family: 'Inter, Montserrat, Playfair Display';
 }
 .welcomePage{
-    height: 2000vh;
+    height: 100vh;
+    /* background:rgba(221, 202, 108, 0.35) url("../../assets/lookin_background.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right; */
+    display: flex;
+    align-items:flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.welcomePage_section1, .welcomePage_section2{
+    flex: 1;
+    height: 89vh;
+    background-color: rgba(221, 202, 108, 0.35) ;
+}
+
+.welcomePage_section2{
     background-image: url("../../assets/lookin_background.jpg");
     background-repeat: no-repeat;
-    background-position:  bottom;
-    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.welcomePage_menu{
+    position: absolute;
+    width: 100%;
     display: flex;
     align-items: center;
+    height: 89vh;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.welcomePage_menu_navigation{
+    position: relative;
+    align-self: start;
+    width: 50%;
+    top: 0%;
+    flex: 1;
+}
+
+
+.welcomePage_menu_header{
+    width: 50%;
+    flex: 3;
+    text-align: center;
+    align-self: flex-start;
+    color: rgb(204, 90, 73);
+
+}
+
+.welcomePage_menu_header h1{
+    font-size: 6.5rem;
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.welcomePage_menu_searchbar_container{
+    width: 100%;
+    flex: 1;
+    display: flex;
     justify-content: center;
 }
 
+.welcomePage_menu_searchbar{
+    width: 50%;
+    align-self: flex-start;
+    display: flex;
+    padding: 13px;
+    background-color: rgb(249, 255, 240);
+    justify-content: space-between;
+    border-radius: 50px;
+}
+
+.welcomePage_menu_searchbar input{
+    flex: 4;
+    outline: none;
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 1.2rem;
+    background-color: transparent;
+
+}
+
+.welcomePage_menu_searchbar button{
+    flex: 1;
+    padding: 8px 0;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    background-color: rgba(243, 222, 27, 1);
+}
+
+/* 
 .customDetails{
     width: 50%;
     height: 25vh;
@@ -50,4 +135,4 @@
     position: absolute;
     bottom: 0;
     border-radius: 100% 100% 0 0 ;
-}
+} */

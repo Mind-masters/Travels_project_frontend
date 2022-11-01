@@ -4,8 +4,8 @@
   min-height: 10vh;
   display: flex;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.797);
-  box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507);
+  /* background-color: rgba(0, 0, 0, 0.797); */
+  /* box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507); */
   transition-duration: 0.2s;
 
 }
@@ -14,17 +14,19 @@
   position: fixed;
   top: 0;
   z-index: 100;
+  background-color: rgba(31, 183, 92, 0.664);
+
 }
 
 .statusHeaderContainer{
   width: 100%;
   position: relative;
-  background-color: #202120;
+  background-color: rgba(31, 183, 92, 0.851);
   padding: 1rem;
 }
 
 .statusHeader{
-  width: 85%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -33,12 +35,24 @@
 
 
 .none h1, .login_link{
-  color: #FFBD59;
+  color: #010101bb;
   align-self: auto;
   margin: auto;
   padding: 0;
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.none h1 span{
+  color: #992323;
+}
+
+.login_link{
+  padding: 8px 35px;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .statusHeader div{
@@ -81,12 +95,10 @@
 }
 
 .transparent{
-  background-color: rgba(0, 0, 0, 0.289);
 }
 
 .transparent:hover{
-  background-color: rgba(0, 0, 0, 0.589);
-
+  /* background-color: rgba(18, 16, 18, 0.77); */
 }
 
 .mainHeader:hover{
