@@ -96,28 +96,31 @@ const Login = () => {
       {
         isLoading ? <LoadingSpinner asOverlay />
         :
-        <form className={styles.formContainer} onSubmit={submitHandler} autoComplete="off">
-          <h2>Sign In</h2>
-          <div>
-            <div>
-              <input type="text" name="email" value={data.email} placeholder="E-mail" onChange={changeHandler} onFocus={focusHandler} autoComplete="off" />
-            </div>
-          </div>
-          <div>
-            <div>
-              <input type="password" name="password" value={data.password} placeholder="Password" onChange={changeHandler} onFocus={focusHandler} autoComplete="off" />
-            </div>
-          </div>
 
-          <div>
-            <button type="submit">Login</button>
-            <span style={{ color: "#a29494", textAlign: "center", display: "inline-block", width: "100%" }}>
-              Don't have a account? <Link to="/auth/signup">Create account</Link>
-            </span>
-          </div>
-        </form>
+        <div className={styles.login_container}>
+          <form className={styles.formContainer} onSubmit={submitHandler} autoComplete="off">
+            <h2>Sign In</h2>
+            <div>
+              <div>
+                <input type="text" name="email" value={data.email} placeholder="E-mail" onChange={changeHandler} onFocus={focusHandler} autoComplete="off" />
+              </div>
+            </div>
+            <div>
+              <div>
+                <input type="password" name="password" value={data.password} placeholder="Password" onChange={changeHandler} onFocus={focusHandler} autoComplete="off" />
+              </div>
+            </div>
+
+            <div>
+              <button type="submit">Login</button>
+              <span style={{ color: "#a29494", textAlign: "center", display: "inline-block", width: "100%" }}>
+                Don't have a account? <Link to="/auth/signup">Create account</Link>
+              </span>
+            </div>
+          </form>
+          <img src={logo} alt="" className={styles.loginLogo} />
+        </div>
       }
-      <img src={logo} alt="" className={styles.loginLogo} />
       <ToastContainer />
     </Card>
   );
