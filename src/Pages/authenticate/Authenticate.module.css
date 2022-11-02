@@ -1,3 +1,17 @@
+.login_container{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.signup_container{
+  width: 80%;
+  height: 87vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 .formContainer {
   background: #fff;
   box-shadow: var(--box-shadow);
@@ -9,12 +23,15 @@
 
 .loginLogo{
   width: 15rem;
+  align-self: center;
+  /* border: 2px solid rgb(38, 0, 255); */
+  margin-top: 10vh;
 }
 
 .signupLogo{
   width: 15rem;
   position: absolute;
-  left: 70%;
+  right: 18%;
 }
 
 .formContainer > h2 {
