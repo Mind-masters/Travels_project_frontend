@@ -22,7 +22,7 @@ const NavHeader = props => {
   const location = useLocation();
   const homePath = location.pathname === "/";
 
-  return <header className={`${styles.mainHeader} ${homePath && styles.transparent} ${fixedNavBar && styles.mainHeaderFixed}`}>
+  return <header className={`${styles.mainHeader} ${!homePath && styles.colorful} ${fixedNavBar && styles.mainHeaderFixed}`}>
     {props.children}
   </header>;
 };

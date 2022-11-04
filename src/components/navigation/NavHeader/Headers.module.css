@@ -4,18 +4,20 @@
   min-height: 10vh;
   display: flex;
   align-items: center;
-  /* background-color: rgba(0, 0, 0, 0.797); */
   /* box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507); */
   transition-duration: 0.2s;
 
 }
+.colorful{
+  background-color: rgba(31, 183, 92, 0.664);
+}
+
 
 .mainHeaderFixed{
   position: fixed;
   top: 0;
   z-index: 100;
   background-color: rgba(31, 183, 92, 0.664);
-
 }
 
 .statusHeaderContainer{
@@ -92,13 +94,6 @@
   /* visibility: hidden; */
   display: none;
 
-}
-
-.transparent{
-}
-
-.transparent:hover{
-  /* background-color: rgba(18, 16, 18, 0.77); */
 }
 
 .mainHeader:hover{
