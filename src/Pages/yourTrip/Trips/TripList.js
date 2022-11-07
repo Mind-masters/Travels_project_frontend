@@ -54,7 +54,7 @@ const YourTripList = ({data, user_places}) => {
             showReviewModal && <ReviewTrip onClick={ReviewTripModal} />
           }
           {
-            showDeleteModal && <DeleteTrip onClick={DeleteTripModal} />
+            showDeleteModal && <DeleteTrip onClose={DeleteTripModal} />
           }
         </Modal>
       }

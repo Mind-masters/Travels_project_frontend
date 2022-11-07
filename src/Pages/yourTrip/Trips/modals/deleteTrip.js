@@ -1,34 +1,28 @@
 import React from 'react'
 import styles from './delete.module.css';
+import exclamation_mark_logo from "../../../../assets/your-trip/exclamation_mark.png";
+
 
 const DeleteTrip = (props) => {
 
 
   return (
     <div className={styles.delete_container}>
-      <div id="myModal" class="modal fade">
-        <div class="modal-dialog modal-confirm">
-          <div class="modal-content">
-            
-            <div class="modal-header flex-column">
-              <div class="icon-box">
-                <i class="material-icons">&#xE5CD;</i>
-              </div>
-              <h4 class="modal-title w-100">Are you sure?</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-              
-            <div class="modal-body">
-              <p>Do you really want to delete these records? This process cannot be undone.</p>
-            </div>
-              
-            <div class="modal-footer justify-content-center">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </div>
-          </div>
-        </div>
+      
+      <img src={exclamation_mark_logo} alt="!" />
+
+      <div className={styles.text_container}>
+        <h1>Delete trip</h1>
+        <p>
+          You're going to delete this trip. Are you sure?
+        </p>
       </div>
+
+      <div className={styles.btn_container}>
+        <button className={styles.keep_btn} onClick={()=>props.onClose()}> No, Keep it.</button>
+        <button className={styles.delete_btn}> Yes, Delete!</button>
+      </div>
+
     </div>
   )
 }
