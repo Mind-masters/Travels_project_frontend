@@ -1,6 +1,6 @@
 import React from 'react'
-import styles from "./styles/yourTripWrapper.module.css";
-import "./styles/yourTripWrapper_shadow.css";
+import styles from "./yourTripWrapper.module.css";
+import "./yourTripWrapper_shadow.css";
 
 const YourTripWrapper = (props) => {
 

@@ -1,0 +1,45 @@
+.carousel{
+    overflow: hidden;
+    cursor: grab;
+    /* border: 2px solid red; */
+    padding-top: 2rem;
+}
+
+.inner_carousel{
+    display: flex;
+}
+
+.item{
+    min-width: 20rem;
+    position: relative;
+    margin: 1rem;
+}
+
+
+.item_image_container{
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.item_image_container img{
+    width: 100%;
+    pointer-events: none;
+}
+
+
+
+.item_header{
+    position: relative;
+    top: -1.5rem;
+}
+
+.item_header h1{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    padding: 0;
+    background-color: rgba(243, 222, 27, 1);
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 30px;
+}
