@@ -7,9 +7,16 @@ import Backdrop from '../../shared/UI/Backdrop';
 import styles from './index.module.css';
 import {useLocation} from "react-router-dom"
 import MobileNavButton from './mobileNavButton';
+import { AuthContext } from '../../../contextAPI/AuthContext';
+import { useContext } from 'react';
 
 
 const MainNavigation = props => {
+  const Author = useContext(AuthContext);
+
+  console.log("autorius: ", Author)
+
+  
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   const location = useLocation();

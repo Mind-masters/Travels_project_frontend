@@ -9,6 +9,8 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [authenticatedUser, setAuthenticatedUser] = useState();
+  const [isUserModalActive, setIsUserModalActive] = useState(false);
+
 
   const login = useCallback((user) => {
 
@@ -22,13 +24,19 @@ function App() {
     setAuthenticatedUser({data, token})
   }, [])
 
+
   const logout = useCallback(() => {
     setAuthenticatedUser(null);
     setIsLoggedIn(false)
   }, [])
 
+  const changeUserModalStatus = useCallback((status) => {
+    console.log("auth update in app.js: ", status)
+    setIsUserModalActive(status);
+  }, [])
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout, authenticatedUser }}>
+    <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, isUserModalActive, login, logout, changeUserModalStatus }}>
       <MainNavigation />
       <Routing />
       <ToastContainer />
