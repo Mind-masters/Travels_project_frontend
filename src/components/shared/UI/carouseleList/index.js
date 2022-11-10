@@ -26,10 +26,9 @@ const CarouseleList = ({data, top_menu, children}) => {
                             {
 
                                 const redBackground = key / 2 === 0;
-                                console.log("kazkas: ", key)
 
                                 return (
-                                    <motion.div className={styles.item}>
+                                    <motion.div key={key} className={styles.item}>
 
                                         <div className={styles.item_image_container}>
                                             <div>

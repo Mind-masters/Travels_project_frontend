@@ -26,7 +26,7 @@ const YoutTrip = () => {
         </YourTripWrapper>
 
         <YourTripWrapper header={"Matches your interests"}>
-          <TripList data={DUMMY_DATA} user_places={false} />
+          {/* <TripList data={DUMMY_DATA} user_places={false} /> */}
         </YourTripWrapper>
 
 

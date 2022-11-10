@@ -1,10 +1,10 @@
 import React from 'react'
-import "./Button.css";
+import styles from "./Button.module.css";
 
 
 const Button = (props) => {
   return (
-  <div className={props.CustomClassName || "defaultButton"} onClick={props.onClick}>
+  <div className={`${props.CustomClassName} ${styles.defaultButton}`} onClick={props.onClick}>
     {props.children || props.text}
   </div>
 )}
