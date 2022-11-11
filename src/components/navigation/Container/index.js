@@ -12,10 +12,7 @@ import { useContext } from 'react';
 
 
 const MainNavigation = props => {
-  const Author = useContext(AuthContext);
-
-  console.log("autorius: ", Author)
-
+  const Auth = useContext(AuthContext);
   
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
@@ -23,10 +20,12 @@ const MainNavigation = props => {
   const authPath = props.home ? false : location.pathname === "/";
 
   const openDrawerHandler = () => {
+    Auth.changeUserModalStatus(true);
     setDrawerIsOpen(true);
   };
 
   const closeDrawerHandler = () => {
+    Auth.changeUserModalStatus(false)
     setDrawerIsOpen(false);
   };
 
