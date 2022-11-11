@@ -15,7 +15,7 @@ const Destinations = () => {
   
   return (
     <div className='cont'>
-      <div className='title'>
+      <div className={styles.title}>
       <h2>
         <span>...types of Destinations...</span>
         </h2>
@@ -33,30 +33,30 @@ const Destinations = () => {
         >
          <SwiperSlide>
           <div className={styles.slide_container}>
-              <span className={styles.destination_name}>forest</span>
-              <img className={styles.culture} src={cultureImage} alt=''></img>
+              <span className={styles.destination_name}>culture</span>
+              <img className={styles.culture} src={cultureImage} alt='culture'></img>
             </div>
           </SwiperSlide>   
 
         <SwiperSlide>
           <div className={styles.slide_container}>
             <span className={styles.destination_name}>forest</span>
-            <img className={styles.culture} src={forestImage} alt=''></img>
+            <img className={styles.culture} src={forestImage} alt='forest'></img>
           </div>
         
         </SwiperSlide> 
 
         <SwiperSlide>
           <div className={styles.slide_container}>
-            <span className={styles.destination_name}>forest</span>
-            <img className={styles.culture} src={hillImage} alt=''></img>
+            <span className={styles.destination_name}>hill</span>
+            <img className={styles.culture} src={hillImage} alt='hill'></img>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
           <div className={styles.slide_container}>
-            <span className={styles.destination_name}>forest</span>
-            <img className={styles.culture} src={townImage} alt=''></img>
+            <span className={styles.destination_name}>town</span>
+            <img className={styles.culture} src={townImage} alt='town'></img>
           </div>
         </SwiperSlide>
         </Swiper>
