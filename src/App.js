@@ -31,7 +31,6 @@ function App() {
   }, [])
 
   const changeUserModalStatus = useCallback((status) => {
-    console.log("auth update in app.js: ", status)
     setIsUserModalActive(status);
   }, [])
 

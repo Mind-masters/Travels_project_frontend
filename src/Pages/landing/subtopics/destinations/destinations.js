@@ -1,5 +1,5 @@
 import React from 'react';
-import './destinations.css';
+import styles from './destinations.module.css';
 import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -32,24 +32,32 @@ const Destinations = () => {
         className='swiper'
         >
          <SwiperSlide>
-        
-            <span className='destination-name'>culture</span>
-            <img className='culture' src={cultureImage} alt=''></img>
-        </SwiperSlide>   
+          <div className={styles.slide_container}>
+              <span className={styles.destination_name}>forest</span>
+              <img className={styles.culture} src={cultureImage} alt=''></img>
+            </div>
+          </SwiperSlide>   
 
         <SwiperSlide>
-        <span className='destination-name'>forest</span>
-            <img className='culture' src={forestImage} alt=''></img>
+          <div className={styles.slide_container}>
+            <span className={styles.destination_name}>forest</span>
+            <img className={styles.culture} src={forestImage} alt=''></img>
+          </div>
+        
         </SwiperSlide> 
 
         <SwiperSlide>
-             <span className='destination-name'>Hill</span>
-            <img className='culture' src={hillImage} alt=''></img>
+          <div className={styles.slide_container}>
+            <span className={styles.destination_name}>forest</span>
+            <img className={styles.culture} src={hillImage} alt=''></img>
+          </div>
         </SwiperSlide>
 
         <SwiperSlide>
-            <span className='destination-name'>town</span>
-            <img className='culture' src={townImage} alt=''></img>
+          <div className={styles.slide_container}>
+            <span className={styles.destination_name}>forest</span>
+            <img className={styles.culture} src={townImage} alt=''></img>
+          </div>
         </SwiperSlide>
         </Swiper>
 
