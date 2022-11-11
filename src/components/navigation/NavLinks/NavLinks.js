@@ -14,7 +14,7 @@ const NavLinks = props => {
     </li>
 
     <li className="onFocus">
-      <NavLink to="/places" exact>Your trip</NavLink>
+      <NavLink to="/your-trip" exact>Your trip</NavLink>
     </li>
 
     <li className="onFocus">

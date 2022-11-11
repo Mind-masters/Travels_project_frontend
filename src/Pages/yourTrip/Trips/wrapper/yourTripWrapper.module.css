@@ -1,0 +1,29 @@
+
+.wrapper{
+    width: 80%;
+    /* border: 2px solid rgb(19, 22, 129); */
+    margin: 0 auto;
+    min-height: 50vh;
+    margin-bottom: 10vh;
+    text-align: center;
+    background-image: linear-gradient(rgba(234, 244, 233), rgb(206, 206, 206));
+    border-radius: 5% 5% 10px 10px;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}   
+
+.header_container{
+    justify-self: start;
+}
+
+.header_container h1{
+    color: #707070;
+    display:inline-block; 
+    font-size: 2.5rem;
+    padding: 14px 3rem;
+    border-bottom: 2px dashed black;
+}
+

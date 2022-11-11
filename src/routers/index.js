@@ -7,6 +7,7 @@ import PrivateRouter from "./privateRouter";
 import Login from "../Pages/authenticate/Login";
 import SignUp from "../Pages/authenticate/SignUp";
 import Profile from "../Pages/profile";
+import YourTrip from "../Pages/yourTrip";
 
 const Routing = () => {
   return (
@@ -16,7 +17,6 @@ const Routing = () => {
         <Route path="/profile" element={<PrivateRouter />}>
           <Route index element={<Profile />} />
         </Route>
-
         <Route path="/new-member" element={<PrivateRouter />}>
           <Route index element={<LandingPage extra={true} />} />
         </Route>
@@ -25,10 +25,8 @@ const Routing = () => {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
         </Route>
-        <Route path="/place" element={<AuthLayout />}>
-          <Route path="new" element={<h1>Login</h1>} />
-          <Route path="update" element={<h1>Register</h1>} />
-        </Route>
+
+        <Route path="/your-trip" element={<YourTrip />} />
       </Routes>
     </Suspense>
   );

@@ -7,14 +7,20 @@ import Backdrop from '../../shared/UI/Backdrop';
 import styles from './index.module.css';
 import {useLocation} from "react-router-dom"
 import MobileNavButton from './mobileNavButton';
+import { AuthContext } from '../../../contextAPI/AuthContext';
+import { useContext } from 'react';
 
 
 const MainNavigation = props => {
+  const Author = useContext(AuthContext);
+
+  console.log("autorius: ", Author)
+
+  
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   const location = useLocation();
-  const authPath = location.pathname === "/";
-
+  const authPath = props.home ? false : location.pathname === "/";
 
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
@@ -35,12 +41,15 @@ const MainNavigation = props => {
 
       {authPath && <StatusHeader />}
 
-      <MainHeader>
-        <MobileNavButton onClick={openDrawerHandler} />
-        <div className={styles.desktop_navigation}>
-          <NavLinks  />
-        </div>
-      </MainHeader>
+    
+      { !authPath &&
+        <MainHeader>
+          <MobileNavButton onClick={openDrawerHandler} />
+          <div className={styles.desktop_navigation}>
+            <NavLinks  />
+          </div>
+        </MainHeader>
+      }
 
     </div>
   );

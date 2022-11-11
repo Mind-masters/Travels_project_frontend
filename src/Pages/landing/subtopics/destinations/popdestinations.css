@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
 .dest-title{
+  margin-top: 50px;
     align-self: center;
     text-align: center;
     text-transform: uppercase;
@@ -13,6 +14,10 @@
     margin: auto;
     width: 70%;
     display: flex;
+}
+
+.container{
+  border: 2px solid red;
 }
 
   

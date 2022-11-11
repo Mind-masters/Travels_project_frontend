@@ -8,7 +8,7 @@ const explore = (props) => {
   return (
     <Card>
       <PlaceList data={["place 1", "place 2", "place 3"]} />
-      <Form />
+      {/* <Form /> */}
     </Card>
   )
 }

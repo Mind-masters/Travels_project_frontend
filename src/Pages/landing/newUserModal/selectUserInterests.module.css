@@ -1,0 +1,42 @@
+
+.about_container h1{
+    font-size: 2rem;
+    margin: 0;
+}
+
+.about_container p{
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.scroll_container{
+    height: 70vh;
+    overflow: scroll;
+    margin-bottom: 2vh;
+    padding: 2vh 0 5vh 0;
+}
+
+.scroll_container button{
+    padding: 10px;
+    border-radius: 60px;
+    margin: 3px;
+}
+
+.scroll_container .selected_btn{
+    background-color: rgba(188, 188, 188, 0.889);
+}
+
+.button_container{
+    width: 50%;
+    background-color: #e1d5795d;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    transition-duration: 0.3s;
+    box-shadow: 0 -1.5rem 30px 12px rgb(255, 255, 255);
+}
+
+
+.activate_btn{
+    background-color: #f0e171;
+}
+

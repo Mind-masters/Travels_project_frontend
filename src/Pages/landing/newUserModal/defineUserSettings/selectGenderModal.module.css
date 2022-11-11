@@ -1,0 +1,56 @@
+.modal_container{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.673);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_content{
+    width: 30%;
+    height: 50vh;
+    background-color: rgb(255, 255, 255);
+    overflow: scroll;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 50px;
+    padding: 20px;
+    align-content: center;
+    box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507);
+
+}
+
+.modal_content ul{
+    width: 70%;
+    flex: 2;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal_content ul h1{
+    text-align: center;
+    border-radius: 30px;
+    padding: 16px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    font-size: 1.2rem;
+}
+
+.modal_content ul h1:hover{
+    background-color: rgba(229, 235, 148, 0.626);
+}
+
+
+@media (max-width: 650px) {
+    .modal_content{
+        width: 80%;
+        height: 55vh;
+    }
+}
+
+
+
