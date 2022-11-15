@@ -52,6 +52,9 @@ const Login = () => {
 
 
         notify("You loged In successfully", "success");
+      
+        // some session method to store token
+        // some session method to store refresh token
 
         User.login(responseData);
 

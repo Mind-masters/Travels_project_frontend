@@ -1,6 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
-.dest-title{
+.dest_title{
   margin-top: 50px;
     align-self: center;
     text-align: center;
@@ -10,10 +10,18 @@
     font-family: 'Inter, Montserrat, Playfair Display';
 }
 
-.box{
-    margin: auto;
-    width: 70%;
-    display: flex;
+.profile_container{
+  margin: auto;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile_container .profile_content, .profile_container .rate_content{
+  display: flex;
+  align-items: center;
+  width: 30%;
+  justify-content: space-around;
 }
 
 .container{
@@ -52,40 +60,40 @@
     color: orange;
   }
 
-  .first-gallery{
+  .first_gallery{
     width: 100%;
     margin-left: 50px;
     display: flex;
     margin-top: 20px;
   }
-  .first-gallery img{
+  .first_gallery img{
     border-radius: 5%;
     margin-left: 50px;
     width: 50%;
 
   }
-  .second-gallery img{
+  .second_gallery img{
     width: 50%;
     padding: 10px;
     border-radius: 10%;
   }
 
   @media screen and (max-width: 500px) {
-    .first-gallery{
+    .first_gallery{
       margin-left:30;
       display: flex;
       margin-top:0;
       align-items: center;
     }
 
-    .first-gallery img{
+    .first_gallery img{
       border-radius: 5%;
       margin-left: 10px;
       
     }
   }
   @media screen and (max-width: 600px) {
-    .dest-name h2{
+    .dest_name h2{
    font-size: 20px;
      margin: auto;
      
@@ -135,11 +143,11 @@ nav li {
   list-style-type: none;
   font-weight: bold;
 }
-.dest-name{
+.dest_name{
 float:left;
 padding: 10px;
 }
-.dest-name h2{
+.dest_name h2{
 font-size: 32px;
 font-weight: 700;
 }
@@ -147,7 +155,7 @@ font-weight: 700;
 float:right;
 margin-right: 20%;
 } */
-.parent-box{
+.parent_box{
 max-width:1140px;
 width:70%;
 margin:0 auto;
@@ -158,18 +166,18 @@ display:inline-block;
 
 }
 @media screen and (max-width: 700px) {
-  .parent-box{
+  .parent_box{
     max-width:1140px;
     width:70%;
     margin:0 auto;
     }
     
-    .dest-name h2{
+    .dest_name h2{
       font-size: 16px;
       font-weight: 700;
     }
 }
-.map-icon{
+.map_icon{
   color: palevioletred;
   font-size: 40px;
 }
@@ -185,13 +193,13 @@ display:inline-block;
   line-height: 29px;
 }
 
-#read-more{
+#read_more{
   font-weight: bold;
   color: #6945FF;
   cursor: pointer;
   }
 
-  .likes-comment{
+  .likes_comment{
     display: flex;
     margin-left:90px ;
     padding: 23px;
@@ -199,7 +207,7 @@ display:inline-block;
 
   @media (max-width: 500px) {
   
-    .likes-comment{
+    .likes_comment{
       display: flex;
       margin: auto;
       
