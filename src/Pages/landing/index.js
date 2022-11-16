@@ -3,12 +3,14 @@ import styles from "./index.module.css";
 import Destinations from "./subtopics/destinations/destinations"
 import Button from '../../components/shared/UI/button/Button';
 import { NavLink } from 'react-router-dom';
-import { Popdestinations } from './subtopics/destinations/popdestinations';
+import PopDestinations from './subtopics/destinations/popdestinations';
 import NewUser from './newUserModal';
 import MainNavigation from '../../components/navigation/Container';
-
-
+import { useContext } from 'react';
+import { AuthContext } from '../../contextAPI/AuthContext';
 const LandingMain = (props) => {
+  const Auth = useContext(AuthContext);
+  console.log("auth ", Auth)
 
   return (
 
@@ -54,7 +56,7 @@ const LandingMain = (props) => {
 
         <div>
           <Destinations/>
-          <Popdestinations/>
+          {/* <PopDestinations/> */}
         </div>
 
 

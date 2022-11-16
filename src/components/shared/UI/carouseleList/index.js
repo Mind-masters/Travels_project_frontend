@@ -1,59 +1,68 @@
-import React from 'react'
-import { motion } from "framer-motion"
-import { useState, useRef, useEffect } from 'react';
-import styles from "./carousele.module.css";
+import React, { useState, useRef, useLayoutEffect } from 'react';
+import styles from './carousele.module.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Navigation, EffectFade, Autoplay } from 'swiper';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
+import cultureImage from '../../../../assets/culture.jpg';
+import forestImage from '../../../../assets/forest.jpg';
+import hillImage from '../../../../assets/hill.jpg';
+import townImage from '../../../../assets/town.jpg';
 
+const SwiperList = () => {
+  
+    const [slidesCount, setSlidesCount] = useState(1);
+    const ref = useRef(null);
 
-
-const CarouseleList = ({data, top_menu, children}) => {
-
-    const [width, setWidth] = useState(0);
-    const carousel = useRef();
-
-    useEffect(() => {
-        if(data  && data.length > 0) setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
-    }, [])
-
-
+    useLayoutEffect(() => {
+        setSlidesCount(Math.round(ref.current.offsetWidth / 350))
+    }, []);
 
     return (
-        <>
-            
-            { data ? 
-                <motion.div className={styles.carousel} ref={carousel}>
-                    <motion.div drag="x" dragConstraints={{ right: 0, left: -width }} className={styles.inner_carousel}>
-                        {data && data.map((trip, key) => 
-                            {
+        <div className={styles.container} ref={ref}>
 
-                                const redBackground = key / 2 === 0;
+            <Swiper
+            modules={[Navigation, Autoplay, EffectFade]}
+            navigation
+            autoplay={true}
+            delay={300}
+            effect
+            speed={700}
+            slidesPerView={slidesCount}
+            loop
+            >
+                <SwiperSlide>
+                    <div className={styles.slide_container}>
+                        <span className={styles.destination_name}>culture</span>
+                        <img className={styles.culture} src={cultureImage} alt='culture' />
+                    </div>
+                </SwiperSlide>   
 
-                                return (
-                                    <motion.div key={key} className={styles.item}>
+                <SwiperSlide>
+                    <div className={styles.slide_container}>
+                        <span className={styles.destination_name}>forest</span>
+                        <img className={styles.culture} src={forestImage} alt='forest' />
+                    </div>
+                </SwiperSlide> 
 
-                                        <div className={styles.item_image_container}>
-                                            <div>
-                                                {top_menu && children}
-                                            </div>
-                                            <img src={trip.image} alt="trip img" />
-                                        </div>
+                <SwiperSlide>
+                    <div className={styles.slide_container}>
+                        <span className={styles.destination_name}>hill</span>
+                        <img className={styles.culture} src={hillImage} alt='hill' />
+                    </div>
+                </SwiperSlide>
 
-                                        <div className={styles.item_header}>
-                                            <h1 style={{ backgroundColor:`${redBackground ? "red" : "blue"}` }}>{trip.title}</h1>
-                                        </div>
+                <SwiperSlide>
+                    <div className={styles.slide_container}>
+                        <span className={styles.destination_name}>town</span>
+                        <img className={styles.culture} src={townImage} alt='town' />
+                    </div>
+                </SwiperSlide>
+            </Swiper>
 
-                                    </motion.div>
-                                )
-                            })
-                        }
-                    </motion.div>
-                </motion.div>
-                :
-
-                <h2>No images to display</h2>
-            }
-
-        </>
+        </div>
     )
 }
 
-export default CarouseleList
+export default SwiperList

@@ -86,13 +86,13 @@ const YourTripList = ({data, user_places}) => {
           />
         }
 
-        <CarouseleList data={data} top_menu={true}>
+        {/* <CarouseleList data={data} top_menu={true}>
           <ul className={styles.top_menu_container}>
             {user_places && <li className={styles.top_menu_update} onClick={onOpenModalHandler.bind(null,"update")} >Update</li>}
             <li className={styles.top_menu_review} onClick={onOpenModalHandler.bind(null,"review")} >Review</li>
             {user_places && <li className={styles.top_menu_delete} onClick={onOpenModalHandler.bind(null,"delete")} >Delete</li>}
           </ul>
-        </CarouseleList>
+        </CarouseleList> */}
   
       </div>
       
