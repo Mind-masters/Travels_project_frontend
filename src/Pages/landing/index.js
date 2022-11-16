@@ -55,8 +55,8 @@ const LandingMain = (props) => {
         </div> */}
 
         <div>
-          {/* <Destinations/> */}
-          <PopDestinations/>
+          <Destinations/>
+          {/* <PopDestinations/> */}
         </div>
 
 
