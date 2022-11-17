@@ -6,9 +6,6 @@ import styles from "./profile.module.css"
 
 const Profile = () => {
 
-    const User = useContext(AuthContext);
-
-    console.log("Active user: ", User)
 
     return (
         <Card>
