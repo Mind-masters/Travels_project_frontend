@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import {useLocation} from "react-router-dom"
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import styles from "./Headers.module.css";
@@ -21,7 +21,7 @@ const NavHeader = props => {
 
 
   const location = useLocation();
-  const homePath = location.pathname === "/";
+  const homePath = location.pathname === "/" || location.pathname === "/new-member";
 
   return <header className={`${styles.mainHeader} ${!homePath && styles.colorful} ${fixedNavBar && !isModalOpen && styles.mainHeaderFixed}`}>
     {props.children}

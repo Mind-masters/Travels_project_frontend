@@ -17,7 +17,9 @@ const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
   const location = useLocation();
-  const authPath = props.home ? false : location.pathname === "/";
+  
+  const home_path = location.pathname === "/" || location.pathname === "/new-member";
+  const authPath = props.home ? false : home_path;
 
   const openDrawerHandler = () => {
     Auth.changeUserModalStatus(true);

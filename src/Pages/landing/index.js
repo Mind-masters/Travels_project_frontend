@@ -8,9 +8,11 @@ import NewUser from './newUserModal';
 import MainNavigation from '../../components/navigation/Container';
 import { useContext } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
+
+
 const LandingMain = (props) => {
   const Auth = useContext(AuthContext);
-  console.log("auth ", Auth)
+  // console.log("auth in landing page: ", Auth)
 
   return (
 

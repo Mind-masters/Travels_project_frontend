@@ -16,7 +16,7 @@
 
 .welcomePage_section1, .welcomePage_section2{
     flex: 1;
-    height: 89vh;
+    height: 100vh;
     background-color: rgba(221, 202, 108, 0.35) ;
 }
 
