@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from "../../../components/shared/UI/Modal";
 import DefineUserSettings from './defineUserSettings/defineUserSettisngs';
 import PickUserAvatar from './pickUserAvatar';
@@ -19,10 +19,15 @@ const NewUser = () => {
     const [selectedAvatarData, setSelectedAvatarData] = useState(null);
     const [selectedSettingsData, setSelectedSettingsData] = useState(null);
 
-    const [SOMETHING, set_SOMETHING] = useState(null);
+
+    useEffect(() => {
+        Auth.changeUserModalStatus(true)
+    })
 
 
     const onClose = () => {
+        setShow(false);
+        Auth.changeUserModalStatus(false);
     }
 
     const onInterestsModalSubmit = (data) => {
@@ -38,19 +43,16 @@ const NewUser = () => {
     }
 
     const onSettingsModalSubmit = (data) => {
-        console.log("data RESULTS!: ", data)
         setShowSettingsModal(false);
-        // setSelectedSettingsData(data)
-        set_SOMETHING("data");
-        onRegistrationSubmit()
+        onRegistrationSubmit(data)
     }
 
-    const onRegistrationSubmit = async () => {
-        console.log("Modals results: ",
+    const onRegistrationSubmit = async (lastmodal) => {
+        console.log("Submited results: ",
             {
                 interests: selectedInterestsData,
                 avatar: selectedAvatarData,
-                settings: selectedSettingsData
+                settings: lastmodal
             }
         );
         
@@ -67,24 +69,26 @@ const NewUser = () => {
                 body: JSON.stringify({
                     name:"",
                     phone:"",
-                    country:"Sweden",
+                    country:lastmodal.country.name.common,
                     avatar: selectedAvatarData,
-                    hobbies:{ looking_followed_travelers: true, home_stay_programs: false, booking_opportunities: false, },
-                    gender:"MAN",
+                    gender:lastmodal.gender,
                     interest: selectedInterestsData
                 })
               })
 
               console.log("req: ", req);
+              if(!req.ok)throw new Error("something went wrong");
 
+              const requsestData = await req.json();
 
-              setShow(false)
+              console.log("data back from server: ", requsestData)
+
+              onclose()
             
         } catch (error) {
             console.log("erros: ", error)
         }
 
-        // push to DB
     }
   
     return <Modal

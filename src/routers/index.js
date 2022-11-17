@@ -14,9 +14,11 @@ const Routing = () => {
     <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/profile" element={<PrivateRouter />}>
+
+        {/* <Route path="/profile" element={<PrivateRouter />}>
           <Route index element={<Profile />} />
-        </Route>
+        </Route> */}
+        <Route path="/profile" element={<Profile />} />
         <Route path="/new-member" element={<PrivateRouter />}>
           <Route index element={<LandingPage extra={true} />} />
         </Route>

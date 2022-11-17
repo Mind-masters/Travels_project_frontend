@@ -14,6 +14,8 @@ function App() {
 
   const login = useCallback((user) => {
 
+    console.log("[app.js] login user: ", user)
+
     if(!user.status === "success"){
       setIsLoggedIn(false);
       return;
@@ -23,6 +25,7 @@ function App() {
     setIsLoggedIn(true)
     setAuthenticatedUser({data, token})
   }, [])
+
 
 
   const logout = useCallback(() => {
