@@ -5,7 +5,7 @@ import styles from './NavLinks.module.css';
 import "./onFocusStyles.css"
 
 
-const NavLinks = props => {
+const NavLinks = () => {
 
   return <ul className={styles.nav_links_container}>
 

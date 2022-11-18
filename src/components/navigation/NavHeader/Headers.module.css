@@ -82,10 +82,11 @@
 }
 
 .userData .points{
-  background-color: rgba(128, 120, 120, 0.06);
+  background-color: rgba(250, 250, 250, 0.759);
   padding: 10px 0;
   width: 45%;
   border-radius: 50px;
+  
   color: #939078;
 
 }
