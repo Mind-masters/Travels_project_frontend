@@ -9,7 +9,7 @@ const Destinations = () => {
 
       <div className={styles.title_container}>
         <h2>
-          <span>...types of Destinations...</span>
+          <span>...Choose your Destinations...</span>
         </h2>
       </div>
 
