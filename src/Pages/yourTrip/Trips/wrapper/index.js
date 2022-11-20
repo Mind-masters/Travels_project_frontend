@@ -15,7 +15,11 @@ const YourTripWrapper = (props) => {
         </div>
       }
 
-      {props.children}
+      <div className={styles.wrapper_content}>
+        
+        {props.children}
+      </div>
+
     </div>
   )
 }

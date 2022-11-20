@@ -1,10 +1,7 @@
-import React from 'react'
-import styles from "./tripList.module.css";
-import add_new_trip_logo from "../../../assets/your-trip/ad_new_trip_logo.png";
+import React, { useState, useContext } from 'react'
 
 import Modal from "../../../components/shared/UI/Modal";
 import CarouseleList from '../../../components/shared/UI/carouseleList';
-import { useState, useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 
 
@@ -13,7 +10,8 @@ import DeleteTrip from "./modals/deleteTrip";
 import UpdateTrip from "./modals/updateTrip";
 import ReviewTrip from "./modals/reviewTrip";
 
-const YourTripList = ({data, user_places}) => {
+
+const  YourTripList = ({data, user_places}) => {
 
   const Auth = useContext(AuthContext);
 
@@ -23,7 +21,7 @@ const YourTripList = ({data, user_places}) => {
   const [showDeleteModal,setShowDeleteModal] = useState(false);
   const [showReviewModal,setShowReviewModal] = useState(false);
 
-
+  
   const onHideModalHandler = () => {
     setShowModal(false);
     setShowUpdateModal(false);
@@ -50,6 +48,14 @@ const YourTripList = ({data, user_places}) => {
   const onDeleteTripSubmit = () => {
     console.log("submiting delete modal");
   }
+
+  const params = user_places && {
+    create_: true,
+    read_: true,
+    update_: true,
+    delete_: true,
+
+  }
   
 
   return (
@@ -75,28 +81,8 @@ const YourTripList = ({data, user_places}) => {
         </Modal>
       }
       
-      <div className={styles.trip_list_container}>
-
-        { user_places &&
-          <img 
-            className={styles.add_logo} 
-            src={add_new_trip_logo} 
-            onClick={() => {}} 
-            alt="plus logo" 
-          />
-        }
-
-        {/* <CarouseleList data={data} top_menu={true}>
-          <ul className={styles.top_menu_container}>
-            {user_places && <li className={styles.top_menu_update} onClick={onOpenModalHandler.bind(null,"update")} >Update</li>}
-            <li className={styles.top_menu_review} onClick={onOpenModalHandler.bind(null,"review")} >Review</li>
-            {user_places && <li className={styles.top_menu_delete} onClick={onOpenModalHandler.bind(null,"delete")} >Delete</li>}
-          </ul>
-        </CarouseleList> */}
-  
-      </div>
-      
-
+      <CarouseleList params={params} data={data} top_menu={true} />
+    
     </>
 
 
