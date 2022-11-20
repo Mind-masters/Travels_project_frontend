@@ -12,6 +12,10 @@
   background-color: rgba(31, 183, 92, 0.664);
 }
 
+.custom_width ul{
+  width: 95%;
+}
+
 
 .mainHeaderFixed{
   position: fixed;

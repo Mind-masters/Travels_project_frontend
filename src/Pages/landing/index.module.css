@@ -51,15 +51,21 @@
     flex: 3;
     text-align: center;
     align-self: flex-start;
-    color: rgb(204, 90, 73);
+    color: rgb(209, 39, 39);
 
 }
 
 .welcomePage_menu_header h1{
-    font-size: 6.5rem;
+    font-size: 5vw;
     width: 60%;
     margin: 0 auto;
     margin-bottom: 50px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.welcomePage_menu_header h3{
+    font-size: 2vw;
 }
 
 .welcomePage_menu_searchbar_container{
@@ -97,42 +103,8 @@
     background-color: rgba(243, 222, 27, 1);
 }
 
-/* 
-.customDetails{
-    width: 50%;
-    height: 25vh;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
-
-.customDetails .customButton{
-    width: 25%;
-    margin: 0 auto;
-}
-
-.customButton a{
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-
-}
-
-.customHeader{
-    font-size: 2rem;
-    font-weight: bold;
-    color: antiquewhite;
-    font-family: 'Inter, Montserrat, Playfair Display';
-    text-align: center;
-    text-transform: uppercase;
-    line-height: 50px;
+@media screen and (max-width: 570px) {
+    .welcomePage_menu_header h1{
+        /* border: 2px solid red; */
     }
-
-.welcomePage:before{
-    content: '';
-    width: 100%;
-    height: 2rem;
-    background: rgba(193, 225, 201, 0.313);
-    position: absolute;
-    bottom: 0;
-    border-radius: 100% 100% 0 0 ;
-} */
+}

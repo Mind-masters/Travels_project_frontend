@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React from 'react';
 import styles from "./Headers.module.css";
 import logo from "../../../assets/logo.PNG"
 import { useContext } from 'react';

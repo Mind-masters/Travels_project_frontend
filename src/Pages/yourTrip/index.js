@@ -21,13 +21,13 @@ const YoutTrip = () => {
           <img src={life_is_good_logo} alt="life is good" />
         </div>
 
-        <YourTripWrapper header={"Your trips"}>
+        <YourTripWrapper header={"Your places"}>
           <TripList data={DUMMY_DATA} user_places={true} />
         </YourTripWrapper>
 
-        <YourTripWrapper header={"Matches your interests"}>
-          {/* <TripList data={DUMMY_DATA} user_places={false} /> */}
-        </YourTripWrapper>
+        {/* <YourTripWrapper header={"Matches your interests"}>
+          <TripList data={DUMMY_DATA} user_places={false} />
+        </YourTripWrapper> */}
 
 
         <div className={styles.fellow_friends_image}>
