@@ -1,3 +1,100 @@
 .container{
-    background-color: aqua;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+.wrapper{
+  display: flex;   
+  margin: auto;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 35%;
+}
+.profile_place{
+    display: flex;
+    position: relative;
+    margin: 5rem;
+}
+
+.profile_image{
+ width: 130px;  
+    
+}
+.place_image{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.profile_name{
+    position: absolute;
+    margin-top: 15%;
+    display: block;
+    text-align: center;
+
+}
+
+.number_place{
+    color: #FFBD59;
+}
+
+.profile_setting{
+    display: inline-block;
+    font-size: 30px;
+    color: #FFBD59;
+    font-weight: 700;
+    cursor: pointer;
+}
+.profile_interest{
+    text-align: center;
+    margin: 40px;
+    
+}
+/* .hobby{
+    text-align: center;
+    align-items: center;
+} */
+.profile_hobby{
+    display: flex;
+    margin: 23px;
+    object-fit: contain;
+}
+.interest{
+    margin: 10px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    width: 10%;
+    height: 60px;
+    font-size: 30px;
+    font-weight: 300;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+.interest:hover{
+    background-color: #FFBD59;
+    color: white;
+}
+
+.box{
+    display: flex;
+}
+
+.details{
+    display: block;
+}
+
+.details_name{
+    float: left;
+    padding: 7px;
+    margin: 12px;
+    display: flex;
+    flex-direction: row;
+}
+.arrow{
+    float: right;
+    width: 20%;
+    display: flex;
+    margin-left: 50px;
 }
