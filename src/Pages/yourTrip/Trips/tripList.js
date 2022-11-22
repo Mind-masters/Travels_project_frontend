@@ -20,22 +20,27 @@ const  YourTripList = ({data, user_places}) => {
   const [showUpdateModal,setShowUpdateModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState(false);
   const [showReviewModal,setShowReviewModal] = useState(false);
-
+  const [showCreateModal, setShowCreateModal] = useState(false);
   
   const onHideModalHandler = () => {
     setShowModal(false);
     setShowUpdateModal(false);
     setShowReviewModal(false);
     setShowDeleteModal(false);
+    setShowCreateModal(false);
     Auth.changeUserModalStatus(false);
   }
 
   const onOpenModalHandler = (state) => {
 
+    console.log("state: ", state)
+
     onHideModalHandler();
+    if(state === "create")setShowCreateModal(true);
     if(state === "update")setShowUpdateModal(true);
     if(state === "delete")setShowDeleteModal(true);
     if(state === "review")setShowReviewModal(true);
+
 
     setShowModal(true);
     Auth.changeUserModalStatus(true);
@@ -49,13 +54,24 @@ const  YourTripList = ({data, user_places}) => {
     console.log("submiting delete modal");
   }
 
-  const params = user_places && {
-    create_: true,
-    read_: true,
-    update_: true,
-    delete_: true,
 
+  /// temprorary
+  const onEditClickHanlder = () => {
+    console.log("edit handler")
   }
+
+  const onReviewClickHanlder = () => {
+    console.log("review handler")
+  }
+
+  const onCreateClickHanlder = () => {
+    console.log("create handler")
+  }
+
+  const onDeleteClickHanlder = () => {
+    console.log("delete handler")
+  }
+
   
 
   return (
@@ -70,7 +86,10 @@ const  YourTripList = ({data, user_places}) => {
           show={showModal} 
         >
           {
-            showUpdateModal && <UpdateTrip new={false} onClose={onHideModalHandler} onSubmit={onTripSubmit.bind(null,data)}/>
+            showUpdateModal && <UpdateTrip update={true} onClose={onHideModalHandler} onSubmit={onTripSubmit.bind(null,data)}/>
+          }
+          {
+            showCreateModal && <UpdateTrip update={false} onClose={onHideModalHandler} onSubmit={onTripSubmit.bind(null,data)}/>
           }
           {
             showReviewModal && <ReviewTrip onClose={onHideModalHandler} />
@@ -81,7 +100,7 @@ const  YourTripList = ({data, user_places}) => {
         </Modal>
       }
       
-      <CarouseleList params={params} data={data} top_menu={true} />
+      <CarouseleList auth_places={true} onStateClick={onOpenModalHandler} data={data}/>
     
     </>
 
