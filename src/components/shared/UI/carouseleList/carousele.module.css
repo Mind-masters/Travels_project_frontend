@@ -66,6 +66,7 @@
 
 .user_params li{
     color: aliceblue;
+    cursor: pointer;
     font-size: 1.4em;
 }
 

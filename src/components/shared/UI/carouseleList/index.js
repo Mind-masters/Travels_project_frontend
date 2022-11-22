@@ -11,24 +11,24 @@ import hillImage from '../../../../assets/hill.jpg';
 import townImage from '../../../../assets/town.jpg';
 import add_new_trip_logo from "../../../../assets/your-trip/ad_new_trip_logo.png";
 
-const SwiperList = ({params}) => {
+const SwiperList = (props) => {
 
-    const {create_, read_, update_, delete_} = params ? params : false
+    const auth_places = props.auth_places ? true : false
   
     const [slidesCount, setSlidesCount] = useState(1);
     const container_ref = useRef(null);
     const image_ref = useRef(null);
 
     useLayoutEffect(() => {
-        const swiper_width = !create_ ? container_ref.current.offsetWidth : container_ref.current.offsetWidth - image_ref.current.offsetWidth;
+        const swiper_width = !auth_places ? container_ref.current.offsetWidth : container_ref.current.offsetWidth - image_ref.current.offsetWidth;
         setSlidesCount(Math.round(swiper_width / 400))
     }, []);
 
     const UserMethodsList = () => {
-        return read_ && update_ && delete_ ? (
+        return auth_places ? (
             <ul className={styles.user_params}>
-                <li style={{ color: "rgba(130, 236, 166, 1)" }}>Update</li>
-                <li style={{ color: "rgba(239, 101, 101, 1)" }}>Delete</li>
+                <li onClick={props.onStateClick.bind(null,"update")} style={{ color: "rgba(130, 236, 166, 1)" }}>Update</li>
+                <li onClick={props.onStateClick.bind(null,"delete")} style={{ color: "rgba(239, 101, 101, 1)" }}>Delete</li>
             </ul>
         ):
         null
@@ -36,12 +36,12 @@ const SwiperList = ({params}) => {
 
     return (
         <div className={styles.container} ref={container_ref}>
-            { create_ &&
+            { auth_places &&
                 <img 
                     ref={image_ref}
                     className={styles.add_logo} 
                     src={add_new_trip_logo} 
-                    onClick={() => {}} 
+                    onClick={props.onStateClick.bind(null,"create")} 
                     alt="plus logo" 
                 />
             }
