@@ -1,6 +1,6 @@
 import styles from "./Modal.module.css"
 import  ReactDOM from "react-dom";
-import Backdrop from "./Backdrop";
+import Backdrop from "../Backdrop";
 import { CSSTransition } from "react-transition-group";
 import { Fragment } from "react";
 

@@ -114,6 +114,19 @@
     color: rgb(208, 87, 87);
 }
 
+.buttons .cancel{
+    color: aliceblue;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    background-color: rgb(209, 95, 95);
+}
+
+.buttons .cancel:hover{
+    background-color: rgb(198, 35, 35);
+}
+
 @media (max-width: 650px) {
     .modal_content{
         width: 80%;
