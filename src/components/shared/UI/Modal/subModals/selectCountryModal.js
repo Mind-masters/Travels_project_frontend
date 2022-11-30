@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./selectCountryModal.module.css";
-import LoadingSpinner from "../../../../components/shared/UI/LoadingSpinner";
+import LoadingSpinner from "../../LoadingSpinner";
 import Switch from "react-switch";
 
 const SelectCountryModal = (props) => {

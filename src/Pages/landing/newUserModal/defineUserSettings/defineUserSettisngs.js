@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Modal from '../../../../components/shared/UI/Modal';
-import SelectCountryModal from './selectCountryModal';
+import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals/selectCountryModal';
 import SelectGenderModal from './selectGenderModal';
 
 
@@ -77,9 +77,10 @@ const DefineUserSettings = (props) => {
       <form className={custom_styles.form_container}>
         <input placeholder='Gender' value={genderValue ? genderValue : ""} className={custom_styles.type_input} onChange={()=>{}} onClick={GenderInputActivateHandler} />
         <input placeholder='Country' value={countryValue ? countryValue.name.common : ""} className={custom_styles.type_input} onChange={()=>{}} onClick={CountryInputActivateHandler} />
+        
         <Modal
-        onCancel={onclose}
-        show={isModalActive}
+          onCancel={onclose}
+          show={isModalActive}
         >
           {openCountryModalActive &&
             <SelectCountryModal onSubmit={SubmitCountryModal} onClose={closeModalHandler} /> 

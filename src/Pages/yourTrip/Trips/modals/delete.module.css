@@ -36,22 +36,20 @@
     display: flex;
     flex: 1;
     justify-content: space-around;
-}
 
+}
+/**/
 .btn_container button{
     align-self: center;
-    border-radius: 30px;
-    padding: 5px 30px;
-    font-weight: bold;
-    transition-duration: 0.3s;
+    border-radius: 50px;
 }
 
 .keep_btn{
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(168, 219, 132);
 }
 
 .keep_btn:hover{
-    background-color: rgb(179, 179, 179);
+    background-color: rgb(118, 196, 62);
 }
 
 .delete_btn{
@@ -60,7 +58,9 @@
 
 .delete_btn:hover{
     background-color: rgb(245, 80, 80);
-}
+} 
+
+
 
 @media screen and (max-width: 1200px) {
     .delete_container {
