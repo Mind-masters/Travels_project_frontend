@@ -1,19 +1,77 @@
 import React from 'react'
-import ImageUpload from "./uploadImage"
+import { useState } from 'react';
+import styles from "./upload_image.module.css";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
 
-const galleryImageList = [
-    "https://raw.githubusercontent.com/dxyang/StyleTransfer/master/style_imgs/mosaic.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
-    "https://raw.githubusercontent.com/ShafeenTejani/fast-style-transfer/master/examples/dora-maar-picasso.jpg",
-    "https://pbs.twimg.com/profile_images/925531519858257920/IyYLHp-u_400x400.jpg",
-    "https://raw.githubusercontent.com/ShafeenTejani/fast-style-transfer/master/examples/dog.jpg",
-    "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg"
-];
 
-const UploadImage = () => {
+const UploadImage = (props) => {
+
+  const [customURLs, setCustomURLs] = useState([]);
+
+  const inputArr = [
+    {
+      type: "text",
+      id: 1,
+      value: ""
+    }
+  ];
+
+  const [arr, setArr] = useState(inputArr);
+
+  const addInput = () => {
+    setArr(s => {
+      return [
+        ...s,
+        {
+          type: "text",
+          value: ""
+        }
+      ];
+    });
+  };
+
+  const onSubmitHandler = () => {
+    props.onSubmit(customURLs)
+  }
+
+  const handleChange = e => {
+    e.preventDefault();
+
+    // const index = e.target.id;
+    // setArr(s => {
+    //   const newArr = s.slice();
+    //   newArr[index].value = e.target.value;
+
+    //   return newArr;
+    // });
+
+    setCustomURLs(e.target.value)
+  };
+
   return (
-    <ImageUpload cardName="Input Image" imageGallery={galleryImageList} />
+    <div className={styles.container}>
+      {/* <div className={styles.inputList}>
+        {arr.map((item, i) => {
+          return (
+            <TextField id={i} label="Enter url" value={item.value} onChange={handleChange} fullWidth variant="outlined" />
 
+          );
+        })}
+      </div>
+      <div className={styles.add_icon} onClick={addInput}>
+        <AddIcon />
+      </div> */}
+
+      <TextField label="Enter url..." className={styles.textArea} onChange={handleChange} fullWidth variant="outlined" />
+
+      <div className={styles.buttons}>
+        <Button className={styles.cancel} onClick={props.onClose} variant="contained" color="success">Cancel</Button>
+        <Button className={styles.submit} onClick={onSubmitHandler} variant="contained" color="success">Upload</Button>
+      </div>
+      
+    </div>
   )
 }
 
