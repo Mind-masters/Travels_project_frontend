@@ -15,9 +15,9 @@ const Routing = () => {
       <Routes>
         <Route path="/" element={<LandingPage />} />
 
-        <Route path="/profile" element={<Profile />} />
-          {/* <Route index element={<Profile />} />
-        </Route> */}
+        <Route path="/profile" element={<PrivateRouter />}>
+          <Route index element={<Profile />} />
+        </Route>
         <Route path="/new-member" element={<PrivateRouter />}>
           <Route index element={<LandingPage extra={true} />} />
         </Route>
