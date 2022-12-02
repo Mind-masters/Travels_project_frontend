@@ -68,7 +68,7 @@ const UploadImage = (props) => {
 
       <div className={styles.buttons}>
         <Button className={styles.cancel} onClick={props.onClose} variant="contained" color="success">Cancel</Button>
-        <Button className={styles.submit} onClick={onSubmitHandler} variant="contained" color="success">Upload</Button>
+        <Button className={styles.submit} onClick={onSubmitHandler} variant="contained" color="success">Submit</Button>
       </div>
       
     </div>

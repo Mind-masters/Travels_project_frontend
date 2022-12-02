@@ -107,7 +107,7 @@ const UpdateTrip = (props) => {
         </div>
 
 
-        <Button className={styles.button} variant="contained" color="success">
+        <Button className={styles.button} onClick={onFormSubmitHandler} variant="contained" color="success">
           Add
         </Button>
 
