@@ -2,6 +2,8 @@
     text-align: center;
     margin: auto;
     width: 80%;
+   
+    padding: 10px;
 }
 .wrapper{
   display: flex;   
@@ -9,6 +11,7 @@
   flex-direction: row;
   align-items: center;
   margin-left: 35%;
+  margin-top: 40px;
 }
 .profile_place{
     display: flex;
@@ -25,18 +28,20 @@
     flex-direction: column;
     
 }
-
-
 .profile_name{
     position: absolute;
     margin-top: 15%;
     display: block;
     text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: gray
 
 }
 
 .number_place{
     color: #FFBD59;
+    font-size: 15px;
 }
 
 .profile_setting{
@@ -51,20 +56,23 @@
     margin: 40px;
     
 }
-/* .hobby{
-    text-align: center;
-    align-items: center;
-} */
+.hobby{
+    margin-top: 23px;
+    padding: 40px;
+    font-weight: bold;
+    font-size: 23px;
+}
 .profile_hobby{
     display: flex;
     margin: 23px;
-    object-fit: contain;
+    object-fit: cover;
 }
 .interest{
     margin: 10px;
+    padding: 10px;
     background-color: #D9D9D9;
     border-radius: 50%;
-    width: 10%;
+    width: 25%;
     height: 60px;
     font-size: 30px;
     font-weight: 300;
@@ -73,12 +81,17 @@
 }
 
 .interest:hover{
-    background-color: #FFBD59;
+    background-color: #812d2d;
     color: white;
 }
-
+.about{
+    font-weight: bold;
+    font-size: 23px;
+}
 .box{
     display: flex;
+    height: 400px;
+  background-image: linear-gradient(to right, rgba(149, 221, 215, 0), rgb(159, 219, 211));
 }
 
 .details{
@@ -97,4 +110,10 @@
     width: 20%;
     display: flex;
     margin-left: 50px;
+}
+
+.details_flag{
+    width: 20%;
+    
+      
 }
