@@ -32,7 +32,7 @@ const Login = () => {
 
         setIsLoading(true);
         
-        const Req = await fetch(`http://localhost:5000/api/v1/client/auth/login`, {
+        const Req = await fetch(`https://mind-masters-server.onrender.com/api/v1/client/auth/login`, {
           method: "POST",
           headers: {
             "Content-Type" : "application/json",
