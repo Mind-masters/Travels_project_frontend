@@ -19,7 +19,6 @@ const Location = (props) => {
 
     const onSubmitHandler = () => {
 
-        console.log("latitude: ", latitude, " | longitude: ", longitude)
         setLatitudeError(false);
         setLongitudeError(false);
 
@@ -27,13 +26,15 @@ const Location = (props) => {
             if(longitude.length > 4 && latitude.length > 4){
                 props.onSubmit(longitude, latitude);
             }
-            if(latitude.length < 4)setLatitudeError(true)
-            if(longitude.length < 4)setLongitudeError(true)
+            if(latitude.length <= 4)setLatitudeError(true)
+            if(longitude.length <= 4)setLongitudeError(true)
         }
         else{
             if(!latitude)setLatitudeError(true)
             if(!longitude)setLongitudeError(true)
         }
+
+        
         
         
 

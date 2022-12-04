@@ -60,6 +60,10 @@
     background-color: rgb(168, 219, 132);
 }
 
+.icon_invalid{
+    border: 2px solid rgb(209, 127, 127);
+}
+
 
 .description_container{
     /* flex: 2; */

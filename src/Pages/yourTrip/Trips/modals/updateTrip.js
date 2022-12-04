@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import styles from "./update.module.css";
 import Modal from '../../../../components/shared/UI/Modal';
-import TextareaAutosize from '@mui/base/TextareaAutosize';
 import TextField from '@material-ui/core/TextField';
-
+import { AddNewPlace } from '../../../../components/utils/addNewPlace';
 import Button from '@mui/material/Button';
 
 // icons
@@ -18,15 +17,11 @@ import ImageUpload from "./subModals/uploadImage";
 
 const UpdateTrip = (props) => {
 
+  // states and funtions for modals
+
   const [countryModal, setCountryModal] = useState(false);
   const [locationModal, setLocationModal] = useState(false);
   const [imageModal, setImageModal] = useState(false);
-
-  // states for values
-  const [countryValue, setCountryValue] = useState(null);
-  const [locationValue, setLocationValue] = useState(null);
-  const [imageValue, setImageValue] = useState(false);
-  const [descriptionValue, setDescriptionValue] = useState(null);
 
   const parentModalHidden = countryModal || locationModal || imageModal;
 
@@ -44,19 +39,49 @@ const UpdateTrip = (props) => {
   const onSubmitLocationModal = (results) => {setLocationValue(results); onModalHide()}
   const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
 
+
+  // states and functions for validation
+  const [countryInputError, setCountryInputError] = useState(false);
+  const [locationInputError, setLocationInputError] = useState(false);
+  const [imageInputError, setImageInputError] = useState(false);
+  const [descriptionInputError, setDescriptionInputError] = useState(false);
+  const [titleInputError, setTitleInputError] = useState(false);
+  
+
+  // states and functions for values
+  const [countryValue, setCountryValue] = useState(null);
+  const [locationValue, setLocationValue] = useState(null);
+  const [imageValue, setImageValue] = useState(false);
+  const [descriptionValue, setDescriptionValue] = useState(null);
+  const [titleValue, setTitleValue] = useState(null);
+
   const onSubmitDescription = (e) => setDescriptionValue(e.target.value);
+  const onSubmitTitle = (e) => setTitleValue(e.target.value);
 
+  const onFormSubmitHandler = async(e) => {
+    setTitleInputError(false);
+    setDescriptionInputError(false);
+    setCountryInputError(false);
+    setLocationInputError(false);
+    setImageInputError(false);
 
-  const onFormSubmitHandler = (e) => {
-    // e.preventDefault();
-    console.log("values: ", [
-      countryValue,
-      locationModal,
-      imageValue,
-      descriptionValue
+    if(!titleValue){setTitleInputError(true);return}
+    if(!descriptionValue){setDescriptionInputError(true);return}
+    if(!countryValue){setCountryInputError(true);return}
+    if(!locationValue){setLocationInputError(true);return}
+    if(!imageValue){setImageInputError(true);return}
+
+    await AddNewPlace([
+      {description: descriptionValue},
+      {title: titleValue},
+      {country: countryValue},
+      {location: locationValue},
+      {image: imageValue}
     ])
+
   }
 
+  
 
 
   return (
@@ -77,30 +102,34 @@ const UpdateTrip = (props) => {
         <div className={styles.form_content}>
 
           <div className={styles.title_container}>
-            <TextareaAutosize
+
+            <TextField
+              variant='outlined'
+              error={titleInputError}
               aria-label="minimum height"
-              placeholder="Title..."
+              label="Title..."
               className={styles.text_area}
-              maxRows={1}
-              onChange={onSubmitDescription}
+              onChange={onSubmitTitle}
             /> 
           </div>
 
           <div className={styles.description_container}>
-            <TextareaAutosize
+            <TextField
+              variant='outlined'
+              error={descriptionInputError}
+              multiline={true}
               aria-label="minimum height"
-              placeholder="Description..."
+              label="Description..."
               className={styles.text_area}
               onChange={onSubmitDescription}
-              maxRows={5}
             /> 
           </div>
 
 
           <div className={styles.logo_menu}>
-            <img onClick={onOpenCountryModal}  src={flag_icon} alt="" />
-            <img onClick={onOpenLocationModal} src={map_icon} alt="" />
-            <img onClick={onOpenImageModal} src={photo_icon} alt="" />
+            <img className={`${countryInputError && styles.icon_invalid}`} onClick={onOpenCountryModal}  src={flag_icon} alt="" />
+            <img className={`${locationInputError && styles.icon_invalid}`} onClick={onOpenLocationModal} src={map_icon} alt="" />
+            <img className={`${imageInputError && styles.icon_invalid}`} onClick={onOpenImageModal} src={photo_icon} alt="" />
           </div>
           
           
