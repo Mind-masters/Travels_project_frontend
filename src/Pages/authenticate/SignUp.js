@@ -50,7 +50,7 @@ const SignUp = () => {
 
         setIsLoading(true);
         
-        const Req = await fetch(`https://mind-masters-server.onrender.com/api/v1/client/auth/register`, {
+        const Req = await fetch(`https://mind-master-backend-production.up.railway.app/api/v1/client/auth/register`, {
           method: "POST",
           headers: {
             "Content-Type" : "application/json",
