@@ -67,7 +67,6 @@ const UpdateTrip = (props) => {
   const onSubmitTitle = (e) => setTitleValue(e.target.value);
 
   const onFormSubmitHandler = async(e) => {
-    setIsLoading(true);
     setTitleInputError(false);
     setDescriptionInputError(false);
     setCountryInputError(false);
@@ -80,6 +79,9 @@ const UpdateTrip = (props) => {
     if(!locationValue){setLocationInputError(true);return}
     if(!imageValue){setImageInputError(true);return}
 
+    setIsLoading(true);
+
+
     const create_new_place = await AddNewPlace(
       {
         description: descriptionValue,
@@ -91,9 +93,11 @@ const UpdateTrip = (props) => {
       token
     )
 
+    setIsLoading(false);
+
+
     if(create_new_place.status){
       notify(create_new_place.data, "success");
-      setIsLoading(false);
       navigate("/")
     }
     else if(!create_new_place.status)notify(create_new_place.error, "error");

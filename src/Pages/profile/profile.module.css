@@ -1,18 +1,23 @@
 .container{
     text-align: center;
     margin: auto;
-    width: 100%;
-   
+    width: 65%;
+    border: 2px solid red;
     padding: 10px;
+    padding-top: 20vh;
 }
-.wrapper{
+
+.profile_section{
   display: flex;   
   margin: auto;
   flex-direction: row;
   align-items: center;
-  margin-left: 35%;
-  margin-top: 40px;
+  /* margin-left: 35%;
+  margin-top: 40px; */
+  border: 2px solid red;
+
 }
+
 .profile_place{
     display: flex;
     position: relative;
@@ -37,41 +42,8 @@
     font-size: 25px;
     color: gray
 }
-/*FOR TABLET*/
-@media screen and (max-width: 768px) {
-.profile_name{
-    margin-top: 25%;
- }  
- 
- /* .profile_hobby{
-    display: flex;
-    flex-direction: column;
-    margin: 23px;
-    object-fit: cover;
-} */
-/* .profile_hobby{
-    display: flex;
-    margin: 30px;
-    object-fit: cover;
-    width: 40%;
-} */
-}
-/* FOR MOBILE SCREENS*/
-@media screen and (max-width: 600px) {
-    .profile_name{
-        margin-top: 40%;
-     } 
-     
-     .place_image{
-        display: block;
-        flex-direction: column;
-        
-    }
-    .number_place{
-        color: #FFBD59;
-        font-size: 25px;
-    }
-    }
+
+
 
 .number_place{
     color: #FFBD59;
@@ -85,39 +57,57 @@
     font-weight: 700;
     cursor: pointer;
 }
-.profile_interest{
+
+
+/* Styles for hobbies section  */
+
+
+.hobbies_section{
     text-align: center;
     margin: 40px;
-    
 }
-.hobby{
-    margin-top: 23px;
-    padding: 40px;
+
+
+.hobbies_header{
+    color: rgba(112, 112, 112, 1);
     font-weight: bold;
     font-size: 23px;
+    margin: 5vh 0;
 }
-.profile_hobby{
+
+.hobbies_container{
+    width: 100%;
+}
+
+.hobbies_wrapper{
+    margin: 0 auto;
     display: flex;
-    margin: 23px;
-    object-fit: cover;
+    width: 70%;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
-.interest{
+
+
+.interest_item{
     margin: 10px;
     padding: 10px;
     background-color: #D9D9D9;
-    border-radius: 50%;
-    width: 25%;
-    height: 60px;
-    font-size: 30px;
+    border-radius: 50px;
+    font-size: 20px;
     font-weight: 300;
     cursor: pointer;
-    object-fit: contain;
+    transition-duration: 0.3s;
 }
 
-.interest:hover{
-    background-color: #812d2d;
+
+.interest_item:hover{
+    background-color: #b25959;
     color: white;
 }
+
+
+/* Styles for about section  */
+
 .about{
     font-weight: bold;
     font-size: 23px;
@@ -150,4 +140,40 @@
     width: 20%;
     
       
+}
+
+/*FOR TABLET*/
+@media screen and (max-width: 768px) {
+
+    .container{
+        width: 85%;
+    }
+
+    .profile_name{
+        margin-top: 25%;
+    }  
+
+
+ 
+
+
+}
+/* FOR MOBILE SCREENS*/
+@media screen and (max-width: 500px) {
+
+    .container{
+        width: 90%;
+    }
+
+
+     
+    .place_image{
+        display: block;
+        flex-direction: column;
+    }
+    
+    .number_place{
+        color: #FFBD59;
+        font-size: 25px;
+    }
 }
