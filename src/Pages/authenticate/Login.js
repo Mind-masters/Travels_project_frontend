@@ -3,7 +3,7 @@ import styles from "./Authenticate.module.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { notify } from "./toast";
+import { notify } from "../../components/shared/UI/toast";
 import { Link } from "react-router-dom";
 import Card from "../../components/shared/UI/Card";
 import LoadingSpinner from "../../components/shared/UI/LoadingSpinner";
