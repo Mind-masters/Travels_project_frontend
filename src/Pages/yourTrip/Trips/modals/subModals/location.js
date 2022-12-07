@@ -24,7 +24,7 @@ const Location = (props) => {
 
         if(longitude && latitude){
             if(longitude.length > 4 && latitude.length > 4){
-                props.onSubmit(longitude, latitude);
+                props.onSubmit({longitude, latitude});
             }
             if(latitude.length <= 4)setLatitudeError(true)
             if(longitude.length <= 4)setLongitudeError(true)
@@ -50,8 +50,8 @@ const Location = (props) => {
             <form>
                 
                 <div className={styles.inputs}>
-                    <TextField className={styles.input} error={LongitudeError} id="outlined-basic" label="longitude" variant="outlined" onChange={onLongitudeChangeHandler} />
-                    <TextField className={styles.input} error={LatitudeError} id="outlined-basic" label="latitude" variant="outlined" onChange={onLatitudeChangeHandler} />
+                    <TextField type={"number"} className={styles.input} error={LongitudeError} id="outlined-basic" label="longitude" variant="outlined" onChange={onLongitudeChangeHandler} />
+                    <TextField type={"number"} className={styles.input} error={LatitudeError} id="outlined-basic" label="latitude" variant="outlined" onChange={onLatitudeChangeHandler} />
                 </div>
 
                 <div className={styles.buttons}>

@@ -5,6 +5,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from "../../../../../../components/shared/UI/toast";
+
 
 const UploadImage = (props) => {
 
@@ -17,6 +20,8 @@ const UploadImage = (props) => {
       value: ""
     }
   ];
+
+  
 
   const [arr, setArr] = useState(inputArr);
 
@@ -33,7 +38,14 @@ const UploadImage = (props) => {
   };
 
   const onSubmitHandler = () => {
-    props.onSubmit(customURLs)
+    var validUrl = require('valid-url');
+  
+    if (validUrl.isUri(customURLs)){
+      props.onSubmit(customURLs)
+    } else {
+      notify("Invalid url", "error");
+    }
+
   }
 
   const handleChange = e => {

@@ -55,24 +55,6 @@ const  YourTripList = ({data, user_places}) => {
   }
 
 
-  /// temprorary
-  const onEditClickHanlder = () => {
-    console.log("edit handler")
-  }
-
-  const onReviewClickHanlder = () => {
-    console.log("review handler")
-  }
-
-  const onCreateClickHanlder = () => {
-    console.log("create handler")
-  }
-
-  const onDeleteClickHanlder = () => {
-    console.log("delete handler")
-  }
-
-  
 
   return (
 

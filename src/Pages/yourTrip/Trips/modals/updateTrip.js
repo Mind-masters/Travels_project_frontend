@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import styles from "./update.module.css";
 import Modal from '../../../../components/shared/UI/Modal';
 import TextField from '@material-ui/core/TextField';
 import { AddNewPlace } from '../../../../components/utils/addNewPlace';
 import Button from '@mui/material/Button';
-
+import { AuthContext } from '../../../../contextAPI/AuthContext';
+import LoadingSpinner from '../../../../components/shared/UI/LoadingSpinner';
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import { notify } from "../../../../components/shared/UI/toast";
 // icons
 import flag_icon from "../../../../assets/flag.png";
 import map_icon from "../../../../assets/map_icon.png";
@@ -17,7 +21,11 @@ import ImageUpload from "./subModals/uploadImage";
 
 const UpdateTrip = (props) => {
 
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   // states and funtions for modals
+  const Auth = useContext(AuthContext);
+  const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null
 
   const [countryModal, setCountryModal] = useState(false);
   const [locationModal, setLocationModal] = useState(false);
@@ -59,6 +67,7 @@ const UpdateTrip = (props) => {
   const onSubmitTitle = (e) => setTitleValue(e.target.value);
 
   const onFormSubmitHandler = async(e) => {
+    setIsLoading(true);
     setTitleInputError(false);
     setDescriptionInputError(false);
     setCountryInputError(false);
@@ -71,13 +80,23 @@ const UpdateTrip = (props) => {
     if(!locationValue){setLocationInputError(true);return}
     if(!imageValue){setImageInputError(true);return}
 
-    await AddNewPlace([
-      {description: descriptionValue},
-      {title: titleValue},
-      {country: countryValue},
-      {location: locationValue},
-      {image: imageValue}
-    ])
+    const create_new_place = await AddNewPlace(
+      {
+        description: descriptionValue,
+        title: titleValue,
+        country: countryValue,
+        location: locationValue,
+        image: imageValue
+      },
+      token
+    )
+
+    if(create_new_place.status){
+      notify(create_new_place.data, "success");
+      setIsLoading(false);
+      navigate("/")
+    }
+    else if(!create_new_place.status)notify(create_new_place.error, "error");
 
   }
 
@@ -85,63 +104,64 @@ const UpdateTrip = (props) => {
 
 
   return (
-    <div className={`${styles.container} ${parentModalHidden && styles.hidden}`}>
-      <h1 className={styles.header}>Share your experience</h1>
+    <>
+      { !isLoading ?
+        <div className={`${styles.container} ${parentModalHidden && styles.hidden}`}>
+          <h1 className={styles.header}>Share your experience</h1>
 
-      <form className={styles.form_container}>
-        <Modal 
-          onCancel={onclose}
-          show={countryModal || locationModal || imageModal} 
-        >
-          {countryModal && <SelectCountryModal onClose={onModalHide} onSubmit={onSubmitCountryModal} />}
-          {locationModal && <Location onClose={onModalHide} onSubmit={onSubmitLocationModal} />}
-          {imageModal && <ImageUpload onClose={onModalHide} onSubmit={onSubmitImageModal} />}
+          <form className={styles.form_container}>
+            <Modal 
+              onCancel={onclose}
+              show={countryModal || locationModal || imageModal} 
+            >
+              {countryModal && <SelectCountryModal onClose={onModalHide} onSubmit={onSubmitCountryModal} />}
+              {locationModal && <Location onClose={onModalHide} onSubmit={onSubmitLocationModal} />}
+              {imageModal && <ImageUpload onClose={onModalHide} onSubmit={onSubmitImageModal} />}
+            </Modal>
+            
+            <div className={styles.form_content}>
 
-        </Modal>
-        
-        <div className={styles.form_content}>
+              <div className={styles.title_container}>
+                <TextField
+                  variant='outlined'
+                  error={titleInputError}
+                  aria-label="minimum height"
+                  label="Title..."
+                  className={styles.text_area}
+                  onChange={onSubmitTitle}
+                /> 
+              </div>
 
-          <div className={styles.title_container}>
+              <div className={styles.description_container}>
+                <TextField
+                  variant='outlined'
+                  error={descriptionInputError}
+                  multiline={true}
+                  aria-label="minimum height"
+                  label="Description..."
+                  className={styles.text_area}
+                  onChange={onSubmitDescription}
+                /> 
+              </div>
 
-            <TextField
-              variant='outlined'
-              error={titleInputError}
-              aria-label="minimum height"
-              label="Title..."
-              className={styles.text_area}
-              onChange={onSubmitTitle}
-            /> 
-          </div>
-
-          <div className={styles.description_container}>
-            <TextField
-              variant='outlined'
-              error={descriptionInputError}
-              multiline={true}
-              aria-label="minimum height"
-              label="Description..."
-              className={styles.text_area}
-              onChange={onSubmitDescription}
-            /> 
-          </div>
+              <div className={styles.logo_menu}>
+                <img className={`${countryInputError && styles.icon_invalid}`} onClick={onOpenCountryModal}  src={flag_icon} alt="" />
+                <img className={`${locationInputError && styles.icon_invalid}`} onClick={onOpenLocationModal} src={map_icon} alt="" />
+                <img className={`${imageInputError && styles.icon_invalid}`} onClick={onOpenImageModal} src={photo_icon} alt="" />
+              </div>
+            </div>
 
 
-          <div className={styles.logo_menu}>
-            <img className={`${countryInputError && styles.icon_invalid}`} onClick={onOpenCountryModal}  src={flag_icon} alt="" />
-            <img className={`${locationInputError && styles.icon_invalid}`} onClick={onOpenLocationModal} src={map_icon} alt="" />
-            <img className={`${imageInputError && styles.icon_invalid}`} onClick={onOpenImageModal} src={photo_icon} alt="" />
-          </div>
-          
-          
+            <Button className={styles.button} onClick={onFormSubmitHandler} variant="contained" color="success">
+              Add
+            </Button>
+
+          </form>
         </div>
-
-
-        <Button className={styles.button} onClick={onFormSubmitHandler} variant="contained" color="success">
-          Add
-        </Button>
-
-      </form>
-    </div>
+        :
+        <LoadingSpinner asOverlay />
+      }
+    </>
   )
 }
 
