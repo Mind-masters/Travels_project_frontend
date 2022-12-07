@@ -33,7 +33,31 @@ const data = [
     {
       id: 8,
       name: 'Scary',
+    },
+
+    {
+      id: 9,
+      name: 'Hills',
       },
+      {
+    id: 10,
+     name: 'Mountain',
+     },
+    {
+    id: 11,
+    name: 'Forest',
+    },
+    {
+    id: 12,
+    name: 'Cultures',
+    },
+
+    {
+      id: 13,
+      name: 'Cultures',
+    },
+
+
   ];
   
   export default data;
