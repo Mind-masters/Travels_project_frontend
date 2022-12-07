@@ -1,7 +1,7 @@
 .container{
     text-align: center;
     margin: auto;
-    width: 80%;
+    width: 100%;
    
     padding: 10px;
 }
@@ -36,12 +36,46 @@
     font-weight: bold;
     font-size: 25px;
     color: gray
-
 }
+/*FOR TABLET*/
+@media screen and (max-width: 768px) {
+.profile_name{
+    margin-top: 25%;
+ }  
+ 
+ /* .profile_hobby{
+    display: flex;
+    flex-direction: column;
+    margin: 23px;
+    object-fit: cover;
+} */
+/* .profile_hobby{
+    display: flex;
+    margin: 30px;
+    object-fit: cover;
+    width: 40%;
+} */
+}
+/* FOR MOBILE SCREENS*/
+@media screen and (max-width: 600px) {
+    .profile_name{
+        margin-top: 40%;
+     } 
+     
+     .place_image{
+        display: block;
+        flex-direction: column;
+        
+    }
+    .number_place{
+        color: #FFBD59;
+        font-size: 25px;
+    }
+    }
 
 .number_place{
     color: #FFBD59;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .profile_setting{
