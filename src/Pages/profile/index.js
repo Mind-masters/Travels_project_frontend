@@ -8,8 +8,9 @@ import ProfilePage from './profilePage';
 const Profile = () => {
     const [interest, setInterest] =useState(data)
     return (
-        
-        <ProfilePage interest ={interest}/>
+        <Card>
+            <ProfilePage interest ={interest}/>
+        </Card>
     )
 }
 
