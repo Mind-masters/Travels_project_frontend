@@ -12,11 +12,10 @@
   margin: auto;
   flex-direction: row;
   align-items: center;
+  width: 40%;
   /* margin-left: 35%;
   margin-top: 40px; */
-  border: 2px solid red;
-
-}
+ }
 
 .profile_place{
     display: flex;
@@ -137,9 +136,7 @@
 }
 
 .details_flag{
-    width: 20%;
-    
-      
+    width: 20%;     
 }
 
 /*FOR TABLET*/
@@ -152,21 +149,15 @@
     .profile_name{
         margin-top: 25%;
     }  
-
-
- 
-
-
 }
+
 /* FOR MOBILE SCREENS*/
 @media screen and (max-width: 500px) {
 
     .container{
         width: 90%;
     }
-
-
-     
+ 
     .place_image{
         display: block;
         flex-direction: column;
@@ -175,5 +166,20 @@
     .number_place{
         color: #FFBD59;
         font-size: 25px;
+    }
+
+    .profile_name{
+        margin-top: 35%;
+    } 
+    
+    .profile_section{
+        width: auto;  
+       }
+       .hobbies_wrapper{
+        width: auto;
+    }
+
+    .arrow{
+        display: none;
     }
 }
