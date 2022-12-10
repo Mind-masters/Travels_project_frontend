@@ -148,7 +148,14 @@
 
     .profile_name{
         margin-top: 25%;
-    }  
+    } 
+    .hobbies_wrapper{
+        width: 50%;
+    } 
+
+    .interest_item{
+        width: 40%;
+    }
 }
 
 /* FOR MOBILE SCREENS*/
