@@ -23,7 +23,9 @@ export const AddNewPlace = async(data, token) => {
             })
         })
 
-        if(!Req.ok)throw new Error(Req.statusText || "Failed to share your trip..")
+        console.log("req: ", Req);
+
+        if(!Req.ok)throw new Error(Req.statusText || "Cannot share your trip..")
 
 
         const jsonData = await Req.json();

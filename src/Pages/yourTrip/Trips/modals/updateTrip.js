@@ -98,7 +98,8 @@ const UpdateTrip = (props) => {
 
     if(create_new_place.status){
       notify(create_new_place.data, "success");
-      navigate("/")
+      navigate("/your-trip");
+      props.onClose();
     }
     else if(!create_new_place.status)notify(create_new_place.error, "error");
 

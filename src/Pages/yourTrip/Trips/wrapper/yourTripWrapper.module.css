@@ -1,15 +1,12 @@
 
 .wrapper{
     background-image: linear-gradient(rgba(234, 244, 233), rgb(206, 206, 206));
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
     border-radius: 5% 5% 10px 10px;
-    padding: 0 1.5rem;
     margin-bottom: 10vh;
-    padding-bottom: 2vh;
 }  
 
 .wrapper_content{
@@ -22,7 +19,8 @@
     align-self: center;
     width: 100%;
     text-align: center;
-    padding-bottom: 10px;
+    margin-bottom: 5vh;
+
 }
 
 .header_container h1{
@@ -30,7 +28,8 @@
     display:inline-block; 
     font-size: 2.5rem;
     border-bottom: 2px dashed black;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
+
 }
 
 @media screen and (max-width: 570px) {

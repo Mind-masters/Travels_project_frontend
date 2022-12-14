@@ -11,11 +11,11 @@ import UpdateTrip from "./modals/updateTrip";
 import ReviewTrip from "./modals/reviewTrip";
 
 
-const  YourTripList = ({data, user_places}) => {
+const  YourTripList = ({data, onRefresh, user_places}) => {
 
   const Auth = useContext(AuthContext);
 
-
+  const [activatedPlaceItemId, setActivatedPlaceItemId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [showUpdateModal,setShowUpdateModal] = useState(false);
   const [showDeleteModal,setShowDeleteModal] = useState(false);
@@ -29,38 +29,24 @@ const  YourTripList = ({data, user_places}) => {
     setShowDeleteModal(false);
     setShowCreateModal(false);
     Auth.changeUserModalStatus(false);
+    onRefresh();
+
   }
 
-  const onOpenModalHandler = (state) => {
-
-    console.log("state: ", state)
-
+  const onOpenModalHandler = (body) => {
     onHideModalHandler();
-    if(state === "create")setShowCreateModal(true);
-    if(state === "update")setShowUpdateModal(true);
-    if(state === "delete")setShowDeleteModal(true);
-    if(state === "review")setShowReviewModal(true);
-
-
-    setShowModal(true);
+    if(body.state === "create")setShowCreateModal(true);
+    if(body.state === "update")setShowUpdateModal(true);
+    if(body.state === "delete")setShowDeleteModal(true);
+    if(body.state === "review")setShowReviewModal(true);
+    setActivatedPlaceItemId(body.id)
+    setShowModal(true); 
     Auth.changeUserModalStatus(true);
   }
 
-  const onTripSubmit = (data) => {
-    console.log("submiting update modal");
-  }
-
-  const onDeleteTripSubmit = () => {
-    console.log("submiting delete modal");
-  }
-
-
-
   return (
 
-    <>
-
-      
+    <>      
       {
       showModal && 
         <Modal        
@@ -68,26 +54,25 @@ const  YourTripList = ({data, user_places}) => {
           show={showModal} 
         >
           {
-            showUpdateModal && <UpdateTrip update={true} onClose={onHideModalHandler} onSubmit={onTripSubmit.bind(null,data)}/>
+            showUpdateModal && <UpdateTrip update={true} onClose={onHideModalHandler}/>
           }
           {
-            showCreateModal && <UpdateTrip update={false} onClose={onHideModalHandler} onSubmit={onTripSubmit.bind(null,data)}/>
+            showCreateModal && <UpdateTrip update={false} onClose={onHideModalHandler}/>
           }
           {
             showReviewModal && <ReviewTrip onClose={onHideModalHandler} />
           }
           {
-            showDeleteModal && <DeleteTrip onClose={onHideModalHandler} onSubmit={onDeleteTripSubmit}/>
+            showDeleteModal && <DeleteTrip place_id={activatedPlaceItemId} onClose={onHideModalHandler} />
           }
         </Modal>
       }
-      
-      <CarouseleList auth_places={true} onStateClick={onOpenModalHandler} data={data}/>
+
+      <div style={{ padding: 15, height: "55vh", width: "100%" }} >
+        <CarouseleList auth_places={user_places} onStateClick={onOpenModalHandler} data={data}/>
+      </div>
     
     </>
-
-
-
 
   )
 }
