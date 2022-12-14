@@ -6,12 +6,11 @@
 .life_is_good_image{
     align-self: flex-end;
     width: 100%;
-    margin: 2vh 0;
+    margin: 1vh 0;
 }
 
 .life_is_good_image img{
-    width: 18rem;
-    /* border: 2px solid red; */
+    width: 14rem;
     margin: auto;
 }
 

@@ -5,13 +5,10 @@ import 'swiper/css';
 import { Navigation, EffectFade, Autoplay } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import cultureImage from '../../../../assets/culture.jpg';
-import forestImage from '../../../../assets/forest.jpg';
-import hillImage from '../../../../assets/hill.jpg';
-import townImage from '../../../../assets/town.jpg';
 import add_new_trip_logo from "../../../../assets/your-trip/ad_new_trip_logo.png";
 
 const SwiperList = (props) => {
+
 
     const auth_places = props.auth_places ? true : false
   
@@ -19,79 +16,85 @@ const SwiperList = (props) => {
     const container_ref = useRef(null);
     const image_ref = useRef(null);
 
+    console.log("data in carousel: ", props.data)
+
+    const carousel_slider_handler = () => {
+        if(!props.data)return
+        
+        const swiper_width = true ? container_ref.current.offsetWidth : container_ref.current.offsetWidth - image_ref.current.offsetWidth;
+        const number_of_slides = props.data.length >= Math.round(swiper_width / 500) ? Math.round(swiper_width / 500) : props.data.length
+        setSlidesCount(number_of_slides);
+    }
+
     useLayoutEffect(() => {
-        const swiper_width = !auth_places ? container_ref.current.offsetWidth : container_ref.current.offsetWidth - image_ref.current.offsetWidth;
-        setSlidesCount(Math.round(swiper_width / 400))
+        carousel_slider_handler();
     }, []);
 
-    const UserMethodsList = () => {
+    window.addEventListener("resize", () => {
+        carousel_slider_handler();
+    })
+
+    const UserCRUD = ({id}) => {
         return auth_places ? (
             <ul className={styles.user_params}>
-                <li onClick={props.onStateClick.bind(null,"update")} style={{ color: "rgba(130, 236, 166, 1)" }}>Update</li>
-                <li onClick={props.onStateClick.bind(null,"delete")} style={{ color: "rgba(239, 101, 101, 1)" }}>Delete</li>
+                <li onClick={props.onStateClick.bind(null,{state: "update", id: id})} style={{ color: "rgba(130, 236, 166, 1)" }}>Update</li>
+                <li onClick={props.onStateClick.bind(null,{state: "delete", id: id})} style={{ color: "rgba(239, 101, 101, 1)" }}>Delete</li>
             </ul>
         ):
         null
     }
 
+    
+
+    const ItemContainer = (
+        <>
+            { props.data &&
+                props.data.map((place, key) => 
+                    <SwiperSlide key={key} className={styles.SwiperSlide}>
+                        <div className={styles.slide_container}>
+                            <UserCRUD id={place._id} />
+                            <span className={styles.destination_name}>{place.title}</span>
+                            <img className={styles.culture} src={place.image} alt='culture' />
+                        </div>
+                    </SwiperSlide>
+                )
+            }
+        </>
+    )
+
     return (
         <div className={styles.container} ref={container_ref}>
             { auth_places &&
-                <img 
-                    ref={image_ref}
-                    className={styles.add_logo} 
-                    src={add_new_trip_logo} 
-                    onClick={props.onStateClick.bind(null,"create")} 
-                    alt="plus logo" 
-                />
+                <div style={{ justifyContent: `${props.data && props.data.length===0}` ? "center" : "start" }} className={styles.add_logo} >
+                    <img 
+                        ref={image_ref}
+                        src={add_new_trip_logo} 
+                        alt="plus logo" 
+                        onClick={props.onStateClick.bind(null,{state: "create", id: "not_implemented"})} 
+                    />
+                </div>
             }
 
-            <Swiper
-            modules={[Navigation, Autoplay, EffectFade]}
-            navigation
-            autoplay={true}
-            delay={300}
-            effect
-            speed={700}
-            slidesPerView={slidesCount}
-            loop
-            >
-                <SwiperSlide>
-                    <UserMethodsList />
-
-                    <div className={styles.slide_container}>
-                        <span className={styles.destination_name}>culture</span>
-                        <img className={styles.culture} src={cultureImage} alt='culture' />
-                    </div>
-                </SwiperSlide>   
-
-                <SwiperSlide>
-                    <UserMethodsList />
-
-                    <div className={styles.slide_container}>
-                        <span className={styles.destination_name}>forest</span>
-                        <img className={styles.culture} src={forestImage} alt='forest' />
-                    </div>
-                </SwiperSlide> 
-
-                <SwiperSlide>
-                    <UserMethodsList />
-
-                    <div className={styles.slide_container}>
-                        <span className={styles.destination_name}>hill</span>
-                        <img className={styles.culture} src={hillImage} alt='hill' />
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <UserMethodsList />
-
-                    <div className={styles.slide_container}>
-                        <span className={styles.destination_name}>town</span>
-                        <img className={styles.culture} src={townImage} alt='town' />
-                    </div>
-                </SwiperSlide>
-            </Swiper>
+            {
+                props.data && props.data.length > 0 &&
+                <Swiper
+                    modules={[Navigation, Autoplay, EffectFade]}
+                    autoplay={true}
+                    delay={300}
+                    effect
+                    speed={700}
+                    slidesPerView={slidesCount}
+                    loop
+                    navigation
+                    style={{
+                        "--swiper-navigation-color": "#707070",
+                        "--swiper-navigation-size": "6rem",
+                    }}
+                    className={styles.Swiper}
+                >
+                    {ItemContainer}
+                </Swiper>
+            }
 
         </div>
     )

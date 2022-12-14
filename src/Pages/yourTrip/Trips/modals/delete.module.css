@@ -31,15 +31,28 @@
     margin: 20px;
 }
 
-.btn_container{
+.buttons .cancel{
+    border-radius: 50px;
+    background-color: rgb(209, 95, 95);
+}
+
+.buttons .cancel:hover{
+    background-color: rgb(198, 35, 35);
+}
+
+.buttons .submit{
+    border-radius: 50px;
+    background-color: rgb(168, 219, 132);
+}
+
+.buttons{
     width: 90%;
     display: flex;
     flex: 1;
     justify-content: space-around;
-
 }
 /**/
-.btn_container button{
+.buttons button{
     align-self: center;
     border-radius: 50px;
 }
