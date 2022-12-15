@@ -59,15 +59,27 @@ const ProfilePage = ({interest})=>{
                 {/* ABOUT PROFILE */}
             <h1 className={Styles.about}>About</h1>
            
-            <div className={Styles.box}>
-                <div className={Styles.details}>
-                    <p className={Styles.details_name}><img src={profileName} alt=""/>Johnny Depp</p>
-                    <p className={Styles.details_flag}><img src={profileFlag}/>Sweden</p>
-                    <p><img src={profileMail}/>Johny.test@gmail.com</p>
+            <div className={Styles.about_container}>
+                <div className={Styles.details_container}>
+
+                    <div>
+                        <img src={profileName} alt=""/>
+                        <p>Johnny Depp</p>
+                    </div>
+
+                    <div>
+                        <img src={profileFlag} alt=""/>
+                        <p>Sweden</p>
+                    </div>
+
+                    <div>
+                        <img src={profileMail} alt=""/>
+                        <p>Johny.test@gmail.com</p>
+                    </div>
                 </div>
 
-                <div className={Styles.arrow} >
-                    <img src={arrowImage} alt=""></img>
+                <div className={Styles.image_container} >
+                    <img src={arrowImage} alt="" />
                 </div>
             </div>
         </div>
