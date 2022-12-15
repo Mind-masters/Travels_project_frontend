@@ -16,17 +16,18 @@ const SwiperList = (props) => {
     const container_ref = useRef(null);
     const image_ref = useRef(null);
 
-    console.log("data in carousel: ", props.data)
 
     const carousel_slider_handler = () => {
+        console.log("updating list size");
         if(!props.data)return
         
-        const swiper_width = true ? container_ref.current.offsetWidth : container_ref.current.offsetWidth - image_ref.current.offsetWidth;
+        const swiper_width = true ? container_ref.current.offsetWidth : container_ref.current.offsetWidth;
         const number_of_slides = props.data.length >= Math.round(swiper_width / 500) ? Math.round(swiper_width / 500) : props.data.length
         setSlidesCount(number_of_slides);
     }
 
     useLayoutEffect(() => {
+        console.log("useLayoutEffect runs");
         carousel_slider_handler();
     }, []);
 
@@ -34,11 +35,16 @@ const SwiperList = (props) => {
         carousel_slider_handler();
     })
 
+    const actionClickHandler = (arg) => {
+        props.onStateClick(arg);
+        carousel_slider_handler();
+    }
+
     const UserCRUD = ({id}) => {
         return auth_places ? (
             <ul className={styles.user_params}>
-                <li onClick={props.onStateClick.bind(null,{state: "update", id: id})} style={{ color: "rgba(130, 236, 166, 1)" }}>Update</li>
-                <li onClick={props.onStateClick.bind(null,{state: "delete", id: id})} style={{ color: "rgba(239, 101, 101, 1)" }}>Delete</li>
+                <li onClick={actionClickHandler.bind(null,{state: "update", id: id})} style={{ color: "rgba(130, 236, 166, 1)" }}>Update</li>
+                <li onClick={actionClickHandler.bind(null,{state: "delete", id: id})} style={{ color: "rgba(239, 101, 101, 1)" }}>Delete</li>
             </ul>
         ):
         null
@@ -70,7 +76,7 @@ const SwiperList = (props) => {
                         ref={image_ref}
                         src={add_new_trip_logo} 
                         alt="plus logo" 
-                        onClick={props.onStateClick.bind(null,{state: "create", id: "not_implemented"})} 
+                        onClick={actionClickHandler.bind(null,{state: "create", id: "not_implemented"})} 
                     />
                 </div>
             }

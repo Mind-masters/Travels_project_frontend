@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import styles from "./update.module.css";
 import Modal from '../../../../components/shared/UI/Modal';
 import TextField from '@material-ui/core/TextField';
-import { AddNewPlace } from '../../../../components/utils/addNewPlace';
+import { AddNewPlace } from '../../../../components/utils/places/addNewPlace';
 import Button from '@mui/material/Button';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
 import LoadingSpinner from '../../../../components/shared/UI/LoadingSpinner';

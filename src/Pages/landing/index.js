@@ -9,6 +9,7 @@ import MainNavigation from '../../components/navigation/Container';
 import { useContext } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
 
+import SwiperList from '../../components/shared/UI/carouseleList';
 
 const LandingMain = (props) => {
   const Auth = useContext(AuthContext);
@@ -56,9 +57,13 @@ const LandingMain = (props) => {
           <Explore/>
         </div> */}
 
+        <div className={styles.temp}>
+          <SwiperList data={[{title: "fgdhcx", image: "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDmeV0wEeq3g/v1/-1x-1.jpg"}]} />
+        </div>
+
         <div>
           <Destinations/>
-          {/* <PopDestinations/> */}
+          <PopDestinations/>
         </div>
 
 

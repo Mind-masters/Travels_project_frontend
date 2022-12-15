@@ -18,7 +18,7 @@ const DeleteTrip = (props) => {
     console.log("deleting place with id: ", place_id)
 
     try {
-      const kazkas = await fetch(`http://localhost:5000/api/v1/user/places/delete/${place_id}`, { 
+      const kazkas = await fetch(`https://mind-master-backend-production.up.railway.app/api/v1/user/places/delete/${place_id}`, { 
         method: 'POST', 
         headers: {
             "Content-Type" : "application/json",
