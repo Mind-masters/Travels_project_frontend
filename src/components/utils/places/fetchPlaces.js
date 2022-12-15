@@ -8,7 +8,7 @@ export const fetchUserPlaces = async(token) => {
 
     try {
 
-        const Req = await fetch("http://localhost:5000/api/v1/user/places/get_all", { 
+        const Req = await fetch("https://mind-master-backend-production.up.railway.app/api/v1/user/places/get_all", { 
             method: 'GET', 
             headers: {
                 "Content-Type" : "application/json",

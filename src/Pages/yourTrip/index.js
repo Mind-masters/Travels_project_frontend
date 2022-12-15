@@ -9,7 +9,7 @@ import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
 // importing logos
 import life_is_good_logo from "../../assets/your-trip/life_is_good.png";
 import fellow_travelers_logo from "../../assets/your-trip/fellow_travellers.png";
-import { fetchUserPlaces } from '../../components/utils/fetchPlaces';
+import { fetchUserPlaces } from '../../components/utils/places/fetchPlaces';
 
 
 const YoutTrip = () => {
