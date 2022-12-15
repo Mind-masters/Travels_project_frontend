@@ -114,7 +114,7 @@
 .box{
     display: flex;
     height: 400px;
-  background-image: linear-gradient(to right, rgba(149, 221, 215, 0), rgb(159, 219, 211));
+  /* background-image: linear-gradient(to right, rgba(149, 221, 215, 0), rgb(159, 219, 211)); */
 }
 
 .details{
