@@ -45,6 +45,10 @@
     background-color: rgb(168, 219, 132);
 }
 
+.loading_btn{
+    color: rgb(216, 215, 107);
+}
+
 .buttons{
     width: 90%;
     display: flex;

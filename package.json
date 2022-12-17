@@ -13,6 +13,7 @@
     "@material-ui/icons": "^4.11.3",
     "@mui/base": "^5.0.0-alpha.107",
     "@mui/icons-material": "^5.10.16",
+    "@mui/lab": "^5.0.0-alpha.112",
     "@mui/material": "^5.10.15",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

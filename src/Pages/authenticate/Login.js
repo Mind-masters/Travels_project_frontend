@@ -44,6 +44,8 @@ const Login = () => {
           })
         });
 
+        console.log("kazkas: ", Req)
+
         const responseData = await Req.json();
 
         if(!Req.ok){

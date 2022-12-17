@@ -22,7 +22,7 @@ export const fetchUserPlaces = async(token) => {
 
         const jsonData = await Req.json();
 
-        console.log("json data: ", jsonData)
+        console.log("fetching user plces | json data: ", jsonData)
         const PlacesArray = jsonData.places.filter(item => item.deleted === false)
 
         response.status = true;

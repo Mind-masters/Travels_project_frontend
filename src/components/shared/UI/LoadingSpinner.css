@@ -12,8 +12,12 @@
   margin: 1px;
   border-radius: 50%;
   border: 5px solid #4b4a4c;
-  border-color: #00776fa2 transparent #00776fa2 transparent;
+  border-color: #f1d96ea2 transparent #f1d96ea2 transparent;
   animation: lds-dual-ring 1.2s linear infinite;
+}
+
+.loading-center{
+  width: 100%;
 }
 
 .loading-spinner__overlay {
