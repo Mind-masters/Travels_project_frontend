@@ -1,37 +1,34 @@
 import React from 'react'
 import styles from './delete.module.css';
 import exclamation_mark_logo from "../../../../assets/your-trip/exclamation_mark.png";
-import Button from '@mui/material/Button';
+import { CircularProgress, Button } from '@material-ui/core';
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from "../../../../components/shared/UI/toast";
 import { useContext } from 'react';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { deletePlaceById } from '../../../../components/utils/places/delete';
+import { useState } from 'react';
 
 
 const DeleteTrip = (props) => {
-  const navigate = useNavigate();
 
   const Author = useContext(AuthContext);
-  
+  const [isLoading, setIsLoading] = useState(false);
 
   const onDeleteHandler = async() => {
     const {place_id} = props;
-    console.log("deleting place with id: ", place_id)
+    setIsLoading(true);
 
-    try {
-      const kazkas = await fetch(`https://mind-master-backend-production.up.railway.app/api/v1/user/places/delete/${place_id}`, { 
-        method: 'POST', 
-        headers: {
-            "Content-Type" : "application/json",
-            "accept" : "application/json",
-            "authorization" : `Bearer ${Author.authenticatedUser.token.access_token}`
-        }
-      })
-      console.log("delete response: ", kazkas)
-    } catch (error) {
-      console.log("delete error: ",error);
+    const fetch_delete = await deletePlaceById(place_id, Author.authenticatedUser && Author.authenticatedUser.token.access_token);
+
+    setIsLoading(false);
+    if(fetch_delete.status){
+      notify(fetch_delete.data, "success");
+      props.onClose(false);
     }
+    if(!fetch_delete.status)notify(fetch_delete.message, "error");
 
-    props.onClose()
+
 
   }
 
@@ -49,9 +46,13 @@ const DeleteTrip = (props) => {
       </div>
 
       <div className={styles.buttons}>
-        <Button className={styles.cancel} onClick={props.onClose} variant="contained" color="success">No, Keep it</Button>
-        <Button className={styles.submit} onClick={onDeleteHandler} variant="contained" color="success">Yes, Delete!</Button>
-      </div>
+        {!isLoading && <Button className={styles.cancel} onClick={props.onClose.bind(null,true)} variant="contained" color="success">No, Keep it</Button>}
+        <Button className={styles.submit} onClick={onDeleteHandler} variant="contained" color="success">
+          {isLoading && <CircularProgress className={styles.loading_btn}/>}
+          {!isLoading && 'Click Me'}
+        </Button>
+      </div>      
+      
 
     </div>
   )

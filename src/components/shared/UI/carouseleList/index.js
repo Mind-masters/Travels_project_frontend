@@ -17,19 +17,20 @@ const SwiperList = (props) => {
     const image_ref = useRef(null);
 
 
+
     const carousel_slider_handler = () => {
-        console.log("updating list size");
+        // console.log('carousel_slider_handler occurs')
         if(!props.data)return
-        
-        const swiper_width = true ? container_ref.current.offsetWidth : container_ref.current.offsetWidth;
-        const number_of_slides = props.data.length >= Math.round(swiper_width / 500) ? Math.round(swiper_width / 500) : props.data.length
+        const plus_icon_width = image_ref.current ? image_ref.current.offsetWidth : 0;
+        const swiper_width = container_ref.current ? container_ref.current.offsetWidth - plus_icon_width : 1;
+        const number_of_slides = props.data.length >= Math.round(swiper_width / 450) ? Math.round(swiper_width / 450) : props.data.length
         setSlidesCount(number_of_slides);
     }
 
     useLayoutEffect(() => {
-        console.log("useLayoutEffect runs");
         carousel_slider_handler();
-    }, []);
+    });
+
 
     window.addEventListener("resize", () => {
         carousel_slider_handler();
@@ -37,7 +38,6 @@ const SwiperList = (props) => {
 
     const actionClickHandler = (arg) => {
         props.onStateClick(arg);
-        carousel_slider_handler();
     }
 
     const UserCRUD = ({id}) => {

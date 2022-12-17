@@ -6,6 +6,8 @@ import YourTripWrapper from "./Trips/wrapper";
 import { useNavigate } from "react-router-dom";
 import styles from "./main.module.css";
 import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from "../../components/shared/UI/toast";
 // importing logos
 import life_is_good_logo from "../../assets/your-trip/life_is_good.png";
 import fellow_travelers_logo from "../../assets/your-trip/fellow_travellers.png";
@@ -17,7 +19,6 @@ const YoutTrip = () => {
   const navigate = useNavigate();
 
   const [userPlaces, setUserPlaces] = useState([]);
-  const [isError, setIsError] = useState(false);
   const [onRefresh, setOnRefresh] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,6 +26,7 @@ const YoutTrip = () => {
 
   const onRefreshHandler = () => {
     setOnRefresh(!onRefresh);
+    setIsLoading(true)
   }
 
 
@@ -37,12 +39,9 @@ const YoutTrip = () => {
       
       const author_places = await fetchUserPlaces(Author.authenticatedUser.token.access_token)
 
-      console.log("fetched places data: ", author_places);
-
-      if(!author_places.status)return setIsError(author_places.error);
+      if(!author_places.status)return notify(author_places.error)
 
       setUserPlaces(author_places.data)
-
       setIsLoading(false);
     } 
 
@@ -55,7 +54,7 @@ const YoutTrip = () => {
   return (
     <Card>
 
-      { isLoading ? <LoadingSpinner asOverlay /> :
+      { isLoading ? <LoadingSpinner /> :
         <div className={styles.container}>
           <div className={styles.life_is_good_image}>
             <img src={life_is_good_logo} alt="life is good" />
@@ -65,9 +64,9 @@ const YoutTrip = () => {
             <TripList data={userPlaces} user_places={true} onRefresh={onRefreshHandler} />
           </YourTripWrapper>
 
-          <YourTripWrapper header={"Matches your interests"}>
+          {/* <YourTripWrapper header={"Matches your interests"}>
             <TripList data={userPlaces} user_places={false} />
-          </YourTripWrapper>
+          </YourTripWrapper> */}
 
 
           <div className={styles.fellow_friends_image}>

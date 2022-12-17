@@ -22,19 +22,18 @@ const  YourTripList = ({data, onRefresh, user_places}) => {
   const [showReviewModal,setShowReviewModal] = useState(false);
   const [showCreateModal, setShowCreateModal] = useState(false);
   
-  const onHideModalHandler = () => {
+  const onHideModalHandler = (isCanceled) => {
     setShowModal(false);
     setShowUpdateModal(false);
     setShowReviewModal(false);
     setShowDeleteModal(false);
     setShowCreateModal(false);
     Auth.changeUserModalStatus(false);
-    onRefresh();
+    if(!isCanceled)onRefresh();
 
   }
 
   const onOpenModalHandler = (body) => {
-    onHideModalHandler();
     if(body.state === "create")setShowCreateModal(true);
     if(body.state === "update")setShowUpdateModal(true);
     if(body.state === "delete")setShowDeleteModal(true);
@@ -54,10 +53,10 @@ const  YourTripList = ({data, onRefresh, user_places}) => {
           show={showModal} 
         >
           {
-            showUpdateModal && <UpdateTrip update={true} onClose={onHideModalHandler}/>
+            showUpdateModal && <UpdateTrip update={true} onClose={onHideModalHandler} />
           }
           {
-            showCreateModal && <UpdateTrip update={false} onClose={onHideModalHandler}/>
+            showCreateModal && <UpdateTrip update={false} onClose={onHideModalHandler} />
           }
           {
             showReviewModal && <ReviewTrip onClose={onHideModalHandler} />

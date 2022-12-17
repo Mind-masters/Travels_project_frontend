@@ -10,7 +10,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [authenticatedUser, setAuthenticatedUser] = useState();
   const [isUserModalActive, setIsUserModalActive] = useState(false);
-
+  const [refresher, setRefresher] = useState(null);
 
   const login = useCallback((user) => {
 
@@ -25,8 +25,6 @@ function App() {
     setIsLoggedIn(true)
     setAuthenticatedUser({data, token})
   }, [])
-
-
 
   const logout = useCallback(() => {
     setAuthenticatedUser(null);

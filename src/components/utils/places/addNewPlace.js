@@ -23,8 +23,6 @@ export const AddNewPlace = async(data, token) => {
             })
         })
 
-        console.log("req: ", Req);
-
         if(!Req.ok)throw new Error(Req.statusText || "Cannot share your trip..")
 
 

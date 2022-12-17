@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './destinations.module.css';
-import SwiperList from '../../../../components/shared/UI/carouseleList';
+// import SwiperList from '../../../../components/shared/UI/carouseleList';
 
 const Destinations = () => {
   
@@ -13,7 +13,7 @@ const Destinations = () => {
         </h2>
       </div>
 
-      <SwiperList />
+      {/* <SwiperList /> */}
 
       
     </div>
