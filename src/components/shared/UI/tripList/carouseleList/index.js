@@ -23,7 +23,7 @@ const SwiperList = (props) => {
         if(!props.data)return
         const plus_icon_width = image_ref.current ? image_ref.current.offsetWidth : 0;
         const swiper_width = container_ref.current ? container_ref.current.offsetWidth - plus_icon_width : 1;
-        const number_of_slides = props.data.length >= Math.round(swiper_width / 450) ? Math.round(swiper_width / 450) : props.data.length
+        const number_of_slides = props.data.length >= Math.round(swiper_width / 420) ? Math.round(swiper_width / 420) : props.data.length
         setSlidesCount(number_of_slides);
     }
 
