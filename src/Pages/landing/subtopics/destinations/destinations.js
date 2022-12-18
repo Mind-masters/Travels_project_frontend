@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './destinations.module.css';
-import YourTripWrapper from "../../../../components/shared/UI/tripList/wrapper";
 import CarouseleList from '../../../../components/shared/UI/tripList/carouseleList';
 import { fetchAllPlaces } from '../../../../components/utils/places/fetchPlaces';
 import { useEffect } from 'react';

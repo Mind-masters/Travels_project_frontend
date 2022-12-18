@@ -1,83 +1,74 @@
 import React from 'react'
 import styles from './popDestinations.module.css'
-import {FaStar} from 'react-icons/fa';
-import {FaMapMarkerAlt} from 'react-icons/fa';
-import {FcLike} from 'react-icons/fc';
-import {BsPen} from 'react-icons/bs';
+import dummy_user_logo from "../../../../assets/landing/dummy_user.png"
+import StarsRating from '../../../../components/shared/UI/Ratings/stars';
+import HeartRating from '../../../../components/shared/UI/Ratings/heart';
+
+
+import gallery_1 from "../../../../assets/hero-section.png";
+import gallery_2 from "../../../../assets/kazkas_1.jpeg";
+import gallery_3 from "../../../../assets/town.jpg";
 
 const PopDestinations = () => {
   return (
     <section className={styles.container}>
     
       <h1 className={styles.dest_title}>popular Destinations</h1>
-      
-      <div className={styles.profile_container}>
-        
-        <div className={styles.profile_content}>
-          <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600" alt='avatar'/>
+
+      <div className={styles.profile_content}>
+        <div className={styles.user_avatar}>
+          <img src={dummy_user_logo} alt='avatar'/>
           <p>
             <span>Rubi Rose.</span>
           </p>
         </div>
-        
 
-        <div className={styles.rate_content}>
-          <div className={styles.stars}>
-            <span><FaStar/></span>
-            <span><FaStar/></span>
-            <span><FaStar/></span>
-            <span><FaStar/></span>
-            <span><FaStar/></span>
+        <div className={styles.user_options}>
+          <div className={styles.user_rating}>
+            <StarsRating />
           </div>
 
-          <div>
-            <span>...</span>
+          <div className={styles.client_dropdown}>
+            <h1>...</h1>
           </div>
         </div>
 
         
       </div>
-        
-        {/*landing Gallery */}
-        <div className={styles.first_gallery}>
-          <img src='https://images.pexels.com/photos/1662770/pexels-photo-1662770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''></img>
-          <div className='second_gallery'>
-            <img src='https://images.pexels.com/photos/705075/pexels-photo-705075.jpeg?auto=compress&cs=tinysrgb&w=600' alt=''></img>
-            <img src='https://images.pexels.com/photos/225203/pexels-photo-225203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt=''></img>
-          </div>
+
+      <div className={styles.place_content} >
+
+        <div className={styles.place_content_title}>
+          <h2>Maldives</h2>
         </div>
-      
-        <div className={styles.parent_box}>
-          <div className={styles.clearfix}>
-            <div className={styles.dest_name}>
-              <h2>Green Hills, Gujarat</h2>
+
+        <div>
+          <HeartRating />
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center" }}>
+          <div className={styles.place_content_gallery}>
+            <div className={styles.parent_image}>
+              <img src={gallery_3} alt=""/>
             </div>
-            <div className={styles.menu_div}>
-              <nav>
-                <ul>
-                <li><FaMapMarkerAlt className={styles.map_icon}/></li>
-                    <li>View on Map</li>
-                    
-                </ul>
-              </nav>
+            <div className={styles.child_image}>
+              <img src={gallery_2} alt=""/>
+              <img src={gallery_1} alt=""/>
             </div>
+          </div>
+
+          <div className={styles.place_content_description}>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+              been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of 
+              . It has survived not only five centuries, but also the 
+              leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+              release of Letraset sheets containing passages, and more recently with desktop publishing software 
+              like Aldu.  ...<span id='read_more'>See More</span>
+            </p>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.description}>  
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
-          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of 
-          . It has survived not only five centuries, but also the 
-          leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
-          release of Letraset sheets containing passages, and more recently with desktop publishing software 
-          like Aldu.  ...<span id='read_more'>See More</span>
-        </p>
-      </div>
-
-      <div className={styles.likes_comment}>
-        <span><FcLike className={styles.likes}/></span><h3>23 likes</h3>
-        <span><BsPen className={styles.comment}/></span><h3>8 comments</h3>
+        
       </div>
 
     </section>

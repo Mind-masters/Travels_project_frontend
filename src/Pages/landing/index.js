@@ -56,8 +56,6 @@ const LandingMain = (props) => {
           <PopDestinations/>
         </div>
 
-
-        {/* all other sekctions like Destinations, Explore and so on... */}
     </div>
   )
 }
