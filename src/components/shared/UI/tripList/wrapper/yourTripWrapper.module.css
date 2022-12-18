@@ -23,6 +23,11 @@
 
 }
 
+.inherit{
+    background-color: inherit;
+    background-image: none;
+}
+
 .header_container h1{
     color: #707070;
     display:inline-block; 

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 
 import Modal from "../../../components/shared/UI/Modal";
-import CarouseleList from '../../../components/shared/UI/carouseleList';
+import CarouseleList from '../../../components/shared/UI/tripList/carouseleList';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 
 

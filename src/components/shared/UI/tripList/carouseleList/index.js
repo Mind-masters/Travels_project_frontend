@@ -5,7 +5,7 @@ import 'swiper/css';
 import { Navigation, EffectFade, Autoplay } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import add_new_trip_logo from "../../../../assets/your-trip/ad_new_trip_logo.png";
+import add_new_trip_logo from "../../../../../assets/your-trip/ad_new_trip_logo.png";
 
 const SwiperList = (props) => {
 
