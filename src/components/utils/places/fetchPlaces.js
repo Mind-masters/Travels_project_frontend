@@ -1,3 +1,5 @@
+import { FetchAPI_template } from "../FetchAPI_template"
+
 export const fetchUserPlaces = async(token) => {
 
     const response = {
@@ -23,7 +25,7 @@ export const fetchUserPlaces = async(token) => {
         const jsonData = await Req.json();
 
         console.log("fetching user plces | json data: ", jsonData)
-        const PlacesArray = jsonData.places.filter(item => item.deleted === false)
+        const PlacesArray = jsonData.response.filter(item => item.deleted === false)
 
         response.status = true;
         response.error = null;
@@ -52,9 +54,10 @@ export const fetchSinglePlace = async(id) => {
 
 export const fetchAllPlaces = async() => {
 
-    try {
-        
-    } catch (error) {
-        
-    }
+    const url = `https://mind-master-backend-production.up.railway.app/api/v1/client/places/all`;
+    const method = "GET";
+
+    const fetch_api_request = await FetchAPI_template(url,method);
+
+    return fetch_api_request;
 }

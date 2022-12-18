@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState } from 'react'
 import Card from "../../components/shared/UI/Card";
 import { AuthContext } from '../../contextAPI/AuthContext';
 import TripList from './Trips/tripList';
-import YourTripWrapper from "./Trips/wrapper";
+import YourTripWrapper from "../../components/shared/UI/tripList/wrapper";
 import { useNavigate } from "react-router-dom";
 import styles from "./main.module.css";
 import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';

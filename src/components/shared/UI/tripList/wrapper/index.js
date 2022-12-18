@@ -6,7 +6,7 @@ const YourTripWrapper = (props) => {
 
 
   return (
-    <div className={`effect ${styles.wrapper}`}>
+    <div className={`effect ${styles.wrapper} ${props.inherit && styles.inherit}`}>
 
       {
         props.header &&
