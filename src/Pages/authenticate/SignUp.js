@@ -65,11 +65,12 @@ const SignUp = () => {
 
         const responseData = await Req.json();
 
-        if(!Req.ok && responseData.details){
-          throw new Error(responseData.details[0].message)
+        if(!Req.ok || (!Req.ok && responseData.message)){
+          throw new Error(responseData.message || "Unexpected error in server")
         }
 
         notify("You signed Up successfully", "success");
+
         User.login(responseData);
 
         navigation("/new-member")
