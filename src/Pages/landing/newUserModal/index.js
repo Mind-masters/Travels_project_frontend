@@ -48,44 +48,47 @@ const NewUser = () => {
     }
 
     const onRegistrationSubmit = async (lastmodal) => {
-        console.log("Submited results: ",
-            {
-                interests: selectedInterestsData,
-                avatar: selectedAvatarData,
-                settings: lastmodal
-            }
-        );
+        // console.log("Submited results: ",
+        //     {
+        //         interests: selectedInterestsData,
+        //         avatar: selectedAvatarData,
+        //         settings: lastmodal
+        //     }
+        // );
+
+        console.log("avatar: ", selectedAvatarData);
+        console.log("gender: ", lastmodal.gender);
+        console.log("country: ", lastmodal.country.name.common)
         
 
 
-        // try {
-        //     const req  = await fetch("https://trip-master-server.herokuapp.com/api/v1/user/me/update", {
-        //         method: "PATCH",
-        //         headers: {
-        //           "Content-Type" : "application/json",
-        //           "accept" : "application/json",
-        //           "authorization" : `Bearer ${Auth.authenticatedUser.token.access_token}`
-        //         },
-        //         body: JSON.stringify({
-        //             country:lastmodal.country.name.common,
-        //             avatar: selectedAvatarData,
-        //             gender:lastmodal.gender,
-        //             interest: selectedInterestsData
-        //         })
-        //       })
+        try {
+            const req  = await fetch("https://mind-master-backend-production.up.railway.app/api/v1/user/me/update", {
+                method: "PATCH",
+                headers: {
+                  "Content-Type" : "application/json",
+                  "accept" : "application/json",
+                  "authorization" : `Bearer ${Auth.authenticatedUser.token.access_token}`
+                },
+                body: JSON.stringify({
+                    country:lastmodal.country.name.common,
+                    avatar: selectedAvatarData,
+                    gender:lastmodal.gender || "Secret",
+                })
+              })
 
-        //       console.log("req: ", req);
-        //       if(!req.ok)throw new Error("something went wrong");
+              console.log("req: ", req);
+              if(!req.ok)throw new Error("something went wrong");
 
-        //       const requsestData = await req.json();
+              const requsestData = await req.json();
 
-        //       console.log("data back from server: ", requsestData)
+              console.log("data back from server: ", requsestData)
 
-        //       onclose()
+              onclose()
             
-        // } catch (error) {
-        //     console.log("erros: ", error)
-        // }
+        } catch (error) {
+            console.log("erros: ", error)
+        }
 
         setShow(false);
 
