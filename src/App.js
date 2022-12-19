@@ -26,6 +26,18 @@ function App() {
     setAuthenticatedUser({data, token})
   }, [])
 
+  const update = useCallback(user => {
+
+    const {data, token} = user;
+
+    if(!data || !token){
+      setIsLoggedIn(false);
+      return;
+    }
+    setAuthenticatedUser({data, token})
+    setIsLoggedIn(true)
+  }, [])
+
   const logout = useCallback(() => {
     setAuthenticatedUser(null);
     setIsLoggedIn(false)
@@ -36,7 +48,7 @@ function App() {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, isUserModalActive, login, logout, changeUserModalStatus }}>
+    <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, isUserModalActive, login, logout, changeUserModalStatus, update }}>
       <MainNavigation />
       <Routing />
       <ToastContainer />

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Modal from '../../../../components/shared/UI/Modal';
 import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals/selectCountryModal';
 import SelectGenderModal from './selectGenderModal';
-
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from "../../../../components/shared/UI/toast";
 
 // Styles
 import default_styles from "../default_modal_styles.module.css"
@@ -58,6 +59,13 @@ const DefineUserSettings = (props) => {
     setOpenGenderModalActive(false);
   }
 
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    if(!genderValue) notify("Please define your gender", "error")
+    if(!countryValue) notify("Please define your country", "error")
+    if(genderValue && countryValue)return props.onSubmit({gender: genderValue, country: countryValue, fellowTravelers: fellowValue, homestay: homeStayValue, booking: bookingValue})
+  }
+
 
 
   return (
@@ -74,7 +82,7 @@ const DefineUserSettings = (props) => {
           <p>Tell us about yourself to start building your profile</p>
       </div>
 
-      <form className={custom_styles.form_container}>
+      <form className={custom_styles.form_container} onSubmit={onSubmitHandler}>
         <input placeholder='Gender' value={genderValue ? genderValue : ""} className={custom_styles.type_input} onChange={()=>{}} onClick={GenderInputActivateHandler} />
         <input placeholder='Country' value={countryValue ? countryValue.name.common : ""} className={custom_styles.type_input} onChange={()=>{}} onClick={CountryInputActivateHandler} />
         
@@ -107,7 +115,11 @@ const DefineUserSettings = (props) => {
             </div>
         </div>
 
-        <button className={custom_styles.continue_btn} onClick={props.onSubmit.bind(null, {gender: genderValue, country: countryValue, fellowTravelers: fellowValue, homestay: homeStayValue, booking: bookingValue})}>Join</button>
+        <button 
+          className={custom_styles.continue_btn} 
+        >
+          Join
+        </button>
 
       </form>
 

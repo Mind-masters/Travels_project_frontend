@@ -5,9 +5,16 @@ import PickUserAvatar from './pickUserAvatar';
 import SelectUserInterests from './selectUserInterests';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
+import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
+import "react-toastify/dist/ReactToastify.css";
+import { notify } from "../../../components/shared/UI/toast";
+
+
 const NewUser = () => {
     const Auth = useContext(AuthContext);
     const [show, setShow] = useState(true);
+
+    const [isLoading, setIsLoading] = useState(false);
 
     // declared states for showing or hiding modals
     const [showInterestsModal, setShowInterestsModal] = useState(true);
@@ -48,18 +55,9 @@ const NewUser = () => {
     }
 
     const onRegistrationSubmit = async (lastmodal) => {
-        // console.log("Submited results: ",
-        //     {
-        //         interests: selectedInterestsData,
-        //         avatar: selectedAvatarData,
-        //         settings: lastmodal
-        //     }
-        // );
 
-        console.log("avatar: ", selectedAvatarData);
-        console.log("gender: ", lastmodal.gender);
-        console.log("country: ", lastmodal.country.name.common)
         
+        setIsLoading(true);
 
 
         try {
@@ -73,36 +71,46 @@ const NewUser = () => {
                 body: JSON.stringify({
                     country:lastmodal.country.name.common,
                     avatar: selectedAvatarData,
-                    gender:lastmodal.gender || "Secret",
+                    gender:lastmodal.gender,
                 })
               })
 
-              console.log("req: ", req);
               if(!req.ok)throw new Error("something went wrong");
 
               const requsestData = await req.json();
+              const user = {data: requsestData.data,token: Auth.authenticatedUser.token}
 
-              console.log("data back from server: ", requsestData)
-
-              onclose()
+              Auth.update(user)
+              notify(requsestData.message, "success");
+              setIsLoading(false)
+              setShow(false);
             
         } catch (error) {
-            console.log("erros: ", error)
+
+            setIsLoading(false);
+            setShow(false);
+            Auth.logout();
+            notify(error.message || "operation failed", "error");
         }
 
-        setShow(false);
 
     }
   
-    return <Modal
-        onCancel={onclose}
-        show={show}
-    >
-        {showInterestsModal && <SelectUserInterests onClose={onClose} onSubmit={onInterestsModalSubmit} />}
-        {showAvatarModal && <PickUserAvatar onClose={onclose} onSubmit={onAvatarModalSubmit} />}
-        {showSettingsModal && <DefineUserSettings onClose={onclose} onSubmit={onSettingsModalSubmit} />}
-
-    </Modal>
+    return (
+        <Modal
+            show={show}
+        >
+            {
+                isLoading ? <LoadingSpinner /> :
+                <>
+                    {showInterestsModal && <SelectUserInterests onClose={onClose} onSubmit={onInterestsModalSubmit} />}
+                    {showAvatarModal && <PickUserAvatar onClose={onclose} onSubmit={onAvatarModalSubmit} />}
+                    {showSettingsModal && <DefineUserSettings onClose={onclose} onSubmit={onSettingsModalSubmit} />}
+                </>
+            }
+            
+        </Modal>
+    )
 }
 
 export default NewUser

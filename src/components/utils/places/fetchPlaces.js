@@ -2,54 +2,21 @@ import { FetchAPI_template } from "../FetchAPI_template"
 
 export const fetchUserPlaces = async(token) => {
 
-    const response = {
-        status: false,
-        data: null,
-        error: "not implemented"
-    }
+    if(!token)return {status: false, error: "Access token is missing"};
 
-    try {
+    const url = `https://mind-master-backend-production.up.railway.app/api/v1/user/places/get_all`;
+    const method = "GET";
 
-        const Req = await fetch("https://mind-master-backend-production.up.railway.app/api/v1/user/places/get_all", { 
-            method: 'GET', 
-            headers: {
-                "Content-Type" : "application/json",
-                "accept" : "application/json",
-                "authorization" : `Bearer ${token}`
-            }
-        })
+    const fetch_api_request = await FetchAPI_template(url,method,null,token);
+    if(!fetch_api_request.status)return fetch_api_request;
 
-        if(!Req.ok)throw new Error(Req.statusText || "Failed to fetch your trips..")
+    const AllPlaces = fetch_api_request.data.filter(place => place.deleted === false);
+
+    fetch_api_request.data = AllPlaces;
 
 
-        const jsonData = await Req.json();
+    return fetch_api_request;
 
-        console.log("fetching user plces | json data: ", jsonData)
-        const PlacesArray = jsonData.response.filter(item => item.deleted === false)
-
-        response.status = true;
-        response.error = null;
-        response.data = PlacesArray;
-
-        
-    } catch (error) {
-
-        response.status = false;
-        response.error = error.message || "failed";
-        response.data = null;
-    }
-
-    return response
-
-}
-
-export const fetchSinglePlace = async(id) => {
-
-    try {
-        
-    } catch (error) {
-        
-    }
 }
 
 export const fetchAllPlaces = async() => {
