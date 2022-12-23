@@ -69,8 +69,6 @@ const SignUp = () => {
           throw new Error(responseData.message || "Unexpected error in server")
         }
 
-        notify("You signed Up successfully", "success");
-
         User.login(responseData);
 
         navigation("/new-member")

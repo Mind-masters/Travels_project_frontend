@@ -4,7 +4,6 @@
     width: 65%;
     padding: 10px;
     padding-top: 20vh;
-    border: 2px solid red;
 }
 
 .profile_section{
@@ -114,7 +113,6 @@
 }
 .about_container{
     display: flex;
-    border: 2px solid green;
     height: 30vh;
     margin-bottom: 20vh;
     align-items: center;

@@ -1,5 +1,5 @@
 .form_container{
-    height: 100vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -27,14 +27,6 @@
     flex: 1;
 }
 
-.continue_btn{
-    background-color: #ffbd59ad;;
-    color: rgb(92, 102, 96);
-    border-radius: 50px;
-    padding: 0.5rem 0;
-    font-weight: bold;
-}
-
 .form_container input[type="checkbox"] {
     position: relative;
     margin-right: 10px;
@@ -56,4 +48,9 @@
   .form_container input[type="checkbox"]:focus {
     outline: none;
     border: 3.5px solid var(--main-color-hover);
+  }
+
+  .settings label, .type_input{
+    color: #4f4e4c;
+    font-size: 1rem;
   }

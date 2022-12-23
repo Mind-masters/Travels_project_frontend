@@ -16,7 +16,7 @@ export const FetchAPI_template = async(url, method, body_obj, custom_token) => {
 
     if(response.status === 501)return response;
 
-    const custom_headers = (method === post_method) ? {
+    const custom_headers = (method === post_method || custom_token) ? {
         "Content-Type" : "application/json",
         "accept" : "application/json",
         "authorization" : `Bearer ${custom_token}`
@@ -36,6 +36,8 @@ export const FetchAPI_template = async(url, method, body_obj, custom_token) => {
             body: custom_body
         });
 
+        if(req.status === 401)throw new Error("Not authenticated")
+
         if(!req.ok)throw new Error(req.statusText ||"Something went wrong!");
 
         const response_json = await req.json();
@@ -46,10 +48,9 @@ export const FetchAPI_template = async(url, method, body_obj, custom_token) => {
 
         
     } catch (error) {
-
         response.data = null;
         response.status = false;
-        response.message = error.message || "failed to delete your trip :(";
+        response.message = error.message || "Unexpected error, please try again";
     }
 
 

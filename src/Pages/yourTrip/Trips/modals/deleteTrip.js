@@ -23,7 +23,7 @@ const DeleteTrip = (props) => {
 
     setIsLoading(false);
     if(fetch_delete.status){
-      notify(fetch_delete.data, "success");
+      notify(fetch_delete.message, "success");
       props.onClose(false);
     }
     if(!fetch_delete.status)notify(fetch_delete.message, "error");

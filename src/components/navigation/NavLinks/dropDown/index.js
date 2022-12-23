@@ -31,34 +31,29 @@ const UserDropDown = () => {
 
             {dropDownMenu && ActiveUser &&
             
-            // <div className={styles.dropDownContainer}>
+            <div className={styles.dropDownContainer}>
 
-            //     <div className={styles.profile_link}>
-            //         {/* <NavLink to={"/profile"}>Visit your profile</NavLink> */}
-            //         laas
-            //     </div>
+                <div className={styles.profile_link}>
+                    <NavLink to={"/profile"}>Visit your profile</NavLink>
+                </div>
 
-            //     <div className={styles.body}>
-            //         <div>
-            //             <img src={star_logo} alt="" />
-            //             <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
-            //         </div>
+                <div className={styles.body}>
+                    <div>
+                        <img src={star_logo} alt="" />
+                        <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
+                    </div>
 
-            //         <div>
-            //             <img src={coints_logo} alt="" />
-            //             <h1>Get more points</h1>
-            //         </div>
-            //     </div>
+                    <div>
+                        <img src={coints_logo} alt="" />
+                        <h1>Get more points</h1>
+                    </div>
+                </div>
 
-            //     <div onClick={logoutHandler} className={styles.logout_link}>
-            //         <h1>Logout</h1>
-            //     </div>
+                <div onClick={logoutHandler} className={styles.logout_link}>
+                    <h1>Logout</h1>
+                </div>
 
-            // </div>
-
-<div>
-    <NavLink to={"/profile"}>Visit your profile</NavLink>
-</div>
+            </div>
 
             }
 

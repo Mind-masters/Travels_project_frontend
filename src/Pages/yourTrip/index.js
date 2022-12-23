@@ -36,10 +36,14 @@ const YoutTrip = () => {
     const fetchAuthPlaces = async() => {
       
       if(!Author.authenticatedUser || !Author.isLoggedIn) return navigate("/auth/login")
+
       
       const author_places = await fetchUserPlaces(Author.authenticatedUser.token.access_token)
 
-      if(!author_places.status)return notify(author_places.error)
+      if(!author_places.status){
+        notify(author_places.message, "error");
+        navigate("/");
+      }
 
       setUserPlaces(author_places.data)
       setIsLoading(false);
