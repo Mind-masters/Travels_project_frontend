@@ -1,0 +1,64 @@
+.pagination{
+    margin-bottom: 3vh;
+    display: flex;
+    height: 1.3vh;
+}
+
+.pagination div{
+    flex: 1;
+    margin: 0 10px;
+    background-color: rgba(199, 199, 199, 0.308);
+    border-radius: 50px;
+}
+
+.pagination .filled{
+    background-color: #ffbd5950;
+}
+
+
+.top_menu_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+
+.top_menu_container img{
+    align-self: center;
+}
+
+.main_logo{
+    width: 30%;
+}
+
+.back_arrow, 
+.next_arrow{
+    transition-duration: 0.2s;
+    width: 2.5rem;
+    cursor: pointer;
+}
+
+.back_arrow:hover, 
+.next_arrow:hover{
+    transform: translateY(-5px);
+}
+
+.invisible_arrow{
+    opacity: 0.4;
+    transform: none;
+    cursor: not-allowed;
+}
+
+
+.about_container{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.752);
+}
+
+.about_container h1{
+    font-size: 2rem;
+}
+
+.about_container p{
+    font-size: 1.4rem;
+}

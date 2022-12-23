@@ -4,9 +4,18 @@ import styles from "./Button.module.css";
 
 const Button = (props) => {
   return (
-  <div className={`${props.CustomClassName} ${styles.defaultButton}`} onClick={props.onClick}>
-    {props.children || props.text}
-  </div>
-)}
+    <button class="btn">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="text">Press Me!</span>
+    </button>
+  )
+}
 
 export default Button

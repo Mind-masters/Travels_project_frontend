@@ -4,15 +4,11 @@ import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals
 import SelectGenderModal from './selectGenderModal';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../../components/shared/UI/toast";
-
-// Styles
-import default_styles from "../default_modal_styles.module.css"
-import custom_styles from "./defineUserSettings.module.css";
+import { Button } from '@material-ui/core';
+import styles from "./defineUserSettings.module.css";
 
 
-// Logos
-import logo from "../../../../assets/logo.PNG"
-import back_logo from "../../../../assets/back_logo.png"
+import Header from '../header';
 
 const DefineUserSettings = (props) => {
 
@@ -59,8 +55,7 @@ const DefineUserSettings = (props) => {
     setOpenGenderModalActive(false);
   }
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
+  const onSubmitHandler = () => {
     if(!genderValue) notify("Please define your gender", "error")
     if(!countryValue) notify("Please define your country", "error")
     if(genderValue && countryValue)return props.onSubmit({gender: genderValue, country: countryValue, fellowTravelers: fellowValue, homestay: homeStayValue, booking: bookingValue})
@@ -69,22 +64,17 @@ const DefineUserSettings = (props) => {
 
 
   return (
-    <div className={default_styles.modal_content}>
+    <div style={{ display:"flex", flexDirection: "column" }}>
+      <Header 
+        mainText={"About you"}
+        subText={"Tell us about yourself to start building your profile"}
+        onPrev={props.onPrev || null}
+        page={3}
+      />
 
-      <div className={default_styles.top_menu_container}>
-        <img className={default_styles.close_logo} src={back_logo} alt="back" />
-        <img className={default_styles.logo} src={logo} alt="logo" />
-        <div className={default_styles.close_logo}><h4>Close</h4></div>
-      </div>
-
-      <div className={default_styles.about_container}>
-          <h1>About you</h1>
-          <p>Tell us about yourself to start building your profile</p>
-      </div>
-
-      <form className={custom_styles.form_container} onSubmit={onSubmitHandler}>
-        <input placeholder='Gender' value={genderValue ? genderValue : ""} className={custom_styles.type_input} onChange={()=>{}} onClick={GenderInputActivateHandler} />
-        <input placeholder='Country' value={countryValue ? countryValue.name.common : ""} className={custom_styles.type_input} onChange={()=>{}} onClick={CountryInputActivateHandler} />
+      <form className={styles.form_container} onSubmit={onSubmitHandler}>
+        <input placeholder='Gender' value={genderValue ? genderValue : ""} className={styles.type_input} onChange={()=>{}} onClick={GenderInputActivateHandler} />
+        <input placeholder='Country' value={countryValue ? countryValue.name.common : ""} className={styles.type_input} onChange={()=>{}} onClick={CountryInputActivateHandler} />
         
         <Modal
           onCancel={onclose}
@@ -98,31 +88,34 @@ const DefineUserSettings = (props) => {
             <SelectGenderModal onSubmit={SubmitGenderModal} onClose={closeModalHandler} /> 
           }
         </Modal>
-        <div className={custom_styles.settings}> 
+        <div className={styles.settings}> 
             <div>
-                <input type="checkbox" name="IsAccepted" id="fellow" onChange={(el)=>{setFellowValue(el.target.checked)}} />
                 <label htmlFor="fellow">I am looking for fellow travellers</label>
+                <input type="checkbox" name="IsAccepted" id="fellow" onChange={(el)=>{setFellowValue(el.target.checked)}} />
             </div>
 
             <div>
-                <input type="checkbox" name="IsAccepted" id="homestay" onChange={(el)=>{setHomeStayValue(el.target.checked)}}/>
                 <label htmlFor="homestay">I am interesting in Homestay program</label>
+                <input type="checkbox" name="IsAccepted" id="homestay" onChange={(el)=>{setHomeStayValue(el.target.checked)}}/>
             </div>
 
             <div>
-                <input type="checkbox" onChange={(el)=>{setBookingValue(el.target.checked)}} name="IsAccepted" id="booking" />
                 <label htmlFor="booking">I am interesting booking opportunities</label>
+                <input type="checkbox" onChange={(el)=>{setBookingValue(el.target.checked)}} name="IsAccepted" id="booking" />
             </div>
         </div>
 
-        <button 
-          className={custom_styles.continue_btn} 
+        <Button  
+          style={{ width: "50%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "rgba(137, 221, 108, 0.65)"}}
+          onClick={onSubmitHandler} 
+          variant="contained" 
+          color="success"
         >
-          Join
-        </button>
+          Continue
+        </Button>
 
       </form>
-
+      
     </div>
   )
 }

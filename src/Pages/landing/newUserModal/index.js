@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Modal from "../../../components/shared/UI/Modal";
-import DefineUserSettings from './defineUserSettings/defineUserSettisngs';
-import PickUserAvatar from './pickUserAvatar';
-import SelectUserInterests from './selectUserInterests';
+import DefineUserSettings from './defineUserSettings';
+import UserAvatar from "./defineUserAvatar/index";
+import UserInterests from './defineUserInterests';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
-
+import Wrapper from './wrapper';
+import { submitNewUser } from './SubmitNewUserData';
 
 const NewUser = () => {
     const Auth = useContext(AuthContext);
@@ -32,67 +33,66 @@ const NewUser = () => {
     })
 
 
-    const onClose = () => {
-        
-        // Auth.changeUserModalStatus(false);
+    const backHandler = (page_number) => {
+        if(page_number === 1){
+            setShowAvatarModal(false);
+            setShowInterestsModal(true);
+        }
+
+        if(page_number === 2){
+            setShowSettingsModal(false);
+            setShowAvatarModal(true);
+        }
     }
 
     const onInterestsModalSubmit = (data) => {
+        // console.log("onInterestsModalSubmit: ", data)
         setShowInterestsModal(false);
         setShowAvatarModal(true);
         setSelectedInterestsData(data);
     }
 
     const onAvatarModalSubmit = (data) => {
+        // console.log("onAvatarModalSubmit: ", data)
         setShowSettingsModal(true);
         setShowAvatarModal(false);
         setSelectedAvatarData(data);
     }
 
     const onSettingsModalSubmit = (data) => {
+        // console.log("onSettingsModalSubmit: ", data)
         setShowSettingsModal(false);
         onRegistrationSubmit(data)
     }
 
     const onRegistrationSubmit = async (lastmodal) => {
+        setShow(false);
 
-        
         setIsLoading(true);
+        const submit_data = await submitNewUser(
+            {
+                country:lastmodal.country.name.common,
+                avatar: selectedAvatarData,
+                gender:lastmodal.gender,
+            },
+            Auth.authenticatedUser.token.access_token
+        )
 
 
-        try {
-            const req  = await fetch("https://mind-master-backend-production.up.railway.app/api/v1/user/me/update", {
-                method: "PATCH",
-                headers: {
-                  "Content-Type" : "application/json",
-                  "accept" : "application/json",
-                  "authorization" : `Bearer ${Auth.authenticatedUser.token.access_token}`
-                },
-                body: JSON.stringify({
-                    country:lastmodal.country.name.common,
-                    avatar: selectedAvatarData,
-                    gender:lastmodal.gender,
-                })
-              })
-
-              if(!req.ok)throw new Error("something went wrong");
-
-              const requsestData = await req.json();
-              const user = {data: requsestData.data,token: Auth.authenticatedUser.token}
-
-              Auth.update(user)
-              notify(requsestData.message, "success");
-              setIsLoading(false)
-              setShow(false);
-            
-        } catch (error) {
-
+        if(!submit_data.status){
+            setShow(true);
+            notify(submit_data.message, "error");
+            setShowInterestsModal(true);
+            return;
+        }
+        else if(submit_data.status){
             setIsLoading(false);
-            setShow(false);
-            Auth.logout();
-            notify(error.message || "operation failed", "error");
+            const user = {data: submit_data.data,token: Auth.authenticatedUser.token};
+            notify(submit_data.message, "success");
+            Auth.update(user)
         }
 
+        return
 
     }
   
@@ -102,11 +102,11 @@ const NewUser = () => {
         >
             {
                 isLoading ? <LoadingSpinner /> :
-                <>
-                    {showInterestsModal && <SelectUserInterests onClose={onClose} onSubmit={onInterestsModalSubmit} />}
-                    {showAvatarModal && <PickUserAvatar onClose={onclose} onSubmit={onAvatarModalSubmit} />}
-                    {showSettingsModal && <DefineUserSettings onClose={onclose} onSubmit={onSettingsModalSubmit} />}
-                </>
+                <Wrapper>
+                    {showInterestsModal && <UserInterests existing_data={selectedInterestsData || []} onSubmit={onInterestsModalSubmit} />}
+                    {showAvatarModal && <UserAvatar onPrev={backHandler.bind(null, 1)} onSubmit={onAvatarModalSubmit} />}
+                    {showSettingsModal && <DefineUserSettings onPrev={backHandler.bind(null, 2)} onSubmit={onSettingsModalSubmit} />}
+                </Wrapper>
             }
             
         </Modal>

@@ -1,0 +1,17 @@
+export const DEFAULT_OPTIONS = [
+    {key: 1, value: "Scary places"},
+    {key: 2, value: "Town"},
+    {key: 3, value: "trip by car"},
+    {key: 4, value: "Mysteryous places"},
+    {key: 5, value: "Hills"},
+    {key: 6, value: "Natural"},
+    {key: 7, value: "Culture"},
+    {key: 8, value: "Comfortability"},
+    {key: 9, value: "Book now!"},
+    {key: 10, value: "Romantic"},
+    {key: 11, value: "Camping"},
+    {key: 12, value: "Exotic places"},
+    // {key: 13, value: "Geocaching"},
+    {key: 13, value: "Roads"},
+    {key: 14, value: "Photography"},
+]
