@@ -1,64 +1,124 @@
-import React, { useContext, useState } from 'react'
-import styles from "./dropDown.module.css";
+import React, {useContext, useState} from 'react';
+import Box from '@mui/material/Box';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+import styles from './dropDown.module.css';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink, Navigate } from 'react-router-dom';
+
 // logos
 import user_logo from "../../../../assets/dropDown/user_logo.png"
 import coints_logo from "../../../../assets/dropDown/coints_logo.png"
 import star_logo from "../../../../assets/dropDown/star_logo.png"
-import { NavLink } from 'react-router-dom';
 
+export default function AccountMenu() {
 
-const UserDropDown = () => {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
 
-    const [dropDownMenu, showDropDownMenu] = useState(false);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     const navigate = useNavigate();
     const User = useContext(AuthContext);
     const ActiveUser = User.authenticatedUser || null;
-    const UserData = ActiveUser ? ActiveUser.data : null
+    const UserData = ActiveUser ? ActiveUser.data : null;
 
     const logoutHandler = () => {
         User.logout();
-        navigate("/")
-        console.log("logging you out, user: ", User)
+        navigate("/");
     }
 
     return (
+        <>
+            <Box sx={{ display: 'flex', justifyContent:"right", alignItems: 'center', textAlign: 'center' }}>
+                <Tooltip title="Account menu">
+                <IconButton
+                    onClick={handleClick}
+                    size="small"
+                    sx={{ ml: 2 }}
+                    aria-controls={open ? 'account-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                >
+                    <img className={styles.logo} src={user_logo} alt="logo" />
+                </IconButton>
+                </Tooltip>
+            </Box>
 
-        <div className={styles.container}>
-            
-            <img className={styles.user_logo} src={user_logo} alt="" onClick={()=>showDropDownMenu(!dropDownMenu)} />
-
-            {dropDownMenu && ActiveUser &&
-            
-            <div className={styles.dropDownContainer}>
-
-                <div className={styles.profile_link}>
-                    <NavLink to={"/profile"}>Visit your profile</NavLink>
-                </div>
-
-                <div className={styles.body}>
-                    <div>
-                        <img src={star_logo} alt="" />
-                        <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
+            <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={open}
+                onClose={handleClose}
+                PaperProps={{
+                elevation: 0,
+                sx: {
+                    borderEndEndRadius: 30,
+                    borderEndStartRadius: 30,
+                    background: "#3B3C3A",
+                    overflow: 'visible',
+                    filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                    mt: 1.5,
+                    '& .MuiAvatar-root': {
+                    width: 32,
+                    height: 32,
+                    },
+                    '&:before': {
+                    content: '""',
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    right: 20,
+                    width: 15,
+                    height: 15,
+                    bgcolor: '#BCB696',
+                    transform: 'translateY(-50%) rotate(45deg)',
+                    zIndex: 0,
+                    },
+                },
+                
+                }}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+            >
+                <MenuItem>
+                    <div className={styles.profile_link}>
+                        <NavLink to={"/profile"}>Visit your profile</NavLink>
                     </div>
+                </MenuItem>
 
-                    <div>
-                        <img src={coints_logo} alt="" />
-                        <h1>Get more points</h1>
+                <MenuItem>
+                    <div className={styles.body}>
+                        <div>
+                            <img src={star_logo} alt="" />
+                            <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
+                        </div>
+
+                        <div>
+                            <img src={coints_logo} alt="" />
+                            <h1>Get more points</h1>
+                        </div>
                     </div>
-                </div>
+                </MenuItem>
 
-                <div onClick={logoutHandler} className={styles.logout_link}>
-                    <h1>Logout</h1>
-                </div>
+                <Divider style={{ backgroundColor: "rgba(166, 131, 131, 1)", height: 2 }} />
+                
+                <MenuItem>
+                    <div onClick={logoutHandler} className={styles.logout_link}>
+                        <h1>Logout</h1>
+                    </div>
+                </MenuItem>
 
-            </div>
-
-            }
-
-        </div>
-    )
+            </Menu>
+        </>
+    );
 }
-
-export default UserDropDown

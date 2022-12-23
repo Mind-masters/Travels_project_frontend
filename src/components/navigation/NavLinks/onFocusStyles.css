@@ -1,12 +1,12 @@
 .onFocus a:hover,
 .onFocus a:active,
 .onFocus a.active {
-  color: #F3DE1B;
+  color: rgb(112, 106, 52);
   /* color: rgb(18, 16, 14); */
 }
 
 .onFocus a{
-  color: #992323;
+  color: rgba(147, 144, 120, 1);
 }
 .onFocus img{
   width: 2rem;
@@ -23,7 +23,7 @@
 .onAuth a{
   color: rgb(23, 22, 20);
   text-align: center;
-  background-color: #F3DE1B;
+  background-color: #f31b1b;
   font-weight: 600;
   padding: 0.8rem 2.8rem;
 }

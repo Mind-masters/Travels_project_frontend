@@ -4,7 +4,6 @@
   min-height: 10vh;
   display: flex;
   align-items: center;
-  /* box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507); */
   transition-duration: 0.2s;
 
 }
@@ -21,22 +20,26 @@
   position: fixed;
   top: 0;
   z-index: 100;
-  background-color: rgba(31, 183, 92, 0.664);
+  /* background-color: rgba(31, 183, 92, 0.664); */
+  background-color: rgba(48, 48, 47, 1);
 }
 
 .statusHeaderContainer{
   width: 100%;
   position: relative;
-  background-color: rgba(31, 183, 92, 0.851);
+  /* background-color: rgba(31, 183, 92, 0.851); */
+  background-color: rgba(32, 33, 32, 1);
   padding: 1rem;
 }
 
 .statusHeader{
   width: 90%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: auto;
+}
+
+.statusHeader .flex_item{
+  flex: 1;
 }
 
 
@@ -50,16 +53,22 @@
   font-weight: bold;
 }
 
+.none h1{
+  color: #87f2a2;
+}
+
 .none h1 span{
-  color: #992323;
+  color: rgb(189, 180, 115);
 }
 
 .login_link{
   padding: 8px 35px;
   border-radius: 50px;
-  background-color: #FFFFFF;
-  box-shadow: 0 10px 6px -6px #777;
+  background-color: rgba(23, 3, 3, 0.759);
+  color: rgba(147, 144, 120, 1);
+  box-shadow: 0px 5px 10px 0px rgb(189, 180, 115);
 }
+
 
 .statusHeader div{
   flex: 1;
@@ -79,26 +88,25 @@
 }
 
 .userData .points{
-  background-color: rgba(250, 250, 250, 0.759);
+  background-color: rgba(23, 3, 3, 0.759);
   padding: 10px 0;
   width: 45%;
   border-radius: 50px;
   font-size:1.2rem;
-  color: #9d3434;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  color: rgba(147, 144, 120, 1);
+  box-shadow: 0px 5px 10px 0px rgb(189, 180, 115);
+  font-weight: bold;
 
 }
 
 
-.userData .points:hover {
+.userData .points:hover, .login_link:hover {
   transform: translateY(-5px);
   box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
 }
 
 .hidden{
-  /* visibility: hidden; */
   display: none;
-
 }
 
 .mainHeader:hover{

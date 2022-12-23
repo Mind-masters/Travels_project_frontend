@@ -16,15 +16,15 @@ const StatusHeader = props => {
 
         <div className={`${styles.statusHeader}`}>
 
-            <div className={styles.none}>
+            <div className={`${styles.none} ${styles.flex_item}`}>
                 <h1><span>Trip</span>Master</h1>
             </div>
 
-            <div className={styles.userData}>
+            <div className={`${styles.userData} ${styles.flex_item}`}>
                 {
                     UserData?
                     <>
-                        <p className={`${UserData.is_new_login && styles.hidden}`} >+ 1</p>
+                        {/* <p className={`${UserData.is_new_login && styles.hidden}`} >+ 1</p> */}
 
                         <p className={styles.points}>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</p>
                     </>
@@ -35,7 +35,7 @@ const StatusHeader = props => {
             </div>
 
 
-            <div>
+            <div className={`${styles.flex_item}`}>
                 {!User.isLoggedIn ? 
 
                     <NavLink className={styles.login_link} to={"/auth/login"}>Login</NavLink>
