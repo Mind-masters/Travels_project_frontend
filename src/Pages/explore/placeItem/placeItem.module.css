@@ -1,0 +1,170 @@
+.container{
+    margin-bottom: 15vh;
+    background-color: rgba(255, 255, 255, 0.597);
+    padding: 5vh 0;
+    border-radius: 20px;
+}
+
+.author_line{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.author_image{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    font-size: 1.7rem;
+}
+
+.author_line .author_image img{
+    width: 4rem;
+}
+
+.user_menu_big_screens{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button{
+    height: 60%;
+    width: 16%;
+}
+
+.button img{
+    width: 2rem;
+}
+
+.client_dropdown{
+    align-self: center;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+.client_dropdown{
+    display: none;
+}
+
+.rating{
+    border: 2px solid red;
+    align-self: center;
+}
+
+.imageFieldPicture{
+    width: 35rem;
+    margin: 0 auto;
+}
+
+.imageFieldContentHeader{
+    display: flex;
+    margin: 20px 0;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imageFieldContentHeader h1{
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+
+}
+
+
+.imageFieldContent .description{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.imageFieldContent .description p{
+    font-size: 1.2rem;
+    color: rgb(164, 161, 161);
+}
+
+.like_comm_controllers{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5vh;
+}
+
+
+
+@media screen and (max-width: 1270px) {
+    .user_menu_big_screens{
+        flex: 2;
+    }
+
+    .author_image{
+        flex: 1
+    }
+
+    .button{
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .user_menu_big_screens{
+        flex: 1;
+    }
+
+    .author_image{
+        flex: 1
+    }
+
+    .button{
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .user_menu_big_screens{
+        flex: 1;
+        display: flex;
+        justify-content: end;
+    }
+
+    .button, .starRating{
+        display: none;
+    }
+
+    .author_image{
+        flex: 2
+    }
+
+    .client_dropdown{
+        margin-right: 20%;
+        display: flex;
+        align-content: center;
+        justify-content: space-around;
+        flex-direction: column;
+        align-self: center;
+        cursor: pointer;
+    }
+    
+    .client_dropdown div{
+        width: 0.8rem;  
+        height: 20%;
+        font-weight: bold; 
+        background-color: rgba(45, 45, 45, 0.371);
+        border-radius: 50%;
+
+    }
+    
+
+}
+
+@media screen and (max-width: 500px){
+    .author_image{
+        flex: 3;
+    }
+}
+
+@media screen and (max-width: 440px){
+    .user_menu_big_screens{
+        flex: 0;
+    }
+}

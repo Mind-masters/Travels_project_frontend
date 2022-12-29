@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import styles from "./index.module.css";
+import styles from "./placeItem.module.css";
 
 const Follow = () => {
     const[follow,setFollow] = useState('Follow');

@@ -3,18 +3,16 @@ import styles from "./Button.module.css";
 
 
 const Button = (props) => {
+
+
+  const onClickHandler = () => {
+    return props.onCLick || null;
+  }
+
   return (
-    <button class="btn">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="text">Press Me!</span>
-    </button>
+    <div class={styles.button} onClick={onClickHandler}>
+      {props.children}
+    </div>
   )
 }
 

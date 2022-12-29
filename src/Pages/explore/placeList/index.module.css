@@ -1,0 +1,13 @@
+.container{
+    flex: 3;
+    text-align: center;
+}
+
+.container .container_header{
+    font-size: 3rem;
+    color: rgba(112, 112, 112, 1);
+}
+
+.list_container{
+    padding: 20px 0;
+}

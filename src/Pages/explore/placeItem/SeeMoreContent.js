@@ -1,6 +1,6 @@
 import React from 'react'
 import SeeMore from './SeeMore'
-import styles from "./index.module.css";
+import styles from "./placeItem.module.css";
 
 
 const SeeMoreContent = () => {
