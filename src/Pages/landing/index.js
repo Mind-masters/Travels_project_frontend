@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./index.module.css";
+import styles from "./landing.module.css";
 import Destinations from "./subtopics/destinations/destinations"
 import Button from '../../components/shared/UI/button/Button';
 import { NavLink } from 'react-router-dom';

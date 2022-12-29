@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./index.module.css";
+import styles from "./placeItem.module.css";
 
 const SeeMore = ({ children }) => {
     const text = children;

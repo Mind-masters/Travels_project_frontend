@@ -40,7 +40,7 @@ const Destinations = () => {
         </h2>
       </div>
 
-      {isLoading && <LoadingSpinner asOVerlay/>}
+      {isLoading && <LoadingSpinner asOverlay/>}
 
       {!isLoading && allPlaces && 
         <div style={{padding: 15, height: "50vh", width: "100%" }} >
