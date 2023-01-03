@@ -10,11 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
 import Wrapper from './wrapper';
 import { submitNewUser } from './SubmitNewUserData';
+import { useNavigate } from 'react-router-dom';
 
 const NewUser = () => {
     const Auth = useContext(AuthContext);
     const [show, setShow] = useState(true);
-
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
     // declared states for showing or hiding modals
@@ -26,12 +27,6 @@ const NewUser = () => {
     const [selectedInterestsData, setSelectedInterestsData] = useState([]);
     const [selectedAvatarData, setSelectedAvatarData] = useState(null);
     const [selectedSettingsData, setSelectedSettingsData] = useState(null);
-
-
-    useEffect(() => {
-        Auth.changeUserModalStatus(true)
-    })
-
 
     const backHandler = (page_number) => {
         if(page_number === 1){
@@ -66,9 +61,9 @@ const NewUser = () => {
     }
 
     const onRegistrationSubmit = async (lastmodal) => {
-        setShow(false);
 
         setIsLoading(true);
+
         const submit_data = await submitNewUser(
             {
                 country:lastmodal.country.name.common,
@@ -80,16 +75,16 @@ const NewUser = () => {
 
 
         if(!submit_data.status){
-            setShow(true);
-            notify(submit_data.message, "error");
+            setIsLoading(false);
+            notify(submit_data.message || "please try again", "error");
             setShowInterestsModal(true);
             return;
         }
         else if(submit_data.status){
-            setIsLoading(false);
             const user = {data: submit_data.data,token: Auth.authenticatedUser.token};
             notify(submit_data.message, "success");
-            Auth.update(user)
+            Auth.update(user);
+            navigate("/")
         }
 
         return

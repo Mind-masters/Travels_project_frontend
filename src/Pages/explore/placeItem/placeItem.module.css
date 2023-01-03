@@ -163,7 +163,7 @@
     }
 }
 
-@media screen and (max-width: 440px){
+@media screen and (max-width: 340px){
     .user_menu_big_screens{
         flex: 0;
     }

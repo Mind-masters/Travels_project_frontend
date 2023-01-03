@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import styles from "./placeItem.module.css";
 import Comments from "./comments/Comments";
-import Rating from './Rating';
+import StarsRating from '../../../components/shared/UI/Ratings/stars';
 import images2 from '../../../assets/travel-background.jpg'
 import Button from '../../../components/shared/UI/button/Button';
 import HeartRating from '../../../components/shared/UI/Ratings/heart';
@@ -30,7 +30,7 @@ const PlaceItem = () => {
             <Button><p>Profile</p></Button>
           </div>
           <div className={styles.starRating}>
-            <Rating/>
+            <StarsRating/>
           </div>
           <div className={styles.client_dropdown}>
             <div></div>
@@ -52,7 +52,7 @@ const PlaceItem = () => {
             </div>
 
             <div className={styles.button}>
-              <Button>
+              <Button color="#96F974">
                 <img src={map_icon} alt="" />
                 View on map
               </Button>
@@ -76,7 +76,7 @@ const PlaceItem = () => {
 
         <>
           <div className={styles.button}>
-            <Button>
+            <Button color="#F7F6F0">
               <img src={pencil_icon} alt="" />
               Comments
             </Button>

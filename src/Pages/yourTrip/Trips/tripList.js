@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 
 import Modal from "../../../components/shared/UI/Modal";
 import CarouseleList from '../../../components/shared/UI/tripList/carouseleList';
-import { AuthContext } from '../../../contextAPI/AuthContext';
 
 
 // importing modals: 
@@ -12,8 +11,6 @@ import ReviewTrip from "./modals/reviewTrip";
 
 
 const  YourTripList = ({data, onRefresh, user_places}) => {
-
-  const Auth = useContext(AuthContext);
 
   const [activatedPlaceItemId, setActivatedPlaceItemId] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -28,7 +25,6 @@ const  YourTripList = ({data, onRefresh, user_places}) => {
     setShowReviewModal(false);
     setShowDeleteModal(false);
     setShowCreateModal(false);
-    Auth.changeUserModalStatus(false);
     if(!isCanceled)onRefresh();
 
   }
@@ -40,7 +36,6 @@ const  YourTripList = ({data, onRefresh, user_places}) => {
     if(body.state === "review")setShowReviewModal(true);
     setActivatedPlaceItemId(body.id)
     setShowModal(true); 
-    Auth.changeUserModalStatus(true);
   }
 
   return (

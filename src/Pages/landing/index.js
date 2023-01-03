@@ -5,15 +5,16 @@ import Button from '../../components/shared/UI/button/Button';
 import { NavLink } from 'react-router-dom';
 import PopDestinations from './subtopics/destinations/popdestinations';
 import NewUser from './newUserModal';
-import MainNavigation from '../../components/navigation/Container';
+import MainNavigation from '../../components/navigation';
 import { useContext } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
 
-// import CarouseleList from '../../components/shared/UI/carouseleList';
 
 const LandingMain = (props) => {
   const Auth = useContext(AuthContext);
-  // console.log("auth in landing page: ", Auth)
+
+
+  console.log("auth :" , Auth)
 
   return (
 
@@ -23,26 +24,29 @@ const LandingMain = (props) => {
           props.extra &&
           <NewUser />
         }
+        
         <div className={styles.welcomePage}>
 
           <div className={styles.welcomePage_section1}></div>
           <div className={styles.welcomePage_section2}></div>
 
-          <div className={styles.welcomePage_menu}>
+          <div className={styles.welcomePage_content}>
 
-            <div className={styles.welcomePage_menu_navigation}>
+            <div className={styles.welcomePage_content_navigation}>
               <MainNavigation home={true} />
             </div>
 
-            <div className={styles.welcomePage_menu_header}>
-              <h1>Life is traveling</h1>
-              <h3>So enjoy every moment</h3>
+            <div className={styles.welcomePage_content_header}>
+              <h1>Unlimited travels, discounts, new friends!</h1>
+              <h3>Enjoy every moment</h3>
             </div>
 
-            <div className={styles.welcomePage_menu_searchbar_container}>
-              <div className={styles.welcomePage_menu_searchbar}>
-                <input placeholder='Enter your destination'></input>
-                <button>Explore</button>
+            <div className={styles.welcomePage_content_searchbar_wrapper}>
+              <div className={styles.welcomePage_content_searchbar}>
+                <input placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`}></input>
+                <div className={styles.explore_button}>
+                  <Button>{Auth.isLoggedIn ? "Explore" : "Get Started"}</Button>
+                </div>
               </div>
             </div>
             
@@ -52,7 +56,7 @@ const LandingMain = (props) => {
         </div>
 
         <div>
-          <Destinations/>
+          {!props.extra && <Destinations/>}
           <PopDestinations/>
         </div>
 

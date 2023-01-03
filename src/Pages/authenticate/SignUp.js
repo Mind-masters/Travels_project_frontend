@@ -95,7 +95,7 @@ const SignUp = () => {
     <Card>
       {
 
-        isLoading ? <LoadingSpinner asOverlay /> 
+        isLoading ? <LoadingSpinner /> 
         
         :
 
