@@ -9,6 +9,7 @@ import { useState } from 'react';
 import LoadingSpinner from '../../../../components/shared/UI/LoadingSpinner';
 
 
+
 const Destinations = () => {
 
   const [allPlaces, setAllPlaces] = useState(null);
