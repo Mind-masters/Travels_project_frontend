@@ -26,6 +26,7 @@
     "material-ui": "^1.0.0-beta.47",
     "npm": "^8.19.2",
     "react": "^18.2.0",
+    "react-activity": "^1.2.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-rating-stars-component": "^2.2.0",

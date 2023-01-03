@@ -10,7 +10,6 @@ const SelectCountryModal = (props) => {
 
   const [showContriesNames, setShowCountriesNames] = useState(true); 
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
     const fetchCountriesData = async() => {
@@ -28,7 +27,7 @@ const SelectCountryModal = (props) => {
 
   
       } catch (error) {
-        console.log("error in fetching...", error);
+        console.log("Failed to fetch countries...", error);
       }
     }
 

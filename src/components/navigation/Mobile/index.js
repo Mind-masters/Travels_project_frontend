@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./mobileNavButton.module.css";
+import styles from "./mobile.module.css";
 
 const MobileNavButton = (props) => (
     <button className={styles.navigationMenuBtn} onClick={props.onClick}>

@@ -27,7 +27,7 @@
     background-position: center;
 }
 
-.welcomePage_menu{
+.welcomePage_content{
     position: absolute;
     width: 100%;
     display: flex;
@@ -37,7 +37,7 @@
     flex-direction: column;
 }
 
-.welcomePage_menu_navigation{
+.welcomePage_content_navigation{
     position: relative;
     align-self: start;
     width: 50%;
@@ -46,7 +46,7 @@
 }
 
 
-.welcomePage_menu_header{
+.welcomePage_content_header{
     width: 50%;
     flex: 3;
     text-align: center;
@@ -55,15 +55,9 @@
 
 }
 
-.temp{
-    border: 2px solid red;
-    width: 100%;
-    margin-top: 20vh;
-    height: 50vh;
-}
 
-.welcomePage_menu_header h1{
-    font-size: 5vw;
+.welcomePage_content_header h1{
+    font-size: 3vw;
     width: 60%;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -71,47 +65,77 @@
     letter-spacing: 2px;
 }
 
-.welcomePage_menu_header h3{
-    font-size: 2vw;
+.welcomePage_content_header h3{
+    font-size: 1.5vw;
 }
 
-.welcomePage_menu_searchbar_container{
+.welcomePage_content_searchbar_wrapper{
     width: 100%;
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-.welcomePage_menu_searchbar{
-    width: 50%;
+.welcomePage_content_searchbar{
     align-self: flex-start;
-    display: flex;
     padding: 13px;
     background-color: rgb(249, 255, 240);
-    justify-content: space-between;
     border-radius: 50px;
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
 }
 
-.welcomePage_menu_searchbar input{
+.welcomePage_content_searchbar input{
     flex: 4;
     outline: none;
     color: rgba(0, 0, 0, 0.55);
     font-size: 1.2rem;
     background-color: transparent;
-
+    height: 7vh;
+    margin-right: 4rem;
 }
 
-.welcomePage_menu_searchbar button{
-    flex: 1;
-    padding: 8px 0;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.4rem;
-    background-color: rgba(243, 222, 27, 1);
+.welcomePage_content_searchbar .explore_button{
+    flex: 1;    
 }
 
-@media screen and (max-width: 570px) {
-    .welcomePage_menu_header h1{
-        /* border: 2px solid red; */
+@media screen and (max-width: 1300px) {
+    .welcomePage_content_searchbar{
+        width: 65%;
     }
 }
+
+@media screen and (max-width: 950px) {
+    .welcomePage_content_searchbar{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .welcomePage_content_searchbar{
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .welcomePage_content_searchbar input{
+        width: 90%;
+        flex: auto;
+        margin: 0 auto;
+    }
+
+    .welcomePage_content_searchbar .explore_button{
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .welcomePage_content_searchbar .explore_button{
+        width: 70%;
+    }
+}
+

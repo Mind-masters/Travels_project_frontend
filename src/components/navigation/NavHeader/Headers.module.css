@@ -19,7 +19,7 @@
 .mainHeaderFixed{
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 2;
   /* background-color: rgba(31, 183, 92, 0.664); */
   background-color: rgba(48, 48, 47, 1);
 }
