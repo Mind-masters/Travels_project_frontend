@@ -10,10 +10,11 @@ import HeartRating from '../../../components/shared/UI/Ratings/heart';
 import map_icon from "../../../assets/map_icon.png";
 import pencil_icon from "../../../assets/pencil.png";
 
-const PlaceItem = () => {
+const PlaceItem = ({item}) => {
+  console.log("iem: ", item )
   const [showComments, setShowComments] = useState(false)
   const onClick = () => setShowComments(true)
-
+  const item_author = item.user_id ? item.user_id : "Unknown user"
   
   return (
     <div className={styles.container}>
@@ -21,8 +22,8 @@ const PlaceItem = () => {
       <div className={styles.author_line}>
 
         <div className={styles.author_image}>
-          <img src='https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFrida&accessoriesType=Blank&facialHairType=BeardMajestic&facialHairColor=BlondeGolden&clotheType=CollarSweater&clotheColor=Gray02&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Eating&skinColor=Yellow' alt=''/>
-          <p>Jeson Derulo</p>
+          <img src={item_author.avatar} alt=''/>
+          <p>{item_author.name}</p>
         </div>
 
         <div className={styles.user_menu_big_screens}>
@@ -43,12 +44,12 @@ const PlaceItem = () => {
 
       <div className={styles.imageField}>
         
-        <img src={images2} className={styles.imageFieldPicture} alt=""/>
+        <img src={item.image} className={styles.imageFieldPicture} alt=""/>
 
         <div className={styles.imageFieldContent}>
           <div className={styles.imageFieldContentHeader}>
             <div>
-              <h1>Aravallis , Ice land</h1>
+              <h1>{item.title}</h1>
             </div>
 
             <div className={styles.button}>
