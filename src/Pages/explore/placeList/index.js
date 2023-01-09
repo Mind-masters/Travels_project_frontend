@@ -16,7 +16,6 @@ const PlaceList = () => {
       setIsLoading(true)
       const placesData = await fetchAllPlaces();
       setIsLoading(false);
-      console.log("data: ", placesData);
       if(!placesData.status)notify(placesData.message, "error")
       setData(placesData.data);
     }
@@ -29,7 +28,7 @@ const PlaceList = () => {
   const ListItemElement = () => (
     <div className={styles.list_container}>
       {
-        data.map(item => <PlaceItem item={item} />)
+        data.map(item => <PlaceItem key={item._id} item={item} />)
       }
     </div>
   )
