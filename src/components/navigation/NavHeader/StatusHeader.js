@@ -5,12 +5,33 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import { NavLink } from 'react-router-dom';
 import UserDropDown from '../NavLinks/dropDown';
+import Modal from "../../../components/shared/UI/Modal";
+import Login from '../../../components/shared/UI/Authentication/login';
+import { useState } from 'react';
+import Backdrop from '../../shared/UI/Backdrop';
+
 
 const StatusHeader = props => {
 
     const User = useContext(AuthContext);
+
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openDrawerHandler = () => {
+        setModalIsOpen(true);
+    };
+
+    const closeDrawerHandler = () => {
+        setModalIsOpen(false);
+    };
+
+    
     const ActiveUser = User.authenticatedUser || null;
     const UserData = ActiveUser ? ActiveUser.data : null
+
+    const onLoginHandler = () => {
+        
+    }
 
     return <header className={`${styles.statusHeaderContainer}`}>
 
@@ -38,13 +59,20 @@ const StatusHeader = props => {
             <div className={`${styles.flex_item}`}>
                 {!User.isLoggedIn ? 
 
-                    <NavLink className={styles.login_link} to={"/auth/login"}>Login</NavLink>
+                    <NavLink className={styles.login_link} to={"#"} onClick={openDrawerHandler}>Login</NavLink>
 
                     :
 
                     <UserDropDown />
                 }
             </div>
+
+            <Modal
+                show={modalIsOpen}
+                onClose={closeDrawerHandler}
+            >
+                <Login />
+            </Modal>
 
         </div>
     </header>;
