@@ -15,7 +15,7 @@ const SelectGenderModal = (props) => {
 
 
   return (
-    <div className={styles.modal_container}>
+    <>
       <div className={styles.modal_content}>
       
 
@@ -25,7 +25,7 @@ const SelectGenderModal = (props) => {
 
       </div>
     
-    </div>
+    </>
   )
 }
 

@@ -8,7 +8,7 @@ const LoadingSpinner = props => {
     <Modal
       show={true}
     >
-      <div style={{ width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems:"center", backgroundColor: "rgba(255, 255, 255, 0.962)" }}>
+      <div style={{ position:"absolute", top:0, left: 0, width: "100%", height: "100vh", display: "flex", justifyContent: "center", alignItems:"center", backgroundColor: "rgb(255, 255, 255)" }}>
         <Bounce size="2rem" color="rgb(245, 218, 130)" />
       </div>
     </Modal>

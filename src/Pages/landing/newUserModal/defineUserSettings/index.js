@@ -77,8 +77,11 @@ const DefineUserSettings = (props) => {
         <input placeholder='Country' value={countryValue ? countryValue.name.common : ""} className={styles.type_input} onChange={()=>{}} onClick={CountryInputActivateHandler} />
         
         <Modal
-          onCancel={onclose}
           show={isModalActive}
+          onClose={()=> {closeModalHandler()}}
+          width={"40%"}
+          height={"auto"}
+          padding={0}
         >
           {openCountryModalActive &&
             <SelectCountryModal onSubmit={SubmitCountryModal} onClose={closeModalHandler} /> 
@@ -88,6 +91,7 @@ const DefineUserSettings = (props) => {
             <SelectGenderModal onSubmit={SubmitGenderModal} onClose={closeModalHandler} /> 
           }
         </Modal>
+
         <div className={styles.settings}> 
             <div>
                 <label htmlFor="fellow">I am looking for fellow travellers</label>

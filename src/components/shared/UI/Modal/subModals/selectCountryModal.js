@@ -37,11 +37,7 @@ const SelectCountryModal = (props) => {
   const countryClickHandler = (country) => {
     return props.onSubmit(country, true);
   }
-
-  const closeModalHanlder = () => {
-    props.onClose();
-  }
-
+  
   const countriesList = data ? data
     .filter((country) => {
       if (searchTerm === '') return country
@@ -59,8 +55,12 @@ const SelectCountryModal = (props) => {
   
 
   return (
-    <div className={styles.modal_container}>
-      {isLoading ? <LoadingSpinner /> :
+    <>
+      {
+        isLoading 
+        ? 
+        <LoadingSpinner /> 
+        :
         <div className={styles.modal_content}>
           <div className={styles.top_menu_container}>
             <div className={styles.toogle_container}>
@@ -71,18 +71,14 @@ const SelectCountryModal = (props) => {
             <div className={styles.search_container}>
               <input placeholder='Search by keywords' onChange={(event) => setSearchTerm(event.target.value)} />
             </div>
-
-            <div onClick={closeModalHanlder} className={styles.close_container}>
-              <h4>Close</h4>
-            </div>
+            
           </div>
           {
             data && countriesList
           }
         </div>
       }
-
-    </div>
+    </>
   )
 }
 

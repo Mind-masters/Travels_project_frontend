@@ -8,7 +8,6 @@ import { AuthContext } from '../../../contextAPI/AuthContext';
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
-import Wrapper from './wrapper';
 import { submitNewUser } from './SubmitNewUserData';
 import { useNavigate } from 'react-router-dom';
 
@@ -97,11 +96,11 @@ const NewUser = () => {
         >
             {
                 isLoading ? <LoadingSpinner /> :
-                <Wrapper>
+                <>
                     {showInterestsModal && <UserInterests existing_data={selectedInterestsData || []} onSubmit={onInterestsModalSubmit} />}
                     {showAvatarModal && <UserAvatar onPrev={backHandler.bind(null, 1)} onSubmit={onAvatarModalSubmit} />}
                     {showSettingsModal && <DefineUserSettings onPrev={backHandler.bind(null, 2)} onSubmit={onSettingsModalSubmit} />}
-                </Wrapper>
+                </>
             }
             
         </Modal>

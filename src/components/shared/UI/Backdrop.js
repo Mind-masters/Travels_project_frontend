@@ -7,7 +7,7 @@ import styles from './Backdrop.module.css';
 const Backdrop = props => {
   
   const onClickHandler = () => {
-    props.onClick();
+    return props.onClick ? props.onClick() : null;
   }
 
   return ReactDOM.createPortal(

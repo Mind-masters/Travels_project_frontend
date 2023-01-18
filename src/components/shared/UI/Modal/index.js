@@ -1,13 +1,30 @@
 import styles from "./Modal.module.css"
 import  ReactDOM from "react-dom";
-import Backdrop from "../Backdrop";
 import { CSSTransition } from "react-transition-group";
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 
 const ModalOverlay = props => {
+
+    const parentRef = useRef()
+    const childRef = useRef()
+
+    const clickOutsideModalHandler = (e) => {
+
+        if(e.target.contains(childRef.current) && e.target !== childRef.current){
+            return props.onClose ? props.onClose() : null;
+        }
+
+        return null;
+    }
+
     const content = (
-        <div className={styles.modal_container}>
-            {props.children}
+        <div ref={parentRef} onClick={clickOutsideModalHandler} className={styles.modal_container}>
+            <div 
+                style={{ width: props.width, minHeight: props.height, backgroundColor: props.color, padding: props.padding }} 
+                ref={childRef}className={`${styles.modal_content_wrapper} ${props.fullSize && styles.full_width}`}
+            >
+                {props.children}
+            </div>
         </div>
     )
 
@@ -16,7 +33,6 @@ const ModalOverlay = props => {
 
 const Modal = props => {
     return <Fragment>
-        {props.show && <Backdrop onClick={props.onCancel} />}
         <CSSTransition
             in={props.show}
             mountOnEnter
@@ -29,3 +45,4 @@ const Modal = props => {
 }
 
 export default Modal;
+
