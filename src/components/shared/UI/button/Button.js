@@ -9,8 +9,11 @@ const Button = (props) => {
     return props.onCLick || null;
   }
 
+  //    <div style={{ backgroundColor:`${props.color ? props.color : "rgba(243, 222, 27, 1)"}` }} className={styles.button} onClick={onClickHandler}>
+
+
   return (
-    <div style={{ backgroundColor:`${props.color ? props.color : "rgba(243, 222, 27, 1)"}` }} className={styles.button} onClick={onClickHandler}>
+    <div className={styles.button} onClick={onClickHandler}>
       {props.children}
     </div>
   )

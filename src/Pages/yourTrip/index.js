@@ -37,7 +37,6 @@ const YoutTrip = () => {
       
       if(!Author.authenticatedUser || !Author.isLoggedIn) return navigate("/auth/login")
 
-      
       const author_places = await fetchUserPlaces(Author.authenticatedUser.token.access_token)
 
       if(!author_places.status){

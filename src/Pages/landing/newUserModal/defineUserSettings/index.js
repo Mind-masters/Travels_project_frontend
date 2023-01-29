@@ -58,7 +58,17 @@ const DefineUserSettings = (props) => {
   const onSubmitHandler = () => {
     if(!genderValue) notify("Please define your gender", "error")
     if(!countryValue) notify("Please define your country", "error")
-    if(genderValue && countryValue)return props.onSubmit({gender: genderValue, country: countryValue, fellowTravelers: fellowValue, homestay: homeStayValue, booking: bookingValue})
+    if(genderValue && countryValue)return props.onSubmit(
+      {
+        gender: genderValue, 
+        country: countryValue, 
+        settings: {
+          looking_followed_travelers: fellowValue, 
+          home_stay_programs: homeStayValue, 
+          booking_opportunities: bookingValue
+        }
+      }
+    )
   }
 
 
@@ -113,7 +123,6 @@ const DefineUserSettings = (props) => {
           style={{ width: "50%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "rgba(137, 221, 108, 0.65)"}}
           onClick={onSubmitHandler} 
           variant="contained" 
-          color="success"
         >
           Continue
         </Button>

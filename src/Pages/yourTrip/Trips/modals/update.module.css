@@ -1,12 +1,4 @@
 .container{
-    width: 25%;
-    background-color: rgb(250, 250, 250);
-    display: flex;
-    justify-content: center;
-    border-radius: 25px;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
 }
 
 .hidden{
@@ -92,22 +84,3 @@
     color: rgb(226, 233, 233);
 }
 
-@media screen and (max-width: 1200px) {
-    .container {
-      width: 50%;
-    }
-
-}
-
-@media screen and (max-width: 920px) {
-    .container {
-      width: 70%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .container {
-      width: 75%;
-    }
-
-}

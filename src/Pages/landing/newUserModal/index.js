@@ -1,20 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Modal from "../../../components/shared/UI/Modal";
 import DefineUserSettings from './defineUserSettings';
 import UserAvatar from "./defineUserAvatar/index";
 import UserInterests from './defineUserInterests';
-import { useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
-import { submitNewUser } from './SubmitNewUserData';
 import { useNavigate } from 'react-router-dom';
+import { Update, UpdateSettings } from '../../../components/utils/user/update';
 
 const NewUser = () => {
     const Auth = useContext(AuthContext);
-    const [show, setShow] = useState(true);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!Auth.authenticatedUser){
+            notify("Session expired", "error");
+            return navigate("/");
+        }
+    })
+
     const [isLoading, setIsLoading] = useState(false);
 
     // declared states for showing or hiding modals
@@ -25,7 +31,6 @@ const NewUser = () => {
     // declared states for storing data
     const [selectedInterestsData, setSelectedInterestsData] = useState([]);
     const [selectedAvatarData, setSelectedAvatarData] = useState(null);
-    const [selectedSettingsData, setSelectedSettingsData] = useState(null);
 
     const backHandler = (page_number) => {
         if(page_number === 1){
@@ -40,21 +45,18 @@ const NewUser = () => {
     }
 
     const onInterestsModalSubmit = (data) => {
-        // console.log("onInterestsModalSubmit: ", data)
         setShowInterestsModal(false);
         setShowAvatarModal(true);
         setSelectedInterestsData(data);
     }
 
     const onAvatarModalSubmit = (data) => {
-        // console.log("onAvatarModalSubmit: ", data)
         setShowSettingsModal(true);
         setShowAvatarModal(false);
         setSelectedAvatarData(data);
     }
 
     const onSettingsModalSubmit = (data) => {
-        // console.log("onSettingsModalSubmit: ", data)
         setShowSettingsModal(false);
         onRegistrationSubmit(data)
     }
@@ -63,25 +65,49 @@ const NewUser = () => {
 
         setIsLoading(true);
 
-        const submit_data = await submitNewUser(
+        const submit_update_data = await Update(
             {
                 country:lastmodal.country.name.common,
                 avatar: selectedAvatarData,
                 gender:lastmodal.gender,
+                interests: selectedInterestsData
+            },
+            Auth.authenticatedUser.token.access_token
+        )
+
+        if(!submit_update_data.status){
+            setIsLoading(false);
+            notify(submit_update_data.message || "please try again", "error");
+            setShowInterestsModal(true);
+            setIsLoading(false);
+            return
+        }
+
+        const {looking_followed_travelers,home_stay_programs,booking_opportunities} = lastmodal.settings;
+
+        const submit_settings_data = await UpdateSettings(
+            {
+                settings: 
+                {
+                    looking_followed_travelers,
+                    home_stay_programs,
+                    booking_opportunities
+                }
             },
             Auth.authenticatedUser.token.access_token
         )
 
 
-        if(!submit_data.status){
+        if(!submit_settings_data.status){
             setIsLoading(false);
-            notify(submit_data.message || "please try again", "error");
+            notify(submit_settings_data.message || "please try again", "error");
             setShowInterestsModal(true);
             return;
         }
-        else if(submit_data.status){
-            const user = {data: submit_data.data,token: Auth.authenticatedUser.token};
-            notify(submit_data.message, "success");
+        
+        else if(submit_settings_data.status && submit_update_data.status){
+            const user = {data: submit_update_data.data,token: Auth.authenticatedUser.token};
+            notify(submit_update_data.message, "success");
             Auth.update(user);
             navigate("/")
         }
@@ -92,7 +118,7 @@ const NewUser = () => {
   
     return (
         <Modal
-            show={show}
+            show={true}
         >
             {
                 isLoading ? <LoadingSpinner /> :

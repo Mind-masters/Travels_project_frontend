@@ -46,8 +46,8 @@ const DeleteTrip = (props) => {
       </div>
 
       <div className={styles.buttons}>
-        {!isLoading && <Button className={styles.cancel} onClick={props.onClose.bind(null,true)} variant="contained" color="success">No, Keep it</Button>}
-        <Button className={styles.submit} onClick={onDeleteHandler} variant="contained" color="success">
+        {!isLoading && <Button className={styles.cancel} onClick={props.onClose.bind(null,true)} variant="contained" >No, Keep it</Button>}
+        <Button className={styles.submit} onClick={onDeleteHandler} variant="contained" >
           {isLoading && <CircularProgress className={styles.loading_btn}/>}
           {!isLoading && 'Click Me'}
         </Button>

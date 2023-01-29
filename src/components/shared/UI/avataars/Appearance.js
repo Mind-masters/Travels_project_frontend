@@ -201,7 +201,6 @@ export const MixAvatarApearance = (props) => {
           style={{ width: "40%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "rgba(186, 225, 248, 1)" }}
           onClick={() => setReload(!reload)} 
           variant="contained" 
-          color="success"
         >
           Randomize
         </Button>
@@ -210,7 +209,6 @@ export const MixAvatarApearance = (props) => {
           style={{ width: "40%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "rgba(137, 221, 108, 0.65)" }}
           onClick={submitHandler} 
           variant="contained" 
-          color="success"
         >
           Continue
         </Button>

@@ -13,9 +13,6 @@ import { AuthContext } from '../../contextAPI/AuthContext';
 const LandingMain = (props) => {
   const Auth = useContext(AuthContext);
 
-
-  console.log("auth :" , Auth)
-
   return (
 
     <div>

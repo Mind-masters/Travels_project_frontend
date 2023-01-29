@@ -12,16 +12,15 @@ function App() {
 
   const login = useCallback((user) => {
 
-    console.log("[app.js] login user: ", user)
 
     if(!user.status === "success"){
       setIsLoggedIn(false);
       return;
     }
-    const {data, token} = user;
+    const {response, token} = user.data;
 
     setIsLoggedIn(true)
-    setAuthenticatedUser({data, token})
+    setAuthenticatedUser({data: response, token: token})
   }, [])
 
   const update = useCallback(user => {

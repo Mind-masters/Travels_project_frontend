@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import styles from "./update.module.css";
 import Modal from '../../../../components/shared/UI/Modal';
 import TextField from '@material-ui/core/TextField';
-import { AddNewPlace } from '../../../../components/utils/places/addNewPlace';
+import { Create } from '../../../../components/utils/places/create';
 import Button from '@mui/material/Button';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
 import LoadingSpinner from '../../../../components/shared/UI/LoadingSpinner';
@@ -82,7 +82,7 @@ const UpdateTrip = (props) => {
     setIsLoading(true);
 
 
-    const create_new_place = await AddNewPlace(
+    const create_new_place = await Create(
       {
         description: descriptionValue,
         title: titleValue,
@@ -117,8 +117,9 @@ const UpdateTrip = (props) => {
 
           <form className={styles.form_container}>
             <Modal 
-              onCancel={onclose}
+              onClose={onModalHide}
               show={countryModal || locationModal || imageModal} 
+              width={"50%"}
             >
               {countryModal && <SelectCountryModal onClose={onModalHide} onSubmit={onSubmitCountryModal} />}
               {locationModal && <Location onClose={onModalHide} onSubmit={onSubmitLocationModal} />}

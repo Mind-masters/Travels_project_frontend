@@ -1,0 +1,157 @@
+input
+{
+    outline: none;
+    border: none;
+}
+input:focus
+{
+    border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: transparent !important;
+}
+input::-webkit-input-placeholder
+{
+    color: #adadad;
+}
+
+.wrap_input
+{
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 38px;
+}
+
+.input
+{
+    font-family: 'Poppins';
+    font-size: 15px;
+    color: #4caf50;
+    line-height: 1.2;
+    display: block;
+    width: 94%;
+    height: 45px;
+    background: transparent;
+    padding: 0 5px;
+}
+.focus_input
+{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    pointer-events: none;
+}
+.focus_input:before
+{
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4caf50;
+    transition: all 0.4s;
+
+}
+
+.focus_input:after
+{
+    font-family: 'Poppins';
+    font-size: 15px;
+    color:#999999;
+    line-height: 1.2;
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position:absolute;
+    top: 16px;
+    left: 0px;
+    padding-left: 5px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+}
+
+.input:focus + .focus_input:after
+{
+    top: -15px;
+}
+.input:focus + .focus_input:before
+{
+    width: 100%;
+}
+
+.has_val.input + .focus_input::after
+{
+    top: -15px;
+}
+.has_val.input:focus + .focus_input:before
+{
+    width: 100%;
+}
+
+
+
+/* Alerts */
+
+/* .alert_validate{
+    border: 2px solid #c37171;
+    border-radius: 10px;
+} */
+
+.alert_validate:before
+{
+    content: attr(data-validate);
+    position: absolute;
+    max-width:70%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #c80000;
+    padding: 4px 25px 4px 10px;
+    top: 50%;
+    border-radius: 50px;
+    transform: translateY(-50%);
+    right:0px;
+    pointer-events: none;
+    font-family: 'Poppins';
+    color: #c80000;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: left;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+
+
+.alert_validate:after
+{
+    content: "!";
+    font-family:material-design-iconic-font;
+    font-size: 1.6rem;
+    color: #c80000;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 7px;
+}
+
+.alert_validate:hover:before
+{
+    visibility: visible;
+    opacity: 1;
+}
+
+@media (max-width: 992px){
+    .alert_validate:hover:before
+    {
+        visibility: visible;
+        opacity: 1;
+    }
+}

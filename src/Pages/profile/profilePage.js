@@ -1,32 +1,14 @@
-import React, {useContext} from "react";
-import {AuthContext} from "../../contextAPI/AuthContext";
+import React from "react";
 import Styles from "./profile.module.css"
-import profileImage from '../../assets/Profile Pic.png';
+
+// Images and logos
 import placeImage from '../../assets/Rectangle 104.png';
 import arrowImage from '../../assets/arrow.png'
 import profileName from '../../assets/profile name.png';
 import profileFlag from '../../assets/flag.png';
 import profileMail from '../../assets/mail.png';
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
 
-
-const ProfilePage = ({interest})=>{
-
-    const navigate = useNavigate();
-    const User = useContext(AuthContext);
-
-    const [data, setdata] = useState(null);
-
-
-    useEffect(() => {
-        if(!User.isLoggedIn)navigate("/auth/login")
-
-        else{
-            console.log("User.authenticatedUser.image: ", User.authenticatedUser.data.avatar)
-        }
-    })
+const ProfilePage = ({User})=>{
 
     return(
         <div className={Styles.container}>
@@ -38,7 +20,7 @@ const ProfilePage = ({interest})=>{
                         <h1 className={Styles.profile_name}>{User.authenticatedUser.data.name}</h1>
                     
                         <div className={Styles.profile_place}>
-                            <h2>Places <span className={Styles.number_place}>{interest.length}</span></h2>
+                            {/* <h2>Places <span className={Styles.number_place}>{interest.length}</span></h2> */}
                             <img className={Styles.place_image} src={placeImage} alt=""></img>
                         </div>
 
@@ -56,7 +38,7 @@ const ProfilePage = ({interest})=>{
 
                             <div className={Styles.hobbies_wrapper}>
 
-                            {
+                            {/* {
                                 interest.map((place)=>
                                 {
                                     const {id, name} = place
@@ -68,7 +50,7 @@ const ProfilePage = ({interest})=>{
                                         </div>
                                     )
                                 })
-                            }
+                            } */}
 
                             </div>
                         </div>
@@ -87,7 +69,7 @@ const ProfilePage = ({interest})=>{
 
                             <div>
                                 <img src={profileFlag} alt=""/>
-                                <p>Sweden</p>
+                                <p>ss</p>
                             </div>
 
                             <div>

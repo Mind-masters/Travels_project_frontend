@@ -63,7 +63,7 @@ const UploadImage = (props) => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       {/* <div className={styles.inputList}>
         {arr.map((item, i) => {
           return (
@@ -83,7 +83,7 @@ const UploadImage = (props) => {
         <Button className={styles.submit} onClick={onSubmitHandler} variant="contained" color="success">Submit</Button>
       </div>
       
-    </div>
+    </>
   )
 }
 
