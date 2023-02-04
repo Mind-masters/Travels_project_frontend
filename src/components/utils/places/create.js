@@ -1,7 +1,7 @@
 import { FetchAPI_template } from "../FetchAPI_template";
 
 
-export const AddNewPlace = async(data, token) => {
+export const Create = async(data, token) => {
 
     const url = "https://mind-master-backend-production.up.railway.app/api/v1/user/places/new";
     const method = "POST";

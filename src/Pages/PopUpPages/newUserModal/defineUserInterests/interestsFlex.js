@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import styles from "./interestsFlex.module.css"
 
@@ -26,6 +27,7 @@ const FlexBox = (props) => {
         newRowIndex++;
         temp++;
         }
+
         return collums;
     }
     
@@ -58,12 +60,12 @@ const FlexBox = (props) => {
         </div>
     }
     
-    const FlexRow = ({item}) => {
+    const FlexRow = ({items}) => {
         
-        const first_element = item[0] ? item[0].value : null;
-        const second_element = item[1] ? item[1].value : null;
-        const third_element = item[2] ? item[2].value : null;
-    
+        const first_element = items[0] ? items[0].value : null;
+        const second_element = items[1] ? items[1].value : null;
+        const third_element = items[2] ? items[2].value : null;
+
         return <div className={styles.flex_row}>
             <FlexItem item={first_element} />
             <FlexItem item={second_element} />
@@ -73,14 +75,18 @@ const FlexBox = (props) => {
     }
 
     const array = getArrayOfRows(props.data);
-    props.onChangeState(selectedInterestsArray);
+
+    useEffect(() => {
+        props.onChangeState(selectedInterestsArray);
+    })
 
     return (
         <div className={styles.container}>
 
             {
-                array.map(item => {
-                    return <FlexRow item = {item} />
+                array.map(items => {
+
+                    return <FlexRow key={items[0].key}  items={items} />
                 })
             }
         

@@ -41,7 +41,6 @@ const UserInterests = (props) => {
         style={{ width: "50%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "#FFBD59", display: `${selectedInterests.length > 2 ? "block" : "none"}` }}
         onClick={submitHandler} 
         variant="contained" 
-        color="success"
       >
         Continue
       </Button>

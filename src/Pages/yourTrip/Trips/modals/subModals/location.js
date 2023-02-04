@@ -41,7 +41,7 @@ const Location = (props) => {
     }   
 
   return (
-    <div className={styles.container}>
+    <>
 
         <div className={styles.content}>
             <h1 >Let others know where they can find it</h1>
@@ -62,7 +62,7 @@ const Location = (props) => {
         </div>
         
         
-    </div>
+    </>
   )
 }
 

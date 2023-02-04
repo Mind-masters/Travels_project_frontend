@@ -5,17 +5,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:  rgba(13, 13, 13, 0.842);
+  /* background-color:  rgba(13, 13, 13, 0.842); */
+  background: rgba(55, 55, 55, 0.808);
   z-index: 3;
 }
 
 .modal_content_wrapper{
-  background-color: whitesmoke;
+  background: rgba(239, 235, 235, 0.879);
+
   width: 28%;
   min-height: 68vh;
   padding: 20px;
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: 0 15px 25px rgba(246, 246, 245, 0.507);
+  /* box-shadow: 0 0 3px 3px #dddddd,
+  6px 6px 8px 4px rgba(155, 221, 155, 0.7),
+  -6px -6px 8px 4px rgba(244,244,244,0.7); */
 }
 
 @media (max-width: 1200px) {

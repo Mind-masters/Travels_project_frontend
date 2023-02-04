@@ -44,7 +44,7 @@ const  YourTripList = ({data, onRefresh, user_places}) => {
       {
       showModal && 
         <Modal        
-          onCancel={onclose}
+          onClose={onHideModalHandler.bind(false, true)}
           show={showModal} 
         >
           {

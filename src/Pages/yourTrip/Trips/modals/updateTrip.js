@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import styles from "./update.module.css";
 import Modal from '../../../../components/shared/UI/Modal';
 import TextField from '@material-ui/core/TextField';
-import { AddNewPlace } from '../../../../components/utils/places/addNewPlace';
+import { Create } from '../../../../components/utils/places/create';
 import Button from '@mui/material/Button';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
 import LoadingSpinner from '../../../../components/shared/UI/LoadingSpinner';
@@ -18,6 +18,7 @@ import photo_icon from "../../../../assets/photo_icon.png";
 import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals/selectCountryModal';
 import Location from './subModals/location';
 import ImageUpload from "./subModals/uploadImage";
+import FormInput from '../../../../components/shared/UI/formInput';
 
 const UpdateTrip = (props) => {
 
@@ -82,7 +83,7 @@ const UpdateTrip = (props) => {
     setIsLoading(true);
 
 
-    const create_new_place = await AddNewPlace(
+    const create_new_place = await Create(
       {
         description: descriptionValue,
         title: titleValue,
@@ -113,12 +114,13 @@ const UpdateTrip = (props) => {
     <>
       { !isLoading ?
         <div className={`${styles.container} ${parentModalHidden && styles.hidden}`}>
-          <h1 className={styles.header}>Share your experience</h1>
+          <h1 className={styles.login_form_title}>Share your experience</h1>
 
           <form className={styles.form_container}>
             <Modal 
-              onCancel={onclose}
+              onClose={onModalHide}
               show={countryModal || locationModal || imageModal} 
+              width={"50%"}
             >
               {countryModal && <SelectCountryModal onClose={onModalHide} onSubmit={onSubmitCountryModal} />}
               {locationModal && <Location onClose={onModalHide} onSubmit={onSubmitLocationModal} />}
@@ -128,26 +130,21 @@ const UpdateTrip = (props) => {
             <div className={styles.form_content}>
 
               <div className={styles.title_container}>
-                <TextField
-                  variant='outlined'
-                  error={titleInputError}
-                  aria-label="minimum height"
-                  label="Title..."
-                  className={styles.text_area}
+                <FormInput 
+                  isValid={true}
+                  name="Title"
+                  // message={(!titleValue && (props.errors.name || "Error")) || null}
                   onChange={onSubmitTitle}
-                /> 
+                />
               </div>
 
               <div className={styles.description_container}>
-                <TextField
-                  variant='outlined'
-                  error={descriptionInputError}
-                  multiline={true}
-                  aria-label="minimum height"
-                  label="Description..."
-                  className={styles.text_area}
+                <FormInput 
+                  isValid={true}
+                  name="Description"
+                  // message={(!descriptionValue && (props.errors.name || "Error")) || null}
                   onChange={onSubmitDescription}
-                /> 
+                />
               </div>
 
               <div className={styles.logo_menu}>
