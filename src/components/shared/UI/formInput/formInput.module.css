@@ -37,6 +37,10 @@ input::-webkit-input-placeholder
     background: transparent;
     padding: 0 5px;
 }
+
+
+
+
 .focus_input
 {
     position: absolute;
@@ -64,14 +68,14 @@ input::-webkit-input-placeholder
 .focus_input:after
 {
     font-family: 'Poppins';
-    font-size: 15px;
+    font-size: 25px;
     color:#999999;
     line-height: 1.2;
     content: attr(data-placeholder);
     display: block;
     width: 100%;
     position:absolute;
-    top: 16px;
+    top: 10px;
     left: 0px;
     padding-left: 5px;
     transition: all 0.4s;

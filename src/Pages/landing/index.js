@@ -2,9 +2,8 @@ import React from 'react'
 import styles from "./landing.module.css";
 import Destinations from "./subtopics/destinations/destinations"
 import Button from '../../components/shared/UI/button/Button';
-import { NavLink } from 'react-router-dom';
 import PopDestinations from './subtopics/destinations/popdestinations';
-import NewUser from './newUserModal';
+import NewUser from '../PopUpPages/newUserModal';
 import MainNavigation from '../../components/navigation';
 import { useContext } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';

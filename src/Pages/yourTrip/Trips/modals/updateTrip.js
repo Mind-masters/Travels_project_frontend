@@ -18,6 +18,7 @@ import photo_icon from "../../../../assets/photo_icon.png";
 import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals/selectCountryModal';
 import Location from './subModals/location';
 import ImageUpload from "./subModals/uploadImage";
+import FormInput from '../../../../components/shared/UI/formInput';
 
 const UpdateTrip = (props) => {
 
@@ -113,7 +114,7 @@ const UpdateTrip = (props) => {
     <>
       { !isLoading ?
         <div className={`${styles.container} ${parentModalHidden && styles.hidden}`}>
-          <h1 className={styles.header}>Share your experience</h1>
+          <h1 className={styles.login_form_title}>Share your experience</h1>
 
           <form className={styles.form_container}>
             <Modal 
@@ -129,26 +130,21 @@ const UpdateTrip = (props) => {
             <div className={styles.form_content}>
 
               <div className={styles.title_container}>
-                <TextField
-                  variant='outlined'
-                  error={titleInputError}
-                  aria-label="minimum height"
-                  label="Title..."
-                  className={styles.text_area}
+                <FormInput 
+                  isValid={true}
+                  name="Title"
+                  // message={(!titleValue && (props.errors.name || "Error")) || null}
                   onChange={onSubmitTitle}
-                /> 
+                />
               </div>
 
               <div className={styles.description_container}>
-                <TextField
-                  variant='outlined'
-                  error={descriptionInputError}
-                  multiline={true}
-                  aria-label="minimum height"
-                  label="Description..."
-                  className={styles.text_area}
+                <FormInput 
+                  isValid={true}
+                  name="Description"
+                  // message={(!descriptionValue && (props.errors.name || "Error")) || null}
                   onChange={onSubmitDescription}
-                /> 
+                />
               </div>
 
               <div className={styles.logo_menu}>
