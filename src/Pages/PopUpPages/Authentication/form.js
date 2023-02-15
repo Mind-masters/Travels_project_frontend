@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import FormInput from '../../../components/shared/UI/formInput'
 import styles from "./form.module.css"
-
+import Button from '../../../components/shared/UI/button/Button'
 
 const Form = (props) => {
 
@@ -67,14 +67,9 @@ const Form = (props) => {
 					onChange={onCHagePasswordValueHandler}
 				/>
 				
-
-				<div className={`${styles.container_login_form_btn}`}>
-					<div className={`${styles.wrap_login_form_btn}`}>
-						<button onSubmit={props.onSubmit} className={`${styles.login_form_btn}`}>
-							{!props.isLoginMode ? "Continue" : "Login"}
-						</button>
-					</div>
-				</div>
+				<Button onSubmit={props.onSubmit}>
+					{!props.isLoginMode ? "Continue" : "Login"}	
+				</Button> 
 
 				<div className={`${styles.text_center}`}>
 					<span className={`${styles.txt1}`}>

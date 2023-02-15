@@ -64,8 +64,10 @@ const UpdateTrip = (props) => {
   const [descriptionValue, setDescriptionValue] = useState(null);
   const [titleValue, setTitleValue] = useState(null);
 
-  const onSubmitDescription = (e) => setDescriptionValue(e.target.value);
-  const onSubmitTitle = (e) => setTitleValue(e.target.value);
+  const onSubmitDescription = (value) => setDescriptionValue(value);
+
+  const onSubmitTitle = (value) => setTitleValue(value);
+
 
   const onFormSubmitHandler = async(e) => {
     setTitleInputError(false);
@@ -82,7 +84,7 @@ const UpdateTrip = (props) => {
 
     setIsLoading(true);
 
-
+    
     const create_new_place = await Create(
       {
         description: descriptionValue,
@@ -103,7 +105,7 @@ const UpdateTrip = (props) => {
       
       props.onClose();
     }
-    else if(!create_new_place.status)notify(create_new_place.error, "error");
+    else if(!create_new_place.status)notify(create_new_place.message, "error");
 
   }
 
@@ -120,7 +122,6 @@ const UpdateTrip = (props) => {
             <Modal 
               onClose={onModalHide}
               show={countryModal || locationModal || imageModal} 
-              width={"50%"}
             >
               {countryModal && <SelectCountryModal onClose={onModalHide} onSubmit={onSubmitCountryModal} />}
               {locationModal && <Location onClose={onModalHide} onSubmit={onSubmitLocationModal} />}
@@ -133,7 +134,7 @@ const UpdateTrip = (props) => {
                 <FormInput 
                   isValid={true}
                   name="Title"
-                  // message={(!titleValue && (props.errors.name || "Error")) || null}
+                  value={titleValue}
                   onChange={onSubmitTitle}
                 />
               </div>
@@ -142,7 +143,7 @@ const UpdateTrip = (props) => {
                 <FormInput 
                   isValid={true}
                   name="Description"
-                  // message={(!descriptionValue && (props.errors.name || "Error")) || null}
+                  value={descriptionValue}
                   onChange={onSubmitDescription}
                 />
               </div>

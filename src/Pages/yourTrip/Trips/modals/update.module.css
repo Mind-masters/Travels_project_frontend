@@ -1,6 +1,9 @@
 .container{
-    width: 80%;
+    width: 22vw;
     margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    padding: 0 25px;
+    border-radius: 30px;
 }
 
 .hidden{
@@ -11,7 +14,7 @@
 {
     display: block;
     font-family: 'Poppins';
-    font-size: 2.3rem;
+    font-size: 30px;
     color: #635e5e;
     text-align: center;
     padding-top: 30px;

@@ -25,7 +25,7 @@ export const FetchAPI_template = async(url, method, body_obj, custom_token) => {
         "accept" : "application/json",
     }
 
-    const custom_body = (method === get_method) ? null : JSON.stringify(body_obj) 
+    const custom_body = !body_obj ? null : JSON.stringify(body_obj) 
 
     try {
 

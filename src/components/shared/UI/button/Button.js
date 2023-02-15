@@ -2,21 +2,12 @@ import React from 'react'
 import styles from "./Button.module.css";
 
 
-const Button = (props) => {
-
-
-  const onClickHandler = () => {
-    return props.onCLick || null;
-  }
-
-  //    <div style={{ backgroundColor:`${props.color ? props.color : "rgba(243, 222, 27, 1)"}` }} className={styles.button} onClick={onClickHandler}>
-
-
-  return (
-    <div className={styles.button} onClick={onClickHandler}>
+const Button = (props) => <div className={`${styles.container_login_form_btn}`}>
+  <div className={`${styles.wrap_login_form_btn}`}>
+    <button onClick={props.onSubmit} style={{ backgroundColor:props.color}} className={`${styles.login_form_btn}`}>
       {props.children}
-    </div>
-  )
-}
+    </button>
+  </div>
+</div>
 
 export default Button

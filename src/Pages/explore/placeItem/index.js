@@ -9,16 +9,30 @@ import HeartRating from '../../../components/shared/UI/Ratings/heart';
 
 import map_icon from "../../../assets/map_icon.png";
 import pencil_icon from "../../../assets/pencil.png";
+import Modal from '../../../components/shared/UI/Modal';
 
 const PlaceItem = ({item}) => {
   console.log("iem: ", item )
   const [showComments, setShowComments] = useState(false)
   const onClick = () => setShowComments(true)
+  const [showMapModal, setShowMapModal] = useState(false);
   const item_author = item.user_id ? item.user_id : "Unknown user"
+
+  const CloseMapModal = () => {
+    setShowMapModal(false);
+  }
   
   return (
     <div className={styles.container}>
 
+      <Modal 
+        onClose={CloseMapModal}
+        show={showMapModal} 
+        >
+        <div>
+          labas
+        </div>
+      </Modal>
       <div className={styles.author_line}>
 
         <div className={styles.author_image}>
@@ -53,7 +67,7 @@ const PlaceItem = ({item}) => {
             </div>
 
             <div className={styles.button}>
-              <Button color="#96F974">
+              <Button onSubmit={() => {setShowMapModal(true)}} color="#96F974">
                 <img src={map_icon} alt="" />
                 View on map
               </Button>
@@ -88,12 +102,6 @@ const PlaceItem = ({item}) => {
         </>
 
       </div>
-
-
-      {/* <div className={styles.bottomHead}>
-        <div className={styles.placeName}>Aravallis, island</div>
-        
-      </div> */}
 
     </div>
   )
