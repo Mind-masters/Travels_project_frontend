@@ -10,6 +10,7 @@ import HeartRating from '../../../components/shared/UI/Ratings/heart';
 import map_icon from "../../../assets/map_icon.png";
 import pencil_icon from "../../../assets/pencil.png";
 import Modal from '../../../components/shared/UI/Modal';
+import ViewOnMap from './viewOnMap';
 
 const PlaceItem = ({item}) => {
   console.log("iem: ", item )
@@ -25,14 +26,8 @@ const PlaceItem = ({item}) => {
   return (
     <div className={styles.container}>
 
-      <Modal 
-        onClose={CloseMapModal}
-        show={showMapModal} 
-        >
-        <div>
-          labas
-        </div>
-      </Modal>
+      
+      {showMapModal && <ViewOnMap onClose={CloseMapModal} />}
       <div className={styles.author_line}>
 
         <div className={styles.author_image}>

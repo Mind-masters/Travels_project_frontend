@@ -55,7 +55,7 @@ const Location = (props) => {
           { activeButton &&
             <div className={styles.controllers}>
               <Button onSubmit={onSubmitHandler}>
-                Submitas
+                Submit
               </Button>
             </div>
           }

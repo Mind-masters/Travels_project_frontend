@@ -10,6 +10,7 @@ const ModalOverlay = props => {
 
     const clickOutsideModalHandler = (e) => {
 
+
         if(e.target.contains(childRef.current) && e.target !== childRef.current){
             return props.onClose ? props.onClose() : null;
         }

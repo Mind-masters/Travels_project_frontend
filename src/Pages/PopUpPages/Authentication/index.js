@@ -31,7 +31,6 @@ const Authentication = (props) => {
 
     const FormSubmitHandler = async(data) => {
 
-
         const email = data.email;
         const password = data.password;
         const name = data.name;
@@ -39,7 +38,7 @@ const Authentication = (props) => {
         setErrors(validate(data, (isLoginMode ? "login" : "signUp")));
 
         if(isLoginMode && (!email || !password))return;
-        if(!isLoginMode && (!name || !email || password))return;
+        if(!isLoginMode && (!name || !email || !password))return;
     
         try {
             setIsLoading(true);
