@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
 import { useNavigate } from 'react-router-dom';
 import { Update, UpdateSettings } from '../../../components/utils/user/update';
+import styles from "./wrapper.module.css";
 
 const NewUser = () => {
     const Auth = useContext(AuthContext);
@@ -122,11 +123,11 @@ const NewUser = () => {
         >
             {
                 isLoading ? <LoadingSpinner /> :
-                <>
+                <div className={styles.modal_content}>
                     {showInterestsModal && <UserInterests existing_data={selectedInterestsData || []} onSubmit={onInterestsModalSubmit} />}
                     {showAvatarModal && <UserAvatar onPrev={backHandler.bind(null, 1)} onSubmit={onAvatarModalSubmit} />}
                     {showSettingsModal && <DefineUserSettings onPrev={backHandler.bind(null, 2)} onSubmit={onSettingsModalSubmit} />}
-                </>
+                </div>
             }
             
         </Modal>

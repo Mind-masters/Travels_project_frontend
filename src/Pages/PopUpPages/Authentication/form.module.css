@@ -5,6 +5,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 30px 40px 20px 40px;
+    background: rgba(239, 235, 235, 0.879);
 }
 
 .login_form
@@ -25,54 +26,6 @@
     padding-bottom: 45px;
 }
 
-.container_login_form_btn
-{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 20px;
-}
-
-.wrap_login_form_btn
-{
-    width:100%;
-    display:block;
-    position: relative;
-    z-index: 1;
-    border-radius: 25px;
-    overflow: hidden;
-    margin: 0 auto;
-    box-shadow: 0 0 3px 3px #dddddd,
-        4px 4px 6px 2px rgba(136,136,136,0.7),
-            -4px -4px 6px 2px rgba(244,244,244,0.7);
-
-}
-.login_form_btn
-{
-    font-family: 'Poppins';
-    font-size: 15px;
-    color: #4caf50;
-    line-height: 1.2;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: -webkit-flex;
-    display: -webkit-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    letter-spacing: 1px;
-    padding:0 20px;
-    height: 50px;
-    width:100%;
-}
-
-.login_form_btn:hover
-{
-    background: #4caf50;
-    color:#ddd;
-}
 
 .txt1
 {
@@ -118,7 +71,3 @@
         padding:77px 15px 33px 15px;
     }
 }
-
-
-
-

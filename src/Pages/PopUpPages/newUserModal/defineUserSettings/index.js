@@ -89,9 +89,6 @@ const DefineUserSettings = (props) => {
         <Modal
           show={isModalActive}
           onClose={()=> {closeModalHandler()}}
-          width={"40%"}
-          height={"auto"}
-          padding={0}
         >
           {openCountryModalActive &&
             <SelectCountryModal onSubmit={SubmitCountryModal} onClose={closeModalHandler} /> 

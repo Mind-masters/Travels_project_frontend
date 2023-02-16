@@ -38,7 +38,9 @@
     "swiper": "^8.4.4",
     "uuid": "^9.0.0",
     "valid-url": "^1.0.9",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "mapbox-gl": "^2.12.1"
+
   },
   "scripts": {
     "start": "react-scripts start",

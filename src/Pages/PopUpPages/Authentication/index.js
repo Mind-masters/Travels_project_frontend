@@ -31,58 +31,56 @@ const Authentication = (props) => {
 
     const FormSubmitHandler = async(data) => {
 
-
         const email = data.email;
         const password = data.password;
         const name = data.name;
 
-        
         setErrors(validate(data, (isLoginMode ? "login" : "signUp")));
 
-        if (true) {
+        if(isLoginMode && (!email || !password))return;
+        if(!isLoginMode && (!name || !email || !password))return;
     
-            try {
-                setIsLoading(true);
-            
-                const responseData = isLoginMode ? await Auth_Login(
-                    {
-                        email: email,
-                        password: password
-                    },
-                ) : 
-                await Auth_Signup(
-                    {
-                        name: name,
-                        email: email,
-                        password: password
-                    },
-                )
-            
-                if(!responseData.status){
-                throw new Error(responseData.message)
-                }
+        try {
+            setIsLoading(true);
         
-                User.login(responseData);
-
-                if(isLoginMode) {
-                    notify("You loged In successfully", "success");
-                }
-                props.onClose();
-                setIsLoading(false);
-
-                if(!isLoginMode) return navigation("/new-member")
-                // // // some session method to store token
-                // // // some session method to store refresh token
+            const responseData = isLoginMode ? await Auth_Login(
+                {
+                    email: email,
+                    password: password
+                },
+            ) : 
+            await Auth_Signup(
+                {
+                    name: name,
+                    email: email,
+                    password: password
+                },
+            )
         
-                
-
-                
-            } catch (error) {
-                setIsLoading(false)
-                notify(error.message, "error");
+            if(!responseData.status){
+            throw new Error(responseData.message)
             }
+    
+            User.login(responseData);
+
+            if(isLoginMode) {
+                notify("You loged In successfully", "success");
+            }
+            props.onClose();
+            setIsLoading(false);
+
+            if(!isLoginMode) return navigation("/new-member")
+            // // // some session method to store token
+            // // // some session method to store refresh token
+    
             
-        };
+
+            
+        } catch (error) {
+            setIsLoading(false)
+            notify(error.message, "error");
+        }
+            
         
     }
 

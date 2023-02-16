@@ -10,6 +10,7 @@ const ModalOverlay = props => {
 
     const clickOutsideModalHandler = (e) => {
 
+
         if(e.target.contains(childRef.current) && e.target !== childRef.current){
             return props.onClose ? props.onClose() : null;
         }
@@ -20,8 +21,9 @@ const ModalOverlay = props => {
     const content = (
         <div ref={parentRef} onClick={clickOutsideModalHandler} className={styles.modal_container}>
             <div 
-                style={{ width: props.width, minHeight: props.height, backgroundColor: props.color, padding: props.padding }} 
-                ref={childRef}className={`${styles.modal_content_wrapper} ${props.fullSize && styles.full_width}`}
+                // style={{ width: props.width, minHeight: props.height, backgroundColor: props.color, padding: props.padding }} 
+                className={`${styles.modal_content_wrapper} ${props.fullSize && styles.full_width}`}
+                ref={childRef}
             >
                 {props.children}
             </div>

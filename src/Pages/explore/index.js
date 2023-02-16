@@ -8,7 +8,7 @@ const explore = (props) => {
   return (
     <Card>
       <div className={styles.container}>
-        <PlaceList data={["place 1", "place 2", "place 3"]} />
+        <PlaceList />
         <Form />
       </div>
     </Card>
