@@ -47,10 +47,10 @@ const MapContent = () => {
             <h1>Help us approve this location</h1>
         </div>
 
-        <div className={styles.mapContainer}>
+        {/* <div className={styles.mapContainer}>
           <div ref={mapContainer} className={earthStyles.map_container} />
-          {/* <div className={styles.footer}></div> */}
-        </div>
+          <div className={styles.footer}></div>
+        </div> */}
     </div>
   )
 }

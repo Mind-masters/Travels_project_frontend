@@ -40,10 +40,9 @@ export const FetchAPI_template = async(url, method, body_obj, custom_token) => {
 
         const response_json = await req.json();
 
+        if(!req.ok)throw new Error(response_json.message || req.statusText ||  "Something went wrong!");
 
-        if(!req.ok)throw new Error(req.statusText || response_json.message || "Something went wrong!");
-
-        console.log("FetchAPI_template response: ", response_json)
+        if(!response_json.status)throw new Error(response_json.message)
 
         response.data = response_json.response;
         response.status = true;

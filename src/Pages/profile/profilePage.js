@@ -2,13 +2,46 @@ import React from "react";
 import Styles from "./profile.module.css"
 
 // Images and logos
-import placeImage from '../../assets/Rectangle 104.png';
-import arrowImage from '../../assets/arrow.png'
-import profileName from '../../assets/profile name.png';
-import profileFlag from '../../assets/flag.png';
-import profileMail from '../../assets/mail.png';
+// import placeImage from '../../assets/Rectangle 104.png';
+// import arrowImage from '../../assets/arrow.png'
+// import profileName from '../../assets/profile name.png';
+// import profileFlag from '../../assets/flag.png';
+// import profileMail from '../../assets/mail.png';
+import Footer from "./footer";
 
-const ProfilePage = ({User})=>{
+import Interests from "./profileMenuContent/interests";
+import Settings from "./profileMenuContent/settings";
+import About from "./profileMenuContent/about";
+import { useState } from "react";
+
+
+const ProfilePage = ({User, Places})=>{
+
+    const [settingsActive, setSettingsActive] = useState(true);
+    const [interestsActive, setInterestsActive] = useState(false);
+    const [aboutActive, setAboutActive] = useState(false);
+
+    const onCloseActiveWindow = () => {
+        setSettingsActive(false);
+        setInterestsActive(false);
+        setAboutActive(false);
+    }
+
+
+    const onSettingsMenuClick = () => {
+        onCloseActiveWindow();
+        setSettingsActive(true);
+    }
+
+    const onInterestsMenuClick = () => {
+        onCloseActiveWindow();
+        setInterestsActive(true);
+    }
+
+    const onAboutMenuClick = () => {
+        onCloseActiveWindow();
+        setAboutActive(true);
+    }
 
     return(
         <div className={Styles.container}>
@@ -16,72 +49,45 @@ const ProfilePage = ({User})=>{
                 <>
                     <div className={Styles.profile_section}>
 
-                        <img className={Styles.profile_image} src={User.authenticatedUser.data.avatar} alt=""></img>
-                        <h1 className={Styles.profile_name}>{User.authenticatedUser.data.name}</h1>
-                    
-                        <div className={Styles.profile_place}>
-                            {/* <h2>Places <span className={Styles.number_place}>{interest.length}</span></h2> */}
-                            <img className={Styles.place_image} src={placeImage} alt=""></img>
+                        <div className={Styles.profile_sidebar}>
+                            <img className={Styles.profile_image} src={User.authenticatedUser.data.avatar} alt=""></img>
+                            <h1 className={Styles.profile_name}>{User.authenticatedUser.data.name}</h1>
+                            <ul className={Styles.profile_menu}>
+                                <li style={{ color: settingsActive && "rgba(94, 94, 94, 1)" }} onClick={onSettingsMenuClick}>Profile</li>
+                                <li style={{ color: interestsActive && "rgba(94, 94, 94, 1)" }} onClick={onInterestsMenuClick}>Interests</li>
+                                <li style={{ color: aboutActive && "rgba(94, 94, 94, 1)" }} onClick={onAboutMenuClick}>About</li>
+                            </ul>
                         </div>
 
-                        <div className={Styles.profile_setting}>
-                            <span className={Styles.profile_setting}>...</span>
+                        <div className={Styles.profile_content}>
+                            {
+                                (settingsActive && 
+                                    <Settings 
+                                        settings={User.authenticatedUser.data.settings} 
+                                    />
+                                ) 
+                                ||
+                                (interestsActive && 
+                                    <Interests 
+                                        interests={User.authenticatedUser.data.interests} 
+                                    />
+                                ) 
+                                ||
+                                (aboutActive && 
+                                    <About 
+                                        name={User.authenticatedUser.data.name}
+                                        country={User.authenticatedUser.data.country}
+                                        email={User.authenticatedUser.data.email}
+                                    />
+                                )
+                            }
                         </div>
+
 
                     </div>
                 
 
-                    <div className={Styles.hobbies_section}>
-                        <h1 className={Styles.hobbies_header}>Hobbies</h1>
-                        
-                        <div className={Styles.hobbies_container}>
-
-                            <div className={Styles.hobbies_wrapper}>
-
-                            {/* {
-                                interest.map((place)=>
-                                {
-                                    const {id, name} = place
-
-                                    return(   
-
-                                        <div key={id} className={Styles.interest_item}>
-                                            {name}
-                                        </div>
-                                    )
-                                })
-                            } */}
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <h1 className={Styles.about}>About</h1>
-                
-                    <div className={Styles.about_container}>
-                        <div className={Styles.details_container}>
-
-                            <div>
-                                <img src={profileName} alt=""/>
-                                <p>{User.authenticatedUser.data.name}</p>
-                            </div>
-
-                            <div>
-                                <img src={profileFlag} alt=""/>
-                                <p>ss</p>
-                            </div>
-
-                            <div>
-                                <img src={profileMail} alt=""/>
-                                <p>{User.authenticatedUser.data.email}</p>
-                            </div>
-                        </div>
-
-                        <div className={Styles.image_container} >
-                            <img src={arrowImage} alt="" />
-                        </div>
-                    </div>
+                    <Footer Places={Places} />
                 </>
             }
             

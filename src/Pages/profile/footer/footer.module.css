@@ -1,0 +1,25 @@
+.container{
+    margin-top: 15vh;
+    /* box-shadow: 0 0 3px 3px #dddddd,
+    4px 4px 6px 2px rgba(182, 43, 43, 0.7),
+        -4px -4px 6px 2px rgba(244,244,244,0.7); */
+}
+
+.content{
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header{ 
+    color: rgb(74, 74, 74);
+    font-size: 2rem;
+}
+
+.list_item{
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+}

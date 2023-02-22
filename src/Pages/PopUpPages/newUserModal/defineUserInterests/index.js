@@ -16,7 +16,7 @@ const UserInterests = (props) => {
     return props.onSubmit(selectedInterests)
   }
 
-  const onSkipHandler = () => props.onSubmit(DEFAULT_OPTIONS.map(element => element.value));
+  const onSkipHandler = () => props.onSubmit(DEFAULT_OPTIONS.map(element => element));
 
   const stateChangeHandler = (array) => {
     setSelectedInterests(array);
