@@ -8,7 +8,7 @@ import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
 import { useNavigate } from 'react-router-dom';
-import { Update, UpdateSettings } from '../../../components/utils/user/update';
+import { Update, UpdateSettings, UpdateInterests } from '../../../components/utils/user/update';
 import styles from "./wrapper.module.css";
 
 const NewUser = () => {
@@ -64,27 +64,10 @@ const NewUser = () => {
 
     const onRegistrationSubmit = async (lastmodal) => {
 
-        setIsLoading(true);
-
-        const submit_update_data = await Update(
-            {
-                country:lastmodal.country.name.common,
-                avatar: selectedAvatarData,
-                gender:lastmodal.gender,
-                interests: selectedInterestsData
-            },
-            Auth.authenticatedUser.token.access_token
-        )
-
-        if(!submit_update_data.status){
-            setIsLoading(false);
-            notify(submit_update_data.message || "please try again", "error");
-            setShowInterestsModal(true);
-            setIsLoading(false);
-            return
-        }
-
         const {looking_followed_travelers,home_stay_programs,booking_opportunities} = lastmodal.settings;
+
+
+        setIsLoading(true);
 
         const submit_settings_data = await UpdateSettings(
             {
@@ -98,17 +81,36 @@ const NewUser = () => {
             Auth.authenticatedUser.token.access_token
         )
 
+        const submit_interests_data = await UpdateInterests(
+            {
+                interests: 
+                selectedInterestsData
+            },
+            Auth.authenticatedUser.token.access_token
+        )
 
-        if(!submit_settings_data.status){
+        const submit_update_data = await Update(
+            {
+                country:lastmodal.country.name.common,
+                avatar: selectedAvatarData,
+                gender:lastmodal.gender,
+            },
+            Auth.authenticatedUser.token.access_token
+        )
+
+        if(!submit_update_data.status || !submit_settings_data.status || !submit_interests_data.status){
             setIsLoading(false);
-            notify(submit_settings_data.message || "please try again", "error");
+            notify(submit_update_data.message || "please try again", "error");
             setShowInterestsModal(true);
-            return;
+            setIsLoading(false);
+            return
         }
+
         
-        else if(submit_settings_data.status && submit_update_data.status){
+        else if(submit_settings_data.status && submit_update_data.status && submit_interests_data.status){
             const user = {data: submit_update_data.data,token: Auth.authenticatedUser.token};
             notify(submit_update_data.message, "success");
+
             Auth.update(user);
             navigate("/")
         }

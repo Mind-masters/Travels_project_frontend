@@ -1,0 +1,22 @@
+.container{
+    height: 100%;
+    display: flex;
+    padding: 5% 0; 
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.content_line{
+    color: rgb(108, 100, 100);
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    font-size: 1.2vw;
+    font-weight: 800;
+}
+
+.content_line img{
+    width: 2rem;
+    margin: 0 20px;
+}

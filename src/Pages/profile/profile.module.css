@@ -1,213 +1,58 @@
 .container{
     text-align: center;
     margin: auto;
-    width: 65%;
+    width: 80%;
     padding: 10px;
     padding-top: 20vh;
+    min-height: 100vh;
+    color: rgb(47, 47, 47);
 }
 
 .profile_section{
-  display: flex;   
-  margin: auto;
-  flex-direction: row;
-  align-items: center;
-  width: 40%;
-  /* margin-left: 35%;
-  margin-top: 40px; */
- }
-
-.profile_place{
     display: flex;
-    position: relative;
-    margin: 5rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.profile_sidebar{
+    flex: 1;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+    align-items: start;
 }
 
 .profile_image{
- width: 130px;  
-    
+    width: 130px;        
 }
-.place_image{
-    display: flex;
-    flex-direction: column;
-    
-}
+
 .profile_name{
-    position: absolute;
-    margin-top: 15%;
-    display: block;
     text-align: center;
     font-weight: bold;
     font-size: 25px;
     color: gray
 }
 
-
-
-.number_place{
-    color: #FFBD59;
-    font-size: 20px;
+.profile_menu{
+    margin-top: 20px;
 }
 
-.profile_setting{
-    display: inline-block;
-    font-size: 30px;
-    color: #FFBD59;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-
-/* Styles for hobbies section  */
-
-
-.hobbies_section{
-    text-align: center;
-    margin: 40px;
-}
-
-
-.hobbies_header{
-    color: rgba(112, 112, 112, 1);
-    font-weight: bold;
-    font-size: 23px;
-    margin: 5vh 0;
-}
-
-.hobbies_container{
-    width: 100%;
-}
-
-.hobbies_wrapper{
-    margin: 0 auto;
-    display: flex;
-    width: 70%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-
-.interest_item{
-    margin: 10px;
-    padding: 10px;
-    background-color: #D9D9D9;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: 300;
-    cursor: pointer;
-    transition-duration: 0.3s;
-    width: 20%;
-}
-
-
-.interest_item:hover{
-    background-color: #b25959;
-    color: white;
-}
-
-
-/* Styles for about section  */
-
-.about{
-    font-weight: bold;
-    font-size: 23px;
-}
-.about_container{
-    display: flex;
-    height: 30vh;
-    margin-bottom: 20vh;
-    align-items: center;
-    justify-content: space-between;
-  /* background-image: linear-gradient(to right, rgba(149, 221, 215, 0), rgb(159, 219, 211)); */
-}
-
-.details_container{
-    align-self: center;        
-}
-
-.details_container div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.details_container img{
-    width: 4.5rem;
-}
-
-.details_container p{
-    /* border: 2px solid red; */
-    font-size: 1.2rem;
-    width: 100%;
+.profile_menu li{
+    font-size: 25px;
+    color: rgba(172, 172, 172, 1);
     text-align: left;
-    display: block;
+    cursor: pointer;
 }
 
-.details_name{
-    float: left;
-    padding: 7px;
-    margin: 12px;
-    display: flex;
-    flex-direction: row;
-}
-.image_container img{
-    width: 40%;
-}
-
-
-.details_flag{
-    width: 20%;     
-}
-
-/*FOR TABLET*/
-@media screen and (max-width: 768px) {
-
-    .container{
-        width: 85%;
-    }
-
-    .profile_name{
-        margin-top: 25%;
-    } 
-    .hobbies_wrapper{
-        width: 50%;
-    } 
-
-    .interest_item{
-        width: 40%;
-    }
-}
-
-/* FOR MOBILE SCREENS*/
-@media screen and (max-width: 500px) {
-
-    .container{
-        width: 90%;
-    }
- 
-    .place_image{
-        display: block;
-        flex-direction: column;
-    }
+.profile_content{
+    box-shadow: 0 0 3px 3px #dddddd00,
+    4px 4px 6px 2px rgba(140, 182, 43, 0.7),
+        -4px -4px 6px 2px rgba(244, 244, 244, 0);
+    flex: 2;
+    height: 40vh;
+    border-radius: 20px;
+    margin: 0 30px;
     
-    .number_place{
-        color: #FFBD59;
-        font-size: 25px;
-    }
-
-    .profile_name{
-        margin-top: 35%;
-    } 
-    
-    .profile_section{
-        width: auto;  
-    }
-
-    
-    .hobbies_wrapper{
-    width: auto;
-    }
-
-    .arrow{
-        display: none;
-    }
 }
+

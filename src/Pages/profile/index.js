@@ -2,48 +2,53 @@ import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { useContext } from 'react'
 import Card from '../../components/shared/UI/Card';
-import { GetUserProfile } from '../../components/utils/user/getUserProfile';
 import {AuthContext} from "../../contextAPI/AuthContext";
 import LoadingSpinner from "../../components/shared/UI/LoadingSpinner";
 import ProfilePage from './profilePage';
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../components/shared/UI/toast";
+import { fetchUserPlaces } from '../../components/utils/places/fetchPlaces';
 
 
 const Profile = () => {
     const Auth = useContext(AuthContext);
+    const [authPlaces, setAuthPlaces] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserProfile = async() => {
 
-            if(!Auth.authenticatedUser || !(Auth.authenticatedUser && Auth.authenticatedUser.token))return
 
-            const profile_request = await GetUserProfile(Auth.authenticatedUser.token.access_token);
+            if(!Auth.authenticatedUser || !(Auth.authenticatedUser && Auth.authenticatedUser.token))return navigate("/");
+            const Auth_places = await fetchUserPlaces(Auth.authenticatedUser.token.access_token)
 
-            if(!profile_request.status){
-                notify(profile_request.message || "Session expired!", "warning");
+            if(!Auth_places.status){
+                notify(Auth_places.message, "error");
                 Auth.logout();
-                return navigate("/")
+                return navigate("/");
             }
+
+            setAuthPlaces(Auth_places.data)
+
 
             setIsLoading(false);
         }
 
         fetchUserProfile();
-    })
+    }, [])
 
     return (
         <>
         {
-            isLoading ? 
-            <LoadingSpinner />
-            :
+            (authPlaces && ! isLoading)  ?
             <Card>
-                <ProfilePage Auth={Auth}/>
+                <ProfilePage User={Auth} Places={authPlaces}/>
             </Card>
+            :
+            <LoadingSpinner />
+            
         }
         </>
     )

@@ -11,8 +11,6 @@ function App() {
   const [authenticatedUser, setAuthenticatedUser] = useState();
 
   const login = useCallback((user) => {
-
-
     if(!user.status === "success"){
       setIsLoggedIn(false);
       return;
@@ -24,7 +22,6 @@ function App() {
   }, [])
 
   const update = useCallback(user => {
-
     const {data, token} = user;
 
     if(!data || !token){

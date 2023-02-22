@@ -17,7 +17,7 @@ const AlertContainer = (props) => {
   return (
     <div className={styles.alert}>
         {
-            // !isSubmited ?
+            !isSubmited ?
             <>
                 <div className={styles.alert_header}>
                     <h1>Approved</h1>
@@ -46,11 +46,11 @@ const AlertContainer = (props) => {
                 </div>
             </>
             
-            // :
+            :
 
-            // <>
-            //     <MapContent />
-            // </>
+            <>
+                <MapContent />
+            </>
         }
 
 

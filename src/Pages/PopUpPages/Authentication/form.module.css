@@ -6,6 +6,8 @@
     overflow: hidden;
     padding: 30px 40px 20px 40px;
     background: rgba(239, 235, 235, 0.879);
+    /* border: 2px solid red; */
+
 }
 
 .login_form

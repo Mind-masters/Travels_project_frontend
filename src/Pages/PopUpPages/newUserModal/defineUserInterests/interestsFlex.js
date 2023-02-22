@@ -34,37 +34,40 @@ const FlexBox = (props) => {
     
     
     const FlexItem = ({item}) => {
+
     
         const ItemClickHandler = () => {
 
-            const doesItemExists = selectedInterestsArray.filter(element => element === item).length>0;
+            const doesItemExists = selectedInterestsArray.filter(element => element.key === item.key).length>0;
 
             if(!doesItemExists)setSetectedInterestsArray([...selectedInterestsArray, item])
             else{
                 setSetectedInterestsArray(
                     selectedInterestsArray.filter(element => {
-                        return element !== item
+                        return element.key !== item.key
                     })
                 )
             }
 
         }
 
-        const isSelected = selectedInterestsArray.filter(interest => interest === item) ;
+        const isSelected = selectedInterestsArray.filter(interest => {
+            return item && (interest.key === item.key);
+        }) ;
 
     
         return <div onClick={ItemClickHandler} className={`${styles.box} ${item ? styles.flex_item : styles.hidden_item} ${isSelected[0] && styles.flex_item_selected}`}>
             <p>
-                {item}
+                {item && item.value}
             </p>
         </div>
     }
     
     const FlexRow = ({items}) => {
         
-        const first_element = items[0] ? items[0].value : null;
-        const second_element = items[1] ? items[1].value : null;
-        const third_element = items[2] ? items[2].value : null;
+        const first_element = items[0] ? {key: items[0].key, value: items[0].value} : null;
+        const second_element = items[1] ? {key: items[1].key, value: items[1].value} : null;
+        const third_element = items[2] ? {key: items[2].key, value: items[2].value} : null;
 
         return <div className={styles.flex_row}>
             <FlexItem item={first_element} />

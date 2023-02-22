@@ -11,7 +11,6 @@ export const DEFAULT_OPTIONS = [
     {key: 10, value: "Romantic"},
     {key: 11, value: "Camping"},
     {key: 12, value: "Exotic places"},
-    // {key: 13, value: "Geocaching"},
     {key: 13, value: "Roads"},
     {key: 14, value: "Photography"},
 ]
