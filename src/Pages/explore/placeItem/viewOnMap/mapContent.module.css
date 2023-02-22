@@ -1,3 +1,48 @@
-.mapContainer{
-    border: 2px solid red;
+.author_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8vh auto;
+    margin-top: 4vh;
+}
+
+.author_content img{
+    width: 3rem;
+}
+
+.author_content h1, .view_map h1{
+    font-size: 1.2rem;
+}
+
+.view_map img{
+    opacity: 0.1;
+    transition-duration: 0.5s;
+}
+
+.view_map img:hover{
+    opacity: 0.25;
+}
+
+.view_map{
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: rgb(28, 28, 28);
+    position: relative;
+}
+
+.view_map h1{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40%;
+    bottom: 0;
+    margin: auto;
+    color: aliceblue;
+    font-weight: 900;
+}
+
+.controllers{
+    margin: 3rem 0 0;
+    display: flex;
+    justify-content: space-between;
 }

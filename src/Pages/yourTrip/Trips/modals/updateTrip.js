@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styles from "./update.module.css";
 import Modal from '../../../../components/shared/UI/Modal';
-import TextField from '@material-ui/core/TextField';
 import { Create } from '../../../../components/utils/places/create';
 import Button from '@mui/material/Button';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
@@ -9,6 +8,8 @@ import LoadingSpinner from '../../../../components/shared/UI/LoadingSpinner';
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../../../components/shared/UI/toast";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+
 // icons
 import flag_icon from "../../../../assets/flag.png";
 import map_icon from "../../../../assets/map_icon.png";
@@ -16,38 +17,26 @@ import photo_icon from "../../../../assets/photo_icon.png";
 
 // submodals
 import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals/selectCountryModal';
-import Location from './subModals/location';
-import ImageUpload from "./subModals/uploadImage";
+import Location from '../../../../components/shared/UI/map/location/index';
+import ImageUpload from "./uploadImage";
 import FormInput from '../../../../components/shared/UI/formInput';
 
 const UpdateTrip = (props) => {
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  // states and funtions for modals
   const Auth = useContext(AuthContext);
   const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null
-
   const [countryModal, setCountryModal] = useState(false);
   const [locationModal, setLocationModal] = useState(false);
   const [imageModal, setImageModal] = useState(false);
-
+  const handle = useFullScreenHandle();
   const parentModalHidden = countryModal || locationModal || imageModal;
 
-  const onModalHide = () => {
-    setCountryModal(false);
-    setLocationModal(false);
-    setImageModal(false);
-  }
-
+  const onModalHide = () => {setCountryModal(false);setLocationModal(false);setImageModal(false);}
   const onOpenCountryModal = () => setCountryModal(true);
-  const onOpenLocationModal = () => setLocationModal(true);  
+  const onOpenLocationModal = () => {handle.enter();setLocationModal(true)};  
   const onOpenImageModal = () => setImageModal(true);
-  
-  const onSubmitCountryModal = (results) => {setCountryValue(results); onModalHide()}
-  const onSubmitLocationModal = (results) => {setLocationValue(results); onModalHide()}
-  const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
-
 
   // states and functions for validation
   const [countryInputError, setCountryInputError] = useState(false);
@@ -57,7 +46,7 @@ const UpdateTrip = (props) => {
   const [titleInputError, setTitleInputError] = useState(false);
   
 
-  // states and functions for values
+  // states and functions for storing values
   const [countryValue, setCountryValue] = useState(null);
   const [locationValue, setLocationValue] = useState(null);
   const [imageValue, setImageValue] = useState(false);
@@ -65,9 +54,10 @@ const UpdateTrip = (props) => {
   const [titleValue, setTitleValue] = useState(null);
 
   const onSubmitDescription = (value) => setDescriptionValue(value);
-
+  const onSubmitCountryModal = (results) => {setCountryValue(results); onModalHide()}
+  const onSubmitLocationModal = (results) => {setLocationValue(results); onModalHide()}
+  const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
   const onSubmitTitle = (value) => setTitleValue(value);
-
 
   const onFormSubmitHandler = async(e) => {
     setTitleInputError(false);
@@ -109,7 +99,9 @@ const UpdateTrip = (props) => {
 
   }
 
-  
+  useEffect(() => {
+    handle.enter();
+  }, [locationModal])
 
 
   return (
@@ -118,14 +110,24 @@ const UpdateTrip = (props) => {
         <div className={`${styles.container} ${parentModalHidden && styles.hidden}`}>
           <h1 className={styles.login_form_title}>Share your experience</h1>
 
-          <form className={styles.form_container}>
+          <form className={styles.form_container} onSubmit={(e)=>{e.preventDefault()}}>
+
             <Modal 
               onClose={onModalHide}
               show={countryModal || locationModal || imageModal} 
             >
               {countryModal && <SelectCountryModal onClose={onModalHide} onSubmit={onSubmitCountryModal} />}
-              {locationModal && <Location onClose={onModalHide} onSubmit={onSubmitLocationModal} />}
+              {
+                locationModal && 
+                <FullScreen handle={handle}>
+                  <Location 
+                    onSubmit={onSubmitLocationModal} 
+                    onClose={onModalHide}
+                  />
+                </FullScreen>
+              }
               {imageModal && <ImageUpload onClose={onModalHide} onSubmit={onSubmitImageModal} />}
+
             </Modal>
             
             <div className={styles.form_content}>

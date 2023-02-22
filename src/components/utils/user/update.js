@@ -6,7 +6,7 @@ import { FetchAPI_template } from "../FetchAPI_template";
 
 export const Update = async(body, token) => {
 
-    const url = "http://localhost:5000/api/v1/user/me/update";
+    const url = "https://mind-master-backend-production.up.railway.app/api/v1/user/me/update";
 
     const method = "POST";
 
@@ -22,7 +22,7 @@ export const Update = async(body, token) => {
 
 export const UpdateSettings = async(body, token) => {
 
-    const url = "http://localhost:5000/api/v1/user/me/settings";
+    const url = "https://mind-master-backend-production.up.railway.app/api/v1/user/me/settings";
 
     const method = "POST";
 
@@ -37,7 +37,7 @@ export const UpdateSettings = async(body, token) => {
 
 export const UpdateInterests = async(body, token) => {
 
-    const url = "http://localhost:5000/api/v1/user/me/interests"//"https://mind-master-backend-production.up.railway.app/api/v1/user/me/interests";
+    const url = "https://mind-master-backend-production.up.railway.app/api/v1/user/me/interests";
 
     const method = "POST";
 

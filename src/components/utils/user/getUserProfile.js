@@ -4,7 +4,7 @@ import { FetchAPI_template } from "../FetchAPI_template";
 
 export const GetUserProfile = async(token) => {
 
-    const url = "http://localhost:5000/api/v1/user/me/profile";
+    const url = "https://mind-master-backend-production.up.railway.app/api/v1/user/me/profile";
 
     const method = "GET";
 
