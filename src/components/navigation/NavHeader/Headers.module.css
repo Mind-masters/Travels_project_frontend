@@ -11,6 +11,7 @@
   background-color: rgba(238, 125, 21, 1);
 }
 
+
 .custom_width ul{
   width: 95%;
 }
@@ -91,6 +92,7 @@
 
 .userData .points{
   background-color: rgba(128, 120, 120, 0.114);
+  border: 1px solid rgba(238, 126, 21, 0.371);
   padding: 10px 0;
   width: 45%;
   border-radius: 50px;

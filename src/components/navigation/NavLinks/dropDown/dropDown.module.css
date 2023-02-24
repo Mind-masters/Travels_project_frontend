@@ -1,7 +1,11 @@
+ .dropDownContainer{
+   background-color: white;
+   width: 15vw;
+ }
+ 
  .logo{
     width: 3rem;
     transition-duration: 0.2s;
-
  }
 
  .logo:hover{
@@ -26,7 +30,7 @@
     justify-content: space-between;
     width: 100%;
     font-size: 1.2rem;
-    border: 2px solid red;
+    /* border: 2px solid red; */
  }
 
  .body div{
@@ -40,7 +44,7 @@
  .body div h1{
     margin: 0;
     flex: 2;
-    color: #BCB696;
+    color: rgba(128, 128, 128, 1);
  }
 
  .body img{
@@ -60,7 +64,7 @@
  }
 
  .logout_link h1{
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     cursor: pointer;
     font-size: 1.7rem;
