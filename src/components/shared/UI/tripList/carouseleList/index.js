@@ -59,7 +59,6 @@ const SwiperList = (props) => {
                     <SwiperSlide key={key} className={styles.SwiperSlide}>
                         <div className={styles.slide_container}>
                             <UserCRUD id={place._id} />
-                            <span className={styles.destination_name}>{place.title}</span>
                             <img className={styles.culture} src={place.image} alt='culture' />
                         </div>
                     </SwiperSlide>

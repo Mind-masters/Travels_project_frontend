@@ -62,9 +62,8 @@ export default function AccountMenu() {
                 PaperProps={{
                 elevation: 0,
                 sx: {
-                    borderEndEndRadius: 30,
-                    borderEndStartRadius: 30,
                     overflow: 'visible',
+                    bgcolor: "rgba(238, 125, 21, 1)",
                     filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                     mt: 1.5,
                     '& .MuiAvatar-root': {
@@ -90,34 +89,33 @@ export default function AccountMenu() {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <div style={{ backgroundColor: "blue", height: 150, width: 50 }}>
-                    labass
+                <div className={styles.dropDownContainer}>
+                    <MenuItem>
+                        <div className={styles.profile_link}>
+                            <NavLink to={"/profile"}>Visit your profile</NavLink>
+                        </div>
+                    </MenuItem>
+
+                    <MenuItem>
+                        <div className={styles.body}>
+                            <div>
+                                <img src={star_logo} alt="" />
+                                <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
+                            </div>
+
+                            <div>
+                                <img src={coints_logo} alt="" />
+                                <h1>Get more points</h1>
+                            </div>
+                        </div>
+                    </MenuItem>
+                    
+                    <MenuItem style={{ backgroundColor: "rgba(238, 125, 21, 1)" }}> 
+                        <div onClick={logoutHandler} className={styles.logout_link}>
+                            <h1>Logout</h1>
+                        </div>
+                    </MenuItem>
                 </div>
-                {/* <MenuItem>
-                    <div className={styles.profile_link}>
-                        <NavLink to={"/profile"}>Visit your profile</NavLink>
-                    </div>
-                </MenuItem>
-
-                <MenuItem>
-                    <div className={styles.body}>
-                        <div>
-                            <img src={star_logo} alt="" />
-                            <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
-                        </div>
-
-                        <div>
-                            <img src={coints_logo} alt="" />
-                            <h1>Get more points</h1>
-                        </div>
-                    </div>
-                </MenuItem>
-                
-                <MenuItem style={{ backgroundColor: "rgba(238, 125, 21, 1)" }}> 
-                    <div onClick={logoutHandler} className={styles.logout_link}>
-                        <h1>Logout</h1>
-                    </div>
-                </MenuItem> */}
 
             </Menu>
         </>
