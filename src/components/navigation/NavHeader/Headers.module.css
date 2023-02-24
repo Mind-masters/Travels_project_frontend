@@ -6,8 +6,9 @@
   align-items: center;
   transition-duration: 0.2s;
 }
+
 .colorful{
-  background-color: rgba(31, 183, 92, 0.664);
+  background-color: rgba(238, 125, 21, 1);
 }
 
 .custom_width ul{
@@ -18,14 +19,15 @@
 .mainHeaderFixed{
   position: fixed;
   top: 0;
+  background-color: rgba(238, 125, 21, 1);
+
   z-index: 2;
-  background-color: rgba(31, 183, 92, 0.664);
 }
 
 .statusHeaderContainer{
   width: 100%;
   position: relative;
-  background-color: rgba(31, 183, 92, 0.851);
+  background-color: white;
   padding: 1rem;
   display: flex;
   justify-content: space-around;
@@ -54,19 +56,19 @@
 }
 
 .none h1{
-  color: #87f2a2;
+  color: #191919;
 }
 
 .none h1 span{
-  color: rgb(189, 180, 115);
+  color: rgba(238, 125, 21, 1);
 }
 
 .login_link{
   padding: 8px 35px;
   border-radius: 50px;
-  background-color: rgba(23, 3, 3, 0.759);
-  color: rgba(147, 144, 120, 1);
-  box-shadow: 0px 5px 10px 0px rgb(189, 180, 115);
+  background-color: rgba(238, 125, 21, 1);
+  color: rgb(228, 227, 224);
+  /* box-shadow: 0px 5px 10px 0px rgb(0, 0, 0); */
 }
 
 
@@ -88,15 +90,22 @@
 }
 
 .userData .points{
-  background-color: rgba(23, 3, 3, 0.759);
+  background-color: rgba(128, 120, 120, 0.114);
   padding: 10px 0;
   width: 45%;
   border-radius: 50px;
   font-size:1.2rem;
   color: rgba(147, 144, 120, 1);
-  box-shadow: 0px 5px 10px 0px rgb(189, 180, 115);
+  /* box-shadow: 0px 5px 10px 0px rgb(189, 180, 115); */
   font-weight: bold;
 
+}
+
+.plus_one_point{
+  font-size:1.2rem;
+  color: rgba(238, 125, 21, 1);
+  font-weight: bold;
+  margin-right: 1rem;
 }
 
 

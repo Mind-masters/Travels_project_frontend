@@ -4,8 +4,12 @@ import {AuthContext} from "./contextAPI/AuthContext";
 import { useState, useCallback } from 'react'
 import MainNavigation from "./components/navigation";
 import { ToastContainer } from 'react-toastify';
+import Location from './components/shared/UI/map/location';
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { useEffect } from 'react';
 
 function App() {
+
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [authenticatedUser, setAuthenticatedUser] = useState();

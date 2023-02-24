@@ -64,7 +64,6 @@ export default function AccountMenu() {
                 sx: {
                     borderEndEndRadius: 30,
                     borderEndStartRadius: 30,
-                    background: "#3B3C3A",
                     overflow: 'visible',
                     filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                     mt: 1.5,
@@ -80,9 +79,10 @@ export default function AccountMenu() {
                     right: 20,
                     width: 15,
                     height: 15,
-                    bgcolor: '#BCB696',
+                    bgcolor: 'rgba(238, 125, 21, 1)',
                     transform: 'translateY(-50%) rotate(45deg)',
                     zIndex: 0,
+                    // overflow: "hidden"
                     },
                 },
                 
@@ -90,7 +90,10 @@ export default function AccountMenu() {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-                <MenuItem>
+                <div style={{ backgroundColor: "blue", height: 150, width: 50 }}>
+                    labass
+                </div>
+                {/* <MenuItem>
                     <div className={styles.profile_link}>
                         <NavLink to={"/profile"}>Visit your profile</NavLink>
                     </div>
@@ -109,14 +112,12 @@ export default function AccountMenu() {
                         </div>
                     </div>
                 </MenuItem>
-
-                <Divider style={{ backgroundColor: "rgba(166, 131, 131, 1)", height: 2 }} />
                 
-                <MenuItem>
+                <MenuItem style={{ backgroundColor: "rgba(238, 125, 21, 1)" }}> 
                     <div onClick={logoutHandler} className={styles.logout_link}>
                         <h1>Logout</h1>
                     </div>
-                </MenuItem>
+                </MenuItem> */}
 
             </Menu>
         </>

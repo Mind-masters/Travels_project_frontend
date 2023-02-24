@@ -41,7 +41,7 @@ const LandingMain = (props) => {
               <div className={styles.welcomePage_content_searchbar}>
                 <input placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`}></input>
                 <div className={styles.explore_button}>
-                  <Button>{Auth.isLoggedIn ? "Explore" : "Get Started"}</Button>
+                  <Button color={"rgba(238, 125, 21, 1)"}><h1 style={{ color: "white" }}>{Auth.isLoggedIn ? "Explore" : "Get Started"}</h1></Button>
                 </div>
               </div>
             </div>

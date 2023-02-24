@@ -3,19 +3,16 @@ import { useState } from 'react';
 import styles from "./placeItem.module.css";
 import Comments from "./comments/Comments";
 import StarsRating from '../../../components/shared/UI/Ratings/stars';
-import images2 from '../../../assets/travel-background.jpg'
 import Button from '../../../components/shared/UI/button/Button';
 import HeartRating from '../../../components/shared/UI/Ratings/heart';
 
 import map_icon from "../../../assets/map_icon.png";
 import pencil_icon from "../../../assets/pencil.png";
-import Modal from '../../../components/shared/UI/Modal';
 import ViewOnMap from './viewOnMap';
 
 const PlaceItem = ({item}) => {
-  console.log("iem: ", item )
+
   const [showComments, setShowComments] = useState(false)
-  const onClick = () => setShowComments(true)
   const [showMapModal, setShowMapModal] = useState(false);
   const item_author = item.user_id ? item.user_id : "Unknown user"
 
@@ -27,7 +24,7 @@ const PlaceItem = ({item}) => {
     <div className={styles.container}>
 
       
-      {showMapModal && <ViewOnMap onClose={CloseMapModal} />}
+      {showMapModal && <ViewOnMap location={[item.location.lng, item.location.lat]} onClose={CloseMapModal} />}
       <div className={styles.author_line}>
 
         <div className={styles.author_image}>

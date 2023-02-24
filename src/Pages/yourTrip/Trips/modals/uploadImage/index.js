@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 
 import "react-toastify/dist/ReactToastify.css";
-import { notify } from "../../../../../../components/shared/UI/toast";
+import { notify } from "../../../../../components/shared/UI/toast";
 
 
 const UploadImage = (props) => {

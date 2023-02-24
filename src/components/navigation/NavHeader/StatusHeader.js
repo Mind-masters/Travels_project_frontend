@@ -40,7 +40,7 @@ const StatusHeader = props => {
                 {
                     UserData?
                     <>
-                        <p className={`${UserData.is_new_login && styles.hidden}`} >+ 1</p>
+                        <p className={`${styles.plus_one_point}`} >+ 1</p>
 
                         <p className={styles.points}>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</p>
                     </>
