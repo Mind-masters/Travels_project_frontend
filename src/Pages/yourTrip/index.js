@@ -10,9 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../components/shared/UI/toast";
 // importing logos
 import life_is_good_logo from "../../assets/your-trip/life_is_good.png";
-import fellow_travelers_logo from "../../assets/your-trip/fellow_travellers.png";
 import { fetchUserPlaces } from '../../components/utils/places/fetchPlaces';
-
+import FellowTraveler from './FellowTraveler';
 
 const YoutTrip = () => {
 
@@ -71,16 +70,8 @@ const YoutTrip = () => {
             <TripList data={userPlaces} user_places={false} />
           </YourTripWrapper> */}
 
-
-          <div className={styles.fellow_friends_image}>
-
-            <h1>
-              Looking for fellow traveller?
-            </h1>
-            
-            <img src={fellow_travelers_logo} alt="fellow travelers" />
-
-          </div>
+          <FellowTraveler />
+          
         </div>
       }
       
