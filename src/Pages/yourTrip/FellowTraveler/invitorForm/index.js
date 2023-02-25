@@ -13,8 +13,7 @@ const InvitorForm = () => {
       <div>
       <form className="p-10 bg-white rounded-lg drop-shadow-lg space-y-4">
         <h1 className="text-2xl font-light capitalize text-[orangered]">Let's plan a new trip</h1>
-
-        
+      
         <div className="flex flex-col border-4">
             <label for="name"></label>
             <input type="date" name="name" id="date" required className="peer border border-slate-400 text-2xl"/>
@@ -24,7 +23,6 @@ const InvitorForm = () => {
             </p>
         </div>
 
-        
         <div className="flex flex-col border-4">
             <label for="search"></label>
             <input type="search" name="search" id="search" required className="peer border border-slate-400 text-2xl" placeholder='where to go'/>
@@ -32,8 +30,7 @@ const InvitorForm = () => {
                 Please enter a location
             </p>
         </div>
-
-        
+       
         <div className="flex flex-col">
             <label for="message">Message</label>
             <textarea name="message" id="message" cols="30" rows="3" required placeholder='Intro'
