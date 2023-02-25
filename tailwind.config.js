@@ -12,5 +12,10 @@ module.exports = {
     },
     extend: {},
   },
+  colors: {
+    'orangered': 'EE7D15',
+    'white': 'FFFFFF',
+    'grayhash': '#808080'
+  },
   plugins: [],
 }
