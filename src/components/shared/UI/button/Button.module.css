@@ -26,7 +26,7 @@
 {
     font-family: 'Poppins';
     font-size: 15px;
-    color: #4caf50;
+    color: #000;
     line-height: 1.2;
     font-weight: bold;
     text-transform: uppercase;
@@ -39,11 +39,12 @@
     padding:0 20px;
     height: 50px;
     width:100%;
+    background:#EE7D15
 }
 
 .login_form_btn:hover
 {
-    background: #4caf50;
+    background:#EE7D15;
     color:#ddd;
 }
 
