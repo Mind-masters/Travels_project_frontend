@@ -40,9 +40,9 @@ const InvitorForm = () => {
 
         <div>
         {showSearchBox ? (
-        <input className='border border-slate-400 text-2xl' type="text" placeholder="Search Traveller..." />
+        <input className='border border-slate-400 text-1xl' type="text" placeholder="Search Traveller..." />
           ) : (
-        <p className='text-[orange] text-2xl cursor-pointer' onClick={handleClick}>Search for Fellow Travellers</p>
+        <p className='text-[orange] text-1xl cursor-pointer' onClick={handleClick}>Search for Fellow Travellers</p>
       )}
       </div>          
     </form>
