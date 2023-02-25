@@ -1,6 +1,12 @@
-import React, {Fragment} from 'react'
+import React, {Fragment} from 'react';
+import { useState } from 'react';
 
 const InvitorForm = () => {
+  const [showSearchBox, setShowSearchBox] = useState(false);
+
+  const handleClick = () => {
+    setShowSearchBox(true);
+  }
   return (
     <Fragment>
     <div className='container m-auto justify-center'>
@@ -9,9 +15,9 @@ const InvitorForm = () => {
         <h1 className="text-2xl font-light capitalize text-[orangered]">Let's plan a new trip</h1>
 
         
-        <div className="flex flex-col">
-            <label for="name">Date</label>
-            <input type="date" name="name" id="date" required className="peer border border-slate-400"/>
+        <div className="flex flex-col border-4">
+            <label for="name"></label>
+            <input type="date" name="name" id="date" required className="peer border border-slate-400 text-2xl"/>
 
             <p class="invisible peer-invalid:visible text-red-700 font-light">
                 Please enter your date
@@ -19,9 +25,9 @@ const InvitorForm = () => {
         </div>
 
         
-        <div className="flex flex-col">
-            <label for="email">Location</label>
-            <input type="search" name="search" id="search" required className="peer border border-slate-400" placeholder='where to go'/>
+        <div className="flex flex-col border-4">
+            <label for="search"></label>
+            <input type="search" name="search" id="search" required className="peer border border-slate-400 text-2xl" placeholder='where to go'/>
             <p className="invisible peer-invalid:visible text-red-700 font-light">
                 Please enter a location
             </p>
@@ -34,10 +40,16 @@ const InvitorForm = () => {
                 className="peer border border-slate-400 text-center"></textarea>
         </div>
         <p className='text-center text-xl'>24 travellers who matches your interests</p>
-        <p className='text-[orange] text-2xl'>Search for Fellow Travellers</p>
-        {/* <button type="submit" className="px-5 py-1 bg-[orangered] text-white">Post</button> */}
+
+        <div>
+        {showSearchBox ? (
+        <input className='border border-slate-400 text-2xl' type="text" placeholder="Search Traveller..." />
+          ) : (
+        <p className='text-[orange] text-2xl cursor-pointer' onClick={handleClick}>Search for Fellow Travellers</p>
+      )}
+      </div>          
     </form>
-      </div>
+    </div>
     </div>
     </Fragment>
   ) 
