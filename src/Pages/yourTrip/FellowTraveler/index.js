@@ -5,59 +5,55 @@ import Button from '../../../components/shared/UI/button/Button';
 import { useState } from 'react';
 import Modal from '../../../components/shared/UI/Modal';
 import InvitorForm from './invitorForm';
-import AdminImg from '../../../assets/culture.jpg'
+import InvitorsList from "./invitorsList";
 
 const FellowTraveler = () => {
 
     const [showFormModal, setShowModal] = useState(false);
 
     const onModalClose = () => {
-        console.log("closing modal");
         setShowModal(false)
     }
 
-  return (
-    <Fragment>
+    return (
 
-    <div className={styles.fellow_friends_image}>
+        <div className={styles.container}>
+            <div className={styles.fellow_friends_image}>
 
-        <h1>
-            Looking for fellow traveller?
-        </h1>
-        
-        <img src={fellow_travelers_logo} alt="fellow travelers" />
-        <Modal
-            show={showFormModal}
-            onClose={onModalClose}
-        >
-            <InvitorForm />
-        </Modal>
+                <h1 className={styles.fellow_friends_header}>
+                    Where interests become friendships
+                </h1>
+                
+                <img className={styles.fellow_logo} src={fellow_travelers_logo} alt="" />
 
-        </div>
-        <div className='container justify-center w-52 m-auto'>
-            <div className='mb-10'>
-            <Button onSubmit={() => {setShowModal(true)}}>Become inviter</Button>
+                <Modal
+                    show={showFormModal}
+                    onClose={onModalClose}
+                >
+                    <InvitorForm />
+                </Modal>
+
+                <h1 className={styles.fellow_friends_header}>
+                    Looking for travel buddy?
+                </h1>
+
+                <div className={styles.invite_or_join}>
+                    <Button onSubmit={() => {setShowModal(true)}}>
+                        <h1 style={{color: "white"}}>Become invitor</h1>
+                    </Button>
+
+                    <span>Or</span>
+
+                    <h2>Join others</h2>
+                    
+                </div>
+
+
+                <InvitorsList />
+
             </div>
-            <div>
-            <span className='text-[gray] text-3xl m-12 text-center p-10'>Or</span>
-            <h1 className='text-4xl text-[orange] mt-10 md: mb-3'>Join others</h1>
-            </div>
         </div>
-        
-        <div className='container m-auto w-50 justify-center'>
-        <span className='bg-[orangered] w-50 rounded-3xl text-4xl text-white p-2 m-5 cursor-pointer'>Filter</span>
-        <div className='container flex m-auto w-50 p-2'>
-        <img className='w-20 object-cover rounded-full h-20 m-4' src={AdminImg}></img>
-        <span className='justify-end absolute right-60 text-3xl text-center p-2 cursor-pointer bg-[orangered] rounded-3xl text-white w-40'>Details</span>
-        </div>
-
-        <div className='container flex m-auto w-50 p-2'>
-        <img className='w-20 object-cover rounded-full h-20 m-4' src={AdminImg}></img>
-        <span className='justify-end absolute right-60 text-3xl text-center p-2 cursor-pointer bg-[orangered] rounded-3xl text-white w-40'>Details</span>
-        </div>
-        </div>
-    </Fragment>
-  )
+    )
 }
 
 export default FellowTraveler
