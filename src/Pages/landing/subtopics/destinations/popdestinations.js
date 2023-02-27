@@ -46,7 +46,7 @@ const PopDestinations = () => {
           <HeartRating />
         </div>
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center" }}>
           <div className={styles.place_content_gallery}>
             <div className={styles.parent_image}>
               <img src={gallery_3} alt=""/>
@@ -69,7 +69,8 @@ const PopDestinations = () => {
           </div>
         </div>
         
-      </div>
+    
+</div>
 
     </section>
     
