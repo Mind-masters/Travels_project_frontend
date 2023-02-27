@@ -27,7 +27,7 @@ const FormInput = (props) => {
             <input 
                 onChange={onInputChangeHanlder} 
                 className={`${styles.input} ${props.value && styles.has_val}`} 
-                type="text"
+                type={props.type || "text"}
                 onBlur={()=>{setIsTouched(true)}}
             />
 
