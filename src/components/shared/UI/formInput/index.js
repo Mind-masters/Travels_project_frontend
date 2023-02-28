@@ -33,7 +33,7 @@ const FormInput = (props) => {
 
             <span 
                 className={styles.focus_input} 
-                data-placeholder={props.name || "Password"}
+                data-placeholder={props.type==="date" ? null : (props.name || "Password")}
             >
             </span>
 
