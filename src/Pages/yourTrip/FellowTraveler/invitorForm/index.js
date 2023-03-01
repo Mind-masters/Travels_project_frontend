@@ -1,23 +1,52 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useContext} from 'react';
 import { useState } from 'react';
 import Input from "../../../../components/shared/UI/formInput";
 import styles from "./invitorForm.module.css";
 import Button from "../../../../components/shared/UI/button/Button";
+import { Create } from '../../../../components/utils/invitings/create';
+import { AuthContext } from '../../../../contextAPI/AuthContext';
 
 const InvitorForm = () => {
-  const [showSearchBox, setShowSearchBox] = useState(false);
 
+  const Auth = useContext(AuthContext);
+  const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null  // for storing date value
   const [dateValue, setDateValue] = useState(null)
   const onDateChangeHandler = (value) => setDateValue(value)
 
-  const handleClick = () => {
-    setShowSearchBox(true);
+  // for storing FinalPlaceValue value
+  const [finalPlaceValue, setFinalPlaceValue] = useState(null)
+  const onFinalPlaceChangeHandler = (value) => setFinalPlaceValue(value)
+
+  // for storing about value
+  const [aboutValue, setAboutValue] = useState(null)
+  const onAboutChangeHandler = (value) => setAboutValue(value)
+
+  const handleSubmitShedule = async(e) => {
+    // setShowSearchBox(true);
+    
+    try {
+      
+      const create_new_inviting = await Create(
+        {
+          date: dateValue,
+          finalPlace: finalPlaceValue,
+          about: aboutValue,
+          userCountryImage: "https://flagcdn.com/w320/lt.png"
+        },
+        token
+      );
+
+      console.log("inviting: ", create_new_inviting)
+
+    } catch (error) {
+      console.log("error occured: ", error);
+    }
   }
   return (
     <Fragment>
     <div className='container m-auto justify-center'>
       <div>
-      <form className={styles.container}>
+      <form className={styles.container} onSubmit={(e) => {e.preventDefault()}}>
         <h1 className={`${styles.login_form_title}`}>
           Let's plan a new trip
 				</h1>
@@ -31,22 +60,22 @@ const InvitorForm = () => {
           />
 
           <Input 
-            value={null} 
+            value={finalPlaceValue} 
             isValid={true} 
             name="Where are you going?"
-            onChange={onDateChangeHandler}
+            onChange={onFinalPlaceChangeHandler}
           />
 
           <Input 
-            value={null} 
+            value={aboutValue} 
             isValid={true} 
             name="Tell us more!"
-            onChange={onDateChangeHandler}
+            onChange={onAboutChangeHandler}
           />
         </div>
 
         <div className={styles.submit_btn}>
-          <Button onSubmit={() => {}}>
+          <Button onSubmit={handleSubmitShedule}>
             <h1 style={{ color: "white" }}>Shedule</h1>
           </Button>
         </div>
