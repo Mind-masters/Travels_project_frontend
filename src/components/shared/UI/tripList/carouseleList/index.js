@@ -6,6 +6,7 @@ import { Navigation, EffectFade, Autoplay } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import add_new_trip_logo from "../../../../../assets/your-trip/ad_new_trip_logo.png";
+import AnimatedCircle from '../../circle';
 
 const SwiperList = (props) => {
 
@@ -59,7 +60,8 @@ const SwiperList = (props) => {
                     <SwiperSlide key={key} className={styles.SwiperSlide}>
                         <div className={styles.slide_container}>
                             <UserCRUD id={place._id} />
-                            <img className={styles.culture} src={place.image} alt='culture' />
+                            <img className={styles.culture} src={place.image} alt='culture'  />
+                            {/* <span><AnimatedCircle/></span> */}
                         </div>
                     </SwiperSlide>
                 )

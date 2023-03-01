@@ -88,6 +88,20 @@
     font-size: 1.4em;
 }
 
+/* .earth{
+
+cursor: pointer;
+border-radius: 10rem;
+background-color: transparent;
+border: transparent;
+} */
+
+/* .earthicon{
+    position: relative;
+    z-index: 1;
+    width: 10%;
+} */
+
 
 
 @media screen and (max-width: 600px) {
