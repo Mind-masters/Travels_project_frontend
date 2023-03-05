@@ -86,10 +86,25 @@
     color: rgb(164, 161, 161);
 }
 
-.like_comm_controllers{
+.controllers{
     display: flex;
-    justify-content: space-around;
+    margin: 0 auto;
     margin-top: 5vh;
+    /* border: 2px solid red; */
+    width: 80%;
+    align-items: center;
+}
+
+.button{
+    justify-self: end;
+}
+
+.like{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    font-size: 1rem;
+    font-weight:500;
 }
 
 
