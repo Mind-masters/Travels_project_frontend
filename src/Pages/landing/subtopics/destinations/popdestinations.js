@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './popDestinations.module.css'
 import dummy_user_logo from "../../../../assets/landing/dummy_user.png"
 import StarsRating from '../../../../components/shared/UI/Ratings/stars';
-import HeartRating from '../../../../components/shared/UI/Ratings/heart';
+import Like from '../../../../components/shared/UI/Ratings/like';
 
 
 import gallery_1 from "../../../../assets/hero-section.png";
@@ -43,7 +43,7 @@ const PopDestinations = () => {
         </div>
 
         <div>
-          <HeartRating />
+          <Like />
         </div>
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center" }}>
@@ -70,7 +70,7 @@ const PopDestinations = () => {
         </div>
         
     
-</div>
+  </div>
 
     </section>
     
