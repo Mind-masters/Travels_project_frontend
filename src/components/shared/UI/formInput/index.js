@@ -18,7 +18,7 @@ const FormInput = (props) => {
             {
                 `
                     ${styles.wrap_input}
-                    ${(!props.isValid && styles.alert_validate) || (!props.value && isTouched && styles.alert_validate)}
+                    ${(!props.isValid && styles.alert_validate) || (!props.value && !props.no_errors && isTouched && styles.alert_validate)}
                     ${styles.validate_input}
                 `
             }
