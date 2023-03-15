@@ -12,6 +12,7 @@ const FormInput = (props) => {
     }
 
 
+
     return (
         <div 
             className =
@@ -29,6 +30,7 @@ const FormInput = (props) => {
                 className={`${styles.input} ${props.value && styles.has_val}`} 
                 type={props.type || "text"}
                 onBlur={()=>{setIsTouched(true)}}
+                value={props.value}
             />
 
             <span 

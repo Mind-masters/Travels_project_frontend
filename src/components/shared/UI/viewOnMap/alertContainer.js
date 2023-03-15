@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./alertContainer.module.css"
-import Button from "../../../../components/shared/UI/button/Button";
+import Button from '../button/Button';
 import alert_logo from "../../../../assets/map_alert_logo.png";
 import { useState } from 'react';
 import MapContent from './mapContent';

@@ -9,7 +9,7 @@ const explore = (props) => {
     <Card>
       <div className={styles.container}>
         <PlaceList />
-        <Form />
+        {/* <Form /> */}
       </div>
     </Card>
   )
