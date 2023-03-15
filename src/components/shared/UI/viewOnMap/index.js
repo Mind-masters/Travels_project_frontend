@@ -1,7 +1,7 @@
 import React from 'react'
-import Modal from '../../../../components/shared/UI/Modal'
+import Modal from '../Modal'
 import AlertContainer from './alertContainer'
-import Location from '../../../../components/shared/UI/map/location'
+import Location from '../map/location'
 import { useState } from 'react'
 import MapContent from './mapContent'
 

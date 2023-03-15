@@ -6,9 +6,9 @@ import { useContext, useEffect, useState } from 'react';
 import {AuthContext} from "../../../../contextAPI/AuthContext"
 import StarRating from "../../../../components/shared/UI/Ratings/stars";
 import earthLogo from "../../../../assets/earth.png";
-import Button from '../../../../components/shared/UI/button/Button';
+import Button from '../button/Button';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
-import Modal from '../../../../components/shared/UI/Modal';
+import Modal from '../Modal';
 
 
 

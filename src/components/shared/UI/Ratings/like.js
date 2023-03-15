@@ -23,9 +23,7 @@ const Like = (props) => {
   }
 
   return (
-    <div>
-      <Heart isClick={props.isLiked} onClick={onClickHandler} />
-    </div>
+    <Heart isClick={props.isLiked} onClick={onClickHandler} />
   )
 }
 

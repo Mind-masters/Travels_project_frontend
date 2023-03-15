@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import add_new_trip_logo from "../../../../../assets/your-trip/ad_new_trip_logo.png";
 import AnimatedCircle from '../../circle';
+import Ripple from '../../ripple';
 
 const SwiperList = (props) => {
 
@@ -61,7 +62,9 @@ const SwiperList = (props) => {
                         <div className={styles.slide_container}>
                             <UserCRUD id={place._id} />
                             <img className={styles.culture} src={place.image} alt='culture'  />
-                            {/* <span><AnimatedCircle/></span> */}
+                            <div className={styles.carousele_ripple}>
+                                <Ripple />
+                            </div>
                         </div>
                     </SwiperSlide>
                 )

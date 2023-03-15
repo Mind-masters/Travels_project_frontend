@@ -3,17 +3,14 @@ import earthLogo from "../../../../assets/earth.png";
 import styles from "./ripple.module.css";
 
 const Ripple = () => {
-  // not working for a moment
+
   return (
-    <div>
-        <div classname={styles.gt_dev}></div>
-        <div classname={styles.gt_dev}></div>
-        <div classname={styles.gt_dev}></div>
-        <div classname={styles.gt_dev}></div>
-        <div classname={styles.open_dev_badge}>
-            <img src={earthLogo} alt=''/>
-        </div>
-    </div>
+    <div className={styles.dot}>
+			<div className={styles.centraldot}></div>
+			<div className={styles.wave}></div>
+			<div className={styles.wave2}></div>
+      <div className={styles.wave3}></div>
+		</div>
   )
 }
 
