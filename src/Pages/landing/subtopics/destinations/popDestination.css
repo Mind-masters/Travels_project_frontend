@@ -280,9 +280,10 @@ img{
 
   .carousel-indicators {
     position: relative;
-    bottom: 10px;
+    bottom: 7vw;
     left: 40%;
-    transform: translateX(-50%);
+    transform: translateX(-55%);
+    /* margin: 30px; */
   }
   
   .carousel-indicators span {
@@ -290,7 +291,7 @@ img{
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: #EE7D15;
     margin: 0 5px;
     cursor: pointer;
   }
