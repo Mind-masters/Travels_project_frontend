@@ -1,0 +1,6 @@
+.container{
+    flex: 1;
+    text-align: left;
+    color: rgb(122, 118, 114);
+    font-size: 1rem;
+}

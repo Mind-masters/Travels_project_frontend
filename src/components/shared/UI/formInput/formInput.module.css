@@ -22,14 +22,14 @@ input::-webkit-input-placeholder
     width: 100%;
     position: relative;
     border-bottom: 2px solid #adadad;
-    margin-bottom: 38px;
+    /* margin-bottom: 38px; */
 }
 
 .input
 {
     font-family: 'Poppins';
     font-size: 15px;
-    color: #4caf50;
+    color: #7F5537;
     line-height: 1.2;
     display: block;
     width: 94%;
@@ -60,7 +60,7 @@ input::-webkit-input-placeholder
     left: 0;
     width: 0;
     height: 2px;
-    background: #4caf50;
+    background: #EE7D15;
     transition: all 0.4s;
 
 }

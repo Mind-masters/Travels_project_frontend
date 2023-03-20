@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './popDestinations.module.css'
 import dummy_user_logo from "../../../../assets/landing/dummy_user.png"
 import StarsRating from '../../../../components/shared/UI/Ratings/stars';
@@ -10,6 +10,11 @@ import gallery_2 from "../../../../assets/kazkas_1.jpeg";
 import gallery_3 from "../../../../assets/town.jpg";
 
 const PopDestinations = () => {
+
+  const [isClick, setClick] = useState(false);
+
+
+  
   return (
     <section className={styles.container}>
     
@@ -43,7 +48,7 @@ const PopDestinations = () => {
         </div>
 
         <div>
-          <Like />
+          <Like isLiked={isClick} onClick={() => setClick(!isClick)} />
         </div>
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center" }}>

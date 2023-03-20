@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import styles from "./new.module.css";
+import styles from "./placeItem.module.css";
 
 import Body from "./body";
 
