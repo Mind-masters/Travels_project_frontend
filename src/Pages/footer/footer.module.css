@@ -1,0 +1,174 @@
+
+
+.footer_container{
+  margin-top: 27em;
+    /* display: flex; */
+    /* flex-direction: column; */
+    width: 100%;
+    align-items: center;
+    background-color: #EE7D15;
+    user-select: none;
+}
+
+.info_container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.info_section{
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 20px;
+  margin-left: 35px;
+  padding-left: 34px;
+  /* line-height: 32.81px; */
+}
+
+.footer_mail{
+width: 50vw;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(10, 10, 9);
+    margin: 15px;
+}
+
+.footer_note{
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 20px; 
+}
+
+.info_section {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 5px;
+}
+
+.info_section h3 {
+    font-size: 25px;
+    color: rgb(219, 153, 26);
+    margin-bottom: 10px;
+}
+
+.info_section ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.info_section ul li {
+    margin-bottom: 7px;
+}
+
+.info_section ul a {
+    text-decoration: none;
+}
+
+.info_section ul a:hover {
+    color: rgb(219, 153, 26);
+}
+
+
+
+/*Search Bar Input Start*/
+
+.inputbox {
+    position: relative;
+    height: 76px;
+    max-width: 600px;
+    width: 50%;
+    background: #fff;
+    margin: 0 20px;
+    border-radius: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    /* display: flex;
+    flex-direction: column; */
+    /* float: right; */
+  }
+  .inputbox i,
+  .inputbox .button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .inputbox i {
+    left: 20px;
+    font-size: 30px;
+    color: #707070;
+  }
+  .inputbox input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    padding: 0 155px 0 65px;
+    background-color: transparent;
+  }
+  .inputbox .button {
+    right: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    background-color: #EE7D15;
+    border-radius: 25px;
+    /* width: 20%; */
+    cursor: pointer;
+  }
+  .inputbox .button:active {
+    transform: translateY(-50%) scale(0.98);
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 500px) {
+    .inputbox {
+      height: 66px;
+      margin: 0 8px;
+    }
+    .inputbox i {
+      left: 12px;
+      font-size: 25px;
+    }
+    .inputbox input {
+      padding: 0 112px 0 50px;
+    }
+    .inputbox .button {
+      right: 12px;
+      font-size: 14px;
+      padding: 8px 18px;
+    }
+  }
+
+
+hr {
+    width: 80%;
+    margin: 20px;
+    color: rgb(219, 153, 26);
+}
+
+.social-icons {
+    display: flex;
+    width: 250px;
+    font-size: 35px;
+    margin: 5px;
+    justify-content: space-evenly;
+}
+
+i {
+    color: rgb(219, 153, 26);
+}
+
+span {
+    margin: 10px;
+}
