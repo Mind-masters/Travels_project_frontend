@@ -7,6 +7,8 @@ import Like from '../../../../components/shared/UI/Ratings/like';
 import { FaQuoteRight } from 'react-icons/fa';
 import data from './popData';
 import './popDestination.css'
+import Footer from '../../../footer/Footer';
+import { Fragment } from 'react';
 
 const PopDestinations = () => {
 
@@ -37,6 +39,7 @@ const PopDestinations = () => {
   }, [index]);
 
   return (
+    <Fragment>
     <section className="section">
       <div className="title">
       <div>
@@ -147,6 +150,8 @@ const PopDestinations = () => {
     
   {/* </div> */}
 </section>
+  {/* <Footer/> */}
+</Fragment>
     
   )
 }

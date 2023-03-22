@@ -7,6 +7,7 @@ import NewUser from '../PopUpPages/newUserModal';
 import MainNavigation from '../../components/navigation';
 import { useContext } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
+import Footer from '../footer/Footer';
 
 
 const LandingMain = (props) => {
@@ -59,6 +60,7 @@ const LandingMain = (props) => {
         <div>
           {!props.extra && <Destinations/>}
           <PopDestinations/>
+          <Footer/>
         </div>
 
     </div>
