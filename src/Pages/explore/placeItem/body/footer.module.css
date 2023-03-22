@@ -1,0 +1,23 @@
+.footer{
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    color: #7F5537;
+    align-items: center;
+}
+
+.footer .element, .children_element{
+    flex: 1;
+}
+
+.footer .element{
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    flex: 1.5
+}
+
+/* .children_element{
+    border: 2px solid green;
+} */

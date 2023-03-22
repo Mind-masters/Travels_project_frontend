@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import styles from './popDestinations.module.css'
+// import styles from './popDestinations.module.css'
+import React, {useState, useEffect} from 'react';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import dummy_user_logo from "../../../../assets/landing/dummy_user.png"
 import StarsRating from '../../../../components/shared/UI/Ratings/stars';
 import Like from '../../../../components/shared/UI/Ratings/like';
-
-
-import gallery_1 from "../../../../assets/hero-section.png";
-import gallery_2 from "../../../../assets/kazkas_1.jpeg";
-import gallery_3 from "../../../../assets/town.jpg";
+import { FaQuoteRight } from 'react-icons/fa';
+import data from './popData';
+import './popDestination.css'
 
 const PopDestinations = () => {
 
@@ -15,33 +14,102 @@ const PopDestinations = () => {
 
 
   
+  const [people, setPeople] = useState(data);
+  const [index, setIndex] = React.useState(0);
+
+  useEffect(() => {
+    const lastIndex = people.length - 1;
+    if (index < 0) {
+      setIndex(lastIndex);
+    }
+    if (index > lastIndex) {
+      setIndex(0);
+    }
+  }, [index, people]);
+
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1);
+    }, 5000);
+    return () => {
+      clearInterval(slider);
+    };
+  }, [index]);
+
   return (
-    <section className={styles.container}>
-    
-      <h1 className={styles.dest_title}>popular Destinations</h1>
+    <section className="section">
+      <div className="title">
+      <div>
+        <h1>
+      <span className='dest_title'>popular Destinations</span> 
+        </h1>
+      </div>
+      </div>
+      <div className="section-center">
+        {people.map((person, personIndex) => {
+          const { id, image, name, title, quote, placeimage } = person;
 
-      <div className={styles.profile_content}>
-        <div className={styles.user_avatar}>
-          <img src={dummy_user_logo} alt='avatar'/>
-          <p>
-            <span>Rubi Rose.</span>
-          </p>
-        </div>
+          let position = 'nextSlide';
+          if (personIndex === index) {
+            position = 'activeSlide';
+          }
+          if (
+            personIndex === index - 1 ||
+            (index === 0 && personIndex === people.length - 1)
+          ) {
+            position = 'lastSlide';
+          }
 
-        <div className={styles.user_options}>
-          <div className={styles.user_rating}>
-            <StarsRating />
+          return (
+            <article className={position} key={id}>
+              <div className='content'>
+              <div className='user_avatar'>
+              <div className='profile_container'>
+              <img src={image} alt={name} className="person-img" />
+              <h4>{name}</h4>
+              </div>
+              <div className='styles.user_options'>
+              <div className='styles.user_rating'>
+              <StarsRating /> 
+              </div>
+              </div>
+              </div>
+              <div className='parent_image'>
+                <img className='place_img' src={placeimage}/>
+                <div className='place_content_description'>
+                <p>
+                {quote}...<span id='read_more'>See More</span>
+                </p>
+                </div>
+              </div>
+              </div>
+          <div className="carousel-indicators">
+          {people.map((_, idx) => (
+            <span
+              key={idx}
+              className={idx === setIndex ? "active" : ""}
+              onClick={() => setIndex(idx)}
+            ></span>
+        ))}
           </div>
+              {/* <FaQuoteRight className="icon" /> */}
 
-          <div className={styles.client_dropdown}>
-            <h1>...</h1>
-          </div>
-        </div>
-
-        
+      </article>
+          );
+        })}
+        {/* <button className="prev" onClick={() => setIndex(index - 1)}>
+          <FiChevronLeft />
+        </button>
+        <button className="next" onClick={() => setIndex(index + 1)}>
+          <FiChevronRight />
+        </button> */}
       </div>
 
-      <div className={styles.place_content} >
+
+
+    
+
+      {/* <div className={styles.place_content} >
 
         <div className={styles.place_content_title}>
           <h2>Maldives</h2>
@@ -50,8 +118,10 @@ const PopDestinations = () => {
         <div>
           <Like isLiked={isClick} onClick={() => setClick(!isClick)} />
         </div>
+          <Like />
+        </div> */}
 
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center" }}>
+          {/* <div style={{ display: "flex", justifyContent: "space-between", alignItems:"center" }}>
           <div className={styles.place_content_gallery}>
             <div className={styles.parent_image}>
               <img src={gallery_3} alt=""/>
@@ -73,11 +143,10 @@ const PopDestinations = () => {
             </p>
           </div>
         </div>
-        
+         */}
     
-  </div>
-
-    </section>
+  {/* </div> */}
+</section>
     
   )
 }
