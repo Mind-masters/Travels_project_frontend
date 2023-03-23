@@ -2,10 +2,12 @@ import React from 'react'
 import styles from "./mobile.module.css";
 
 const MobileNavButton = (props) => (
-    <button className={styles.navigationMenuBtn} onClick={props.onClick}>
-        <span />
-        <span />
-        <span />
+    <button className={styles.container} onClick={props.onClick}>
+      <div className={styles.lines}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </button>
   )
 
