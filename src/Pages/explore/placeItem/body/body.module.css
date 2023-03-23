@@ -1,0 +1,72 @@
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.body{
+    flex: 1;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    border-top: 3px solid #EE7D15;
+}
+
+
+/* .description_comments_panel{
+    flex: 1;
+    border-top: 3px solid #EE7D15;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.description_comments_buttons{
+    display: flex;
+    color: #7f5537;
+    margin: 12px 0;
+    font-size: 1.5rem;
+}
+
+.description_comments_buttons button{
+    margin-right: 20px;
+} */
+
+
+
+/* .description_comments_panel p{
+    margin-top: 20px;
+    color: #808080;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+
+.map{
+    flex: 1;
+}
+
+.map img{
+    width: 2rem;
+}
+    
+.likes_map{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight:500;
+    margin: 0 auto;
+}
+
+.likes_comments_logos{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+ */
+

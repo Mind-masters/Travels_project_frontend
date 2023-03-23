@@ -1,3 +1,4 @@
+// import styles from './popDestinations.module.css'
 import React, {useState, useEffect} from 'react';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import dummy_user_logo from "../../../../assets/landing/dummy_user.png"
@@ -10,6 +11,11 @@ import Footer from '../../../footer/Footer';
 import { Fragment } from 'react';
 
 const PopDestinations = () => {
+
+  const [isClick, setClick] = useState(false);
+
+
+  
   const [people, setPeople] = useState(data);
   const [index, setIndex] = React.useState(0);
 
@@ -113,6 +119,8 @@ const PopDestinations = () => {
         </div>
 
         <div>
+          <Like isLiked={isClick} onClick={() => setClick(!isClick)} />
+        </div>
           <Like />
         </div> */}
 

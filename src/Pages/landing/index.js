@@ -35,17 +35,7 @@ const LandingMain = (props) => {
 
             <div className={styles.welcomePage_content_header}>
               <h1 className={styles.ulimited}>Unlimited travels, Discounts, new friends and more!</h1>
-              {/* <h3>Enjoy every moment</h3> */}
             </div>
-
-             {/* <div className={styles.welcomePage_content_searchbar_wrapper}>
-              <div className={styles.welcomePage_content_searchbar}>
-                <input placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`}></input>
-                <div className={styles.explore_button}>
-                  <Button color={"rgba(238, 125, 21, 1)"}><h1 style={{ color: "white" }}>{Auth.isLoggedIn ? "Explore" : "Get Started"}</h1></Button>
-                </div>
-              </div>
-            </div>  */}
             
           <div className={styles.inputbox}>
             <i className={styles.uiluilsearch}></i>

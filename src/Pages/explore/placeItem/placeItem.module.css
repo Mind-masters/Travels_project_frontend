@@ -1,212 +1,28 @@
 .container{
+    width: 70%;
     margin-bottom: 15vh;
-    background-color: rgba(255, 255, 255, 0.597);
-    padding: 5vh 0;
     border-radius: 20px;
-    border: 2px solid red;
-}
-
-.author_line{
+    height: 80vh;
+    overflow: hidden;
     display: flex;
-    margin-bottom: 2rem;
 }
 
-.author_image{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 30%;
-    font-size: 1.7rem;
-}
-
-.author_line .author_image img{
-    width: 4rem;
-}
-
-.user_menu_big_screens{
-    flex: 1;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.button{
-    height: 60%;
-    width: 19%;
-}
-
-.button img{
-    width: 2rem;
-}
-
-.client_dropdown{
-    align-self: center;
+.image_container{
+    width: 55%;
     height: 100%;
-    cursor: pointer;
-  }
-  
-.client_dropdown{
-    display: none;
-}
-
-.rating{
-    border: 2px solid red;
-    align-self: center;
-}
-
-.imageFieldPicture{
-    width: 35rem;
-    height: 500px;
-    margin: 0 auto;
-    /* border: 2px solid red; */
-}
-
-.imageFieldContentHeader{
     display: flex;
-    margin: 20px 0;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.imageFieldContentHeader h1{
-    font-size: 2.5rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-}
-
-
-.imageFieldContent .description{
-    width: 80%;
-    margin: 0 auto;
-}
-
-.imageFieldContent .description p{
-    font-size: 1.2rem;
-    color: rgb(164, 161, 161);
-}
-
-.controllers, .controllers_messages{
-    display: flex;
-    margin: 0 auto;
-    margin-top: 5vh;
-    width: 80%;
-    align-items: center;
-}
-
-.button{
-    justify-self: end;
-}
-
-.like{
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-content: center;
-    font-size: 1rem;
-    font-weight:500;
 }
 
-.comments{
-    flex: 1;
-    text-align: left;
-    display: flex;
-}
-
-.comments img{
-    width: 2.3rem;
-    align-self: center;
-    font-size: 1.5rem;
-    object-fit: fill;
+.image_container img{
+    width: 100%;
+    height: 100%;
     border-radius: 0;
-    cursor: pointer;
-    color: rgb(111, 111, 111);
+    object-fit: cover;
 }
 
-.comments *{
-    padding: 0;
-    margin: 0;
-}
-
-.controllers_messages{
-    margin-top: 0;
-    justify-content: space-around;
-}
-
-
-
-@media screen and (max-width: 1270px) {
-    .user_menu_big_screens{
-        flex: 2;
-    }
-
-    .author_image{
-        flex: 1
-    }
-
-    .button{
-        width: 25%;
-    }
-}
-
-@media screen and (max-width: 970px) {
-    .user_menu_big_screens{
-        flex: 1;
-    }
-
-    .author_image{
-        flex: 1
-    }
-
-    .button{
-        width: 30%;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .user_menu_big_screens{
-        flex: 1;
-        display: flex;
-        justify-content: end;
-    }
-
-    .button, .starRating{
-        display: none;
-    }
-
-    .author_image{
-        flex: 2
-    }
-
-    .client_dropdown{
-        margin-right: 20%;
-        display: flex;
-        align-content: center;
-        justify-content: space-around;
-        flex-direction: column;
-        align-self: center;
-        cursor: pointer;
-    }
-    
-    .client_dropdown div{
-        width: 0.8rem;  
-        height: 20%;
-        font-weight: bold; 
-        background-color: rgba(45, 45, 45, 0.371);
-        border-radius: 50%;
-
-    }
-    
-
-}
-
-@media screen and (max-width: 500px){
-    .author_image{
-        flex: 3;
-    }
-}
-
-@media screen and (max-width: 340px){
-    .user_menu_big_screens{
-        flex: 0;
-    }
+.body_container{
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.597);
 }

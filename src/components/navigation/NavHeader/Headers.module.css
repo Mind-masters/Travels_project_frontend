@@ -9,6 +9,8 @@
 
 .colorful{
   background-color: rgba(238, 125, 21, 1);
+  background-color: white;
+
 }
 
 
@@ -21,7 +23,7 @@
   position: fixed;
   top: 0;
   background-color: rgba(238, 125, 21, 1);
-
+  background-color: white;
   z-index: 2;
 }
 

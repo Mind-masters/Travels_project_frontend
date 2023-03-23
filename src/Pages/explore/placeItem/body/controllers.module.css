@@ -1,0 +1,50 @@
+.container{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+}
+
+.like_comment_icons{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.like_icon{
+    flex: 0;
+}
+
+.likes{
+    flex: 1;
+    align-self: center;
+    color: #7F5537;
+}
+
+.comments_logo{
+    width: 30px;
+    border-radius: 0;
+}
+
+.map
+{
+    flex: 1;
+}
+
+.map_content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+}
+
+.map_content img{
+    width: 30px;
+}
+
+.map_content h1{
+    font-size: 1.5ex;
+}
+
+
