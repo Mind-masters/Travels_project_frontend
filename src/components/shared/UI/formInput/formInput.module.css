@@ -21,7 +21,7 @@ input::-webkit-input-placeholder
 {
     width: 100%;
     position: relative;
-    border-bottom: 2px solid #adadad;
+    /* border-bottom: 2px solid #adadad; */
     /* margin-bottom: 38px; */
 }
 

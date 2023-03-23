@@ -1,12 +1,12 @@
 .onFocus a:hover,
 .onFocus a:active,
 .onFocus a.active {
-  color: rgb(112, 106, 52);
+  color: #EE7D15;
   /* color: rgb(18, 16, 14); */
 }
 
 .onFocus a{
-  color: rgba(147, 144, 120, 1);
+  color: rgb(127, 120, 147);
 }
 .onFocus img{
   width: 2rem;

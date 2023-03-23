@@ -53,6 +53,14 @@ const Controllers = (props) => {
                 </div>
             }
 
+            {   props.timeline && 
+                <div className={styles.likes}>
+                    <p>
+                        2 mins ago
+                    </p>
+                </div>
+            }
+
             { props.map && 
                 <div className={styles.map}>
                     <Button height={35} onSubmit={() => {setShowMapModal(true)}}>

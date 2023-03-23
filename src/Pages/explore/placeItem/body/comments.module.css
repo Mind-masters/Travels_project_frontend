@@ -1,11 +1,27 @@
 .container{
     flex: 1;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 }
 
 .comments_list{
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment_item{
+    margin-bottom: 1vh;
+    display: flex;
+    align-items: center;
+    color: #666666;
+    font-size: 1.1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.comment_item img{
+    width: 2.7rem;
+    margin-right: 20px;
 }
 
 .controll_panel{

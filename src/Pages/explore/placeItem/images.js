@@ -7,7 +7,7 @@ const Image = (props) => {
   
   return (
     <div className={styles.image}>
-        <img src={props.url}/>
+      <img src={props.url}/>
     </div>
   )
 }

@@ -30,7 +30,20 @@ const Body = ({item}) => {
 
       <div className={styles.body}>
 
-        <div className={styles.description_comments_panel}>
+        <Details item={item} />
+
+        <Comments item={item} />
+
+        <Controllers 
+          pid={item._id} 
+          isLiked={isLiked}
+          onLike={onLikeClickHandler} 
+          padding={0}
+          likes={likesCount} 
+          timeline={true}
+        />
+
+        {/* <div className={styles.description_comments_panel}>
           <div className={styles.description_comments_buttons}>
             <button onClick={()=>setShowDescription(true)}>description</button>
             <button onClick={()=>setShowDescription(false)}>comments</button>
@@ -41,9 +54,9 @@ const Body = ({item}) => {
             :
             <Comments item={item} />
           }
-        </div>
+        </div> */}
 
-        <div className={styles.controll_panel}>
+        {/* <div className={styles.controll_panel}>
           { showDescription && 
             <Controllers 
               pid={item._id}
@@ -54,9 +67,9 @@ const Body = ({item}) => {
               padding={0}
             /> 
           }
-        </div>
+        </div> */}
 
-        <div className={styles.footer}>
+        {/* <div className={styles.footer}>
           {
             showDescription ? 
             <Controllers 
@@ -71,7 +84,7 @@ const Body = ({item}) => {
               padding={0}
             />
           }
-        </div>
+        </div> */}
         
       </div>
 
