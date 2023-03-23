@@ -17,41 +17,40 @@ const LandingMain = (props) => {
 
     <div>
 
-        {
-          props.extra &&
-          <NewUser />
-        }
-        
-        <div className={styles.welcomePage}>
+      {
+        props.extra &&
+        <NewUser />
+      }
+      
+      <div className={styles.welcomePage}>
 
-          <div className={styles.welcomePage_section1}></div>
-          <div className={styles.welcomePage_section2}></div>
+        <div className={styles.welcomePage_section1}></div>
+        <div className={styles.welcomePage_section2}></div>
 
-          <div className={styles.welcomePage_content}>
+        <div className={styles.welcomePage_content}>
 
-            <div className={styles.welcomePage_content_navigation}>
-              <MainNavigation home={true} />
-            </div>
+          <div className={styles.welcomePage_content_navigation}>
+            <MainNavigation home={true} />
+          </div>
 
-            <div className={styles.welcomePage_content_header}>
-              <h1 className={styles.ulimited}>Unlimited travels, Discounts, new friends and more!</h1>
-            </div>
-            
+          <div className={styles.welcomePage_content_header}>
+            <h1 className={styles.ulimited}>Unlimited travels, Discounts, new friends and more!</h1>
+          </div>
+          
           <div className={styles.inputbox}>
-            <i className={styles.uiluilsearch}></i>
-            <input type={styles.text} placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`} />
+            {/* <input type={styles.text} placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`} /> */}
             <button className={styles.button}>{Auth.isLoggedIn ? "Explore" : "Get Started"}</button>
           </div>
-            
-          </div>
-
+          
         </div>
 
-        <div>
-          {!props.extra && <Destinations/>}
-          <PopDestinations/>
-          <Footer/>
-        </div>
+      </div>
+
+      {/* <div>
+        {!props.extra && <Destinations/>}
+        <PopDestinations/>
+        <Footer/>
+      </div> */}
 
     </div>
   )
