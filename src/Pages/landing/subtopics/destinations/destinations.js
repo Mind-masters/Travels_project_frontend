@@ -36,9 +36,9 @@ const Destinations = () => {
     <div className={styles.container}>
 
       <div className={styles.title_container}>
-        <h2>
-          <span>...Choose your Destinations...</span>
-        </h2>
+        <h1>
+          ...Choose your Destination...
+        </h1>
       </div>
 
       {isLoading && <LoadingSpinner asOverlay/>}
