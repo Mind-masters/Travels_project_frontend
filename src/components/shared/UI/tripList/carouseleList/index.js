@@ -2,7 +2,7 @@ import React, { useState, useRef, useLayoutEffect } from 'react';
 import styles from './carousele.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Navigation, EffectFade, Autoplay } from 'swiper';
+import { Navigation, Pagination, EffectCoverflow, Autoplay } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import add_new_trip_logo from "../../../../../assets/your-trip/ad_new_trip_logo.png";
@@ -14,19 +14,19 @@ const SwiperList = (props) => {
 
     const auth_places = props.auth_places ? true : false
   
-    const [slidesCount, setSlidesCount] = useState(1);
+    const [slidesCount, setSlidesCount] = useState(100);
     const container_ref = useRef(null);
     const image_ref = useRef(null);
 
 
 
     const carousel_slider_handler = () => {
-        // console.log('carousel_slider_handler occurs')
         if(!props.data)return
         const plus_icon_width = image_ref.current ? image_ref.current.offsetWidth : 0;
         const swiper_width = container_ref.current ? container_ref.current.offsetWidth - plus_icon_width : 1;
-        const number_of_slides = props.data.length >= Math.round(swiper_width / 420) ? Math.round(swiper_width / 420) : props.data.length
-        setSlidesCount(number_of_slides);
+        const number_of_slides = props.data.length >= Math.round(swiper_width / 420) ? Math.round(swiper_width / 420) : props.data.length;
+
+        setSlidesCount(number_of_slides > 1 ? number_of_slides : 1.5);
     }
 
     useLayoutEffect(() => {
@@ -65,6 +65,10 @@ const SwiperList = (props) => {
                             <div className={styles.carousele_ripple}>
                                 <Ripple />
                             </div>
+
+                            <div className={styles.destination_name}>
+                                Type of destiny..
+                            </div>
                         </div>
                     </SwiperSlide>
                 )
@@ -88,26 +92,36 @@ const SwiperList = (props) => {
             {
                 props.data && props.data.length > 0 &&
                 <Swiper
-                    modules={[Navigation, Autoplay, EffectFade]}
-                    autoplay={true}
-                    delay={300}
-                    effect
+                    effect={'coverflow'}
+                    centeredSlides={true} // for seeing last slide
+                    coverflowEffect={{
+                        rotate: 2,
+                        stretch: 10,
+                        modifier: 5,
+                    }}
+                    loop
+                    scrollbar={{ draggable: true }}
+                    modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                     speed={700}
                     slidesPerView={slidesCount}
-                    loop
-                    navigation
+                    navigation={{
+                        clickable: true,
+                    }}
                     style={{
-                        "--swiper-navigation-color": "#707070",
-                        "--swiper-navigation-size": "6rem",
+                        "--swiper-navigation-color": "#EE7D15",
+                        "--swiper-navigation-size": "3rem",
                     }}
                     className={styles.Swiper}
                 >
                     {ItemContainer}
+                    
                 </Swiper>
+
             }
 
         </div>
     )
+
 }
 
 export default SwiperList

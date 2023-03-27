@@ -1,59 +1,68 @@
 import React from 'react'
 import styles from "./landing.module.css";
-import Destinations from "./subtopics/destinations/destinations"
-import Button from '../../components/shared/UI/button/Button';
-import PopDestinations from './subtopics/destinations/popdestinations';
 import NewUser from '../PopUpPages/newUserModal';
-import MainNavigation from '../../components/navigation';
-import { useContext } from 'react';
+import BGImage from "../../assets/lookin_background.jpg"
+import Button from '../../components/shared/UI/button/Button';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
-import Footer from '../footer/Footer';
-
+import Destinations from "./subtopics/destinations/destinations"
+import Footer from "../footer/Footer"
 
 const LandingMain = (props) => {
-  const Auth = useContext(AuthContext);
 
-  return (
+    const Auth = useContext(AuthContext);
+    const [inputValue, setInputValue] = useState("");
 
-    <div>
+    const ContentJSX = () => <div className={styles.text_content}>
+        <h1>
+            Unlimited travels
+        </h1>
 
-      {
-        props.extra &&
-        <NewUser />
-      }
-      
-      <div className={styles.welcomePage}>
+        <h2>unexplored locations, meetups</h2>
 
-        <div className={styles.welcomePage_section1}></div>
-        <div className={styles.welcomePage_section2}></div>
-
-        <div className={styles.welcomePage_content}>
-
-          <div className={styles.welcomePage_content_navigation}>
-            <MainNavigation home={true} />
-          </div>
-
-          <div className={styles.welcomePage_content_header}>
-            <h1 className={styles.ulimited}>Unlimited travels, Discounts, new friends and more!</h1>
-          </div>
-          
-          <div className={styles.inputbox}>
-            {/* <input type={styles.text} placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`} /> */}
-            <button className={styles.button}>{Auth.isLoggedIn ? "Explore" : "Get Started"}</button>
-          </div>
-          
-        </div>
-
-      </div>
-
-      {/* <div>
-        {!props.extra && <Destinations/>}
-        <PopDestinations/>
-        <Footer/>
-      </div> */}
-
+        <h3>and more.</h3>
     </div>
-  )
+    
+    const ContentInputJSX = () => <div className={styles.inputbox}>
+        <input placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`}  />
+        <Button>
+            <p style={{ color: "white" }}>{Auth.isLoggedIn ? "Explore" : "Join us!"}</p>
+        </Button>
+    </div>
+
+    return (
+        <div>
+
+            {
+            props.extra &&
+            <NewUser />
+            }
+        
+            <div className={styles.welcomePage}>
+            
+                <div className={styles.welcomePage_section1}>
+                    <ContentJSX />
+                </div>
+
+                <div className={styles.welcomePage_section2}>
+                    <img src={BGImage}alt="" />
+                    <ContentJSX />
+                </div>
+
+                <div className={styles.welcomePage_content_input}>
+                    <ContentInputJSX />
+                </div>
+
+            </div>
+
+            <div>
+                {!props.extra && <Destinations/>}
+                {/* <PopDestinations/> */}
+                <Footer/>
+            </div>
+
+        </div>
+    )
 }
 
 export default LandingMain
