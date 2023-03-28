@@ -17,6 +17,13 @@
     position: relative;
 }
 
+.welcomePage_content_navigation{
+    height: 20vh;
+    position: absolute;
+    top: 12.5vh;
+    width: 100%;
+}
+
 .welcomePage_section2 .text_content{
     visibility: hidden;
 }

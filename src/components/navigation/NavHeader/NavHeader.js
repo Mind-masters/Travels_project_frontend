@@ -27,7 +27,6 @@ const NavHeader = props => {
     className= {`
       ${styles.mainHeader} 
       ${homePath && styles.custom_width}
-      ${!homePath && styles.colorful} 
       ${fixedNavBar && !isModalOpen && styles.mainHeaderFixed}
     `}
   >

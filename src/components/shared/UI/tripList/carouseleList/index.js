@@ -102,6 +102,7 @@ const SwiperList = (props) => {
                     loop
                     scrollbar={{ draggable: true }}
                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                    autoplay={{ delay: 1000 }}
                     speed={700}
                     slidesPerView={slidesCount}
                     navigation={{

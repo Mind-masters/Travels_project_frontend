@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import UserDropDown from '../NavLinks/dropDown';
 import Authentication from '../../../Pages/PopUpPages/Authentication';
 import { useState } from 'react';
+import MobileNavButton from '../Mobile';
 
 
 const StatusHeader = props => {
@@ -33,7 +34,7 @@ const StatusHeader = props => {
         <div className={`${styles.statusHeader}`}>
 
             <div className={`${styles.none} ${styles.flex_item}`}>
-                <h1><span>Trip</span>Master</h1>
+                <MobileNavButton />
             </div>
 
             <div className={`${styles.userData} ${styles.flex_item}`}>
@@ -45,7 +46,9 @@ const StatusHeader = props => {
                         <p className={styles.points}>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</p>
                     </>
                     :
-                    <img src={logo} alt="logo" />
+                    <div className={`${styles.none} ${styles.flex_item}`}>
+                        <h1><span>Trip</span>Master</h1>
+                    </div>
 
                 }
             </div>

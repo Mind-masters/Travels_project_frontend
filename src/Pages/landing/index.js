@@ -7,7 +7,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
 import Destinations from "./subtopics/destinations/destinations"
 import Footer from "../footer/Footer"
-
+import MainNavigation from '../../components/navigation';
 const LandingMain = (props) => {
 
     const Auth = useContext(AuthContext);
@@ -41,6 +41,9 @@ const LandingMain = (props) => {
             <div className={styles.welcomePage}>
             
                 <div className={styles.welcomePage_section1}>
+                    <div className={styles.welcomePage_content_navigation}>
+                        <MainNavigation home={true} />
+                    </div>
                     <ContentJSX />
                 </div>
 
