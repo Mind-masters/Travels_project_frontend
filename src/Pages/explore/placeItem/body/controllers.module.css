@@ -27,24 +27,3 @@
     border-radius: 0;
 }
 
-.map
-{
-    flex: 1;
-}
-
-.map_content{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    align-items: center;
-}
-
-.map_content img{
-    width: 30px;
-}
-
-.map_content h1{
-    font-size: 1.5ex;
-}
-
-
