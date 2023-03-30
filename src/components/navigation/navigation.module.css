@@ -1,11 +1,15 @@
 .navContainer{
   position: absolute;
   width: 100%;
+  z-index: 2;
 }
+
+
 
 .desktop_navigation{
   display: none;
 }
+
 
 @media (min-width: 1000px) {
 

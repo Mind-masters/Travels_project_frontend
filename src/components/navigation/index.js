@@ -37,12 +37,11 @@ const MainNavigation = props => {
         <NavLinks  />
       </SideDrawer>
 
-      {authPath && <StatusHeader />}
+      {authPath && <StatusHeader onMobile={openDrawerHandler} />}
 
     
       { !authPath &&
         <MainHeader>
-          <MobileNavButton onClick={openDrawerHandler} />
           <div className={styles.desktop_navigation}>
             <NavLinks  />
           </div>

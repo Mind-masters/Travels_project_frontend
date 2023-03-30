@@ -44,7 +44,7 @@ const Destinations = () => {
       {isLoading && <LoadingSpinner asOverlay/>}
 
       {!isLoading && allPlaces && 
-        <div style={{padding: 15, height: "50vh", width: "100%" }} >
+        <div style={{padding: 15, height: "64vh", width: "100%" }} >
           <CarouseleList data={allPlaces}/>
         </div>
       }
