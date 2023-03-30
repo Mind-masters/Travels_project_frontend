@@ -36,7 +36,7 @@ const StatusHeader = props => {
             <div style={{ justifyContent:"left" }} className={`${styles.flex_item}`}>
                 <MobileNavButton onClick={props.onMobile}/>
                 <div className={`${styles.none}`}>
-                    <h1><span>Trip</span>Master</h1>
+                    <h1><span>Tripzi</span>Go</h1>
                 </div>
             </div>
 

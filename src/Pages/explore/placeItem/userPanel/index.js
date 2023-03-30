@@ -2,12 +2,12 @@ import React from 'react'
 import styles from "./user_panel.module.css";
 import Button from '../../../../components/shared/UI/button/Button';
 
-const User_panel = ({url}) => {
+const UserPanel = ({url}) => {
   return (
     <div className={styles.user_panel}>
         
         <div className={styles.flex_item}>
-          <img src={url} alt="" />
+          <div className={styles.avatar} style={{ backgroundImage: `url("${url})"`, backgroundSize: "cover" }}></div>
         </div>
         
         <div className={styles.flex_item}>
@@ -30,4 +30,4 @@ const User_panel = ({url}) => {
   )
 }
 
-export default User_panel
+export default UserPanel

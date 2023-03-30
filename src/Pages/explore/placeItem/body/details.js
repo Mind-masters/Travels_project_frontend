@@ -11,10 +11,10 @@ const Details = (props) => { //props.item.description
       {description}
 
       <div className={styles.map}>
-        <Button color={"#86857C"} height={35} onSubmit={props.onSubmit}>
+        <Button color={"#d9d9d9"} height={35} onSubmit={props.onSubmit}>
           <div className={styles.map_content}>
             <img src={map_icon} alt="" />
-            <h1 style={{ color: "white" }}>Map</h1>
+            <p style={{ color: "#EE7D15" }}>Map</p>
           </div>
         </Button>
       </div>

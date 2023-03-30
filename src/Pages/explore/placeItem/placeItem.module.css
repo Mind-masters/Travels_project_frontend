@@ -1,28 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@400;500;600;700&display=swap');
 .container{
-    width: 70%;
+    width: 80%;
+    margin: 0 auto;
     margin-bottom: 15vh;
     border-radius: 20px;
-    height: 80vh;
+    height: 570px;
     overflow: hidden;
     display: flex;
+    box-shadow: 1px 2px 5px silver;
+    /* border: 2px solid red; */
+}
+
+.mobile_user_panel{
+    display: none;
 }
 
 .image_container{
-    width: 55%;
-    height: 100%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-content: center;
+    /* border: 2px solid goldenrod; */
 }
 
 .image_container img{
     width: 100%;
-    height: 100%;
     border-radius: 0;
     object-fit: cover;
 }
 
 .body_container{
-    width: 45%;
-    background-color: rgba(255, 255, 255, 0.597);
+    width: 50%;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+50,ffffff+100 */
+    background: #ffffff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #f3f3f3 50%, #ffffff 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%, #f3f3f3 50%, #ffffff 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 50%, #ffffff 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+    /* IE6-9 */
+    padding: 1rem;
+    box-sizing: border-box;
+    /* border: 2px solid rgb(8, 41, 189); */
+
+    font-family: Inter !important;
+}
+
+@media screen and (max-width: 750px) {
+    .body_container{
+        display: none;
+    }
+
+    .container{
+        height: 500px;
+        flex-direction: column;
+    }
+
+    .mobile_user_panel{
+        display: block;
+    }
 }

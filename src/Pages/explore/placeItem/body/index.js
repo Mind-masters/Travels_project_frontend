@@ -1,7 +1,7 @@
 import styles from "./body.module.css";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
-import UserPanel from "./user_panel";
+import UserPanel from "../userPanel";
 import Details from "./details";
 import Comments from "./comments";
 
@@ -43,48 +43,6 @@ const Body = ({item}) => {
           timeline={true}
         />
 
-        {/* <div className={styles.description_comments_panel}>
-          <div className={styles.description_comments_buttons}>
-            <button onClick={()=>setShowDescription(true)}>description</button>
-            <button onClick={()=>setShowDescription(false)}>comments</button>
-          </div>
-
-          { showDescription ?
-            <Details item={item} />
-            :
-            <Comments item={item} />
-          }
-        </div> */}
-
-        {/* <div className={styles.controll_panel}>
-          { showDescription && 
-            <Controllers 
-              pid={item._id}
-              isLiked={isLiked} 
-              onLike={onLikeClickHandler} 
-              onComment={()=>setShowDescription(false)} 
-              map={true} 
-              padding={0}
-            /> 
-          }
-        </div> */}
-
-        {/* <div className={styles.footer}>
-          {
-            showDescription ? 
-            <Controllers 
-              likes={likesCount} 
-            /> : 
-            <Controllers 
-              pid={item._id} 
-              isLiked={isLiked}
-              onLike={onLikeClickHandler} 
-              likes={likesCount} 
-              map={true} 
-              padding={0}
-            />
-          }
-        </div> */}
         
       </div>
 
