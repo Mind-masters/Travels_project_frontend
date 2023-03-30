@@ -3,11 +3,11 @@ import styles from "./Headers.module.css";
 import logo from "../../../assets/logo.PNG"
 import { useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
-import { NavLink } from 'react-router-dom';
 import UserDropDown from '../NavLinks/dropDown';
 import Authentication from '../../../Pages/PopUpPages/Authentication';
 import { useState } from 'react';
 import MobileNavButton from '../Mobile';
+import Button from '../../shared/UI/button/Button';
 
 
 const StatusHeader = props => {
@@ -33,36 +33,44 @@ const StatusHeader = props => {
 
         <div className={`${styles.statusHeader}`}>
 
-            <div className={`${styles.none} ${styles.flex_item}`}>
-                <MobileNavButton />
+            <div style={{ justifyContent:"left" }} className={`${styles.flex_item}`}>
+                <MobileNavButton onClick={props.onMobile}/>
+                <div className={`${styles.none}`}>
+                    <h1><span>Trip</span>Master</h1>
+                </div>
             </div>
 
-            <div className={`${styles.userData} ${styles.flex_item}`}>
-                {
-                    UserData?
-                    <>
-                        <p className={`${styles.plus_one_point}`} >+ 1</p>
+            <div className={`${styles.userData} ${styles.flex_item} `}>
+                <div>
+                    {
+                        UserData?
+                        <>
+                            <p className={`${styles.plus_one_point}`} >+ 1</p>
 
-                        <p className={styles.points}>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</p>
-                    </>
-                    :
-                    <div className={`${styles.none} ${styles.flex_item}`}>
-                        <h1><span>Trip</span>Master</h1>
-                    </div>
+                            <p className={styles.points}>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</p>
+                        </>
+                        :
+                        <img src={logo} alt="logo" />
 
-                }
+                    }
+                </div>
             </div>
 
+            
 
-            <div className={`${styles.flex_item}`}>
+
+            <div style={{ justifyContent:"right" }} className={`${styles.flex_item} ${styles.login_btn}`}>
                 {!User.isLoggedIn ? 
 
-                    <NavLink className={styles.login_link} to={"#"} onClick={openAuthenticationForm}>Login</NavLink>
+                    <Button height="auto" onClick={openAuthenticationForm}>
+                        <h1>Login</h1>
+                    </Button>
 
                     :
 
                     <UserDropDown />
                 }
+
             </div>
 
 

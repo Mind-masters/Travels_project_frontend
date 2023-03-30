@@ -1,13 +1,17 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
-import styles from './carousele.module.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Navigation, Pagination, EffectCoverflow, Autoplay } from 'swiper';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import add_new_trip_logo from "../../../../../assets/your-trip/ad_new_trip_logo.png";
-import AnimatedCircle from '../../circle';
 import Ripple from '../../ripple';
+import SwiperCore, { Autoplay, EffectCoverflow, Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import styles from "./carousele.module.css"
+
+
+SwiperCore.use([EffectCoverflow, Autoplay, Pagination,Navigation]);
 
 const SwiperList = (props) => {
 
@@ -58,10 +62,9 @@ const SwiperList = (props) => {
         <>
             { props.data &&
                 props.data.map((place, key) => 
-                    <SwiperSlide key={key} className={styles.SwiperSlide}>
+                    <SwiperSlide key={key} style={{ backgroundImage: `url(${place.image})` }} className={styles.SwiperSlide}>
                         <div className={styles.slide_container}>
                             <UserCRUD id={place._id} />
-                            <img className={styles.culture} src={place.image} alt='culture'  />
                             <div className={styles.carousele_ripple}>
                                 <Ripple />
                             </div>
@@ -76,6 +79,7 @@ const SwiperList = (props) => {
         </>
     )
 
+    
     return (
         <div className={styles.container} ref={container_ref}>
             { auth_places &&
@@ -89,37 +93,33 @@ const SwiperList = (props) => {
                 </div>
             }
 
-            {
-                props.data && props.data.length > 0 &&
+            { props.data && props.data.length > 0 &&
                 <Swiper
                     effect={'coverflow'}
                     centeredSlides={true} // for seeing last slide
                     coverflowEffect={{
                         rotate: 2,
                         stretch: 10,
-                        modifier: 5,
+                        depth: 100,
+                        modifier: 4,
+                        slideShadows: false,
                     }}
+                    autoplay={{ delay: 2000 }}
                     loop
-                    scrollbar={{ draggable: true }}
                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-                    autoplay={{ delay: 1000 }}
-                    speed={700}
                     slidesPerView={slidesCount}
-                    navigation={{
-                        clickable: true,
-                    }}
+                    navigation
                     style={{
                         "--swiper-navigation-color": "#EE7D15",
                         "--swiper-navigation-size": "3rem",
                     }}
                     className={styles.Swiper}
                 >
+
                     {ItemContainer}
-                    
+
                 </Swiper>
-
             }
-
         </div>
     )
 

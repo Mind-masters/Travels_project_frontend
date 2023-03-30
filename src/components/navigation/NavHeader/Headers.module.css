@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   transition-duration: 0.2s;
+
 }
 
 
@@ -17,13 +18,15 @@
   position: fixed;
   top: 0;
   background-color: white;
+  border-radius: 0 0 20% 20%;
 }
 
 .statusHeaderContainer{
+  border-radius: 0 0 20% 20%;
   width: 100%;
   position: relative;
   background-color: white;
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,12 +38,15 @@
   margin: auto;
 }
 
-.statusHeader .flex_item{
+.flex_item{
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
-.none h1, .login_link{
+.none h1{
   color: #010101bb;
   align-self: auto;
   margin: auto;
@@ -58,20 +64,11 @@
   color: rgba(238, 125, 21, 1);
 }
 
-.login_link{
-  padding: 8px 35px;
-  border-radius: 50px;
-  background-color: rgba(238, 125, 21, 1);
+.login_btn h1{
+  padding: 10px 2vw;
   color: rgb(228, 227, 224);
-  /* box-shadow: 0px 5px 10px 0px rgb(0, 0, 0); */
 }
 
-
-.statusHeader div{
-  flex: 1;
-  text-align: center;
-  margin: auto;
-}
 
 .userData img{
   width: 8rem;
@@ -92,7 +89,6 @@
   border-radius: 50px;
   font-size:1.2rem;
   color: rgba(147, 144, 120, 1);
-  /* box-shadow: 0px 5px 10px 0px rgb(189, 180, 115); */
   font-weight: bold;
 
 }
@@ -119,33 +115,25 @@
 }
 
 
-@media (max-width: 650px) {
-
-
-  .statusHeader div h1, .statusHeader div a{
-
-    font-size: 1.5rem;
+@media (max-width: 1000px) {
+  .mainHeader{
+    display: none;
   }
-
-  .statusHeader{
-    width: 100%
-  }
-
-  .userData img{
-    width: 6rem;
-  }
-}
-
-@media (max-width: 470px) {
 
   .none{
     display: none;
   }
 
-  .userData .points{
-    padding: 5px 0;
-    width: 50%;
-  
+  .statusHeaderContainer{
+    position: fixed;
+    top: 0;
+  }
+}
+
+@media (max-width: 470px) {
+
+  .userData{
+    display: none;
   }
 
 }

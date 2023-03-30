@@ -1,14 +1,20 @@
 .container{
     width: 100%;
     height: 100%;
-    /* display: flex;
-    justify-content: center; */
 }
 
 .Swiper{
     width: 100%;
     height: 100%;
 }
+
+
+.SwiperSlide{
+    background-size: cover;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+}
+
 
 .add_logo{
     align-self: center;
@@ -26,33 +32,11 @@
 }
 
 
-.slide_container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-
-}
-
-
-.slide_container img{
-    width: 100%;
-    height: 100%;
-    align-self: auto;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
 
 .destination_name{
     position: absolute;
     background-color: rgba(238, 125, 21, 1);
     color: #FFFFFF;
-    bottom: 4%;
     text-transform: uppercase;
     border-radius: 10px;
     padding: 5px 1.5rem;
@@ -60,6 +44,11 @@
     font-size: 20px;
     transition-duration: 0.3s;
     cursor: pointer;
+    bottom: 4%;
+    left:0;
+    right:0;
+    margin: auto;
+    width: fit-content;
 }
 
 
