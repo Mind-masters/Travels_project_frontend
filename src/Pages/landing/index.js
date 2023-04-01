@@ -5,6 +5,7 @@ import BGImage from "../../assets/lookin_background.jpg"
 import Button from '../../components/shared/UI/button/Button';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
+import PopDestinations from './subtopics/destinations/popdestinations';
 import Destinations from "./subtopics/destinations/destinations"
 import Footer from "../footer/Footer"
 
