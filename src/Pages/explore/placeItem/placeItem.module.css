@@ -8,7 +8,7 @@
     overflow: hidden;
     display: flex;
     box-shadow: 1px 2px 5px silver;
-    /* border: 2px solid red; */
+    border: 2px solid red;
 }
 
 .mobile_user_panel{
@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    /* border: 2px solid goldenrod; */
+    border: 2px solid goldenrod;
 }
 
 .image_container img{
@@ -42,7 +42,7 @@
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
     /* IE6-9 */
-    padding: 1rem;
+    /* padding: 1rem; */
     box-sizing: border-box;
     /* border: 2px solid rgb(8, 41, 189); */
 
@@ -51,7 +51,7 @@
 
 @media screen and (max-width: 750px) {
     .body_container{
-        display: none;
+        width: 100%;
     }
 
     .container{
@@ -61,5 +61,9 @@
 
     .mobile_user_panel{
         display: block;
+    }
+
+    .image_container{
+        display: none;
     }
 }

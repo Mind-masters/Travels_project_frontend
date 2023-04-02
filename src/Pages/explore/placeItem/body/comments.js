@@ -54,17 +54,7 @@ const Comments = ({item}) => {
     {
       avatar: "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortWaved&accessoriesType=Prescription02&hairColor=PastelPink&facialHairType=MoustacheMagnum&facialHairColor=Brown&clotheType=ShirtVNeck&clotheColor=White&eyeType=Cry&eyebrowType=SadConcerned&mouthType=Smile&skinColor=Tanned",
       content: "Travel is the only thing you buy"
-    },
-
-    // {
-    //   avatar: "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFro&accessoriesType=Wayfarers&hairColor=Red&facialHairType=BeardMajestic&facialHairColor=Blonde&clotheType=GraphicShirt&clotheColor=White&graphicType=Selena&eyeType=EyeRoll&eyebrowType=SadConcernedNatural&mouthType=Grimace&skinColor=Light",
-    //   conten: "create_new_comment 4"
-    // },
-
-    // {
-    //   avatar: "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairBun&accessoriesType=Prescription01&hairColor=BrownDark&facialHairType=BeardMajestic&facialHairColor=Auburn&clotheType=Hoodie&clotheColor=PastelOrange&eyeType=Side&eyebrowType=UnibrowNatural&mouthType=Smile&skinColor=Yellow",
-    //   conten: "create_new_comment 5"
-    // }
+    }
   ]
 
 
@@ -79,7 +69,7 @@ const Comments = ({item}) => {
         ))}
       </div>
 
-      <div style={{ color: "rgba(240, 175, 115, 1)", fontSize: "1.3rem" }}>View all comment</div>
+      <div style={{ color: "rgba(240, 175, 115, 1)", fontSize: "1.3rem" }}>View all comments..</div>
 
       <div className={styles.controll_panel}>
         <FormInput name="Add a comment..." value={commentValue} isValid={true} no_errors={true} onChange={(val)=>{setCommentValue(val)}} />

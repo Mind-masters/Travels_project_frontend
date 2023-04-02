@@ -26,24 +26,33 @@ const Body = ({item}) => {
   return (
     <div className={styles.container}>
 
-      <UserPanel url={item.user_id.avatar} />
+      <div className={styles.big_screen}>
+        <UserPanel url={item.user_id.avatar} />
+      </div>
+
 
       <div className={styles.body}>
 
-        <Details item={item} />
+        <Details 
+          item={item} 
+          onLike={onLikeClickHandler} 
+          isLiked={isLiked}
+          likes={likesCount}
+        />
 
         <Comments item={item} />
 
-        <Controllers 
-          pid={item._id} 
-          isLiked={isLiked}
-          onLike={onLikeClickHandler} 
-          padding={0}
-          likes={likesCount} 
-          timeline={true}
-        />
+        <div className={styles.big_screen}>
+          <Controllers 
+            pid={item._id} 
+            isLiked={isLiked}
+            onLike={onLikeClickHandler} 
+            padding={0}
+            likes={likesCount} 
+            timeline={true}
+          />
+        </div>
 
-        
       </div>
 
 
