@@ -3,6 +3,7 @@ import styles from "./user_panel.module.css";
 import Button from '../../../../components/shared/UI/button/Button';
 
 const UserPanel = ({url}) => {
+  // console.log("url: ", url)
   return (
     <div className={styles.user_panel}>
         
@@ -15,6 +16,7 @@ const UserPanel = ({url}) => {
             <Button height={35}>
               <h1 style={{ color: "white" }}>Profile</h1>
             </Button>
+            
           </div>
         </div>
 
