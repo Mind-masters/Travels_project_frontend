@@ -41,7 +41,8 @@
     color: rgb(111, 111, 111);
 }
 
-.comments *{
-    padding: 0;
-    margin: 0;
+@media screen and (max-width: 750px) {
+    .comments_list{
+        display: none;
+    }
 }

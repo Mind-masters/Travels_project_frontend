@@ -7,10 +7,11 @@
 
 }
 
-.map{
+.big_screen_map{
     width: 35%;
     margin: 20px auto;
 }
+
 .map_content{
     display: flex;
     justify-content: space-around;
@@ -20,4 +21,18 @@
 
 .map_content img{
     width: 30px;
+}
+
+.small_screen_controlls{
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .big_screen_map{
+        display: none;
+    }
+    
+    .small_screen_controlls{
+        display: block;
+    }
 }
