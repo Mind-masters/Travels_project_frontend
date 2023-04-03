@@ -71,3 +71,10 @@ body {
     --fixed-width: 620px;
   }
   
+  input,
+  textarea,
+  button,
+  select,
+  a {
+      -webkit-tap-highlight-color: transparent;
+  }
