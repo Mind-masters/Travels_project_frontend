@@ -25,6 +25,7 @@
 
 .small_screen_controlls{
     display: none;
+    width: 100%;
 }
 
 @media screen and (max-width: 750px) {
@@ -33,6 +34,12 @@
     }
     
     .small_screen_controlls{
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .container{
+        margin: 0;
     }
 }

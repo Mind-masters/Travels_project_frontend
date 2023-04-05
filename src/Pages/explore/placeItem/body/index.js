@@ -41,7 +41,7 @@ const Body = ({item}) => {
         />
 
         <Comments item={item} />
-
+{/* 
         <div className={styles.big_screen}>
           <Controllers 
             pid={item._id} 
@@ -51,7 +51,7 @@ const Body = ({item}) => {
             likes={likesCount} 
             timeline={true}
           />
-        </div>
+        </div> */}
 
       </div>
 

@@ -1,16 +1,16 @@
 import React from 'react'
-import earthLogo from "../../../../assets/earth.png";
+import MapIcon from '../../../../assets/map_pin.png';
 import styles from "./ripple.module.css";
 
 const Ripple = () => {
 
   return (
-    <div className={styles.dot}>
-			<div className={styles.centraldot}></div>
-			<div className={styles.wave}></div>
-			<div className={styles.wave2}></div>
-      <div className={styles.wave3}></div>
-		</div>
+    <div className={styles.container}>
+      <div className={styles.map_icon}>
+        <img src={MapIcon} alt='map_icon'/>
+      </div>
+      <div className={styles.pulse}></div>
+    </div>
   )
 }
 

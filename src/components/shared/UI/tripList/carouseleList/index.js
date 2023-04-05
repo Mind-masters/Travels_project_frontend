@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import styles from "./carousele.module.css"
-
+import "./swiper.css"
 
 SwiperCore.use([EffectCoverflow, Autoplay, Pagination,Navigation]);
 
@@ -19,6 +19,8 @@ const SwiperList = (props) => {
     const auth_places = props.auth_places ? true : false
   
     const [slidesCount, setSlidesCount] = useState(100);
+    const [currentSlideNumber, setCurrentSlideNumber] = useState(1);
+    const [currentSlideContent, setCurrentSlideContent] = useState(false);
     const container_ref = useRef(null);
     const image_ref = useRef(null);
 
@@ -62,18 +64,26 @@ const SwiperList = (props) => {
         <>
             { props.data &&
                 props.data.map((place, key) => 
-                    <SwiperSlide key={key} style={{ backgroundImage: `url(${place.image})` }} className={styles.SwiperSlide}>
-                        <div className={styles.slide_container}>
-                            <UserCRUD id={place._id} />
-                            <div className={styles.carousele_ripple}>
-                                <Ripple />
-                            </div>
+                    {
+                        // let applyContent = currentSlideContent;
 
-                            <div className={styles.destination_name}>
-                                Type of destiny..
+                        return (
+                        <SwiperSlide key={key} style={{ backgroundImage: `url(${place.image})` }} className={styles.SwiperSlide}>
+                            <div className={styles.slide_container}>
+                                <UserCRUD id={place._id} />
+                                
+                                <div className={styles.carousele_ripple}>
+                                    <Ripple />
+                                </div> 
+                                <div className={styles.destination_name}>
+                                    Type of destiny..
+                                </div>
+                                
                             </div>
-                        </div>
-                    </SwiperSlide>
+                        </SwiperSlide>
+                        
+                        )
+                    }
                 )
             }
         </>
@@ -95,8 +105,11 @@ const SwiperList = (props) => {
 
             { props.data && props.data.length > 0 &&
                 <Swiper
+                // onSlideNextTransitionStart={()=>console.log("on next")}
+                // onSlidePrevTransitionStart={()=>console.log("on previous")}
                     effect={'coverflow'}
                     centeredSlides={true} // for seeing last slide
+                    
                     coverflowEffect={{
                         rotate: 2,
                         stretch: 10,
@@ -104,7 +117,7 @@ const SwiperList = (props) => {
                         modifier: 4,
                         slideShadows: false,
                     }}
-                    autoplay={{ delay: 2000 }}
+                    // autoplay={{ delay: 2000 }}
                     loop
                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                     slidesPerView={slidesCount}
@@ -113,10 +126,19 @@ const SwiperList = (props) => {
                         "--swiper-navigation-color": "#EE7D15",
                         "--swiper-navigation-size": "3rem",
                     }}
+
                     className={styles.Swiper}
+                    onSlideChange={(index) => {
+                        console.log("kazkas: ", index)
+                        // setCurrentSlideNumber(index.activeIndex)
+                    }}
+                    
                 >
 
                     {ItemContainer}
+                    {/* <SwiperSlide style={{ backgroundImage: `url(https://images.pexels.com/photos/788200/pexels-photo-788200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)` }} >
+
+                    </SwiperSlide> */}
 
                 </Swiper>
             }

@@ -8,7 +8,6 @@
     overflow: hidden;
     display: flex;
     box-shadow: 1px 2px 5px silver;
-    border: 2px solid red;
 }
 
 .mobile_user_panel{
@@ -20,7 +19,6 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    border: 2px solid goldenrod;
 }
 
 .image_container img{
@@ -52,11 +50,14 @@
 @media screen and (max-width: 750px) {
     .body_container{
         width: 100%;
+        flex: none;
     }
 
     .container{
-        height: 500px;
+        height: 600px;
         flex-direction: column;
+        margin-bottom: 8vh;
+
     }
 
     .mobile_user_panel{
@@ -64,6 +65,24 @@
     }
 
     .image_container{
-        display: none;
+        flex: 3;
+        height: 40px;
+    }
+
+
+    .image_container img{
+        width: 100%;
+        height: auto;
+    }
+
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .container{
+        height: 600px;
+        flex-direction: column;
+        width: 92%;
     }
 }

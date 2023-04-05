@@ -20,14 +20,13 @@ const Details = (props) => { //props.item.description
             <Like pid={props.pid} count={2} onClick={props.onLike} user={User.authenticatedUser} isLiked={props.isLiked}/>
           </div>
         }
-        {/* <div > */}
+        55
           <Button color={"#d9d9d9"} height={35} onSubmit={props.onSubmit}>
             <div className={styles.map_content}>
               <img src={map_icon} alt="" />
               <p style={{ color: "#EE7D15" }}>Map</p>
             </div>
           </Button>
-        {/* </div> */}
       </div>
 
       {description}
