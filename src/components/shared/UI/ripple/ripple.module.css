@@ -1,148 +1,80 @@
-
-
-.dot{
-	width: 100%;
+.container{
 	height: 100%;
+}
+
+.map_icon{
+	height: 80%;
+    animation-name: bounce;
+    animation-duration: 1s;
 	position: relative;
+	z-index: 1;
+	animation-name: bounce;
 }
 
-
-.centraldot{
-	width: 20%;
-	height: 20%;
-	background: rgba(32,150,243,1);
-	border-radius: 50%;
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-top: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    text-align: center;
-    animation: animationDotCentral linear 3s;
-	transform-origin: 50% 50%;
-	animation-fill-mode:forwards;
-	animation-iteration-count: infinite;
-}
-
-.wave, .wave2{
-    width: 100%;
+.map_icon img{
 	height: 100%;
-	background: rgba(32,150,243,0.4);
-	border-radius: 50%;
-	position: absolute;
-	opacity: 0;
-	animation: animationWave cubic-bezier(0,.54,.53,1) 3s;
-    transform-origin: 50% 50%;
-    animation-fill-mode:forwards;
-	animation-iteration-count: infinite;
+	margin: 0 auto;
 }
 
-.wave{
-	animation-delay:0.9s;
+
+
+.pulse{
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 27.5%;
+    transform: rotateX(55deg);
+	z-index: 0;
 }
 
-.wave2{
-	animation-delay:1.07s;
-}
-
-.wave3{
+.pulse:after{
+    content: "";
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 1;
+	background-color: #EE7D15;
+	/* #FCD24F */
     animation-delay: 1.1s;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
 }
 
-
-
-@keyframes animationDotCentral{
-	
-	0% {
-		transform:  scale(0) ;
+@keyframes bounce{
+	0%{
 		opacity: 0;
+		filter: alpha(opacity=0);
+		transform: translateY(-2000px) rotate(-45deg);
+
 	}
- 
-	5% {
-		transform:  scale(3) ;
-	}
-  
-	10% {
-		transform:  scale(1.5) ;
+
+	60%{
 		opacity: 1;
+		filter: none;
+		transform: translateY(30px) rotate(-45deg);
 	}
-
-
-	11% {
-		transform:  scale(2) ;
-	}
-
-	12% {
-		transform:  scale(1.7) ;
-	}
- 
-	28% {
-		background: rgba(32,150,243,1);
-	}
-  
-	29% {
-		background: rgba(255,255,255,1);
-        background: rgba(32,150,243,1);
-
-	}
-
-	31% {
-		background: rgba(32,150,243,1);
-	}
-
-	33% {
-		background: rgba(255,255,255,1);
-        background: rgba(32,150,243,1);
-
-	}
-
-	35% {
-		background: rgba(32,150,243,1);
-	}
-
-	90%{
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
+	100%{
+		transform: translateY(30) rotate(-45deg);
 	}
 }
 
-@keyframes animationWave{
-	0% {
-	    opacity: 0;
-	    transform:  scale(0.00);
-	}
-
-	1% {
-		opacity: 1;
-	}
-
-	10% {
-		background: rgba(32,150,243,1);
-	}
-
-	50% {
-		background: rgba(32,150,243,0.7);
-	}
-
-	80% {
-		background: rgba(32,150,243,0.4);
-	}
-
-	100% {
-	 	transform:  scale(1) ;
-	 	background: rgba(255, 255, 255, 0);
-	 }
+@keyframes pulsate{
+    0%{
+        transform: scale(0.1, 0.1);
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    50%{
+        opacity: 1;
+        filter: none;
+    }
+    100%{
+        transform: scale(1.2, 1.2);
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
 }
-
-
-
-
-
 

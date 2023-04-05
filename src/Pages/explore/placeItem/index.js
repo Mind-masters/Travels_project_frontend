@@ -16,6 +16,7 @@ const PlaceItem = ({item}) => {
       </div>
 
       <div className={styles.image_container}>
+        
         <img src={item.image} alt=""/>
       </div>
 

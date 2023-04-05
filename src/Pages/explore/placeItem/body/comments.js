@@ -69,7 +69,7 @@ const Comments = ({item}) => {
         ))}
       </div>
 
-      <div style={{ color: "rgba(240, 175, 115, 1)", fontSize: "1.3rem" }}>View all comments..</div>
+      <div className={styles.view_comments}>View all comments..</div>
 
       <div className={styles.controll_panel}>
         <FormInput name="Add a comment..." value={commentValue} isValid={true} no_errors={true} onChange={(val)=>{setCommentValue(val)}} />

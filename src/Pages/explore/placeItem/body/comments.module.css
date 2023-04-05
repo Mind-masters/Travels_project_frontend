@@ -31,6 +31,11 @@
     margin: 0 auto;
 }
 
+.view_comments{
+    color: rgba(240, 175, 115, 1);
+    font-size: 1.3rem;
+}
+
 .controll_panel img{
     width: 2rem;
     align-self: center;
@@ -44,5 +49,21 @@
 @media screen and (max-width: 750px) {
     .comments_list{
         display: none;
+    }
+
+    .controll_panel{
+        display: none;
+    }
+
+    .container{
+        flex: none;
+        text-align: left;
+    }
+
+    .view_comments{
+        font-size: 1.1rem;
+        margin: 18px 0;
+        color: rgb(188, 160, 134);
+
     }
 }
