@@ -5,7 +5,8 @@ import BGImage from "../../assets/lookin_background.jpg"
 import Button from '../../components/shared/UI/button/Button';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
-import Destinations from "./subtopics/destinations/destinations"
+import Destinations from "./subtopics/destinations/destinations";
+import PopDestinations from './subtopics/destinations/popdestinations';
 import Footer from "../footer/Footer"
 import MainNavigation from '../../components/navigation';
 const LandingMain = (props) => {
@@ -60,7 +61,7 @@ const LandingMain = (props) => {
 
             <div>
                 {!props.extra && <Destinations/>}
-                {/* <PopDestinations/> */}
+                <PopDestinations/>
                 <Footer/>
             </div>
 
