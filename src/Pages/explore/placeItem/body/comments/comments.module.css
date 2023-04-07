@@ -8,6 +8,9 @@
 .comments_list{
     display: flex;
     flex-direction: column;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .comment_item{
@@ -24,36 +27,18 @@
     margin-right: 20px;
 }
 
-.controll_panel{
-    width: 100%;
-    text-align: left;
-    display: flex;
-    margin: 0 auto;
-}
 
 .view_comments{
     color: rgba(240, 175, 115, 1);
     font-size: 1.3rem;
 }
 
-.controll_panel img{
-    width: 2rem;
-    align-self: center;
-    font-size: 1.5rem;
-    object-fit: fill;
-    border-radius: 0;
-    cursor: pointer;
-    color: rgb(111, 111, 111);
-}
 
 @media screen and (max-width: 750px) {
     .comments_list{
         display: none;
     }
 
-    .controll_panel{
-        display: none;
-    }
 
     .container{
         flex: none;
@@ -64,6 +49,5 @@
         font-size: 1.1rem;
         margin: 18px 0;
         color: rgb(188, 160, 134);
-
     }
 }

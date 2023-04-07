@@ -3,11 +3,14 @@
     display: flex;
     /* new line */
     flex-direction: column;
+    position: relative;
+
 }
 
 .body{
     flex: 1;
     margin: 0 auto;
+    
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -21,6 +24,10 @@
 
     .body{
         border: none;
+    }
+
+    .container{
+        position: inherit;
     }
 
 }
