@@ -10,6 +10,7 @@ import Button from '../button/Button';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Modal from '../Modal';
 import Loader from './Loader';
+import { MapLoader } from './Loader/MapLoader';
 
 
 
@@ -74,6 +75,7 @@ const MapContent = (props) => {
                   { showLoader &&
                     <div className={styles.loading__}>
                       <Loader />
+                      {/* <MapLoader/> */}
                     </div>
                   }
                   
