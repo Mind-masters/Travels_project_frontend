@@ -1,0 +1,112 @@
+.container {
+    width: 20%;
+    height: 20vh;
+    position: relative;
+  }
+  
+  .marker {
+    z-index: 1;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-color: #3672a0;
+    -webkit-animation: hover 1s infinite ease-in;
+            animation: hover 1s infinite ease-in;
+  }
+  
+  .marker:after {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -7.5px;
+    margin-top: -7.5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+  }
+  
+  .marker:before {
+    z-index: 0;
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    margin-left: -24px;
+    border-left: 24px solid transparent;
+    border-right: 24px solid transparent;
+    border-top: 40px solid #3672a0;
+  }
+  
+  .pulse {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    display: block;
+    width: 60px;
+    height: 17.14286px;
+    background: skyblue;
+    /* background alternative white */
+    border-radius: 50%;
+    transform: translate(-50%, 400%);
+  }
+  
+  .pulse:before, .pulse:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: skyblue;
+    border-radius: 50%;
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+    -webkit-animation: ripple 1s infinite ease-in;
+            animation: ripple 1s infinite ease-in;
+  }
+  
+  @-webkit-keyframes ripple {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+  @-webkit-keyframes hover {
+    0% {
+      margin-top: 0px;
+    }
+    50% {
+      margin-top: 10px;
+    }
+  }
+  @keyframes hover {
+    0% {
+      margin-top: 0px;
+    }
+    50% {
+      margin-top: 10px;
+    }
+  }
+  

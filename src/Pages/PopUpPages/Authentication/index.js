@@ -16,7 +16,7 @@ const Authentication = (props) => {
 
     const User = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(false);
-    const [isLoginMode, setIsLoginMode] = useState(true);
+    const [isLoginMode, setIsLoginMode] = useState((props.registration && props.email) ? false : true);
     const [errors, setErrors] = useState({});
 
     const FormSwitchHandler = () => {
@@ -25,7 +25,7 @@ const Authentication = (props) => {
 
     const FormCloseHandler = () => {
         setErrors({});
-        props.onClose();
+        return props.onClose ? props.onClose() : null;
     }
 
 
@@ -91,9 +91,9 @@ const Authentication = (props) => {
                 <Modal
                     show={props.show}
                     onClose={FormCloseHandler}
-                    width={props.width}
                 >
                     <Form 
+                        email={props.email}
                         onSubmit={FormSubmitHandler}
                         onSwithChMode={FormSwitchHandler}
                         isLoginMode={isLoginMode}

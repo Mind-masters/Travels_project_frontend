@@ -8,7 +8,7 @@ const Form = (props) => {
 	const [nameValue, setNameValue] = useState(null);
 	const onCHageNameValueHandler = (value) => setNameValue(value);
 
-	const [emailValue, setEmailValue] = useState(null);
+	const [emailValue, setEmailValue] = useState(props.email || null);
 	const onCHageEmailValueHandler = (value) => setEmailValue(value);
 
 	const [passwordValue, setPasswordValue] = useState(null);
@@ -68,7 +68,7 @@ const Form = (props) => {
 				/>
 				
 				<Button onSubmit={props.onSubmit}>
-					{!props.isLoginMode ? "Continue" : "Login"}	
+					<h1 style={{ color: "whitesmoke" }}>{!props.isLoginMode ? "Continue" : "Login"}	</h1>
 				</Button> 
 
 				<div className={`${styles.text_center}`}>

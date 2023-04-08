@@ -14,7 +14,7 @@ const Destinations = () => {
 
   const [allPlaces, setAllPlaces] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [autoCarouseleHeight, setAutoCarouseleHeight] = useState(true);
 
   useEffect(() => {
     const fetchData = async() => {
@@ -44,8 +44,8 @@ const Destinations = () => {
       {isLoading && <LoadingSpinner asOverlay/>}
 
       {!isLoading && allPlaces && 
-        <div style={{padding: 15, height: "64vh", width: "100%" }} >
-          <CarouseleList data={allPlaces}/>
+        <div style={{ height: !autoCarouseleHeight && "70vh" }} className={styles.carousele_outsider} >
+          <CarouseleList onChangeHeight={(state)=>{setAutoCarouseleHeight(state)}} data={allPlaces}/>
         </div>
       }
 

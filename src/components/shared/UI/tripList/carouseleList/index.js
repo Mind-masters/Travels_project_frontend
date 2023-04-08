@@ -17,6 +17,9 @@ const SwiperList = (props) => {
 
 
     const auth_places = props.auth_places ? true : false
+    const swiperRef = useRef(null);
+
+    const [showOneSlide, setShowOneSlide] = useState(false);
   
     const [slidesCount, setSlidesCount] = useState(100);
     const [currentSlideNumber, setCurrentSlideNumber] = useState(1);
@@ -32,7 +35,8 @@ const SwiperList = (props) => {
         const swiper_width = container_ref.current ? container_ref.current.offsetWidth - plus_icon_width : 1;
         const number_of_slides = props.data.length >= Math.round(swiper_width / 420) ? Math.round(swiper_width / 420) : props.data.length;
 
-        setSlidesCount(number_of_slides > 1 ? number_of_slides : 1.5);
+        if(showOneSlide)setSlidesCount(number_of_slides);
+        else if(!showOneSlide)setSlidesCount(number_of_slides > 1 ? number_of_slides : 1.5);
     }
 
     useLayoutEffect(() => {
@@ -58,6 +62,16 @@ const SwiperList = (props) => {
         null
     }
 
+    const onSlideClickHandler = () => {
+        if(slidesCount < 2){
+            setShowOneSlide(!showOneSlide);
+
+            if(!showOneSlide)swiperRef.current.swiper.slidePrev()
+            if(showOneSlide)swiperRef.current.swiper.slideNext()
+            if(props.onChangeHeight)props.onChangeHeight(showOneSlide);
+        }
+    }
+
     
 
     const ItemContainer = (
@@ -68,7 +82,7 @@ const SwiperList = (props) => {
                         // let applyContent = currentSlideContent;
 
                         return (
-                        <SwiperSlide key={key} style={{ backgroundImage: `url(${place.image})` }} className={styles.SwiperSlide}>
+                        <SwiperSlide onClick={onSlideClickHandler} key={key} style={{ backgroundImage: `url(${place.image})` }} className={styles.SwiperSlide}>
                             <div className={styles.slide_container}>
                                 <UserCRUD id={place._id} />
                                 
@@ -105,8 +119,8 @@ const SwiperList = (props) => {
 
             { props.data && props.data.length > 0 &&
                 <Swiper
-                // onSlideNextTransitionStart={()=>console.log("on next")}
-                // onSlidePrevTransitionStart={()=>console.log("on previous")}
+                
+                    ref={swiperRef}
                     effect={'coverflow'}
                     centeredSlides={true} // for seeing last slide
                     
@@ -128,18 +142,10 @@ const SwiperList = (props) => {
                     }}
 
                     className={styles.Swiper}
-                    onSlideChange={(index) => {
-                        console.log("kazkas: ", index)
-                        // setCurrentSlideNumber(index.activeIndex)
-                    }}
                     
                 >
 
                     {ItemContainer}
-                    {/* <SwiperSlide style={{ backgroundImage: `url(https://images.pexels.com/photos/788200/pexels-photo-788200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)` }} >
-
-                    </SwiperSlide> */}
-
                 </Swiper>
             }
         </div>

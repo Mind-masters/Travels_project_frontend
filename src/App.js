@@ -53,35 +53,3 @@ function App() {
 }
 
 export default App
-
-
-// import React from 'react'
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import SwiperCore, { Autoplay } from 'swiper';
-// import 'swiper/swiper-bundle.css';
-// import "./kazkas.css"
-// SwiperCore.use([Autoplay]);
-
-
-// const App = () => {
-  
-  
-//   return (
-//     <Swiper
-//       spaceBetween={30}
-//       slidesPerView={3}
-//       loop={true}
-//       autoplay={{ delay: 5000 }}
-//       slideVisibleClass="my-swiper-slide-visible"
-//       slideActiveClass="my-swiper-slide-active"
-//       onActiveIndexChange={(index) => {console.log("kazkas: ", index.activeIndex)}}
-//     >
-//       {/* Slides here */}
-//       <SwiperSlide>Slide 1</SwiperSlide>
-//       <SwiperSlide>Slide 2</SwiperSlide>
-//       <SwiperSlide>Slide 3</SwiperSlide>
-//     </Swiper>
-//   );
-// }
-
-// export default App

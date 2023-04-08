@@ -62,9 +62,10 @@ const StatusHeader = props => {
             <div style={{ justifyContent:"right" }} className={`${styles.flex_item} ${styles.login_btn}`}>
                 {!User.isLoggedIn ? 
 
-                    <Button height="auto" onClick={openAuthenticationForm}>
+                    <Button height="auto" onSubmit={openAuthenticationForm}>
                         <h1>Login</h1>
                     </Button>
+                    
 
                     :
 
@@ -77,7 +78,6 @@ const StatusHeader = props => {
             <Authentication
                 show={authenticationIsOpen}
                 onClose={closeAuthenticationForm}
-                width={"23%"}
             />
 
         </div>

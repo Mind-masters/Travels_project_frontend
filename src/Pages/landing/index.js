@@ -6,12 +6,16 @@ import Button from '../../components/shared/UI/button/Button';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contextAPI/AuthContext';
 import Destinations from "./subtopics/destinations/destinations";
-import PopDestinations from './subtopics/destinations/popdestinations';
+// import PopDestinations from './subtopics/destinations/popdestinations';
 import Footer from "../footer/Footer"
 import MainNavigation from '../../components/navigation';
+import Authentication from '../PopUpPages/Authentication';
+
+
 const LandingMain = (props) => {
 
     const Auth = useContext(AuthContext);
+    const [JoinNow, setJoinNow] = useState(false);
     const [inputValue, setInputValue] = useState("");
 
     const ContentJSX = () => <div className={styles.text_content}>
@@ -25,10 +29,25 @@ const LandingMain = (props) => {
     </div>
     
     const ContentInputJSX = () => <div className={styles.inputbox}>
-        <input placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`}  />
-        <Button>
+        <input 
+            autoFocus={inputValue} 
+            value={inputValue} 
+            onChange={(e)=>setInputValue(e.target.value)} 
+            placeholder={`${Auth.isLoggedIn ? 'Enter your destination' : 'Email address'}`}  
+        />
+        <Button onSubmit={()=>setJoinNow(true)}>
             <p style={{ color: "white" }}>{Auth.isLoggedIn ? "Explore" : "Join us!"}</p>
         </Button>
+        {
+            JoinNow && 
+
+            <Authentication 
+                email={inputValue} 
+                registration={true} 
+                show={true} 
+                onClose={()=>setJoinNow(false)}
+            />
+        }
     </div>
 
     return (
@@ -61,7 +80,7 @@ const LandingMain = (props) => {
 
             <div>
                 {!props.extra && <Destinations/>}
-                <PopDestinations/>
+                {/* <PopDestinations/> */}
                 <Footer/>
             </div>
 
