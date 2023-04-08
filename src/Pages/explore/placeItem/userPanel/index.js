@@ -13,10 +13,10 @@ const UserPanel = ({url}) => {
         
         <div className={styles.flex_item}>
           <div className={styles.profile_btn}>
-            <Button height={35}>
+            {/* <Button height={35}>
               <h1 style={{ color: "white" }}>Profile</h1>
-            </Button>
-            
+            </Button> */}
+            <h1>Samuel</h1>
           </div>
         </div>
 

@@ -9,6 +9,7 @@ import earthLogo from "../../../../assets/earth.png";
 import Button from '../button/Button';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Modal from '../Modal';
+import Loader from './Loader';
 
 
 
@@ -18,18 +19,28 @@ const MapContent = (props) => {
   const Auth = useContext(AuthContext);
   const [showMaps, setShowMaps] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
-  console.log("auth: ", Auth);
+  const [showLoader, setShowLoader] = useState(false);
+  // console.log("auth: ", Auth);
 
   const onViewMapsHandler = () => {
-    console.log("opening maps")
     setShowModal(true)
     setShowMaps(true)
+    setShowLoader(true);
   }
 
   useEffect(() => {
-    handle.enter();
-  }, [showMaps])
+
+    if(showLoader){
+      const timeoutId = setTimeout(() => {
+        setShowLoader(false);
+      }, 1000);
+      handle.enter();
+
+    }
+
+  }, [showMaps, showLoader])
+
+
 
   return (
     <div className={generalStyles.alert}>
@@ -53,16 +64,25 @@ const MapContent = (props) => {
 
         {
           showMaps && 
+          
           <Modal
             show={showModal}
             onClose={() => {setShowModal(false)}}
           >
-            <FullScreen handle={handle}>
-              <Location 
-                onClose={() => {setShowMaps(false); setShowModal(false)}} 
-                show_location={props.show_location}
-              />
-            </FullScreen>
+              <FullScreen handle={handle}>
+                <>
+                  { showLoader &&
+                    <div className={styles.loading__}>
+                      <Loader />
+                    </div>
+                  }
+                  
+                  <Location 
+                    onClose={() => {setShowMaps(false); setShowModal(false)}} 
+                    show_location={props.show_location}
+                  />
+                </>
+              </FullScreen>
           </Modal>
         }
         

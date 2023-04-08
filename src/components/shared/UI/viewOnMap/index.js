@@ -8,6 +8,8 @@ import MapContent from './mapContent'
 
 const ViewOnMap = (props) => {
 
+  console.log("propsaaaaaay: ", props)
+
   const [showMap, setShowMap] = useState(false);
 
   return (

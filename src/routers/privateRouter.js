@@ -23,7 +23,6 @@ const PrivateRouter = () => {
       <Authentication
         show={showAuthentication}
         onClose={closeAuthenticationForm}
-        width={"25%"}
       />
   )
 };

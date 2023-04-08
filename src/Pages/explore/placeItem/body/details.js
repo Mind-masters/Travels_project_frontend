@@ -21,7 +21,7 @@ const Details = (props) => { //props.item.description
           </div>
         }
         55
-          <Button color={"#d9d9d9"} height={35} onSubmit={props.onSubmit}>
+          <Button color={"#d9d9d9"} height={35} onSubmit={props.onMap}>
             <div className={styles.map_content}>
               <img src={map_icon} alt="" />
               <p style={{ color: "#EE7D15" }}>Map</p>
@@ -32,7 +32,7 @@ const Details = (props) => { //props.item.description
       {description}
 
       <div className={styles.big_screen_map}>
-        <Button color={"#d9d9d9"} height={35} onSubmit={props.onSubmit}>
+        <Button color={"#d9d9d9"} height={35} onSubmit={props.onMap}>
           <div className={styles.map_content}>
             <img src={map_icon} alt="" />
             <p style={{ color: "#EE7D15" }}>Map</p>

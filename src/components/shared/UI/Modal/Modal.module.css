@@ -5,8 +5,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(55, 55, 55, 0.808);
+  background: rgba(85, 85, 85, 0.79);
   z-index: 3;
+}
+
+.transparent{
+  background: rgba(85, 85, 85, 0.316);
 }
 
 .full_width{

@@ -8,6 +8,7 @@ import Comments from "./comments";
 // import ViewOnMap from "../../../../components/shared/UI/viewOnMap";
 import map_icon from "../../../../assets/map_icon.png";
 import Controllers from "./controllers";
+import ViewOnMap from "../../../../components/shared/UI/viewOnMap";
 
 
 const Body = ({item}) => {
@@ -16,6 +17,7 @@ const Body = ({item}) => {
   const [isLiked, setIsLiked] = useState(User.authenticatedUser && (item.likes && item.likes.includes(User.authenticatedUser.data.id)));
   const [likesCount, setLikesCount] = useState(item.likes ? item.likes.length : 0);
   const [showDescription, setShowDescription] = useState(true);
+  const [showMap, setShowMap] = useState(false);
 
   const onLikeClickHandler = () => {
     setLikesCount(!isLiked ? likesCount + 1 : likesCount - 1);
@@ -38,7 +40,11 @@ const Body = ({item}) => {
           onLike={onLikeClickHandler} 
           isLiked={isLiked}
           likes={likesCount}
+          onMap={()=>{setShowMap(true)}}
         />
+
+
+        {showMap && <ViewOnMap location={item && item.location} onClose={()=>{setShowMap(false)}} />}
 
         <Comments item={item} />
       
