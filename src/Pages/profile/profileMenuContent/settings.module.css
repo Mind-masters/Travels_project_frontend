@@ -20,3 +20,12 @@
     width: 2rem;
     margin: 0 20px;
 }
+
+@media only screen and (max-width: 600px){
+    .content_line{
+        font-size: 15px;
+    }
+    .content_line img{
+        width: 1rem;
+    }
+}
