@@ -49,7 +49,6 @@ const Destinations = () => {
         </div>
       }
 
-      
     </div>
     
   )

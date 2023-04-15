@@ -3,7 +3,12 @@ import React from 'react'
 
 const About = ({settings}) => {
   return (
-    <div>About</div>
+    <div>
+      <h1>About</h1>
+      <div>
+        
+      </div>
+    </div>
   )
 }
 
