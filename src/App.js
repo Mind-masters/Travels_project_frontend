@@ -53,3 +53,16 @@ function App() {
 }
 
 export default App
+
+
+// import React from 'react'
+
+// const App = () => {
+//   return (
+//     <div style={{ marginTop: "50vh", marginLeft:"50%" }}>
+//       <button onClick={() => console.log("labas")}>labas</button>
+//     </div>
+//   )
+// }
+
+// export default App

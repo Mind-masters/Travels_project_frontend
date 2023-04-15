@@ -33,7 +33,7 @@ const MapContent = (props) => {
     if(showLoader){
       const timeoutId = setTimeout(() => {
         setShowLoader(false);
-      }, 1000);
+      }, 2000);
       handle.enter();
 
     }
