@@ -1,12 +1,13 @@
 
 .nav_links_container{
   display: flex;
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 
 .nav_links_container a{
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  position: relative;
 }
 
 
@@ -14,13 +15,19 @@
 /* navigation links styles for desktop screen */
 @media (min-width: 1000px) {
   .nav_links_container{ 
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 }
 
+@media (max-width: 1150px){
+ .nav_links_container{
+  width: 100%;
+ }
+}
 
-/* navigation links styles for desktop screen */
+
+/* navigation links styles for mobile screens */
 @media (max-width: 1000px) {
 
   .nav_links_container{
@@ -28,6 +35,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
   }
   
   .nav_links_container li{

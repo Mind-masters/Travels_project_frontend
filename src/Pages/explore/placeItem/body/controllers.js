@@ -11,7 +11,6 @@ import commentsLogo from "../../../../assets/comments_logo.png";
 
 const Controllers = (props) => {
 
-    console.log("props: ", props)
 
     const [showMapModal, setShowMapModal] = useState(false);
     const User = useContext(AuthContext);

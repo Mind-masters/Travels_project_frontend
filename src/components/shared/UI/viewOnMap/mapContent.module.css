@@ -60,3 +60,28 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 550px) {
+
+    .author_content{
+        justify-content: space-around;
+    }
+
+    .author_content div{
+        display: none;
+    }
+
+    .view_map{
+        width: 100%;
+    }
+}
+  
+
+@media screen and (max-width: 310px) {
+
+    .controllers{
+        margin: 2rem auto;
+        flex-direction: column;
+        width: 50%;
+    }
+}

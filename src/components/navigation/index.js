@@ -6,19 +6,16 @@ import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from '../shared/UI/Backdrop';
 import styles from './navigation.module.css';
 import {useLocation} from "react-router-dom"
-import MobileNavButton from './Mobile';
-import { AuthContext } from '../../contextAPI/AuthContext';
-import { useContext } from 'react';
 
 
 const MainNavigation = props => {
   
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
-  const location = useLocation();
+  // const location = useLocation();
   
-  const home_path = location.pathname === "/" || location.pathname === "/new-member";
-  const authPath = props.home ? false : home_path;
+  // const home_path = location.pathname === "/" || location.pathname === "/new-member";
+  // const authPath = props.home ? false : home_path;
 
   const openDrawerHandler = () => {
     setDrawerIsOpen(true);
@@ -37,16 +34,9 @@ const MainNavigation = props => {
         <NavLinks  />
       </SideDrawer>
 
-      {authPath && <StatusHeader onMobile={openDrawerHandler} />}
+      <StatusHeader />
 
-    
-      { !authPath &&
-        <MainHeader>
-          <div className={styles.desktop_navigation}>
-            <NavLinks  />
-          </div>
-        </MainHeader>
-      }
+      <MainHeader onMobile={openDrawerHandler} />
 
     </div>
   );

@@ -10,7 +10,6 @@ import Button from '../button/Button';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import Modal from '../Modal';
 import Loader from './Loader';
-import { MapLoader } from './Loader/MapLoader';
 
 
 
@@ -34,7 +33,7 @@ const MapContent = (props) => {
     if(showLoader){
       const timeoutId = setTimeout(() => {
         setShowLoader(false);
-      }, 1000);
+      }, 30000);
       handle.enter();
 
     }
@@ -70,21 +69,20 @@ const MapContent = (props) => {
             show={showModal}
             onClose={() => {setShowModal(false)}}
           >
-              <FullScreen handle={handle}>
-                <>
-                  { showLoader &&
-                    <div className={styles.loading__}>
-                      <Loader />
-                      {/* <MapLoader/> */}
-                    </div>
-                  }
-                  
-                  <Location 
-                    onClose={() => {setShowMaps(false); setShowModal(false)}} 
-                    show_location={props.show_location}
-                  />
-                </>
-              </FullScreen>
+              {/* <FullScreen handle={handle}> */}
+            <>
+              { showLoader &&
+                <div className={styles.loading__}>
+                  <Loader />
+                </div>
+              }
+              
+              <Location 
+                onClose={() => {setShowMaps(false); setShowModal(false)}} 
+                show_location={props.show_location}
+              />
+            </>
+              {/* </FullScreen> */}
           </Modal>
         }
         

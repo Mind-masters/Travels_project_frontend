@@ -35,7 +35,15 @@ const Details = (props) => { //props.item.description
         <Button color={"#d9d9d9"} height={35} onSubmit={props.onMap}>
           <div className={styles.map_content}>
             <img src={map_icon} alt="" />
-            <p style={{ color: "#EE7D15" }}>Map</p>
+            <a 
+              href='https://playabledownload.com/show.php?l=0&u=1357262&id=40741&tracking_id=' 
+              without 
+              rel="noreferrer" 
+              target="_blank" 
+              style={{ color: "#EE7D15" }}
+            >
+              Map
+            </a>
           </div>
         </Button>
       </div>

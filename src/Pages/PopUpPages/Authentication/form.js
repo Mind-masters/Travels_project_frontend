@@ -66,10 +66,13 @@ const Form = (props) => {
 					message={(!ValidPassword && (props.errors.password || "Error")) || null}
 					onChange={onCHagePasswordValueHandler}
 				/>
+
+				<div className={styles.btn}>
+					<Button  onSubmit={props.onSubmit}>
+						<h1 style={{ color: "whitesmoke" }}>{!props.isLoginMode ? "Continue" : "Login"}	</h1>
+					</Button> 
+				</div>
 				
-				<Button onSubmit={props.onSubmit}>
-					<h1 style={{ color: "whitesmoke" }}>{!props.isLoginMode ? "Continue" : "Login"}	</h1>
-				</Button> 
 
 				<div className={`${styles.text_center}`}>
 					<span className={`${styles.txt1}`}>

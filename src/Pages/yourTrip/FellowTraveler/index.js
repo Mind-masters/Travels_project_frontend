@@ -6,7 +6,6 @@ import { useState } from 'react';
 import Modal from '../../../components/shared/UI/Modal';
 import InvitorForm from './invitorForm';
 import InvitorsList from "./invitorsList";
-import AnimatedCircle from '../../../components/shared/UI/circle';
 
 const FellowTraveler = () => {
 

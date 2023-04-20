@@ -1,53 +1,50 @@
 
 .mainHeader {
-  width: 100%;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
   min-height: 10vh;
   display: flex;
-  align-items: center;
-  transition-duration: 0.2s;
-
-}
-
-
-.custom_width ul{
-  width: 95%;
+  width: 100%;
 }
 
 
 .mainHeaderFixed{
   position: fixed;
   top: 0;
-  background-color: white;
-  border-radius: 0 0 20% 20%;
 }
 
 .statusHeaderContainer{
-  border-radius: 0 0 20% 20%;
-  width: 100%;
-  position: relative;
   background-color: white;
-  padding: 0.5rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 5vh;
 }
 
-.statusHeader{
-  width: 90%;
-  display: flex;
-  margin: auto;
+.statusHeaderContainer .content{
+  background-color: rgba(19, 23, 28, 0.82);
+  border-radius: 0 0 20% 20%;
+  color: whitesmoke;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
 }
 
-.flex_item{
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.header_text{
+  margin-left: 1.5rem;
 }
 
+.header_text *{
+  color: rgba(238, 125, 21, 1);
+  padding: 0;
+  margin: 0;
+}
 
-.none h1{
-  color: #010101bb;
+.header_text h1{
+  color: #191919;
   align-self: auto;
   margin: auto;
   padding: 0;
@@ -56,12 +53,23 @@
   font-weight: bold;
 }
 
-.none h1{
-  color: #191919;
+.header_navigation, .header_logo{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 2;
 }
 
-.none h1 span{
-  color: rgba(238, 125, 21, 1);
+.header_logo{
+  display: none;
+}
+
+.header_logo .header_text{
+  margin: 0 auto;
+}
+
+.login_btn{
+  margin-right: 1.5rem;
 }
 
 .login_btn h1{
@@ -69,71 +77,57 @@
   color: rgb(228, 227, 224);
 }
 
-
-.userData img{
-  width: 8rem;
-  margin: auto;
-}
-
-.userData{
+.header_login{
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
 }
 
-.userData .points{
-  background-color: rgba(128, 120, 120, 0.114);
-  border: 1px solid rgba(238, 126, 21, 0.371);
-  padding: 10px 0;
-  width: 45%;
-  border-radius: 50px;
-  font-size:1.2rem;
-  color: rgba(147, 144, 120, 1);
-  font-weight: bold;
-
-}
-
-.plus_one_point{
-  font-size:1.2rem;
-  color: rgba(238, 125, 21, 1);
-  font-weight: bold;
-  margin-right: 1rem;
+.mobile_navigation{
+  flex: 1;
 }
 
 
-.userData .points:hover, .login_link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
-}
-
-.hidden{
-  display: none;
-}
-
-.mainHeader:hover{
-  min-height: 12vh;
-}
 
 
 @media (max-width: 1000px) {
-  .mainHeader{
+
+  .header_navigation{
     display: none;
+  }
+
+  .header_login, .mobile_navigation{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex: 1;
+  }
+
+  .header_login .login_btn{
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .header_logo{
+    display: flex;
+    flex: 3;
   }
 
   .none{
     display: none;
   }
 
-  .statusHeaderContainer{
-    position: fixed;
-    top: 0;
+}
+
+@media (max-width: 750px) {
+  .header_logo{
+    flex: 2;
   }
 }
 
-@media (max-width: 470px) {
-
-  .userData{
+@media (max-width: 400px) {
+  .header_login{
     display: none;
   }
-
 }

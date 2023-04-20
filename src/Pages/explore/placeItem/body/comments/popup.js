@@ -16,8 +16,8 @@ const Popup = (props) => {
       <h1 className={styles.close_btn} onClick={props.onClose}>Close</h1>
 
       <div className={styles.comments_list}>
-        {props.data.map(comment => (
-          <div className={styles.comment_item}>
+        {props.data.map((comment, key) => (
+          <div key={key} className={styles.comment_item}>
             <img src={comment.avatar} alt="avatar" />
             {comment.content.substring(0, 5)}
           </div>
@@ -31,33 +31,6 @@ const Popup = (props) => {
 
       {isLoading && <Loader />}
 
-
-      {/* <div className={styles.comments_list}>
-        {data.map(comment => (
-          <div className={styles.comment_item}>
-            <img src={comment.avatar} alt="avatar" />
-            {comment.content.substring(0, 5)}
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.comments_list}>
-        {data.map(comment => (
-          <div className={styles.comment_item}>
-            <img src={comment.avatar} alt="avatar" />
-            {comment.content.substring(0, 5)}
-          </div>
-        ))}
-      </div>
-
-      <div className={styles.comments_list}>
-        {data.map(comment => (
-          <div className={styles.comment_item}>
-            <img src={comment.avatar} alt="avatar" />
-            {comment.content.substring(0, 5)}
-          </div>
-        ))}
-      </div> */}
     </div>
   )
 }

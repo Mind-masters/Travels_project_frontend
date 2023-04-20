@@ -49,6 +49,7 @@ const Destinations = () => {
         </div>
       }
 
+      
     </div>
     
   )

@@ -8,8 +8,6 @@ import MapContent from './mapContent'
 
 const ViewOnMap = (props) => {
 
-  console.log("propsaaaaaay: ", props)
-
   const [showMap, setShowMap] = useState(false);
 
   return (
@@ -18,10 +16,13 @@ const ViewOnMap = (props) => {
             onClose={props.onClose}
             show={true} 
         >
-            { !showMap && <AlertContainer onGo={() => setShowMap(true)} onClose={props.onClose} />}
+            {/* { !showMap && <AlertContainer onGo={() => setShowMap(true)} onClose={props.onClose} />}
             { showMap &&
               <MapContent show_location={props.location} />
-            }
+            } */}
+            <div>
+              google..
+            </div>
         </Modal>
     </div>
   )
