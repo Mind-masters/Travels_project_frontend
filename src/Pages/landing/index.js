@@ -61,9 +61,6 @@ const LandingMain = (props) => {
             <div className={styles.welcomePage}>
             
                 <div className={styles.welcomePage_section1}>
-                    <div className={styles.welcomePage_content_navigation}>
-                        <MainNavigation home={true} />
-                    </div>
                     <ContentJSX />
                 </div>
 

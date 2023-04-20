@@ -53,53 +53,6 @@
     height: 40vh;
     border-radius: 20px;
     margin: 0 30px;
-}
-
-@media (min-width:360px) {
-.profile_section{
-    max-width: 100%;
-    display: block;
-}
-.profile_sidebar{
-    align-items: center;
-}
-}
-
-
-@media (min-width:640px) {
-    .profile_section{
-        display: block;
-    }
-    }
-
-@media (min-width:768px) {
-.profile_section{
-    display: flex;
-}
-}
-
-@media only screen and (max-width: 600px) {
-    .container{
-        width: 90%;
-    } 
-}
-/* @media (min-width:1024px) {
-    .profile_section{
-        
-    }
-    }    
-    
-@media (min-width:1280px) {
-.profile_section{
     
 }
-}  */
 
-
-@media (min-width:1536px) {
-    .profile_section{
-        
-    }
-    }       
-
-    

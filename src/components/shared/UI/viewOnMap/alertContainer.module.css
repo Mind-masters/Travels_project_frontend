@@ -32,3 +32,33 @@
     width: 30%;
     margin-top: 30px;
 }
+
+@media screen and (max-width: 1000px) {
+    .alert{
+        width: 50vw;
+    }
+}
+  
+
+@media screen and (max-width: 800px) {
+    .alert{
+        width: 72vw;
+    }
+}
+  
+
+@media screen and (max-width: 550px) {
+
+    .alert{
+        width: 82vw;
+        padding: 15px;
+    }
+}
+  
+@media screen and (max-width: 450px) {
+
+    .alert{
+        width: 92vw;
+        padding: 5px;
+    }
+}

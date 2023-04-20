@@ -10,11 +10,17 @@ const NavLinks = () => {
   return <ul className={styles.nav_links_container}>
 
     <li className="onFocus">
-      <NavLink to="/explore" >Explore</NavLink>
+      <NavLink to="/explore" >
+        Explore
+        <hr />
+      </NavLink>
     </li>
 
     <li className="onFocus">
-      <NavLink to="/your-trip" >Your trip</NavLink>
+      <NavLink to="/your-trip" >
+        Your trip
+        <hr />
+      </NavLink>
     </li>
 
     <li className="onFocus">
@@ -24,11 +30,17 @@ const NavLinks = () => {
     </li>
 
     <li className="onFocus">
-      <NavLink  to="/about" >About us</NavLink>
+      <NavLink  to="/about" >
+        About us
+        <hr />
+      </NavLink>
     </li>
 
     <li className="onFocus">
-      <NavLink  to="/contact" >Contact</NavLink>
+      <NavLink  to="/contact" >
+        Contact
+        <hr />
+      </NavLink>
     </li>
 
   </ul>

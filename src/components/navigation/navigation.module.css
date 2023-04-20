@@ -22,8 +22,9 @@
   }
 
   .desktop_navigation{
-    display: block;
+    /* display: block; */
     width: 100%;
+    display: flex;
   }
   
 }

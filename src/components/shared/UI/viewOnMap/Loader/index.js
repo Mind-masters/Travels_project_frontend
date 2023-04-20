@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./loader.module.css"
-
+import logo from "../../../../../assets/map_icon.png"
 
 
 const Map = () => {
@@ -8,7 +8,7 @@ const Map = () => {
     
   return (
     <div className={styles.container}>
-      <div className={styles.marker} ></div>
+      <img src={logo} className={styles.marker} ></img>
       <div className={styles.pulse} ></div>
     </div>
   )

@@ -4,7 +4,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 30px 40px 20px 40px;
-    background: rgba(239, 235, 235, 0.879);
+    background: rgb(239, 235, 235);
 }
 
 .login_form
@@ -23,6 +23,10 @@
     line-height: 1.2;
     text-align: center;
     padding-bottom: 45px;
+}
+
+.btn{
+    margin-top: 7vh;
 }
 
 

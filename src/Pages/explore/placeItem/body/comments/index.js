@@ -48,8 +48,8 @@ const Comments = ({item}) => {
     <div className={styles.container}>
       <div className={styles.comments_list}>
         <div>
-          {data.map(comment => (
-            <div className={styles.comment_item}>
+          {data.map((comment, key) => (
+            <div key={key} className={styles.comment_item}>
               <img src={comment.avatar} alt="avatar" />
               {comment.content.substring(0, 5)}
             </div>
