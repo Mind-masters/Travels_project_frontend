@@ -25,45 +25,65 @@ const SignUp_Form = () => {
     const resetFormFields = ()=>{
       setFormFields(defaultForm);
     }
+
+    //handleing the user input
+    const handleInputChange = (event) => {
+      const { name, value } = event.target;
+      setFormFields({ ...formFields, [name]: value });
+
+      console.log(formFields);
+    };
+
+
+    const handleSubmit =(event)=>{
+      event.preventDefault();
+      //checking whether or not the password matches
+      if(password !== confirmPassword){
+        alert("password do not match");
+        return;
+      }
+      resetFormFields(defaultForm)
+    }
+
   return (
     
   <div className={styles.main_div}>
     <div className={styles.title}>Sign Up</div>
    
-    <form action="#">
+    <form onSubmit={handleSubmit}>
         <div className={styles.input_box}>
         <input
-         type="text" placeholder="Username" required name='userName'/>
+         type="text" placeholder="Username" required name='userName' value={userName} onChange={handleInputChange}/>
         <div className={styles.icon}><CiUser/></div>
       </div>
     <div className={styles.first_last}>
       <div className={styles.input_box}>
         <input
-         type="text" placeholder="First Name" required name='firstName'/>
+         type="text" placeholder="First Name" required name='firstName' value={firstName} onChange={handleInputChange}/>
         <div className={styles.icon}><CiUser/></div>
       </div>
 
       <div className={styles.input_box}>
         <input
-         type="text" placeholder="Last Name" required name='lastName'/>
+         type="text" placeholder="Last Name" required name='lastName' value={lastName} onChange={handleInputChange}/>
         <div className={styles.icon}><CiUser/></div>
       </div>
       </div>
 
       <div className={styles.input_box}>
         <input
-         type="email" placeholder="Email or Phone" required name='email'/>
+         type="email" placeholder="Email" required name='email' value={email} onChange={handleInputChange}/>
         <div className={styles.icon}><AiOutlineMail/></div>
       </div>
 
 
       <div className={styles.input_box}>
-        <input type="password" placeholder="Password" required name='password'/>
+        <input type="password" placeholder="Password" required name='password' value={password} onChange={handleInputChange}/>
         <div className={styles.icon}><HiOutlineLockClosed/></div>
       </div>
 
       <div className={styles.input_box}>
-        <input type="password" placeholder="Confirm Password" required name='confirmPassword'/>
+        <input type="password" placeholder="Confirm Password" required name='confirmPassword' value={confirmPassword} onChange={handleInputChange}/>
         <div className={styles.icon}><HiOutlineLockClosed/> </div>
       </div>
 
