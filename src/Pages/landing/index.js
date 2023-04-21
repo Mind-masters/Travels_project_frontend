@@ -10,6 +10,8 @@ import Destinations from "./subtopics/destinations/destinations";
 import Footer from "../footer/Footer"
 import MainNavigation from '../../components/navigation';
 import Authentication from '../PopUpPages/Authentication';
+import SignUp_Form from '../../components/signUp-form/SignUp_Form';
+
 
 
 const LandingMain = (props) => {
@@ -78,6 +80,8 @@ const LandingMain = (props) => {
             <div>
                 {!props.extra && <Destinations/>}
                 {/* <PopDestinations/> */}
+
+               {/* <SignUp_Form/> */}
                 <Footer/>
             </div>
 
