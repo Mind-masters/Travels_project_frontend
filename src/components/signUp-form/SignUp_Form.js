@@ -56,6 +56,7 @@ const SignUp_Form = () => {
          type="text" placeholder="Username" required name='userName' value={userName} onChange={handleInputChange}/>
         <div className={styles.icon}><CiUser/></div>
       </div>
+
     <div className={styles.first_last}>
       <div className={styles.input_box}>
         <input
@@ -98,7 +99,7 @@ const SignUp_Form = () => {
       </div>
 
       <div className={styles.register }>
-      <input type="submit" value="Register"/>
+      <button type="submit" value="">Register</button>
       </div>
 
       <div className={styles.sign_up}>
