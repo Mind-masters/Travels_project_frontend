@@ -1,3 +1,10 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: auto;
+}
+
 .main_div{
     width: 365px;
     background: #fff;
@@ -7,9 +14,33 @@
     margin: auto;
   }
 
+  .slashecontainer{
+    gap: 25px;
+    padding: 11px;
+  }
+  .slashes{
+    border-bottom: 3px solid #EE7D15;
+    width: 8%;
+    position: relative;
+    transform: rotate(45deg);
+    transform-origin: left;
+  }
+
+  .slashes2{
+    border-bottom: 3px solid #EE7D15;
+    width: 10%;
+    transform: rotate(45deg);
+  }
+
+  .slashes3{
+    border-bottom: 3px solid #EE7D15;
+    width: 8%;
+    transform: rotate(45deg);
+  }
+
   
   .main_div .title{
-    text-align: center;
+   margin: 8px;
     font-size: 30px;
     font-weight: 600;
   }
@@ -133,4 +164,39 @@
   form a:hover{
     text-decoration: underline;
   }
-   
+
+  .travelsignup img{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* @media screen and (min-width: 768px){
+    .container{
+      width: 100%;
+      padding-left: 80px;
+    }
+
+    .travelsignup img{
+      width: 70%;
+      height: 100%;
+      
+    }
+  } */
+
+  @media screen and (max-width: 700px){
+    .travelsignup img{
+      display: none;
+      
+    }
+  }
+
+  @media screen  and (max-width: 768px){
+    .travelsignup img{
+      width: 100%;
+    }
+    .container{
+      width: 90%;
+      /* padding-left: 80px; */
+    }
+  }
