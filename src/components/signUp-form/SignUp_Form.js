@@ -96,7 +96,7 @@ const SignUp_Form = () => {
         <div className={styles.icon}><HiOutlineLockClosed/> </div>
       </div>
 
-      <div class={styles.option_div}>
+      {/* <div class={styles.option_div}>
         <div className={styles.check_box}>
         <input type="checkbox"/>
         <span>Remember me</span>
@@ -104,13 +104,13 @@ const SignUp_Form = () => {
         <div className={styles.forget_div}>
           <a href="#">Forgot password?</a>
         </div>
-      </div>
+      </div> */}
 
       <div className={styles.register }>
       <button type="submit" value="">Register</button>
       </div>
 
-      <div className={styles.sign_up}>
+      {/* <div className={styles.sign_up}>
         Or Register with
       </div>
 
@@ -118,7 +118,7 @@ const SignUp_Form = () => {
       <img src={FacebookIcon}/>
       <img src={GoogleIcon}/>
       <img src={AppleIcon}/>
-      </div>
+      </div> */}
     </form>
   </div>
 

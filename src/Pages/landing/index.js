@@ -11,6 +11,7 @@ import Footer from "../footer/Footer"
 import MainNavigation from '../../components/navigation';
 import Authentication from '../PopUpPages/Authentication';
 import SignUp_Form from '../../components/signUp-form/SignUp_Form';
+import SignIn_Form from '../../components/sigIn-form/SignIn_Form';
 
 
 
@@ -82,6 +83,7 @@ const LandingMain = (props) => {
                 {/* <PopDestinations/> */}
 
                {/* <SignUp_Form/> */}
+               {/* <SignIn_Form/> */}
                 <Footer/>
             </div>
 
