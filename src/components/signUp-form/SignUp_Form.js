@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, Fragment} from 'react'
 import { CiUser } from 'react-icons/ci';
 import { AiOutlineMail } from 'react-icons/ai'
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import FacebookIcon from '../../assets/signup/facebook_icon.png';
 import GoogleIcon from '../../assets/signup/google_icon.png';
 import AppleIcon from '../../assets/signup/apple_icon.png';
-import styles from './signUp.module.css'
+import TravelSignup from '../../assets/signup/travel_signup.jpg';
+import styles from './signUp.module.css';
 
 const SignUp_Form = () => {
 
@@ -46,9 +47,16 @@ const SignUp_Form = () => {
     }
 
   return (
-    
+    <Fragment>
+  <div className={styles.container}>
   <div className={styles.main_div}>
+    <div className={styles.slashecontainer}>
+
+    <div className={styles.slashes}></div>
+    <div className={styles.slashes2}></div>
+    <div className={styles.slashes3}></div>
     <div className={styles.title}>Sign Up</div>
+    </div>
    
     <form onSubmit={handleSubmit}>
         <div className={styles.input_box}>
@@ -56,6 +64,7 @@ const SignUp_Form = () => {
          type="text" placeholder="Username" required name='userName' value={userName} onChange={handleInputChange}/>
         <div className={styles.icon}><CiUser/></div>
       </div>
+
     <div className={styles.first_last}>
       <div className={styles.input_box}>
         <input
@@ -98,7 +107,7 @@ const SignUp_Form = () => {
       </div>
 
       <div className={styles.register }>
-      <input type="submit" value="Register"/>
+      <button type="submit" value="">Register</button>
       </div>
 
       <div className={styles.sign_up}>
@@ -112,6 +121,13 @@ const SignUp_Form = () => {
       </div>
     </form>
   </div>
+
+  <div className={styles.travelsignup}>
+    <img src={TravelSignup} alt='travel_signUp'/>
+  </div>
+  </div>
+  
+    </Fragment>
 
   )
 }
