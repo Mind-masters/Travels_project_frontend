@@ -6,7 +6,7 @@
 }
 
 .main_div{
-    width: 365px;
+    width: 565px;
     background: #fff;
     padding: 30px;
     border-radius: 5px;
@@ -134,6 +134,8 @@
     color: #be2edd;
   }
   .register {
+    margin-top: 12px;
+    padding-top: 12px;
     padding-left: 20;
     background: #EE7D15;
     color: #fff;
@@ -192,6 +194,9 @@
   }
 
   @media screen  and (max-width: 768px){
+    .first_last{
+      display: block;
+    }
     .travelsignup img{
       width: 100%;
     }
