@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import Modal from '../../../components/shared/UI/Modal'
-import Form from './form'
+// import Form from './form'
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
@@ -9,6 +9,7 @@ import { useContext } from "react";
 import {AuthContext} from "../../../contextAPI/AuthContext";
 import { Auth_Login, Auth_Signup } from "../../../components/utils/client/authenticate";
 import { validate } from "./validators";
+
 
 const Authentication = (props) => {
 
@@ -92,13 +93,14 @@ const Authentication = (props) => {
                     show={props.show}
                     onClose={FormCloseHandler}
                 >
-                    <Form 
+                    {/* <Form 
                         email={props.email}
                         onSubmit={FormSubmitHandler}
                         onSwithChMode={FormSwitchHandler}
                         isLoginMode={isLoginMode}
                         errors={errors}
-                    />
+                    /> */}
+
                 </Modal>
             }
         </>
