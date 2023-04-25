@@ -93,3 +93,124 @@
     margin-right: 12rem;
 }
 
+@media (max-width: 1200px)
+{
+    .welcome_page_controllers{
+        width: 90%;
+    }
+
+    .welcome_page_text
+    {
+        font-size: 40px;
+    }
+}
+
+
+@media (max-width: 1100px)
+{
+
+    .image_small{
+        margin-right: 5rem;
+    }
+}
+
+@media (max-width: 900px)
+{
+
+    .welcome_page_controllers{
+        width: 100%;
+    }
+    
+    .welcome_page_text
+    {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 800px)
+{
+
+    .image_big{
+        width: 170px;
+        height: 78%;
+    }
+    
+    .image_small{
+        margin-bottom: 3.5rem;
+        width: 130px;
+        height: 68%;
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 700px)
+{
+
+    .welcome_page_text
+    {
+        font-size: 35px;
+    }
+
+    .welcome_page_bg_images{
+        flex: 0;
+        padding-right: 5vw;
+    }
+
+    .image_small{
+        display: none;
+    }
+
+}
+
+@media (max-width: 600px)
+{
+    .welcome_page_bg_images{
+        padding-right: 2vw;
+    }
+}
+
+
+@media (max-width: 550px)
+{
+    .welcome_page_bg_images{
+        display: none;
+    }
+
+    .welcome_page{
+        height: 65vh;
+    }
+    
+}
+
+
+@media (max-width: 400px)
+{
+    .welcome_page_text
+    {
+        font-size: 28px;
+    }
+
+    .welcome_page{
+        height: 55vh;
+    }
+
+    .welcome_page_controllers .controllers p{
+        font-size: 12px;
+        
+    }
+    
+}
+
+@media (max-width: 300px)
+{
+
+
+
+    .welcome_page_text
+    {
+        font-size: 25px;
+    }
+}
+
+
+

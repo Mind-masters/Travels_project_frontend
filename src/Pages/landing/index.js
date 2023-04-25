@@ -1,14 +1,15 @@
-import React, {useState} from 'react'
-import styles from "./landing.module.css";
-import NewUser from '../PopUpPages/newUserModal';
 import Button from '../../components/shared/UI/button/Button';
-import Destinations from "./destinations";
-import Authentication from '../PopUpPages/Authentication';
+import NewUser from '../PopUpPages/newUserModal';
+import styles from "./landing.module.css";
+import React, {useState} from 'react'
 
-import AboutUs from './aboutUs';
-import Faq from './FAQ';
-import SignUp_Form from '../../components/signUp-form/SignUp_Form';
-import SignIn_Form from '../../components/sigIn-form/SignIn_Form';
+import Destinations from "./destinations";
+// import AboutUs from './aboutUs';
+// import Faq from './FAQ';
+
+// import SignUp_Form from '../../components/signUp-form/SignUp_Form';
+// import SignIn_Form from '../../components/sigIn-form/SignIn_Form';
+// import Authentication from '../PopUpPages/Authentication';
 
 
 
@@ -67,8 +68,8 @@ const LandingMain = (props) => {
             </div>
 
             {!props.extra && <Destinations/>}
-            <AboutUs />
-            <Faq />
+            {/* <AboutUs />
+            <Faq /> */}
 
 
         </div>
