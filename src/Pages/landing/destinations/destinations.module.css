@@ -1,0 +1,56 @@
+.container{
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header_image, .container .content{
+  flex: 2;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header_image{
+  background-image: url("../../../assets/landing/header_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container .content{
+  flex: 1;
+}
+
+
+/* .carousele_outsider{
+  padding: 15px;
+  height: 64vh; 
+  width: 100%;
+  background-color: aquamarine;
+} */
+
+.temp_carousele{
+  position: absolute;
+  padding: 15px;
+  height: 67vh; 
+  width: 100%;
+  bottom: 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+@media screen and (max-width: 570px) {
+  .container{
+    padding: 2rem 0rem;
+  }
+
+
+  .carousele_outsider{
+    height: 52vh;
+  }
+}
+

@@ -1,4 +1,4 @@
-hr{
+.onFocus hr{
   position: absolute;
   padding: 2px;
   width: 80%;
