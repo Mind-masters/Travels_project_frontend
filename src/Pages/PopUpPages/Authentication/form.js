@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import FormInput from '../../../components/shared/UI/formInput'
+import FormInput from '../../../../components/shared/UI/formInput'
 import styles from "./form.module.css"
-import Button from '../../../components/shared/UI/button/Button'
+import Button from '../../../../components/shared/UI/button/Button'
 
 const Form = (props) => {
 
