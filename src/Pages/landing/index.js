@@ -4,9 +4,13 @@ import NewUser from '../PopUpPages/newUserModal';
 import Button from '../../components/shared/UI/button/Button';
 import Destinations from "./destinations";
 import Authentication from '../PopUpPages/Authentication';
-import HrLines from '../../assets/landing/span.png'
+
 import AboutUs from './aboutUs';
 import Faq from './FAQ';
+import SignUp_Form from '../../components/signUp-form/SignUp_Form';
+import SignIn_Form from '../../components/sigIn-form/SignIn_Form';
+
+
 
 const LandingMain = (props) => {
 
@@ -65,6 +69,7 @@ const LandingMain = (props) => {
             {!props.extra && <Destinations/>}
             <AboutUs />
             <Faq />
+
 
         </div>
     )

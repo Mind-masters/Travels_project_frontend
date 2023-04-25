@@ -1,0 +1,207 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: auto;
+}
+
+.main_div{
+    width: 565px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    margin: auto;
+  }
+
+  .slashecontainer{
+    gap: 25px;
+    padding: 11px;
+  }
+  .slashes{
+    border-bottom: 3px solid #EE7D15;
+    width: 8%;
+    position: relative;
+    transform: rotate(45deg);
+    transform-origin: left;
+  }
+
+  .slashes2{
+    border-bottom: 3px solid #EE7D15;
+    width: 10%;
+    transform: rotate(45deg);
+  }
+
+  .slashes3{
+    border-bottom: 3px solid #EE7D15;
+    width: 8%;
+    transform: rotate(45deg);
+  }
+
+  
+  .main_div .title{
+   margin: 8px;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .main_div .social_icons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .social_icons img{
+    display: block;
+    height: 36.42px;
+    width: 36.42px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s linear;
+  }
+  .social_icons img{
+    margin-left: 5px;
+    font-size: 18px;
+  }
+  .social_icons img:first-child{
+    margin-right: 5px;
+    /* background: #4267B2; */
+  }
+  .social_icons img:first-child:hover{
+    background: #375695;
+  }
+  .social_icons img:last-child{
+    margin-left: 5px;
+    /* background: #1DA1F2; */
+  }
+  .social_icons img:last-child:hover{
+    background: #0d8bd9;
+  }
+  form {
+    margin-top: 25px;
+  }
+  form .input_box{
+    height: 50px;
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+  }
+  .input_box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding-left: 45px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+  }
+
+  .first_last{
+    display: flex;
+    gap: 10px;
+  }
+
+  .input_box input:focus{
+    border-color: #be2edd;
+  }
+  .input_box .icon{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #EE7D15;
+    font-size: 20px;
+  }
+  form .option_div{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .option_div .check_box{
+    display: flex;
+    align-items: center;
+  }
+  .option_div span{
+    margin-left: 5px;
+    font-size: 16px;
+    color: #333;
+  }
+  .option_div .forget_div a{
+    font-size: 16px;
+    color: #be2edd;
+  }
+  .register {
+    margin-top: 12px;
+    padding-top: 12px;
+    padding-left: 20;
+    background: #EE7D15;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    text-align: center;
+    width:322px;
+    height: 52px;
+    border-radius: 11px;
+  }
+  .register:hover{
+    background: #a720c5;
+    cursor: pointer;
+  }
+  form .sign_up{
+    text-align: center;
+    margin-top: 25px;
+  }
+  .sign_up a{
+    color: #be2edd;
+  }
+  form a{
+    text-decoration: none;
+  }
+  form a:hover{
+    text-decoration: underline;
+  }
+
+  .travelsignup img{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* @media screen and (min-width: 768px){
+    .container{
+      width: 100%;
+      padding-left: 80px;
+    }
+
+    .travelsignup img{
+      width: 70%;
+      height: 100%;
+      
+    }
+  } */
+
+  @media screen and (max-width: 700px){
+    .travelsignup img{
+      display: none;
+      
+    }
+  }
+
+  @media screen  and (max-width: 768px){
+    .first_last{
+      display: block;
+    }
+    .travelsignup img{
+      width: 100%;
+    }
+    .container{
+      width: 90%;
+      /* padding-left: 80px; */
+    }
+  }
