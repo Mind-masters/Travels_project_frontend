@@ -34,7 +34,7 @@ const MainNavigation = props => {
         <NavLinks  />
       </SideDrawer>
 
-      <StatusHeader />
+      {/* <StatusHeader /> */}
 
       <MainHeader onMobile={openDrawerHandler} />
 

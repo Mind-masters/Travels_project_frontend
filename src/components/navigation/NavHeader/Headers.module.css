@@ -34,7 +34,7 @@
 }
 
 .header_text{
-  margin-left: 1.5rem;
+  margin-left: 2.5rem;
 }
 
 .header_text *{
@@ -47,8 +47,6 @@
   color: #191919;
   align-self: auto;
   margin: auto;
-  padding: 0;
-  margin: 0;
   font-size: 2rem;
   font-weight: bold;
 }
@@ -69,7 +67,7 @@
 }
 
 .login_btn{
-  margin-right: 1.5rem;
+  margin-right: 2.5rem;
 }
 
 .login_btn h1{
@@ -121,6 +119,11 @@
 }
 
 @media (max-width: 750px) {
+
+  .statusHeaderContainer{
+    display: none;
+  }
+
   .header_logo{
     flex: 2;
   }
