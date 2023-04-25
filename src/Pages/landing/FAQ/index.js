@@ -10,7 +10,7 @@ const Faq = () => {
       <div className={styles.container}>
         <header>Frequently Asked Questions</header>
 
-        {DummyData.map(item => <FaqItem obj={item}/>)}
+        {DummyData.map((item, key) => <FaqItem key={key} obj={item}/>)}
 
       </div>
     </div>
