@@ -24,17 +24,11 @@
 }
 
 
-/* .carousele_outsider{
-  padding: 15px;
-  height: 64vh; 
-  width: 100%;
-  background-color: aquamarine;
-} */
 
-.temp_carousele{
+.carousele_outsider{
   position: absolute;
   padding: 15px;
-  height: 67vh; 
+  height: 75vh; 
   width: 100%;
   bottom: 0%;
   background-size: cover;
@@ -42,12 +36,27 @@
 }
 
 
+@media screen and (max-width: 950px) {
+  .carousele_outsider{
+    height: 68vh;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .carousele_outsider{
+    height: 63vh;
+  }
+}
+
 
 @media screen and (max-width: 570px) {
   .container{
     padding: 2rem 0rem;
   }
 
+}
+
+@media screen and (max-width: 340px) {
 
   .carousele_outsider{
     height: 52vh;
