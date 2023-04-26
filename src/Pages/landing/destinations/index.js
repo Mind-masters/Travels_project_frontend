@@ -45,15 +45,12 @@ const Destinations = () => {
 
       <div className={styles.content}></div>
 
-      <div className={styles.temp_carousele}>
-      <CarouseleList onChangeHeight={(state)=>{setAutoCarouseleHeight(state)}} data={allPlaces}/>
-
-      </div>
 
       {isLoading && <LoadingSpinner asOverlay/>}
 
       {!isLoading && allPlaces && 
-        <div style={{ height: !autoCarouseleHeight && "70vh" }} className={styles.carousele_outsider} >
+        <div className={styles.carousele_outsider}>
+          <CarouseleList onChangeHeight={(state)=>{setAutoCarouseleHeight(state)}} data={allPlaces}/>
         </div>
       }
 

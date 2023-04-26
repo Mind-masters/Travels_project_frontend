@@ -2,7 +2,6 @@ import React, { useState, useRef, useLayoutEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import add_new_trip_logo from "../../../../../assets/your-trip/ad_new_trip_logo.png";
 import SwiperCore, { Autoplay, EffectCoverflow, Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
@@ -21,29 +20,30 @@ const SwiperList = (props) => {
   
     const [slidesCount, setSlidesCount] = useState(4);
     const container_ref = useRef(null);
-    const image_ref = useRef(null);
-
-
 
     const carousel_slider_handler = () => {
         if(!props.data)return
-        const plus_icon_width = image_ref.current ? image_ref.current.offsetWidth : 0;
-        const swiper_width = container_ref.current ? container_ref.current.offsetWidth - plus_icon_width : 1;
-        const number_of_slides = props.data.length >= Math.round(swiper_width / 420) ? Math.round(swiper_width / 420) : props.data.length;
+        
+        const currentWidth = container_ref.current ? container_ref.current.offsetWidth : 1;
+
+        let number_of_slides = 4;
+        if(currentWidth > 1400 && currentWidth <= 1550)number_of_slides = 3.5;
+        if(currentWidth > 1100 && currentWidth <= 1400)number_of_slides = 3;
+        if(currentWidth > 850 && currentWidth <= 1100)number_of_slides = 2.5;
+        if(currentWidth > 650 && currentWidth <= 850)number_of_slides = 2;
+        if(currentWidth <= 650)number_of_slides = 1.5;
 
         if(showOneSlide)setSlidesCount(number_of_slides);
-        else if(!showOneSlide)setSlidesCount(number_of_slides > 1 ? number_of_slides : 1.5);
+        else if(!showOneSlide)setSlidesCount(number_of_slides > 1 ? number_of_slides : (1.5));
     }
 
     useLayoutEffect(() => {
         carousel_slider_handler();
     });
 
-
     window.addEventListener("resize", () => {
         carousel_slider_handler();
     })
-
 
 
     return (
@@ -54,12 +54,12 @@ const SwiperList = (props) => {
                 
                     ref={swiperRef}
                     effect={'coverflow'}
-                    centeredSlides={true} // for seeing last slide
+                    centeredSlides={true}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 10,
                         depth: 100,
-                        modifier: 4,
+                        modifier: 3.5,
                         slideShadows: false,
                     }}
                     spaceBetween={70}
@@ -73,7 +73,6 @@ const SwiperList = (props) => {
                     }}
                     className={styles.Swiper}
                 >
-
                     <>
                         { props.data &&
                             props.data.map((place, key) => 
@@ -96,7 +95,6 @@ const SwiperList = (props) => {
             }
         </div>
     )
-
 }
 
 export default SwiperList

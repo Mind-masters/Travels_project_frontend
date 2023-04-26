@@ -5,8 +5,6 @@ import Button from "../../button/Button"
 
 const SlideItem = ({item, key}) => {
 
-  console.log("carousele item: ", item)
-
   return (
     <div className={styles.slide_container}>
       <div className={styles.filter}></div>
