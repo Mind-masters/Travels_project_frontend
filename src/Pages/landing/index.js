@@ -4,6 +4,7 @@ import styles from "./landing.module.css";
 import React, {useState} from 'react'
 
 import Destinations from "./destinations";
+import Footer from '../../components/shared/UI/Footer/Footer';
 // import AboutUs from './aboutUs';
 // import Faq from './FAQ';
 
@@ -70,6 +71,7 @@ const LandingMain = (props) => {
             {!props.extra && <Destinations/>}
             {/* <AboutUs />
             <Faq /> */}
+            <Footer/>
 
 
         </div>
