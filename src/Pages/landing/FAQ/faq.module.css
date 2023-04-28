@@ -22,3 +22,25 @@
     color: rgba(240, 141, 50, 1);
     font-size: 38px;
 }
+
+@media (max-width: 900px)
+{
+    .container{
+        width: 85vw;
+    }
+
+}
+
+@media (max-width: 750px)
+{
+    .container header{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 500px)
+{
+    .container header{
+        font-size: 23px;
+    }
+}

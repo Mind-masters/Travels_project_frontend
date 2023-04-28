@@ -13,6 +13,13 @@
   margin: 0 auto;
 }
 
+.title_container{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding-top: 5vh;
+  font-size: 45px;
+}
+
 .header_image{
   background-image: url("../../../assets/landing/header_bg.png");
   background-repeat: no-repeat;
@@ -22,7 +29,6 @@
 .container .content{
   flex: 1;
 }
-
 
 
 .carousele_outsider{
@@ -40,26 +46,60 @@
   .carousele_outsider{
     height: 68vh;
   }
+
+  .title_container{
+    font-size: 35px;
+    padding-top: 7vh;
+  }
 }
 
 @media screen and (max-width: 750px) {
   .carousele_outsider{
     height: 63vh;
+    bottom: 5%;
   }
+
+  .header_image{
+    background-image: url("../../../assets/landing/header_bg_small_screens.png");
+  }
+  
 }
 
 
 @media screen and (max-width: 570px) {
   .container{
-    padding: 2rem 0rem;
+    padding: 0rem 0rem;
   }
 
-}
-
-@media screen and (max-width: 340px) {
+  .title_container{
+    font-size: 28px;
+  }
 
   .carousele_outsider{
-    height: 52vh;
+    padding: 0;
   }
 }
 
+@media screen and (max-width: 450px) {
+
+  .title_container{
+    font-size: 25px;
+    content:none
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+  .carousele_outsider{
+    padding: 20px;
+    bottom: 10%;
+    height: 75%;
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  .carousele_outsider{
+    padding: 3px;
+  }
+}

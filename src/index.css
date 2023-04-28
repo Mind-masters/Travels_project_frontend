@@ -28,6 +28,10 @@ body {
 
 }
 
+hr{
+  border: none;
+}
+
 :root {
     --main-color: var(--main-color-hover);
     --secondary-color: #d7e3ef;

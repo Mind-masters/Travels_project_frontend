@@ -4,8 +4,11 @@ import styles from "./landing.module.css";
 import React, {useState} from 'react'
 
 import Destinations from "./destinations";
-// import AboutUs from './aboutUs';
-// import Faq from './FAQ';
+import AboutUs from './aboutUs';
+import Faq from './FAQ';
+
+import MainHeader from './header';
+import ImageContainer from "./imageContainer";
 
 // import SignUp_Form from '../../components/signUp-form/SignUp_Form';
 // import SignIn_Form from '../../components/sigIn-form/SignIn_Form';
@@ -14,7 +17,6 @@ import Destinations from "./destinations";
 
 
 const LandingMain = (props) => {
-
 
     return (
         <div>
@@ -30,19 +32,12 @@ const LandingMain = (props) => {
 
                     <div className={styles.content}>
 
-                        <div className={styles.welcome_page_text}>
-                            
-                            <p>Unexplored locations,</p>
-                            <div className={styles.main_line}>
-                                <p>Discounts, </p>
-                                <div>
-                                    <p>new friends</p>
-                                    <hr style={{ marginLeft: "5%", bottom: "5px" }} />
-                                    <hr />
-                                </div>
-                            </div>
-                            <p>and more!</p>
+                        <MainHeader />
+
+                        <div className={styles.mobile_bg_images}>
+                            <ImageContainer />
                         </div>
+
 
                         <div className={styles.welcome_page_controllers}>
                             <div className={styles.controllers}>
@@ -56,20 +51,16 @@ const LandingMain = (props) => {
 
                 </div>
             
-
-                <div className={styles.welcome_page_bg_images}>
-
-                    <div className={styles.image_big} />
-                    <div className={styles.image_small} />
-
+                <div className={styles.computer_bg_images}>
+                    <ImageContainer />
                 </div>
 
 
             </div>
 
             {!props.extra && <Destinations/>}
-            {/* <AboutUs />
-            <Faq /> */}
+            <AboutUs />
+            <Faq />
 
 
         </div>

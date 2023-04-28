@@ -1,0 +1,25 @@
+import React from 'react'
+import styles from "./header.module.css";
+
+const MainHeader = () => {
+
+
+  return (
+
+    <div className={styles.welcome_page_text}>                            
+      <p>Unexplored locations,</p>
+      <div className={styles.main_line}>
+          <p>Discounts, </p>
+          <div>
+              <p>new friends</p>
+              <hr style={{ marginLeft: "5%", bottom: "5px" }} />
+              <hr />
+          </div>
+      </div>
+      <p>and more!</p>
+    </div>
+    
+  )
+}
+
+export default MainHeader

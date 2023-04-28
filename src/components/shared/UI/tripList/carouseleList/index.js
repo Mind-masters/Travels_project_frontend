@@ -27,14 +27,14 @@ const SwiperList = (props) => {
         const currentWidth = container_ref.current ? container_ref.current.offsetWidth : 1;
 
         let number_of_slides = 4;
-        if(currentWidth > 1400 && currentWidth <= 1550)number_of_slides = 3.5;
-        if(currentWidth > 1100 && currentWidth <= 1400)number_of_slides = 3;
-        if(currentWidth > 850 && currentWidth <= 1100)number_of_slides = 2.5;
-        if(currentWidth > 650 && currentWidth <= 850)number_of_slides = 2;
-        if(currentWidth <= 650)number_of_slides = 1.5;
-
-        if(showOneSlide)setSlidesCount(number_of_slides);
-        else if(!showOneSlide)setSlidesCount(number_of_slides > 1 ? number_of_slides : (1.5));
+        if(currentWidth >= 1400 && currentWidth <= 1550)number_of_slides = 3.5;
+        if(currentWidth >= 1100 && currentWidth <= 1400)number_of_slides = 3;
+        if(currentWidth >= 850 && currentWidth <= 1100)number_of_slides = 2.5;
+        if(currentWidth >= 650 && currentWidth <= 850)number_of_slides = 2;
+        if(currentWidth <= 650 && currentWidth > 350)number_of_slides = 1.5;
+        if(currentWidth <= 350) number_of_slides = 1;
+        setSlidesCount(number_of_slides);
+        // else if(!showOneSlide)setSlidesCount(number_of_slides > 1 ? number_of_slides : (currentWidth > 240 ? 1.5 : 1));
     }
 
     useLayoutEffect(() => {

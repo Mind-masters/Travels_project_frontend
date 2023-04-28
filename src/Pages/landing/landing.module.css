@@ -5,112 +5,86 @@
     padding-top: 10vh;
 }
 
-.welcome_page_content, .welcome_page_bg_images{
+.welcome_page_content{
     height: 100%;
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
     flex: 1;
 }
 
-.welcome_page_bg_images{
-    justify-content: center;
-}
-
-.welcome_page_content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.welcome_page_content .content{
+.content{
     height: 70%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
-.welcome_page_text{
-    width: 100%;
-    font-size: 50px;
-    color: rgba(44, 60, 77, 1);
-}
-
-.main_line{
-    display: flex;
-    align-items: center;
-}
-
-.main_line div{
-    margin-left: 1rem; 
-    display: inline-block;
-    color: #EE7D15;
-    position: relative;
-}
-
-.main_line hr{
-    position: absolute;
-    padding: 1px;
-    background-color: #EE7D15;
-    border-radius: 30%;
-    width: 85%;
-}
-
-
-
 
 .welcome_page_controllers{
     width: 70%;
 }
 
-.welcome_page_controllers .controllers{
+.controllers{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.image_big, .image_small{
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 180px;
-    margin-right: 1rem;
+.mobile_bg_images{
+    display: none;
 }
 
-.image_big{
-    background-image: url("../../assets/landing/big_image.png");
-    width: 200px;
-    height: 88%;
-    border: 3px solid #EE7D15;
+.computer_bg_images, .mobile_bg_images{
+    flex: 1;
+    padding-bottom: 4vh;
 }
 
-.image_small{
-    background-image: url("https://i.pinimg.com/564x/b7/4b/79/b74b79a1ae69f8640d3bcf4055585baf.jpg");
-    align-self: flex-end;
-    margin-bottom: 2rem;
-    width: 160px;
-    height: 75%;
-    margin-right: 12rem;
+
+/* conainer styles */
+
+@media (max-width: 600px)
+{
+
+    .welcome_page{
+        height: 100vh
+    }
+    
+    .content{
+        height: 95%;
+        width: 80%;
+        justify-content: space-around;
+    }
+
+    .computer_bg_images{
+        display: none;
+    }
+
+    .mobile_bg_images{
+        display: block;
+        padding-bottom: 0;
+        flex: 0;
+    }
 }
+
+@media (max-width: 300px)
+{
+    .content{
+        position: relative;
+        width: 95%;
+    }  
+}
+
+
+
+/* controllers style */
 
 @media (max-width: 1200px)
 {
     .welcome_page_controllers{
         width: 90%;
-    }
-
-    .welcome_page_text
-    {
-        font-size: 40px;
-    }
-}
-
-
-@media (max-width: 1100px)
-{
-
-    .image_small{
-        margin-right: 5rem;
     }
 }
 
@@ -121,96 +95,35 @@
         width: 100%;
     }
     
-    .welcome_page_text
-    {
-        font-size: 30px;
-    }
 }
 
-@media (max-width: 800px)
-{
 
-    .image_big{
-        width: 170px;
-        height: 78%;
-    }
-    
-    .image_small{
-        margin-bottom: 3.5rem;
-        width: 130px;
-        height: 68%;
-        margin-right: 1rem;
-    }
-}
-
-@media (max-width: 700px)
-{
-
-    .welcome_page_text
-    {
-        font-size: 35px;
-    }
-
-    .welcome_page_bg_images{
-        flex: 0;
-        padding-right: 5vw;
-    }
-
-    .image_small{
-        display: none;
-    }
-
-}
 
 @media (max-width: 600px)
 {
-    .welcome_page_bg_images{
-        padding-right: 2vw;
-    }
-}
 
-
-@media (max-width: 550px)
-{
-    .welcome_page_bg_images{
-        display: none;
+    .welcome_page_controllers{
+        width: 85%;
+        margin: 0 auto;
     }
 
-    .welcome_page{
-        height: 65vh;
+    .controllers p{
+        font-size: 12px;   
     }
     
 }
-
 
 @media (max-width: 400px)
 {
-    .welcome_page_text
-    {
-        font-size: 28px;
-    }
-
-    .welcome_page{
-        height: 55vh;
-    }
-
-    .welcome_page_controllers .controllers p{
-        font-size: 12px;
-        
-    }
-    
+    .welcome_page_controllers{
+        width: 100%;
+    }    
 }
 
 @media (max-width: 300px)
 {
-
-
-
-    .welcome_page_text
-    {
-        font-size: 25px;
+    .controllers p{
+        font-size: 10px;   
     }
+     
 }
-
-
-
