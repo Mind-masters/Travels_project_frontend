@@ -9,6 +9,7 @@ import Faq from './FAQ';
 
 import MainHeader from './header';
 import ImageContainer from "./imageContainer";
+import Footer from '../../components/shared/UI/Footer/Footer';
 
 // import SignUp_Form from '../../components/signUp-form/SignUp_Form';
 // import SignIn_Form from '../../components/sigIn-form/SignIn_Form';
@@ -61,7 +62,7 @@ const LandingMain = (props) => {
             {!props.extra && <Destinations/>}
             <AboutUs />
             <Faq />
-
+            <Footer/>
 
         </div>
     )

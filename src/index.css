@@ -34,7 +34,7 @@ hr{
 
 :root {
     --main-color: var(--main-color-hover);
-    --secondary-color: #d7e3ef;
+    /* --secondary-color: #d7e3ef; */
     --box-shadow: 0 0 7px 0 var(--secondary-color);
     --main-color-hover: #FFDE59;
     /* dark shades of primary color*/
@@ -55,12 +55,12 @@ hr{
     --clr-grey-4: hsl(209, 28%, 39%);
     /* grey used for paragraphs */
     --clr-grey-5: hsl(210, 22%, 49%);
-    --clr-grey-6: hsl(209, 23%, 60%);
+    /* --clr-grey-6: hsl(209, 23%, 60%);
     --clr-grey-7: hsl(211, 27%, 70%);
     --clr-grey-8: hsl(210, 31%, 80%);
     --clr-grey-9: hsl(212, 33%, 89%);
     --clr-grey-10: hsl(210, 36%, 96%);
-    --clr-white: #fff;
+    --clr-white: #fff; */
     --clr-red-dark: hsl(360, 67%, 44%);
     --clr-red-light: hsl(360, 71%, 66%);
     --clr-green-dark: hsl(125, 67%, 44%);
