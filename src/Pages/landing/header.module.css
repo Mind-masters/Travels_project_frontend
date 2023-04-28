@@ -1,0 +1,78 @@
+/* text sizes */
+.welcome_page_text{
+    width: 100%;
+    font-size: 45px;
+    color: rgba(44, 60, 77, 1);
+}
+
+.main_line{
+    display: flex;
+    align-items: center;
+}
+
+.main_line div{
+    margin-left: 1rem; 
+    display: inline-block;
+    color: #EE7D15;
+    position: relative;
+}
+
+.main_line hr{
+    position: absolute;
+    padding: 1px;
+    background-color: #EE7D15;
+    border-radius: 30%;
+    width: 85%;
+}
+
+
+@media (max-width: 1200px)
+{
+    .welcome_page_text
+    {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 900px)
+{   
+    .welcome_page_text
+    {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 600px)
+{   
+    .welcome_page_text
+    {
+        width: auto;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 380px)
+{
+    .welcome_page_text
+    {
+        font-size: 28px;
+    }
+    
+}
+
+
+@media (max-width: 350px)
+{
+    .welcome_page_text
+    {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 250px)
+{
+    .welcome_page_text
+    {
+        font-size: 15px;
+    }
+}

@@ -12,15 +12,14 @@ const SlideItem = ({item, key}) => {
         <div style={{ backgroundImage: `url(${item.image})` }} className={styles.content_image} ></div>
 
         <div className={styles.content_body}>
-          <div className={styles.body_text}>
+          <div className={styles.content_body_text}>
             <h1>China</h1>
-            <h3>Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
           </div>
 
-          <div className={styles.body_map}>
+          <div className={styles.content_body_map}>
             <Button color="rgba(68, 68, 68, 0.48)" border="2px solid #F7E1CE">
-              <div className={styles.body_button}>
-                <div className={styles.body_button_icon}>
+              <div className={styles.content_body_button}>
+                <div className={styles.content_body_button_icon}>
                   <div className={styles.icon_ripple}>
                     <Ripple />
                   </div>

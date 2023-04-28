@@ -1,0 +1,172 @@
+.welcome_page_bg_images{
+    height: 100%;
+    display: flex;
+    align-items: end;
+}
+
+
+.image_big, .image_small{
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 180px;
+    margin-left: 1rem;
+    /* margin-right: 1rem; */
+}
+
+.scroll_logo{
+    height: 45%;
+    align-self: center;
+    position: absolute;
+    right: 5px;
+    margin-right: 4rem;
+    object-fit: cover;
+}
+
+.image_big{
+    background-image: url("../../assets/landing/big_image.png");
+    width: 200px;
+    height: 93%;
+    border: 3px solid #EE7D15;
+    margin-left: 4rem;
+}
+
+.image_small{
+    background-image: url("https://i.pinimg.com/564x/b7/4b/79/b74b79a1ae69f8640d3bcf4055585baf.jpg");
+    width: 170px;
+    height: 79%;
+    margin-bottom: 1rem;
+}
+
+
+@media (max-width: 1100px)
+{
+    .image_big{
+        margin-left: 2rem;
+    }
+    .scroll_logo{
+        height: 39%;
+        margin-right: 0.5rem;
+    }
+}
+
+@media (max-width: 900px)
+{
+
+    .image_big{
+        width: 159px;
+        height: 325px;
+    }
+    
+    .image_small{
+        width: 130px;
+        height: 68%;
+    }
+}
+
+@media (max-width: 750px)
+{
+    .scroll_logo{
+        margin-right: 0;
+    }
+
+    .image_big{
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 680px)
+{
+    .image_big{
+        width: 140px;
+        height: 280px;
+    }
+    
+    .image_small{
+        width: 100px;
+        height: 200px;
+    }
+
+    .welcome_page_bg_images{
+        padding-bottom: 2rem;
+    }
+}
+
+
+
+@media (max-width: 600px)
+{
+    .welcome_page_bg_images{
+        padding-bottom: 0;
+        justify-content: center;
+    }
+    
+    .image_big{
+        width: 159px;
+        height: 329px;
+    }
+
+    .image_small{
+        width: 117px;
+        height: 245px;
+    }
+}
+
+
+@media (max-width: 350px)
+{
+    .image_big{
+        width: 135px;
+        height: 260px;
+    }
+
+    .image_small{
+        width: 95px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 300px)
+{
+    .welcome_page_bg_images{
+        justify-content: left;
+    }
+
+    .image_big{
+        width: 120px;
+        height: 260px;
+    }
+
+    .image_small{
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 270px)
+{
+
+    .image_big{
+        width: 110px;
+        height: 240px;
+    }
+
+    .image_small{
+        width: 80px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 240px)
+{
+    .welcome_page_bg_images{
+        justify-content: center;
+    }
+
+    .image_big{
+        width: 149px;
+        height: 300px;
+    }
+
+    .image_small{
+        display: none;
+    }
+}

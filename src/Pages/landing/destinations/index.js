@@ -7,7 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
 import { useState } from 'react';
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
-import BGImage from "../../../assets/hero-section.png"
+import BGImage from "../../../assets/hero-section.png";
+
 
 
 
@@ -36,15 +37,15 @@ const Destinations = () => {
   return (
     <div className={styles.container}>
 
-      {/* <div className={styles.title_container}>
-        <h1>
-          ...Choose your Destination...
-        </h1>
-      </div> */}
-      <header className={styles.header_image}>image</header>
+      <header className={styles.header_image}>
+        <div className={styles.title_container}>
+          <h1>
+            Choose your Destination
+          </h1>
+        </div>
+      </header>
 
       <div className={styles.content}></div>
-
 
       {isLoading && <LoadingSpinner asOverlay/>}
 
@@ -53,7 +54,6 @@ const Destinations = () => {
           <CarouseleList onChangeHeight={(state)=>{setAutoCarouseleHeight(state)}} data={allPlaces}/>
         </div>
       }
-
       
     </div>
     
