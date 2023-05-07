@@ -1,0 +1,158 @@
+
+
+.slide_container{
+    height: 100%;
+    position: relative;
+}
+
+.slide_container .filter{
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.85) 80%) no-repeat;
+    border: 5px solid white;
+}
+
+
+
+.slide_container .content{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    padding-bottom: 28px;
+    justify-content: space-between;
+}
+
+.content_image{
+    flex: 1;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    object-fit: cover;
+    border-radius: 11px;
+}
+
+
+.content_body{
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.content_body_text{
+    padding-top: 10px;
+    flex: 1;
+}
+
+.content_body_text h1{
+    font-size: 25px;
+    color: white;
+}
+
+.content_body_map{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_body_button{
+    display: flex;
+    justify-content: space-around;
+    color: #F5C69B;
+    align-items: center;
+}
+
+.content_body_button_icon{
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.icon_ripple{
+    height: 40px;
+    border-radius: 50%;
+    top: 5px;
+    left: -10px;
+    width: 50px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.loading__{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__icon{
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    text-align: center;
+}
+
+.remove_padding{
+    padding: 0;
+}
+
+@media screen and (max-width: 450px) {
+
+
+    .slide_container .content{
+        padding: 4px;
+        padding-bottom: 35px;
+    }
+
+    .content_image{
+        border-radius: 30px 30px 11px 0;
+
+    }
+
+    .remove_padding{
+        padding: 0;
+    }
+
+    .content_body_text h1{
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .content_body_text h1{
+        text-align: center;
+    }
+
+    .slide_container .content{
+        padding: 5px;
+        padding-bottom: 35px;
+    }
+
+    .remove_padding{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    .content_body_button h1{
+        display: none;
+    }
+
+    .icon_ripple{
+        left: -3px;
+        width: 55px;
+        height: 45px;
+    }
+}

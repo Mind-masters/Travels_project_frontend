@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import Modal from '../../../components/shared/UI/Modal'
-// import Form from './form'
+import Form from './form'
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
@@ -93,13 +93,13 @@ const Authentication = (props) => {
                     show={props.show}
                     onClose={FormCloseHandler}
                 >
-                    {/* <Form 
+                    <Form 
                         email={props.email}
                         onSubmit={FormSubmitHandler}
                         onSwithChMode={FormSwitchHandler}
                         isLoginMode={isLoginMode}
                         errors={errors}
-                    /> */}
+                    />
 
                 </Modal>
             }

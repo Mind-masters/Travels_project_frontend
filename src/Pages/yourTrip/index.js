@@ -1,17 +1,15 @@
-import React, { useEffect, useContext, useState } from 'react'
-import Card from "../../components/shared/UI/Card";
-import { AuthContext } from '../../contextAPI/AuthContext';
-import TripList from './Trips/tripList';
-import YourTripWrapper from "../../components/shared/UI/tripList/wrapper";
-import { useNavigate } from "react-router-dom";
-import styles from "./main.module.css";
-import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
-import "react-toastify/dist/ReactToastify.css";
-import { notify } from "../../components/shared/UI/toast";
-// importing logos
-import life_is_good_logo from "../../assets/your-trip/life_is_good.png";
 import { fetchUserPlaces } from '../../components/utils/places/fetchPlaces';
-import FellowTraveler from './FellowTraveler';
+import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
+import MainHeader from '../../components/shared/UI/pagesHeaders';
+import React, { useEffect, useContext, useState } from 'react'
+import { AuthContext } from '../../contextAPI/AuthContext';
+import Footer from "../../components/shared/UI/Footer/Footer";
+import Card from "../../components/shared/UI/Card";
+import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import FellowTraveler from "./FellowTraveler";
+import styles from "./yourTrip.module.css";
+import ClientTrips from './ClientTrips';
 
 const YoutTrip = () => {
 
@@ -19,7 +17,7 @@ const YoutTrip = () => {
 
   const [userPlaces, setUserPlaces] = useState([]);
   const [onRefresh, setOnRefresh] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const Author = useContext(AuthContext);
 
@@ -30,52 +28,48 @@ const YoutTrip = () => {
 
 
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    const fetchAuthPlaces = async() => {
+  //   const fetchAuthPlaces = async() => {
       
-      if(!Author.authenticatedUser || !Author.isLoggedIn) return navigate("/auth/login")
+  //     if(!Author.authenticatedUser || !Author.isLoggedIn) return navigate("/auth/login")
 
-      const author_places = await fetchUserPlaces(Author.authenticatedUser.token.access_token)
+  //     const author_places = await fetchUserPlaces(Author.authenticatedUser.token.access_token)
 
-      if(!author_places.status){
-        notify(author_places.message, "error");
-        navigate("/");
-      }
+  //     if(!author_places.status){
+  //       notify(author_places.message, "error");
+  //       navigate("/");
+  //     }
 
-      setUserPlaces(author_places.data)
-      setIsLoading(false);
-    } 
-
-
-    fetchAuthPlaces();
+  //     setUserPlaces(author_places.data)
+  //     setIsLoading(false);
+  //   } 
 
 
-  }, [onRefresh])
+  //   fetchAuthPlaces();
+
+
+  // }, [onRefresh])
 
   return (
     <Card>
 
       { isLoading ? <LoadingSpinner /> :
         <div className={styles.container}>
-          <div className={styles.life_is_good_image}>
-            <img src={life_is_good_logo} alt="life is good" />
-          </div>
+          
+          <MainHeader 
+            header="Your Tour"
+          />
 
-          <YourTripWrapper header={"Your places"}>
-            <TripList data={userPlaces} user_places={true} onRefresh={onRefreshHandler} />
-          </YourTripWrapper>
-
-          {/* <YourTripWrapper header={"Matches your interests"}>
-            <TripList data={userPlaces} user_places={false} />
-          </YourTripWrapper> */}
+          <ClientTrips />
 
           <FellowTraveler />
           
         </div>
       }
       
-      
+      <Footer />
+
     </Card>
   )
 }

@@ -1,0 +1,41 @@
+.container{
+    width: 100%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    border-radius: 25px;
+    padding: 1rem 0;
+    margin: 5rem auto;
+}
+
+.header_line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 1rem auto;
+    margin-bottom: 3rem;
+}
+
+.header_line h1{
+    font-size: 20px;
+}
+
+.filter{
+    display: flex;
+    align-items: center;
+}
+
+.filter h1{
+    font-size: 17px;
+}
+
+.filter img{
+    width: 3rem;
+}
+
+
+@media (max-width: 900px)
+{
+    .controllers{
+        width: 70%;
+    }
+}

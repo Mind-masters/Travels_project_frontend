@@ -43,6 +43,7 @@ function App() {
   }, [])
 
 
+
   return (
     <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, login, logout, update }}>
       <MainNavigation />

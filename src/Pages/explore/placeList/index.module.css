@@ -1,13 +1,20 @@
-.container{
-    flex: 3;
+.places_list_container{
     text-align: center;
+    width: 100%;
+    padding-top: 3rem;
 }
 
-.container .container_header{
+.places_list_header{
     font-size: 3em;
     color: rgba(112, 112, 112, 1);
 }
 
 .list_container{
     padding: 20px 0;
+}
+
+@media (max-width: 600px) {
+    .places_list_container{
+        padding-top: 1rem;
+    }
 }

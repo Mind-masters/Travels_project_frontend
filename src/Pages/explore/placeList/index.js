@@ -37,8 +37,7 @@ const PlaceList = () => {
     <>
       {isLoading && <LoadingSpinner />}
       {!isLoading && data && 
-        <div className={styles.container}>
-          <h1 className={styles.container_header}>Explore Destination</h1>
+        <div className={styles.places_list_container}>
           <ListItemElement />
         </div>
       }

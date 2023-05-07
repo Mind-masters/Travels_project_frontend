@@ -1,16 +1,24 @@
 /* text sizes */
+.container{
+    display: flex;
+}
+
 .welcome_page_text{
-    width: 100%;
-    font-size: 45px;
+    font-size: 40px;
     color: rgba(44, 60, 77, 1);
+    letter-spacing: 2px;
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .main_line{
     display: flex;
     align-items: center;
+    display: inline-flex;
 }
 
 .main_line div{
+    display: inline-block;
     margin-left: 1rem; 
     display: inline-block;
     color: #EE7D15;
@@ -19,18 +27,17 @@
 
 .main_line hr{
     position: absolute;
-    padding: 1px;
+    padding: 2px;
     background-color: #EE7D15;
     border-radius: 30%;
     width: 85%;
 }
 
-
-@media (max-width: 1200px)
-{
+@media (max-width: 950px)
+{   
     .welcome_page_text
     {
-        font-size: 40px;
+        font-size: 35px;
     }
 }
 
@@ -42,26 +49,54 @@
     }
 }
 
-@media (max-width: 600px)
+@media (max-width: 700px)
 {   
     .welcome_page_text
     {
-        width: auto;
-        display: inline-block;
+        letter-spacing: 0;
+        /* width: auto; */
+        font-size: 28px;
     }
 }
 
-@media (max-width: 380px)
+@media (max-width: 600px)
+{
+    .container
+    {
+        justify-content: center;
+    }
+
+    .welcome_page_text{
+        letter-spacing: 3px;
+
+    }
+    
+}
+
+@media (max-width: 450px)
 {
     .welcome_page_text
     {
+        letter-spacing: 0;
         font-size: 28px;
     }
     
 }
 
 
-@media (max-width: 350px)
+@media (max-width: 310px)
+{
+    .welcome_page_text
+    {
+        font-size: 23.5px;
+    }
+
+    .main_line hr{
+        padding: 1px;
+    }
+}
+
+@media (max-width: 270px)
 {
     .welcome_page_text
     {
@@ -69,10 +104,10 @@
     }
 }
 
-@media (max-width: 250px)
+@media (max-width: 220px)
 {
     .welcome_page_text
     {
-        font-size: 15px;
+        font-size: 17px;
     }
 }

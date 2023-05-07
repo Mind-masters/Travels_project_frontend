@@ -44,14 +44,14 @@
 }
 
   
-label {
+.form_group label {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
+.form_group input[type="text"],
+.form_group input[type="email"],
+.form_group textarea {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 8px;

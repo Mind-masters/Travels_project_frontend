@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './destinations.module.css';
-import CarouseleList from '../../../components/shared/UI/tripList/carouseleList';
+import CarouseleList from '../../../components/shared/UI/carouseleList';
 import { fetchAllPlaces } from '../../../components/utils/places/fetchPlaces';
 import { useEffect } from 'react';
 import "react-toastify/dist/ReactToastify.css";
@@ -8,8 +8,8 @@ import { notify } from "../../../components/shared/UI/toast";
 import { useState } from 'react';
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import BGImage from "../../../assets/hero-section.png";
-
-
+import Header from './header';
+import {PlacesData} from "./Data"
 
 
 const Destinations = () => {
@@ -37,21 +37,18 @@ const Destinations = () => {
   return (
     <div className={styles.container}>
 
-      <header className={styles.header_image}>
-        <div className={styles.title_container}>
-          <h1>
-            Choose your Destination
-          </h1>
-        </div>
-      </header>
-
-      <div className={styles.content}></div>
+      <div className={styles.header_block}></div>
 
       {isLoading && <LoadingSpinner asOverlay/>}
 
       {!isLoading && allPlaces && 
-        <div className={styles.carousele_outsider}>
-          <CarouseleList onChangeHeight={(state)=>{setAutoCarouseleHeight(state)}} data={allPlaces}/>
+        <div className={styles.content}>
+          <Header />
+
+          <div className={styles.places_list}>
+            <CarouseleList onChangeHeight={(state)=>{setAutoCarouseleHeight(state)}} data={PlacesData}/>
+          </div>
+          
         </div>
       }
       

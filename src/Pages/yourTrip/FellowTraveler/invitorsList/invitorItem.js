@@ -1,28 +1,34 @@
-import React from 'react'
-import AdminImg from '../../../../assets/your-trip/user.png'
-import AdminCountryImg from "../../../../assets/your-trip/country.png";
 import Button from '../../../../components/shared/UI/button/Button'
-import styles from "./styles.module.css";
+import earthLogo from "../../../../assets/your-trip/earth_logo.png"
+import AdminImg from '../../../../assets/your-trip/user.png'
+import styles from "./item.module.css";
+import React from 'react'
 
-const InvitorItem = () => {
+
+const InvitorItem = (props) => {
+
+
   return (
     <div>
 
       <div className={styles.item_container}>
           
-          <div className={styles.user_image_container}>
+          <div className={styles.user_info}>
             <img className={styles.user_image} src={AdminImg} alt="" />
-            <img className={styles.country_image} src={AdminCountryImg} alt="" />
+            <div className={styles.user_content}>
+              <h1>Samuel</h1>
+              <p>Nigeria</p>
+            </div>
           </div>
 
-          <p className={styles.item_intro}>
-            Moving to Grace!
-          </p>
-
-          <div>
-              <Button>
-                  <h1 style={{ color: "white"}}>Details</h1>
+          <div className={styles.details}>
+            <img src={earthLogo} alt="" />
+            <h1>GOING TO ENGLAND</h1>
+            <div className={styles.details_btn}>
+              <Button color="#2C2B2A">
+                <h1>Details</h1>
               </Button>
+            </div>
           </div>
       </div>
 

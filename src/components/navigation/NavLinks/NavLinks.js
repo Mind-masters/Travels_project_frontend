@@ -30,18 +30,19 @@ const NavLinks = () => {
     </li>
 
     <li className="onFocus">
-      <NavLink  to="/about" >
-        About us
+      <NavLink  to="/notifications" >
+        Discounts
         <hr />
       </NavLink>
     </li>
 
     <li className="onFocus">
-      <NavLink  to="/contact" >
-        Contact
+      <NavLink  to="/more" >
+        Notifications
         <hr />
       </NavLink>
     </li>
+
 
   </ul>
 };

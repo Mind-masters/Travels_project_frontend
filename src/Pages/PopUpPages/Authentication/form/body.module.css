@@ -1,0 +1,37 @@
+.container{
+    width: 18rem;
+}
+
+
+.header_wrapper{
+    display: inline-block;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.header_wrapper img{
+    position: absolute;
+    width: 3rem;
+    left: -2.1rem;
+    top: -1.5rem;
+}
+
+.header_wrapper div{
+    color: #283646;
+    font-size: 25px;
+    display: inline-block;
+}
+
+.inputs_container{
+    margin-top: 2rem;
+}
+
+.btn_container{
+    width: 80%;
+    margin: 2.5rem auto;
+}
+
+.footer{
+    display: flex;
+    justify-content: right;
+}

@@ -2,8 +2,7 @@ import React,{ useContext, useState } from 'react';
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
 import FormInput from '../../../../../components/shared/UI/formInput';
 import styles from "./comments.module.css";
-import commentsLogo from "../../../../../assets/comments.png";
-import Like from '../../../../../components/shared/UI/Ratings/like';
+import commentsLogo from "../../../../../assets/explore/send_vector.png";
 import Popup from './popup';
 import data from './data.js';
 
@@ -42,26 +41,13 @@ const Comments = ({item}) => {
   }
 
   
-
-
   return (
     <div className={styles.container}>
-      <div className={styles.comments_list}>
-        <div>
-          {data.map((comment, key) => (
-            <div key={key} className={styles.comment_item}>
-              <img src={comment.avatar} alt="avatar" />
-              {comment.content.substring(0, 5)}
-            </div>
-          ))}
-        </div>
+      <h1>View all 13 comments</h1>
+      <div className={styles.input_container}>
+        <input className={styles.input} placeholder='Write your comment' />
+        <img src={commentsLogo} alt='' />
       </div>
-
-      <div onClick={() => setShowCommentsPopUp(true)} className={styles.view_comments}>View all comments..</div>
-
-      {showCommentsPopUp && <Popup data={data} onClose={()=>setShowCommentsPopUp(false)} />}
-
-
     </div>
   )
 }

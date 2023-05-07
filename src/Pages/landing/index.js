@@ -1,7 +1,7 @@
 import Button from '../../components/shared/UI/button/Button';
 import NewUser from '../PopUpPages/newUserModal';
 import styles from "./landing.module.css";
-import React, {useState} from 'react'
+import React from 'react'
 
 import Destinations from "./destinations";
 import AboutUs from './aboutUs';
@@ -11,13 +11,18 @@ import MainHeader from './header';
 import ImageContainer from "./imageContainer";
 import Footer from '../../components/shared/UI/Footer/Footer';
 
+import { useNavigate } from 'react-router-dom';
+
+
 // import SignUp_Form from '../../components/signUp-form/SignUp_Form';
 // import SignIn_Form from '../../components/sigIn-form/SignIn_Form';
 // import Authentication from '../PopUpPages/Authentication';
 
 
-
 const LandingMain = (props) => {
+
+    const navigate = useNavigate();
+
 
     return (
         <div>
@@ -42,7 +47,7 @@ const LandingMain = (props) => {
 
                         <div className={styles.welcome_page_controllers}>
                             <div className={styles.controllers}>
-                                <Button color={"#EE7D15"}><p style={{ color: "white" }}>Explore places</p></Button>
+                                <Button onSubmit={() => navigate("/explore")} color={"#EE7D15"}><p style={{ color: "white" }}>Explore places</p></Button>
                                 <Button border={"1px solid rgba(44, 60, 77, 1)"}><p>Join us</p></Button>
                             </div>
                         </div>
@@ -59,7 +64,8 @@ const LandingMain = (props) => {
 
             </div>
 
-            {!props.extra && <Destinations/>}
+            {/* {!props.extra && <Destinations/>} */}
+            <Destinations/>
             <AboutUs />
             <Faq />
             <Footer/>
