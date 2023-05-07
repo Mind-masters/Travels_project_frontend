@@ -15,7 +15,6 @@ const NavHeader = props => {
   const ActiveUser = User.authenticatedUser || null;
   const UserData = ActiveUser ? ActiveUser.data : null
 
-
   const [authenticationIsOpen, setAuthenticationIsOpen] = useState(false);
 
   const openAuthenticationForm = () => {

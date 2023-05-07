@@ -28,6 +28,32 @@ body {
 
 }
 
+input
+{
+    outline: none;
+    border: none;
+}
+input:focus
+{
+    border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: transparent !important;
+}
+input::-webkit-input-placeholder
+{
+    color: #adadad;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important;
+}
+
 hr{
   border: none;
 }

@@ -149,9 +149,6 @@
 @media (max-width: 280px)
 {
 
-    .header_container{
-        margin: 0;
-    }
 
     .header_wrapper div{
         font-size: 25px;

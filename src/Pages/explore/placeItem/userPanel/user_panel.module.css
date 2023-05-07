@@ -4,62 +4,99 @@
 .user_panel{
     display: flex;
     width: 100%;
-    padding: 5px 0;
     align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
 }
 
-.user_panel .flex_item{
-    flex: 1;
+.user_content{
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100%;
-}
-
-.user_panel .avatar{
-    background-color: white;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 64px;
-    height: 64px;
-    box-shadow: 1px 2px 3px silver;
-}
-
-.user_panel .profile_btn{
-    width: 90%;
-    align-self: center;
-    font-size: 1.5rem;
-    color: rgb(91, 88, 88);
-}
-
-.user_panel .profile_btn p {
-    font-family: Inter;
-    text-transform: capitalize;
-    font-weight: 100;
-}
-
-.client_dropdown{
-    display: flex;
-    align-self: center;
     justify-content: space-around;
+}
+
+.user_content img, .more_icon{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 2rem;
+}
+
+.more_icon{
+    margin-right: 0;
+}
+
+.user_content h1{
+    color: #2C3C4D;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+.user_content .details{
+    display: flex;
     flex-direction: column;
+}
+
+.user_content p{
+    color: #2C3C4D;
+    font-size: 12px;
+    margin: 0;
+    font-weight: 0;
+    padding: 0;
+    align-self: flex-end;
+}
+
+.more_icon{
+    box-shadow: none;
     cursor: pointer;
 }
-  
-.client_dropdown div{
-    width: 0.5rem;  
-    height: 0.5rem;
-    font-weight: bold; 
-    background-color: rgb(33, 33, 33);
-    border-radius: 50%;
-    margin: 2px;
+
+@media (max-width: 1050px) {
+
+    .user_content img{
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 1050px) {
+
+    .user_content img{
+        margin-right: 1rem;
+    }
 }
 
 
+@media (max-width: 700px) {
 
-@media screen and (max-width: 900px) {
-    .user_panel .avatar{
-        width: 50px;
-        height: 50px;
+    .more_icon{
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .more_icon{
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .user_content img{
+        width: 35px;
+        height: 35px;
+        margin-right: 1rem;    
+    }
+
+    .user_content h1{
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+    
+    
+    .user_content p{
+        font-size: 10px;
     }
 }

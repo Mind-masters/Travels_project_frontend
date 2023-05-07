@@ -6,6 +6,7 @@ import {AuthContext} from "../contextAPI/AuthContext";
 import Authentication from "../Pages/PopUpPages/Authentication";
 
 const PrivateRouter = () => {
+  
   const User = useContext(AuthContext);
   const navigate = useNavigate();
   const auth = User.isLoggedIn;
@@ -20,10 +21,12 @@ const PrivateRouter = () => {
     auth ? 
       <MainLayout /> 
       : 
-      <Authentication
-        show={showAuthentication}
-        onClose={closeAuthenticationForm}
-      />
+      <MainLayout>
+        <Authentication
+          show={showAuthentication}
+          onClose={closeAuthenticationForm}
+        />
+      </MainLayout>
   )
 };
 

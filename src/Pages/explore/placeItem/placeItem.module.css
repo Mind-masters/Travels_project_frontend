@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 .container{
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 15vh;
     border-radius: 20px;
-    height: 570px;
-    overflow: hidden;
-    display: flex;
-    box-shadow: 1px 2px 5px silver;
     position: relative;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    padding: 15px;
+    display: flex;
+    height: 400px;
+    width: 90%;
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
 }
 
 .mobile_user_panel{
@@ -16,74 +17,122 @@
 }
 
 .image_container{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    flex: 0.8;
+    height: 100%;
 }
 
 .image_container img{
+    height: 100%;
     width: 100%;
-    border-radius: 0;
+    border-radius: 14px;
     object-fit: cover;
 }
 
-.body_container{
-    width: 50%;
-/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+50,ffffff+100 */
-    background: #ffffff;
-    /* Old browsers */
-    background: -moz-linear-gradient(top, #ffffff 0%, #f3f3f3 50%, #ffffff 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #ffffff 0%, #f3f3f3 50%, #ffffff 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 50%, #ffffff 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
-    /* IE6-9 */
-    /* padding: 1rem; */
-    box-sizing: border-box;
-    /* border: 2px solid rgb(8, 41, 189); */
-
-    font-family: Inter !important;
+.mobile_description{
+    display: none;
 }
 
-@media screen and (max-width: 750px) {
-    .body_container{
-        width: 100%;
-        flex: none;
+.body_container{
+    flex: 1;
+}
+
+@media (max-width: 1150px) {
+    .image_container{
+        flex: 1;
     }
+}
+
+@media (max-width: 1000px) {
+    .container{
+        height: 340px;
+        width: 95%;
+    }
+}
+
+@media (max-width: 850px) {
 
     .container{
         height: 600px;
         flex-direction: column;
-        margin-bottom: 8vh;
-
+        width: 70%;
     }
 
-    .mobile_user_panel{
-        display: block;
+    .body_container{
+        width: 100%;
+        flex: 0.5;
     }
 
     .image_container{
-        flex: 3;
-        height: 40px;
+        height: 0;
+        flex: 1;
+        position: relative;
     }
 
-
-    .image_container img{
+    .mobile_description{
+        display: block;
+        position: absolute;
+        bottom: 0;
         width: 100%;
-        height: auto;
+        background-color: #ffffff;
+        text-align: left;
+        color: #636060;
+        line-height: 28px;
+
+        opacity: 0.6;
     }
 
+    .visible_mobile_description{
+        opacity: 1;
+        overflow: scroll;
+        padding-bottom: 1rem;
+        animation-name: slide-up;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
 
+    .mobile_description img{
+        width: 2rem;
+        margin: 0 auto;
+    }
+    
+    .mobile_user_panel{
+        display: block;
+    }
 }
 
-@media screen and (max-width: 450px) {
-
+@media (max-width: 750px) {
     .container{
-        height: 640px;
-        flex-direction: column;
-        width: 92%;
+        width: 85%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container{
+        width: 70%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .container{
+        width: 85%;
+    }
+}
+
+@media (max-width: 350px) {
+    .container{
+        height: 550px;
+        width: 94%;
+    }
+}
+
+@keyframes slide-up {
+    0% {
+      height: 0;
+    }
+
+    
+    100% {
+      height: 90%;
     }
 }

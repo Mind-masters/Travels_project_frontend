@@ -6,7 +6,7 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 const Location = (props) => {
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZG9tYnViMSIsImEiOiJjbGR4N3M5ZWowZW1jM29yeHR6ZDZ4a2Z2In0.Nvxa1Vv6L-7YlWhT5CW47w'; 
-    
+
     const [coords, setCoords] = useState( props.show_location || [ 32.29650083636824, 23.670783991562146 ] );
     const mapContainer = useRef(null);
     const map = useRef(null);
@@ -18,6 +18,8 @@ const Location = (props) => {
       
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
+        // style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t",
+        // style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t",
         style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t",
         center: coords,
         zoom: 0.9,
@@ -53,8 +55,8 @@ const Location = (props) => {
           <div ref={mapContainer} className={styles.map_container} />
           { ((!props.show_location && activeButton) || props.show_location) &&
             <div className={styles.controllers}>
-              <Button onSubmit={onSubmitHandler}>
-                {!props.show_location ? "Submit" : "Continue"}
+              <Button color="#EE7D15" onSubmit={onSubmitHandler}>
+                <h1 style={{ color:"white" }}>{!props.show_location ? "Submit" : "Continue"}</h1>
               </Button>
             </div>
           }

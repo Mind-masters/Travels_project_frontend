@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from "./mapContent.module.css"
 import generalStyles from "./alertContainer.module.css";
-import Location from '../../../../components/shared/UI/map/location';
+import Location from '../map/location';
 import { useContext, useEffect, useState } from 'react';
 import {AuthContext} from "../../../../contextAPI/AuthContext"
-import StarRating from "../../../../components/shared/UI/Ratings/stars";
+import StarRating from "../Ratings/stars";
 import earthLogo from "../../../../assets/earth.png";
 import Button from '../button/Button';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";

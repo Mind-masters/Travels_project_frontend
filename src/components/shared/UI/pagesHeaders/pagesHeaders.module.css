@@ -1,0 +1,52 @@
+.wrapper{
+    text-align: center;
+}
+
+.header_container{
+    display: inline-block;
+}
+
+.main_header{
+    display: inline-block;
+    letter-spacing: 2px;
+    font-size: 35px;
+    color: #2C3C4D;
+}
+
+.main_header hr{
+    background-color: #EE7D15;
+    width: 70%;
+    padding: 3px;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.header_paragraph{
+    padding: 1.5rem;
+    padding-bottom: 0;
+    width: 80%;
+    margin: 0 auto;
+    color: #909090;
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .main_header{
+        font-size: 30px;
+        letter-spacing: 2.5px;
+    }
+}
+
+
+@media screen and (max-width: 300px) {
+
+
+    .main_header{
+        font-size: 25px;
+    }
+
+    .header_paragraph{
+        width: 100%;
+    }
+}

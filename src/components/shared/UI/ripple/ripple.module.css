@@ -44,6 +44,10 @@
     animation-iteration-count: infinite;
 }
 
+.pulse_custom_color::after{
+    background-color: #F5C69B;
+}
+
 @keyframes bounce{
 	0%{
 		opacity: 0;
