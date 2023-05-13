@@ -26,7 +26,7 @@ const SignIn_Form = () => {
       const { name, value } = event.target;
       setFormFields({ ...formFields, [name]: value });
 
-      console.log(formFields);
+      // console.log(formFields);
     };
 
 
