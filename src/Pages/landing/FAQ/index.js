@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from "framer-motion"
 import styles from "./faq.module.css";
 import {DummyData} from "./Data"
 import FaqItem from './item';
