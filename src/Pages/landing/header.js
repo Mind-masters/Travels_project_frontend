@@ -6,7 +6,7 @@ const MainHeader = () => {
 
   return (
 
-    <div className={styles.container}> 
+    <div  className={styles.container}> 
       <div className={styles.welcome_page_text}>
         <p>Unexplored locations,</p>
         <div className={styles.main_line}>

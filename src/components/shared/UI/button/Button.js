@@ -1,9 +1,11 @@
 import React from 'react'
+import { motion } from "framer-motion"
 import styles from "./Button.module.css";
 
 
 const Button = (props) => <div className={`${styles.container_login_form_btn}`}>
-  <div style={{ border: props.border }} className={`${styles.wrap_login_form_btn}`}>
+  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+   style={{ border: props.border }} className={`${styles.wrap_login_form_btn}`}>
     <button
       onClick={props.onSubmit} 
       style={{ backgroundColor:props.color, height: props.height}} 
@@ -11,7 +13,7 @@ const Button = (props) => <div className={`${styles.container_login_form_btn}`}>
     >
       {props.children}
     </button>
-  </div>
+  </motion.div>
 </div>
 
 export default Button

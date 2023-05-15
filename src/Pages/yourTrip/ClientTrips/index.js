@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from "./clientTrips.module.css";
-
+import { motion } from "framer-motion"
 import plus_logo from "../../../assets/plus.png";
 import scroll_logo from "../../../assets/scroll_logo.png";
 import view_places_logo from "../../../assets/your-trip/places_view_icon.png"
@@ -74,14 +74,15 @@ const  ClientTrips = () => {
     <div className={styles.wrapper}>
       <h1 className={styles.main_header}>Share places with others</h1>
 
-      <div className={styles.box_content}>
+      <motion.div whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }} className={styles.box_content}>
         <div className={styles.box}>
           <img src={plus_logo} alt='' />
           <h1>Click to add</h1>
         </div>
 
         <img className={styles.scroll_logo} src={scroll_logo} alt='' />
-      </div>
+      </motion.div>
 
       <div className={styles.details}>
         
