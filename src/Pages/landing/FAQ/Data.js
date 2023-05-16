@@ -1,22 +1,30 @@
 export const DummyData = [
     {
-        question: "Can They Work With Your Other Traveller Communication Methods?",
-        answer: "Lorem ipsum dolor sit amet consectetur. Consequat at et scelerisque quis id nibh facilisis lectus. Urna egestas ac gravida erat neque lorem pellentesque quis id. Erat adipiscing facilisis et sit facilisis ut non nulla suspendisse. Nulla amet vitae leo sit eget maecenas justo. Feugiat eros rhoncus quam adipiscing cursus sollicitudin sed. Facilisis aliquam sodales massa a nisi. Mauris risus pellentesque.",
+        question: "What is Tripwhoop?",
+        answer: "Tripwhoop is a web app designed to connect travelers and allow them to share their experiences with others. It provides a platform for users to post their travel stories, photos, and coordinates, creating a vibrant community of like-minded adventurers.",
     },
 
     {
-        question: "Lorem ipsum dolor sit amet consectetur. At mattis ipsum lacus magna morbi?",
-        answer: "Lorem ipsum dolor sit amet consectetur. Consequat at et scelerisque quis id nibh facilisis lectus. Urna egestas ac gravida erat neque lorem pellentesque quis id. Erat adipiscing facilisis et sit facilisis ut non nulla suspendisse. Nulla amet vitae leo sit eget maecenas justo. Feugiat eros rhoncus quam adipiscing cursus sollicitudin sed. Facilisis aliquam sodales massa a nisi. Mauris risus pellentesque.",
+        question: "How do I create an account?",
+        answer: "To create an account, click on the LOGIN button located at the top right corner of the homepage. Fill in the required information, including your username, email address, and password. Once submitted, you'll receive a confirmation email to verify your account.",
     },
 
     {
-        question: "Lorem ipsum dolor sit amet consectetur. Diam egestas in duis a amet. Quis facilisi?",
-        answer: "Lorem ipsum dolor sit amet consectetur. Consequat at et scelerisque quis id nibh facilisis lectus. Urna egestas ac gravida erat neque lorem pellentesque quis id. Erat adipiscing facilisis et sit facilisis ut non nulla suspendisse. Nulla amet vitae leo sit eget maecenas justo. Feugiat eros rhoncus quam adipiscing cursus sollicitudin sed. Facilisis aliquam sodales massa a nisi. Mauris risus pellentesque.",
+        question: "How can I post my travel experience?",
+        answer: "Posting your travel experience is simple. After logging in, click on the MyPlaces located at the top. Provide a captivating title, add your description, and attach relevant photos. You can also include the coordinates of the location if you wish. Once you're satisfied, click ADD to share your experience with the community.",
+    },
+    {
+        question: "How can I interact with other travelers?",
+        answer: "Engaging with other travelers is one of the highlights of our app. You can leave comments on their posts, ask questions, and share your own insights. Additionally, you can follow other users to stay updated with their latest adventures.",
     },
 
     {
-        question: "Lorem ipsum dolor sit amet consectetur. Pharetra in malesuada bibendum cras sed hendrerit?",
-        answer: "Lorem ipsum dolor sit amet consectetur. Consequat at et scelerisque quis id nibh facilisis lectus. Urna egestas ac gravida erat neque lorem pellentesque quis id. Erat adipiscing facilisis et sit facilisis ut non nulla suspendisse. Nulla amet vitae leo sit eget maecenas justo. Feugiat eros rhoncus quam adipiscing cursus sollicitudin sed. Facilisis aliquam sodales massa a nisi. Mauris risus pellentesque.",
+        question: "Can I delete my posts?",
+        answer: "Yes, you can delete your posts. Simply locate the post you want to modify or remove and click on the respective options available below the post. Please note that once a post is deleted, it cannot be recovered.",
     },
     
+     {
+        question: "How can I contact support for further assistance?",
+        answer: "If you need further assistance or have any questions, you can reach out to our support team by scrolling down to the footer of the app. Fill in the Reach Out to Us form with your query, and our team will get back to you as soon as possible.",
+    },
 ]
