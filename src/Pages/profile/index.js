@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../components/shared/UI/toast";
 import { fetchUserPlaces } from '../../components/utils/places/fetchPlaces';
+import ProfileComponet from './new-profile/Profile_Component';
 
 
 const Profile = () => {
@@ -44,7 +45,7 @@ const Profile = () => {
         {
             (authPlaces && ! isLoading)  ?
             <Card>
-                <ProfilePage User={Auth} Places={authPlaces}/>
+                <ProfileComponet />
             </Card>
             :
             <LoadingSpinner />

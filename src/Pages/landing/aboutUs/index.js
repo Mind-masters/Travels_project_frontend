@@ -24,9 +24,8 @@ const AboutUs = () => {
 
             <div className={styles.paragraph_container}>
                 <p>
-                Welcome to Tripwhoop, the ultimate platform for passionate travelers to connect, share their experiences, and embark on exciting journeys together. We believe that traveling is not just about exploring new places, but also about the connections we make along the way.
-
-                At Tripwhoop, we aim to build a vibrant community of adventurers from around the world. Whether you're a seasoned traveler or just starting your exploration journey, our platform provides a space for you to connect with like-minded individuals who share your love for travel.
+                Welcome to TripWhoop, the ultimate platform for passionate travelers to connect, share their experiences, and embark on exciting journeys together. We believe that traveling is not just about exploring new places, but also about the connections we make along the way.
+                At TripWhoop, we aim to build a vibrant community of adventurers from around the world. Whether you're a seasoned traveler or just starting your exploration journey, our platform provides a space for you to connect with like-minded individuals who share your love for travel.
                 {/* <br/>
                 Our web app offers a seamless and user-friendly interface, empowering you to share your travel stories, upload captivating photos, and even mark the exact coordinates of the places you've visited. By doing so, you not only create a virtual map of your adventures but also inspire 
                 and guide others in their own wanderlust-filled pursuits.
