@@ -30,13 +30,23 @@ const FormInput = (props) => {
             >
 
 
-                <input 
-                    onChange={onInputChangeHanlder} 
-                    className={`${styles.input} ${props.value && styles.has_val}`} 
-                    type={props.type || "text"}
-                    onBlur={()=>{setIsTouched(true)}}
-                    value={props.value}
-                />
+                {   props.type === "description" ? 
+                    <textarea 
+                        style={{ minHeight: "6rem" }}
+                        className={`${styles.input} ${props.value && styles.has_val}`}
+                        onChange={onInputChangeHanlder} 
+                        onBlur={()=>{setIsTouched(true)}}
+                        value={props.value}
+                    ></textarea>
+                    :
+                    <input 
+                        onChange={onInputChangeHanlder} 
+                        className={`${styles.input} ${props.value && styles.has_val}`} 
+                        type={props.type || "text"}
+                        onBlur={()=>{setIsTouched(true)}}
+                        value={props.value}
+                    />
+                }
 
                 <span 
                     className={styles.focus_input} 

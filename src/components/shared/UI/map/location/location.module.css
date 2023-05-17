@@ -30,12 +30,34 @@
 
 .controllers{
     position: fixed;
-    bottom: 10vh;
+    top: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 10%;
+}
+
+.controllers_zoom{
+    position: fixed;
+    bottom: 3rem;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.btn_content {
+    display: flex;
+    align-items: center;
+}
+
+.btn_content img{
+    width: 2rem;
+    margin-left: 1rem;
+}
+
+
 
 .footer{
     position: fixed;

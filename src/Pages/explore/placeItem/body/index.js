@@ -10,7 +10,7 @@ const Body = ({item}) => {
     <div className={styles.container}>
 
       <div className={styles.big_screen}>
-        <UserPanel url={item.user_id.avatar} />
+        <UserPanel user={item.user_id} />
       </div>
 
       <div className={styles.body}>

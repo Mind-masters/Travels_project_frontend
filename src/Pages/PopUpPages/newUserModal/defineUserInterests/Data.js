@@ -1,16 +1,46 @@
 export const DEFAULT_OPTIONS = [
-    {key: 1, value: "Scary places"},
-    {key: 2, value: "Town"},
-    {key: 3, value: "trip by car"},
-    {key: 4, value: "Mysteryous places"},
-    {key: 5, value: "Hills"},
-    {key: 6, value: "Natural"},
-    {key: 7, value: "Culture"},
-    {key: 8, value: "Comfortability"},
-    {key: 9, value: "Book now!"},
-    {key: 10, value: "Romantic"},
-    {key: 11, value: "Camping"},
-    {key: 12, value: "Exotic places"},
-    {key: 13, value: "Roads"},
-    {key: 14, value: "Photography"},
+    {
+        key: 1,
+        icon: require("../../../../assets/registration-modals/1_scary.png"),
+        value: "Scary places"
+    },
+    {
+        key: 2,
+        icon: require("../../../../assets/registration-modals/3_hills.png"),
+        value: "Hills"
+    },
+
+    {
+        key: 3,
+        icon:  require("../../../../assets/registration-modals/2_trip.png"),
+        value: "Trip by car"
+    },
+
+
+    {
+        key: 4,
+        icon: require("../../../../assets/registration-modals/7_camping.png"),
+        value: "Camping"
+    },
+    
+
+    {
+        key: 5,
+        icon: require("../../../../assets/registration-modals/5_romantic.png"),
+        value: "Romantic"
+    },
+
+    {
+        key: 6,
+        icon: require("../../../../assets/registration-modals/6_nature.png"),
+        value: "Nature"
+    },
+
+   
+    {
+        key: 7,
+        icon: require("../../../../assets/registration-modals/4_photography.png"),
+        value: "Photography"
+    },
+
 ]

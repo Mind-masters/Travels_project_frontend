@@ -1,0 +1,97 @@
+.container{
+    width: 23rem;
+    background-color: rgb(255, 255, 255);
+    padding: 0 25px;
+    border-radius: 24px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.only_members_hint{
+    color: rgb(248, 101, 101);
+}
+
+.login_form_title
+{
+    display: block;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    color: #635e5e;
+    text-align: center;
+    padding: 1.2rem 0;
+}
+
+.form_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 0;
+    padding-top: 1rem;
+}
+
+.form_content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+
+.logo_menu{
+    display: flex;
+    width: 100%;
+    padding: 2rem 0;
+    justify-content: space-around;
+}
+
+
+.logo_menu img{
+    width: 3rem;
+    border-radius: 50%;
+    padding: 0.4rem;
+    cursor: pointer;
+
+}
+
+.logo_menu img:hover{
+    /* background-color: rgb(168, 219, 132); */
+    border: 2px solid rgba(238, 125, 21, 1);
+}
+
+.icon_invalid{
+    border: 2px solid rgb(209, 127, 127);
+}
+
+
+.btn_container{
+    width: 50%;
+}
+
+
+@media (max-width: 500px)
+{   
+    .container
+    {
+        width: 18rem;
+    }
+}
+
+@media (max-width: 400px)
+{   
+    .container
+    {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 300px)
+{   
+    .container
+    {
+        width: 90vw;
+    }
+}

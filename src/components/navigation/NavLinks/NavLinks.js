@@ -11,14 +11,14 @@ const NavLinks = () => {
 
     <li className="onFocus">
       <NavLink to="/explore" >
-        Explore
+        Discover
         <hr />
       </NavLink>
     </li>
 
     <li className="onFocus">
-      <NavLink to="/your-trip" >
-        Your trip
+      <NavLink to="/my-places" >
+        MyPlaces
         <hr />
       </NavLink>
     </li>
@@ -30,15 +30,15 @@ const NavLinks = () => {
     </li>
 
     <li className="onFocus">
-      <NavLink  to="/notifications" >
-        Discounts
+      <NavLink  to="/social" >
+        Social
         <hr />
       </NavLink>
     </li>
 
     <li className="onFocus">
-      <NavLink  to="/more" >
-        Notifications
+      <NavLink  to="/about-us" >
+        AboutUs
         <hr />
       </NavLink>
     </li>

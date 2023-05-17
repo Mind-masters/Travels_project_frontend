@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Avatar from 'avataaars';
-import { Button } from '@material-ui/core';
+import Button from "../button/Button";
 import styles from "./Appearance.module.css";
 
 export const Data = {
@@ -183,8 +183,7 @@ export const MixAvatarApearance = (props) => {
 
     return <div className={styles.avatar_container}>
         <Avatar
-            style={{ width: "60%", marginLeft: "auto", marginRight: "auto" }}
-            avatarStyle='Circle'
+            className={styles.avatar}
             topType={topType}
             accessoriesType={accessoriesType}
             hatColor={hatColor}
@@ -196,23 +195,34 @@ export const MixAvatarApearance = (props) => {
             mouthType={mouthType}
             skinColor={skinColor}
         /> 
-        <div className={styles.buttons_container}>
-        <Button  
-          style={{ width: "40%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "rgba(186, 225, 248, 1)" }}
-          onClick={() => setReload(!reload)} 
-          variant="contained" 
-        >
-          Randomize
-        </Button>
 
-        <Button  
-          style={{ width: "40%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "rgba(137, 221, 108, 0.65)" }}
-          onClick={submitHandler} 
-          variant="contained" 
-        >
-          Continue
-        </Button>
-      </div>
+        <div className={styles.buttons_container}>
+            <div className={styles.randomize_btn} style={{ margin: "14px auto"}}>
+                <div className={styles.inner}>
+                    <Button
+                        height="auto"  
+                        onSubmit={() => setReload(!reload)} 
+                        border="2px solid #EE7D15"
+                        color="rgba(255, 255, 255, 0.8)" 
+                    >
+                        <h1 style={{ padding: "0.7rem" }}>Randomize</h1>
+                    </Button>
+                </div>
+            </div>
+
+            <div style={{ margin: "14px auto"}}>
+                <Button
+                    height="auto"  
+                    onSubmit={submitHandler} 
+                    color="#EE7D15" 
+                    border="2px solid #EE7D15" 
+                >
+                <h1 style={{ padding: "0.7rem", color: "white" }}>Continue</h1>
+                </Button>
+            </div>
+        </div>
+
+        
       </div>
 
 }

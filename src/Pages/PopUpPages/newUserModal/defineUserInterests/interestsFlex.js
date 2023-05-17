@@ -8,30 +8,6 @@ const FlexBox = (props) => {
 
     const [selectedInterestsArray, setSetectedInterestsArray] = useState(props.existing_data || []);
 
-    const getArrayOfRows = (data) => {
-
-        if(!data || (data && !data.length > 0))return null
-    
-        const collums = [];
-        let rows = [];
-        let newRowIndex = 1;
-        let temp = 0;
-    
-        while(temp < data.length){
-        rows.push(data[temp]);
-        if(newRowIndex === 3 || temp === data.length - 1){
-            collums.push(rows);
-            rows = [];
-            newRowIndex = 0;
-        }
-        newRowIndex++;
-        temp++;
-        }
-
-        return collums;
-    }
-    
-    
     
     const FlexItem = ({item}) => {
 
@@ -56,28 +32,13 @@ const FlexBox = (props) => {
         }) ;
 
     
-        return <div onClick={ItemClickHandler} className={`${styles.box} ${item ? styles.flex_item : styles.hidden_item} ${isSelected[0] && styles.flex_item_selected}`}>
-            <p>
-                {item && item.value}
-            </p>
+        return <div onClick={ItemClickHandler} className={`${styles.fl_box}`}>
+            <div className={`${styles.flex_item} ${isSelected[0] && styles.flex_item_selected}`}>
+                <img src={item.icon} alt='' />
+                <p>{item && item.value}</p>
+            </div>
         </div>
     }
-    
-    const FlexRow = ({items}) => {
-        
-        const first_element = items[0] ? {key: items[0].key, value: items[0].value} : null;
-        const second_element = items[1] ? {key: items[1].key, value: items[1].value} : null;
-        const third_element = items[2] ? {key: items[2].key, value: items[2].value} : null;
-
-        return <div className={styles.flex_row}>
-            <FlexItem item={first_element} />
-            <FlexItem item={second_element} />
-            <FlexItem item={third_element} />
-        </div>
-    
-    }
-
-    const array = getArrayOfRows(props.data);
 
     useEffect(() => {
         props.onChangeState(selectedInterestsArray);
@@ -85,14 +46,7 @@ const FlexBox = (props) => {
 
     return (
         <div className={styles.container}>
-
-            {
-                array.map(items => {
-
-                    return <FlexRow key={items[0].key}  items={items} />
-                })
-            }
-        
+            {props.data && props.data.map((item, key) => <FlexItem key={key} item={item} />)}
         </div>
     );
 }

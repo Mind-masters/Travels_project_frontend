@@ -13,8 +13,6 @@ const UserAvatar = (props) => {
       <Header 
         mainText={"Style your avatar"}
         subText={"This is how people will see you on TripMaster. You can change it later if you'd like"}
-        onPrev={props.onPrev || null}
-        page={2}
       />
       <MixAvatarApearance onSubmit={submitHandler} />
     </div>

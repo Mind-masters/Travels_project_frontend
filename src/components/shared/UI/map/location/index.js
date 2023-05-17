@@ -2,6 +2,8 @@ import styles from "./location.module.css";
 import Button from "../../button/Button";
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import closeIcon from "../../../../../assets/close-logo.png";
+import submitIcon from "../../../../../assets/submit-logo.png";
 
 const Location = (props) => {
 
@@ -11,18 +13,17 @@ const Location = (props) => {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const marker = new mapboxgl.Marker()
+    const popup = new mapboxgl.Popup()
     const [activeButton, setActiveButton] = useState(false)
+    const [zoomed, setZoomed] = useState(false);
   
     useEffect(() => {
-      if (map.current) return;
+      if (map.current && !zoomed) return;
       
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        // style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t",
-        // style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t",
         style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t",
         center: coords,
-        zoom: 0.9,
       });
 
       if(!props.show_location){
@@ -32,11 +33,27 @@ const Location = (props) => {
       }
   
       map.current.on("load", () => {
-        marker.setLngLat(coords).addTo(map.current);
+        popup.setHTML((props.popup && `<h1>${props.popup}</h1>`) || `<h1>
+        lng:  ${coords.lng} <br />
+        lat:  ${coords.lat}
+        </h1>`).addTo(map.current);
+        marker.setLngLat(coords).addTo(map.current).setPopup(popup);
       })
+
+      if(zoomed){
+        map.current.flyTo({
+          center: coords,
+          zoom: 10,
+          essential: true,
+          duration: 25000
+        });
+      }      
   
   
-    });
+    }, [zoomed]);
+
+
+    
   
     const onUpdateLocation = (obj) => {
       const coords = [obj.lng, obj.lat]
@@ -55,8 +72,18 @@ const Location = (props) => {
           <div ref={mapContainer} className={styles.map_container} />
           { ((!props.show_location && activeButton) || props.show_location) &&
             <div className={styles.controllers}>
-              <Button color="#EE7D15" onSubmit={onSubmitHandler}>
-                <h1 style={{ color:"white" }}>{!props.show_location ? "Submit" : "Continue"}</h1>
+              <Button color="rgba(0, 0, 0, 0.6)" border="2px solid white" onSubmit={onSubmitHandler}>
+                <div className={styles.btn_content}>
+                  <h1 style={{ color:"white" }}>{!props.show_location ? "Submit" : "Close"}</h1>
+                  <img src={!props.show_location ? submitIcon : closeIcon } alt="" />
+                </div>
+              </Button>
+            </div>
+          }
+          { props.show_location &&
+            <div className={styles.controllers_zoom}>
+              <Button color="rgba(0, 0, 0, 0.5)" border="2px solid white" onSubmit={() => setZoomed(!zoomed)}>
+                  <h1 style={{ color:"white" }}>Zoom</h1>
               </Button>
             </div>
           }

@@ -1,15 +1,17 @@
+import { Update, UpdateSettings, UpdateInterests } from '../../../components/utils/user/update';
+import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import React, { useEffect, useState, useContext } from 'react'
+import { AuthContext } from '../../../contextAPI/AuthContext';
+import { notify } from "../../../components/shared/UI/toast";
 import Modal from "../../../components/shared/UI/Modal";
 import DefineUserSettings from './defineUserSettings';
 import UserAvatar from "./defineUserAvatar/index";
 import UserInterests from './defineUserInterests';
-import { AuthContext } from '../../../contextAPI/AuthContext';
-import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import "react-toastify/dist/ReactToastify.css";
-import { notify } from "../../../components/shared/UI/toast";
 import { useNavigate } from 'react-router-dom';
-import { Update, UpdateSettings, UpdateInterests } from '../../../components/utils/user/update';
 import styles from "./wrapper.module.css";
+
+
 
 const NewUser = () => {
     const Auth = useContext(AuthContext);

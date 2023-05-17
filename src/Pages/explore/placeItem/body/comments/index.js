@@ -1,31 +1,68 @@
-import React,{ useContext, useState } from 'react';
+import React,{ useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
-import FormInput from '../../../../../components/shared/UI/formInput';
 import styles from "./comments.module.css";
 import commentsLogo from "../../../../../assets/explore/send_vector.png";
 import Popup from './popup';
-import data from './data.js';
-
+import Modal from '../../../../../components/shared/UI/Modal';
+import AuthRequired from '../../../../../components/shared/layouts/AuthRequired';
+import { OnComment } from '../../../../../components/utils/places/comment';
+import io from 'socket.io-client';
 
 const Comments = ({item}) => {
+  const socket = io('https://mind-master-backend-production.up.railway.app/', {transports: ['websocket', 'polling', 'flashsocket']});
 
-  const item_author = item.user_id ? item.user_id : "Unknown user"
   const User = useContext(AuthContext);
-  const token = User.isLoggedIn ? User.authenticatedUser.token.access_token : null
-  const [commentValue, setCommentValue] = useState(null);
+  const token = User.authenticatedUser ? User.authenticatedUser.token.access_token : null
+  const [commentValue, setCommentValue] = useState("");
   const [commentsCount, setCommentsCount] = useState(item.comments ? item.comments.length : 0);
-  const [showCommentsPopUp, setShowCommentsPopUp] = useState(false);
+  const [expandComments, setExpandComments] = useState(false);
+  const [commentsData, setCommentsData] = useState(item.comments);
+  const [placeLikesCount, setPlaceLikesCount] = useState(item.likes.length)
+
+  useEffect(() => {
+
+    // Listen for 'like' and 'unlike' events from the server
+    socket.on('place_comments', (data) => {
+      setCommentsData(data.savedPlace.comments)
+      setCommentsCount(data.savedPlace.comments.length);
+      setPlaceLikesCount(data.savedPlace.likes.length)
+    });
+
+    // // Clean up the socket event listeners when the component unmounts
+    return () => {
+      socket.off('place_comments');
+    };
+
+
+  });
+
+  const onChangeInputValue = (e) => {
+    if(!token)return 
+    setCommentValue(e.target.value);
+  }
 
   const onCommentSubmitHandler = async() => {
 
-    if(!commentValue)return
-    setCommentValue("")
+    if(!commentValue | token)return
+
+    const comment_reference = commentValue;
+    setCommentValue("");
+
+    
 
     setCommentsCount(commentsCount + 1);
 
-    const create_new_comment = await Comment(
+    const newCommentObj = {
+      user_avatar: User.authenticatedUser.data.avatar,
+      username: User.authenticatedUser.data.name,
+      text: comment_reference
+    }
+
+    setCommentsData([...commentsData, newCommentObj])
+
+    const create_new_comment = await OnComment(
       {
-        text: commentValue,
+        text: comment_reference,
         pid: item._id
       },
       token
@@ -34,20 +71,44 @@ const Comments = ({item}) => {
     if(!create_new_comment.status){
       return
     }
-
-
-    console.log("create_new_comment: ", create_new_comment)
   
+
+  }
+
+  const expandCommentsHandler = () => {
+    setExpandComments(true)
+  }
+
+  const collapseCommentsHandler = () => {
+    setExpandComments(false);
   }
 
   
   return (
     <div className={styles.container}>
-      <h1>View all 13 comments</h1>
-      <div className={styles.input_container}>
-        <input className={styles.input} placeholder='Write your comment' />
-        <img src={commentsLogo} alt='' />
-      </div>
+      <h1 onClick={expandCommentsHandler}>{`${commentsCount ? `View ${commentsCount} comments` : "No Comments Yet"}`}</h1>
+      
+      <AuthRequired>
+        <div className={styles.input_container}>
+          <input value={commentValue} onChange={onChangeInputValue} className={styles.input} placeholder='Write your comment' />
+          <img onClick={onCommentSubmitHandler} src={commentsLogo} alt='' />
+        </div>
+      </AuthRequired>
+
+      <Modal 
+        show={expandComments}
+        onClose={collapseCommentsHandler}
+      >
+        <Popup 
+          likes={placeLikesCount}
+          comments={commentsCount}
+          onClose={collapseCommentsHandler} 
+          onChange={onChangeInputValue} 
+          data={commentsData} 
+          onSubmit={onCommentSubmitHandler}
+          currCommentValue={commentValue} 
+        />
+      </Modal>
     </div>
   )
 }

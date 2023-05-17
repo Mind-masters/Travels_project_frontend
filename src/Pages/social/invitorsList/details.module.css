@@ -1,0 +1,146 @@
+.container{
+    background-color: #ffffff;
+    width: 38rem;
+    padding: 5px;
+    border-radius: 11px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.user_bar{
+    display: flex;
+
+}
+
+.user_bar img{
+    width: 4rem;
+}
+
+.name_country{
+    margin-right: auto;
+    align-self: center;
+    margin-left: 1rem;
+    font-weight: 0;
+}
+
+.name_country h1, .destination h1{
+    letter-spacing: 1px;
+    color: rgb(47, 46, 46);
+    font-size: 21px;
+    font-weight: 40px;
+}
+
+.name_country p{
+    color: rgb(95, 92, 92);
+    font-size: 15px;
+}
+
+.destination{
+    display: flex;
+    align-items: center;
+}
+
+.destination h1{
+    font-size: 15px;
+}
+
+.destination span{
+    color: #EE7D15;
+}
+
+.destination img{
+    width: 2.5rem;
+    margin-right: 1rem;
+}
+
+.description{
+    width: 80%;
+    min-height: 10rem;
+    max-height: 25rem;
+    overflow: scroll;
+    background-color: #0000000A;
+    border-radius: 13px;
+    padding: 10px;
+    margin: 2rem auto;
+}
+
+.btn_wrapper{
+    width: 12rem;
+    margin: 1rem auto;
+}
+
+.btn_wrapper img{
+    width: 2.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .container{
+        width: 33rem;
+    }
+
+
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        width: 20rem;
+    }
+
+    .user_bar, .destination{
+        margin-bottom: 2rem;
+        width: 90%;
+        justify-content: space-between;
+    }
+
+
+
+    .name_country{
+        margin: 0;
+    }
+
+    .header{
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container{
+        width: 17rem;
+    }
+
+    .user_bar{
+        width: 80%;
+    }
+
+    .destination{
+        justify-content: center;
+    }
+
+    .destination img{
+        width: 2rem;
+    }
+
+    .destination h1{
+        font-size: 13px;
+    }
+
+    .user_bar img{
+        width: 3rem;
+
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container{
+        width: 90vw;
+    }
+}

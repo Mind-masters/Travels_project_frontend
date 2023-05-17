@@ -4,7 +4,7 @@ import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals
 import SelectGenderModal from './selectGenderModal';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../../components/shared/UI/toast";
-import { Button } from '@material-ui/core';
+import Button from '../../../../components/shared/UI/button/Button';
 import styles from "./defineUserSettings.module.css";
 
 
@@ -74,18 +74,16 @@ const DefineUserSettings = (props) => {
 
 
   return (
-    <div style={{ display:"flex", flexDirection: "column" }}>
+    <div className={styles.wrapper}>
       <Header 
         mainText={"About you"}
         subText={"Tell us about yourself to start building your profile"}
-        onPrev={props.onPrev || null}
-        page={3}
       />
 
       <form className={styles.form_container} onSubmit={onSubmitHandler}>
         <input placeholder='Gender' value={genderValue ? genderValue : ""} className={styles.type_input} onChange={()=>{}} onClick={GenderInputActivateHandler} />
         <input placeholder='Country' value={countryValue ? countryValue.name.common : ""} className={styles.type_input} onChange={()=>{}} onClick={CountryInputActivateHandler} />
-        
+
         <Modal
           show={isModalActive}
           onClose={()=> {closeModalHandler()}}
@@ -101,7 +99,7 @@ const DefineUserSettings = (props) => {
 
         <div className={styles.settings}> 
             <div>
-                <label htmlFor="fellow">I am looking for fellow travellers</label>
+                <label htmlFor="fellow">I am looking for travel buddy</label>
                 <input type="checkbox" name="IsAccepted" id="fellow" onChange={(el)=>{setFellowValue(el.target.checked)}} />
             </div>
 
@@ -116,13 +114,15 @@ const DefineUserSettings = (props) => {
             </div>
         </div>
 
-        <Button  
-          style={{ width: "50%", borderRadius: 20, marginRight: "auto", marginLeft: "auto", backgroundColor: "rgba(137, 221, 108, 0.65)"}}
-          onClick={onSubmitHandler} 
-          variant="contained" 
-        >
-          Continue
-        </Button>
+        <div style={{ margin: "14px auto"}}>
+          <Button
+              height="auto"  
+              onSubmit={onSubmitHandler} 
+              color="#EE7D15" 
+            >
+            <h1 style={{ padding: "0.7rem", color: "white" }}>Submit</h1>
+          </Button>
+        </div>
 
       </form>
       

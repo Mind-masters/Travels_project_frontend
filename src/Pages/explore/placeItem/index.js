@@ -14,12 +14,14 @@ const PlaceItem = ({item}) => {
   const clickOnEyeHandler = () => {
     setShowMobDescription(!showMobDescription);
   }
+
+  console.log("author: ", item.user_id)
   
   return (
     <div className={`${styles.container} ${"box effect2"}`}>
 
       <div className={styles.mobile_user_panel}>
-        <UserPanel url={item.user_id.avatar} />
+        <UserPanel user={item.user_id} />
       </div>
 
       <div className={styles.image_container}>

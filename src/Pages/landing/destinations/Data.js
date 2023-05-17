@@ -13,9 +13,9 @@ export const PlacesData = [
     },
  
     {
-        image: "https://pbs.twimg.com/media/DcriX4hX0AAtOwo?format=jpg&name=900x900",
+        image: "https://www.thewanders.eu/wp-content/uploads/2021/05/The-Road-to-Hell.jpg",
         type: "Roads",
-        location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
+        location: {lat: "32.176999", lng: "-104.441106"}
     },
  
     {

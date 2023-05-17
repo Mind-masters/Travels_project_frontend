@@ -17,7 +17,7 @@ const Authentication = (props) => {
 
     const User = useContext(AuthContext);
     const [isLoading, setIsLoading] = useState(false);
-    const [isLoginMode, setIsLoginMode] = useState((props.registration && props.email) ? false : true);
+    const [isLoginMode, setIsLoginMode] = useState(props.signup ? false : true);
     const [errors, setErrors] = useState({});
 
     const FormSwitchHandler = () => {
@@ -31,6 +31,7 @@ const Authentication = (props) => {
 
 
     const FormSubmitHandler = async(data) => {
+
 
         const email = data.email;
         const password = data.password;
@@ -63,12 +64,16 @@ const Authentication = (props) => {
             }
     
             User.login(responseData);
+            props.onClose();
+            setIsLoading(false);
+
+            if(props.no_redirect && !props.signup)return
 
             if(isLoginMode) {
                 notify("You loged In successfully", "success");
+                return navigation("/my-places")
             }
-            props.onClose();
-            setIsLoading(false);
+            
 
             if(!isLoginMode) return navigation("/new-member")
             // // // some session method to store token
@@ -94,7 +99,6 @@ const Authentication = (props) => {
                     onClose={FormCloseHandler}
                 >
                     <Form 
-                        email={props.email}
                         onSubmit={FormSubmitHandler}
                         onSwithChMode={FormSwitchHandler}
                         isLoginMode={isLoginMode}

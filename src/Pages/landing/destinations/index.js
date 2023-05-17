@@ -15,13 +15,13 @@ import {PlacesData} from "./Data"
 const Destinations = () => {
 
   const [allPlaces, setAllPlaces] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [autoCarouseleHeight, setAutoCarouseleHeight] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async() => {
 
       setIsLoading(true)
+      
       const placesData = await fetchAllPlaces();
       setIsLoading(false);
       if(!placesData.status)notify(placesData.message, "error")
@@ -46,7 +46,7 @@ const Destinations = () => {
           <Header />
 
           <div className={styles.places_list}>
-            <CarouseleList onChangeHeight={(state)=>{setAutoCarouseleHeight(state)}} data={PlacesData}/>
+            <CarouseleList data={PlacesData}/>
           </div>
           
         </div>

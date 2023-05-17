@@ -1,0 +1,177 @@
+
+.wrapper{
+    width: 85%;
+    padding-top: 3rem;
+}
+
+.wrapper, .box, .box img {
+    margin: 0 auto;
+}
+
+.main_header{
+    color: rgba(0, 0, 0, 0.593);
+    font-size: 28px;
+    margin-bottom: 2rem;
+}
+
+.box_content{
+    position: relative;
+}
+
+.box{
+    width: 50%;
+    border-radius: 25px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 3rem 0;
+    cursor: pointer;
+}
+
+.box img{
+    width: 4rem;
+}
+
+.box h1{
+    font-size: 25px;
+    color: rgb(79, 77, 77);
+    margin-top: 1.5rem;
+}
+
+.details{
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.details_content{
+    display: flex;
+    border-radius: 11px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(238, 126, 21, 0.092);
+    padding: 0 2rem;
+    color: rgb(66, 64, 64);
+    letter-spacing: 0.5px;
+}
+
+.details_content img{
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+
+.details_previev{
+    background-color: #EE7D15;
+    padding: 0.8rem;
+    border-radius: 11px;
+    margin-left: 1rem;
+}
+
+.details_previev img{
+    width: 1.5rem;
+}
+
+@media (max-width: 1200px)
+{
+    .wrapper{
+        position: relative;
+        width: 100%;
+        justify-content: space-between;
+    }  
+
+    .box{
+        width: 50%;
+    }
+
+}
+
+
+@media (max-width: 950px)
+{
+    .box{
+        width: 60%;
+        padding: 2rem 0;
+    }
+    
+
+}
+
+
+@media (max-width: 700px)
+{
+    .main_header{
+        color: rgba(0, 0, 0, 0.593);
+        font-size: 23px;
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 550px)
+{
+
+    .wrapper{
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+
+    .box{
+        width: 70%;
+    }
+
+    .box img{
+        width: 3rem;
+    } 
+
+    .box h1{
+        font-size: 22px;
+        color: rgb(79, 77, 77);
+        margin-top: 1.7rem;
+    }
+
+    .details{
+        margin-right: 1rem;
+        margin-left: 1rem;    
+    }
+    
+    .details_content{
+        padding: 0 1rem;
+        letter-spacing: 0;
+    }
+    
+    .details_content img{
+        width: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .details_previev{
+        padding: 0.7rem;
+        margin-left: 0.5rem;
+    }
+    
+    .details_previev img{
+        width: 1rem;
+    }
+
+}
+
+@media (max-width: 340px)
+{
+
+    .wrapper{
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+
+    .box{
+        width: 80%;
+    }
+
+    .details{
+        margin-right: 0.4rem;
+        margin-left: 0.4rem;    
+    }
+    
+    .details_content img{
+        margin-right: 0.5rem;
+    }
+
+}

@@ -1,5 +1,40 @@
+.avatar{
+    width: 55%;
+    margin: 0 auto;
+    padding: 0;
+}
+
 .buttons_container{
-    margin-top: 5vh;
+    margin-top: 1rem;
     display: flex;
     justify-content: space-around;
+    position: relative;
+}
+
+
+@media (max-width: 600px)
+{   
+    .avatar
+    {
+        width: 90%;
+        background-color: rgba(255, 255, 255, 0.711);
+    }
+}
+
+@media (max-width: 450px)
+{   
+    .buttons_container
+    {
+        margin-top: 0;
+        flex-direction: column;
+    }
+
+    .randomize_btn{
+        position: absolute;
+        top: -4rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
 }

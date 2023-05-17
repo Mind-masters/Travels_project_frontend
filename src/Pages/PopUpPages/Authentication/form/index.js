@@ -6,7 +6,7 @@ import FormBody from './formBody'
 
 const Form = (props) => {
 
-
+	
 
 	return (
 
@@ -14,12 +14,12 @@ const Form = (props) => {
 
 			<div className={`${styles.form_container}`}>
 
-				<FormBody />
+				<FormBody {...props} />
 
 			</div>
 
 			<div className={styles.background}>
-				{/* <img src={login_bg} alt='' /> */}
+				<div className={styles.inner_image}></div>
 				<div className={styles.background_filter}></div>
 			</div>
 		</div>
