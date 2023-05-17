@@ -21,7 +21,7 @@
 }
 
 .user_bar img{
-    width: 4rem;
+    width: 3.8rem;
 }
 
 .name_country{
@@ -70,6 +70,10 @@
     border-radius: 13px;
     padding: 10px;
     margin: 2rem auto;
+    font-size: 17px;
+    color: rgb(107, 107, 107);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    word-spacing: 2px;
 }
 
 .btn_wrapper{
@@ -117,6 +121,10 @@
         width: 17rem;
     }
 
+    .header{
+        margin-bottom: 5px;
+    }
+
     .user_bar{
         width: 80%;
     }
@@ -136,6 +144,14 @@
     .user_bar img{
         width: 3rem;
 
+    }
+
+    .description{
+        width: 85%;
+        max-height: 40rem;
+        padding: 8px;
+        margin: 0 auto;
+        font-size: 16px;
     }
 }
 
