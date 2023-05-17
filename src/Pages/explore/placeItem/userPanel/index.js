@@ -3,17 +3,17 @@ import styles from "./user_panel.module.css";
 import more_icon from "../../../../assets/explore/more_icon.png";
 
 
-const UserPanel = ({url}) => {
+const UserPanel = ({user}) => {
 
   return (
     <div className={styles.user_panel}>
         
         <div className={styles.user_content}>
 
-          <img src={`${url}`} alt='' />
+          <img src={`${user.avatar}`} alt='' />
 
           <div className={styles.details}>
-            <h1>Samuel</h1>
+            <h1>{user.name}</h1>
             <p>23 mins ago</p>
           </div>
 

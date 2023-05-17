@@ -1,39 +1,61 @@
-import React, { useState } from 'react'
+import { AuthContext } from '../../../../contextAPI/AuthContext.js';
 import { Like_ } from '../../../utils/places/like.js';
+import React, { useState, useContext, useEffect } from 'react'
+import io from 'socket.io-client';
 import "./like.css"
-import { notify } from '../toast.js';
-import "react-toastify/dist/ReactToastify.css";
-
 
 const Like = (props) => {
 
-  const [isLiked, setIsLiked] = useState(false);
+  const socket = io('https://mind-master-backend-production.up.railway.app/', {transports: ['websocket', 'polling', 'flashsocket']});
 
+  const Auth = useContext(AuthContext);
+
+  const [likes, setLikes] = useState(props.item.likes.length);
+  const [liked, setLiked] = useState(props.item.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id));
+
+  useEffect(() => {
+
+    // Listen for 'like' and 'unlike' events from the server
+    socket.on('place_like_unlike', (data) => {
+      setLikes(data.likes.length)
+      setLiked(data.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id))
+    });
+
+    // // Clean up the socket event listeners when the component unmounts
+    return () => {
+      socket.off('place_like_unlike');
+    };
+
+
+  }, [liked]);
 
   const onLikeHandler = async() => {
 
-    setIsLiked(!isLiked);
+    if(!Auth.authenticatedUser)return
 
+    setLikes(!liked ? likes + 1 : likes - 1);
+    setLiked(!liked)
 
-    // props.onClick && props.onClick();
+    try {
+      const fetch_like = await Like_(props.item._id, Auth.authenticatedUser.token.access_token);
 
-    // if(!props.user){
-    //   return notify("We don't know who you are", "warning");
-    // }
+      if(!fetch_like.status)return
 
-    // const fetch_like = await Like_(props.pid, props.user.token.access_token);
-
-    // if(!fetch_like.status)notify(fetch_like.message, "error");
+      if(fetch_like.data.likes)setLikes(fetch_like.data.likes.length)
+      setLiked(fetch_like.data.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id));
+    } catch (err) {
+      console.log(err);
+    }
 
   }
 
   return (
-    <p onClick={onLikeHandler} className={`like-button ${isLiked && 'liked'}`}>
+    <p onClick={onLikeHandler} className={`like-button ${liked && 'liked'}`}>
       <span className='like-icon'>
           <span className='heart-animation-1'></span>
           <span className='heart-animation-2'></span>
       </span>
-      523
+      {likes | 0}
     </p>
 )
 }

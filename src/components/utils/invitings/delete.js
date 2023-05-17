@@ -1,10 +1,12 @@
 import { FetchAPI_template } from "../FetchAPI_template";
 
-export const deletePlaceById = async(pid, token) => {
+export const deleteInviteById = async(inviting_id, token) => {
 
-    if(!pid || !token)return {message: "Something is missing"};
+    if(!inviting_id || !token)return {message: "Something is missing"};
 
-    const url = `https://mind-master-backend-production.up.railway.app/api/v1/user/places/delete/${pid}`;
+    const url = `https://mind-master-backend-production.up.railway.app/api/v1/user/invitings/delete/${inviting_id}`;
+    // const url = `http://localhost:5000/api/v1/user/invitings/delete/${inviting_id}`;
+
     const method = "POST";
     const body = {};
 

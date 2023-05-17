@@ -4,7 +4,8 @@ import LandingPage from "../Pages/landing";
 import ExplorePage from "../Pages/explore";
 import PrivateRouter from "./privateRouter";
 import Profile from "../Pages/profile";
-import YourTrip from "../Pages/yourTrip";
+import MyPlaces from "../Pages/myPlaces";
+import Social from "../Pages/social";
 
 const Routing = () => {
   return (
@@ -22,10 +23,9 @@ const Routing = () => {
 
         <Route path="/explore" element={<ExplorePage />} />
 
-        <Route path="/your-trip" element={<PrivateRouter />}>
-          <Route index element={<YourTrip />} />
-        </Route>
+        <Route path="/my-places" element={<MyPlaces />} />
 
+        <Route path="/social" element={<Social />} />
 
       </Routes>
     </Suspense>

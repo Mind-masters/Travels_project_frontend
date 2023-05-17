@@ -3,16 +3,13 @@ import Card from "../../components/shared/UI/Card";
 import styles from "./index.module.css";
 import PlaceList from "./placeList";
 import Filter from "./filter";
-import Footer from "../../components/shared/UI/Footer/Footer";
 import MainHeader from "../../components/shared/UI/pagesHeaders/index";
-
 
 
 const explore = (props) => {
   return (
     <Card>
       <div className={styles.container}>
-
 
         <MainHeader 
           header="Explore Places"
@@ -22,17 +19,15 @@ const explore = (props) => {
 
         <div className={styles.main_content}>
 
-          {/* <div className={styles.filter_container}>
+          <div className={styles.filter_container}>
             <Filter />
-          </div> */}
+          </div>
 
           <PlaceList />
 
         </div>
 
       </div>
-
-      <Footer />
     </Card>
   )
 }

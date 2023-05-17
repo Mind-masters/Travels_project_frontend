@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./filter.module.css";
 import Button from '../../../components/shared/UI/button/Button';
-
+import { useNavigate } from 'react-router-dom';
 // logos
 import globe_logo from "../../../assets/explore/filter/globe.png";
 import location_logo from "../../../assets/explore/filter/location.png";
@@ -11,6 +11,9 @@ import add_new_place_logo from "../../../assets/explore/filter/add_new_place.png
 
 
 const Filter = (props) => {
+
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       
@@ -55,7 +58,7 @@ const Filter = (props) => {
         
       </div>
 
-      <div className={styles._add}>
+      <div onClick={()=>navigate("/my-places")} className={styles._add}>
         <p>If you dont find anything, share your experience if us!</p>
         <img src={add_new_place_logo} alt='plus' />
 

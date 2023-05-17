@@ -1,7 +1,6 @@
 .container{
     width: 100%;
     margin-top: 18vh;
-    min-height: 200vh;
     text-align: center;
 }
 
@@ -18,6 +17,8 @@
 .filter_container{
     width: 450px;
 }
+
+
 
 @media (max-width: 1200px) {
     .filter_container{
@@ -61,6 +62,8 @@
         display: none;
     }
 
+    
+
     .container{
         margin-top: 14vh;
     }
@@ -68,9 +71,11 @@
     .side_image{
         display: block;
         padding: 5px;
-        border: 2px solid red;
     }
 }
+
+
+
 
 @media (max-width: 400px) {
 

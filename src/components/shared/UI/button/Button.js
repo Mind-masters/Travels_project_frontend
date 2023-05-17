@@ -1,19 +1,22 @@
 import React from 'react'
-import { motion } from "framer-motion"
 import styles from "./Button.module.css";
 
-
-const Button = (props) => <div className={`${styles.container_login_form_btn}`}>
-  <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
-   style={{ border: props.border }} className={`${styles.wrap_login_form_btn}`}>
-    <button
-      onClick={props.onSubmit} 
-      style={{ backgroundColor:props.color, height: props.height}} 
-      className={`${styles.login_form_btn}`}
+const Button = (props) => {
+  return <div className={styles.wrapper}>
+    <div 
+      style={{ border: props.border }} 
+      className={styles.container}
     >
-      {props.children}
-    </button>
-  </motion.div>
-</div>
+      <button
+        onClick={props.onSubmit} 
+        style={{ backgroundColor:props.color, height: props.height}} 
+        className={styles.btn}
+      >
+        {props.children}
+      </button>
+    </div>
+  </div>
+}
+
 
 export default Button

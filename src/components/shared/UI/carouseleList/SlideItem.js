@@ -72,6 +72,7 @@ const SlideItem = ({item, key}) => {
           <Location 
             onClose={() => {setShowMapModal(false); setShowLoader(false)}}
             show_location={item.location}
+            popup={item.type}
           />
         </>
       </Modal>
