@@ -58,7 +58,7 @@
     }
 }
 
-@media (max-width: 250px) {
+@media (max-width: 260px) {
     .container{
         padding: 8px;
     }

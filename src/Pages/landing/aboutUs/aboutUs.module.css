@@ -58,6 +58,7 @@
     background-color: #F08D32;
 }
 
+
 .paragraph_container p{
     color: #2836467e;
     font-size: 20px;
@@ -141,8 +142,17 @@
 @media (max-width: 400px)
 {
 
+    .paragraph_container{
+        padding: 1rem;
+    }
+
     .container{
         width: 90%;
+    }
+
+    .paragraph_container p{
+        font-size: 16px;
+        line-height: 25px;
     }
 }
 
@@ -158,8 +168,5 @@
         width: 10rem;
     }
 
-    .paragraph_container p{
-        font-size: 15px;
-        line-height: 25px;
-    }
+    
 }

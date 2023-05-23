@@ -30,8 +30,10 @@ const FormInput = (props) => {
             >
 
 
-                {   props.type === "description" ? 
+                {   
+                    props.type === "description" ? 
                     <textarea 
+                        autoCapitalize={false}
                         style={{ minHeight: "6rem" }}
                         className={`${styles.input} ${props.value && styles.has_val}`}
                         onChange={onInputChangeHanlder} 
@@ -40,6 +42,7 @@ const FormInput = (props) => {
                     ></textarea>
                     :
                     <input 
+                        autoCapitalize={false}
                         onChange={onInputChangeHanlder} 
                         className={`${styles.input} ${props.value && styles.has_val}`} 
                         type={props.type || "text"}

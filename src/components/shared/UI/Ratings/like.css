@@ -4,6 +4,7 @@
 }
 
 .like-button {
+  z-index: 0;
   align-self: center;
   border: 2px solid #c7c7c7;
   border-radius: 40px;

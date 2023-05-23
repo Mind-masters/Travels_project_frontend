@@ -16,6 +16,7 @@ const PlaceItem = ({item}) => {
   }
 
   console.log("author: ", item.user_id)
+  if(!item.user_id)return
   
   return (
     <div className={`${styles.container} ${"box effect2"}`}>
