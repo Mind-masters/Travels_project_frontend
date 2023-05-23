@@ -3,6 +3,7 @@ import { Like_ } from '../../../utils/places/like.js';
 import React, { useState, useContext, useEffect } from 'react'
 import io from 'socket.io-client';
 import "./like.css"
+import Authentication from '../../../../Pages/PopUpPages/Authentication/index.js';
 
 const Like = (props) => {
 
@@ -39,6 +40,7 @@ const Like = (props) => {
     try {
       const fetch_like = await Like_(props.item._id, Auth.authenticatedUser.token.access_token);
 
+      if(fetch_like.message === "Unauthorized")return Auth.logout();
       if(!fetch_like.status)return
 
       if(fetch_like.data.likes)setLikes(fetch_like.data.likes.length)
@@ -52,8 +54,8 @@ const Like = (props) => {
   return (
     <p onClick={onLikeHandler} className={`like-button ${liked && 'liked'}`}>
       <span className='like-icon'>
-          <span className='heart-animation-1'></span>
-          <span className='heart-animation-2'></span>
+        <span className='heart-animation-1'></span>
+        <span className='heart-animation-2'></span>
       </span>
       {likes | 0}
     </p>

@@ -33,7 +33,11 @@ const Controllers = (props) => {
         </button>
       </div>
 
-      {showMap && <ViewOnMap location={props.item && props.item.location} onClose={()=>{setShowMap(false)}} />}
+      {showMap && 
+        <AuthRequired>
+          <ViewOnMap location={props.item && props.item.location} onClose={()=>{setShowMap(false)}}/>
+        </AuthRequired> 
+      }
 
     </div>
   )
