@@ -73,22 +73,30 @@
     
 }
 
-@media (max-width: 450px)
+@media (max-width: 400px)
 {
     .welcome_page_text
     {
-        letter-spacing: 0;
-        font-size: 28px;
+        letter-spacing: 2px;
     }
     
 }
 
+@media (max-width: 350px)
+{
+    .welcome_page_text
+    {
+        letter-spacing: 1px;
+    }
+    
+}
 
 @media (max-width: 310px)
 {
     .welcome_page_text
     {
-        font-size: 23.5px;
+        font-size: 26px;
+        letter-spacing: 0;
     }
 
     .main_line hr{
@@ -100,7 +108,7 @@
 {
     .welcome_page_text
     {
-        font-size: 20px;
+        font-size: 23px;
     }
 }
 

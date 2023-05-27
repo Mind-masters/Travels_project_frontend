@@ -9,7 +9,10 @@ const Location = (props) => {
 
     mapboxgl.accessToken = 'pk.eyJ1IjoiZG9tYnViMSIsImEiOiJjbGR4N3M5ZWowZW1jM29yeHR6ZDZ4a2Z2In0.Nvxa1Vv6L-7YlWhT5CW47w'; 
 
-    const [coords, setCoords] = useState( props.show_location || [ 32.29650083636824, 23.670783991562146 ] );
+    // const [coords, setCoords] = useState( props.show_location || [ 32.29650083636824, 23.670783991562146 ] );
+    const [coords, setCoords] = useState( [ 32.29650083636824, 23.670783991562146 ] );
+
+    console.log("coords: ", coords)
     const mapContainer = useRef(null);
     const map = useRef(null);
     const marker = new mapboxgl.Marker()
@@ -34,8 +37,8 @@ const Location = (props) => {
   
       map.current.on("load", () => {
         popup.setHTML((props.popup && `<h1>${props.popup}</h1>`) || `<h1>
-        lng:  ${coords.lng} <br />
-        lat:  ${coords.lat}
+        lng:  ${coords.longitude} <br />
+        lat:  ${coords.latitude}
         </h1>`).addTo(map.current);
         marker.setLngLat(coords).addTo(map.current).setPopup(popup);
       })
@@ -56,7 +59,7 @@ const Location = (props) => {
     
   
     const onUpdateLocation = (obj) => {
-      const coords = [obj.lng, obj.lat]
+      const coords = [obj.longitude, obj.latitude]
       marker.setLngLat(coords);
       setCoords(coords);
       setActiveButton(true);

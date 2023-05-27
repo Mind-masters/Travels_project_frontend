@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import Modal from '../../../../components/shared/UI/Modal';
-import SelectCountryModal from '../../../../components/shared/UI/Modal/subModals/selectCountryModal';
+import SelectCountryModal from '../../../../components/shared/UI/Popups/selectCountryModal';
 import SelectGenderModal from './selectGenderModal';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../../components/shared/UI/toast";
 import Button from '../../../../components/shared/UI/button/Button';
 import styles from "./defineUserSettings.module.css";
-
-
 import Header from '../header';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 const DefineUserSettings = (props) => {
 
@@ -20,9 +19,10 @@ const DefineUserSettings = (props) => {
   const [countryValue, setCountryValue] = useState(null);
   const [openCountryModalActive, setOpenCountryModalActive] = useState(false);
 
-  const [bookingValue, setBookingValue] = useState(false);
   const [fellowValue, setFellowValue] = useState(false);
   const [homeStayValue, setHomeStayValue] = useState(false);
+
+  const [isFinished, setIsFinished] = React.useState(false);
 
 
   const GenderInputActivateHandler = () => {
@@ -45,7 +45,10 @@ const DefineUserSettings = (props) => {
   const SubmitCountryModal = (country, status) => {
     closeModalHandler();
     if(!status)console.log("err");
-    setCountryValue(country)
+    setCountryValue({
+      flag: country.flags.png,
+      name: country.name.common
+    })
   }
 
 
@@ -55,9 +58,17 @@ const DefineUserSettings = (props) => {
     setOpenGenderModalActive(false);
   }
 
-  const onSubmitHandler = () => {
-    if(!genderValue) notify("Please define your gender", "error")
-    if(!countryValue) notify("Please define your country", "error")
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+
+    if(!genderValue) return notify("Please define your gender", "error")
+    if(!countryValue) return notify("Please define your country", "error")
+
+    setIsFinished(true)
+    
+  }
+
+  const onCompleteHandler = () => {
     if(genderValue && countryValue)return props.onSubmit(
       {
         gender: genderValue, 
@@ -65,10 +76,11 @@ const DefineUserSettings = (props) => {
         settings: {
           looking_followed_travelers: fellowValue, 
           home_stay_programs: homeStayValue, 
-          booking_opportunities: bookingValue
+          booking_opportunities: true
         }
       }
     )
+    return
   }
 
 
@@ -81,8 +93,14 @@ const DefineUserSettings = (props) => {
       />
 
       <form className={styles.form_container} onSubmit={onSubmitHandler}>
-        <input placeholder='Gender' value={genderValue ? genderValue : ""} className={styles.type_input} onChange={()=>{}} onClick={GenderInputActivateHandler} />
-        <input placeholder='Country' value={countryValue ? countryValue.name.common : ""} className={styles.type_input} onChange={()=>{}} onClick={CountryInputActivateHandler} />
+        
+        <div className={styles.type_input} onClick={GenderInputActivateHandler}>
+          {genderValue ? genderValue : "Gender"}
+        </div>
+
+        <div className={styles.type_input} onClick={CountryInputActivateHandler} >
+          {countryValue ? countryValue.name : "Country"}
+        </div>
 
         <Modal
           show={isModalActive}
@@ -108,10 +126,6 @@ const DefineUserSettings = (props) => {
                 <input type="checkbox" name="IsAccepted" id="homestay" onChange={(el)=>{setHomeStayValue(el.target.checked)}}/>
             </div>
 
-            <div>
-                <label htmlFor="booking">I am interesting booking opportunities</label>
-                <input type="checkbox" onChange={(el)=>{setBookingValue(el.target.checked)}} name="IsAccepted" id="booking" />
-            </div>
         </div>
 
         <div style={{ margin: "14px auto"}}>
@@ -120,12 +134,18 @@ const DefineUserSettings = (props) => {
               onSubmit={onSubmitHandler} 
               color="#EE7D15" 
             >
-            <h1 style={{ padding: "0.7rem", color: "white" }}>Submit</h1>
+            <h1 style={{ padding: "0.7rem", color: "white" }}>Finish</h1>
           </Button>
         </div>
 
       </form>
-      
+
+
+      { isFinished &&
+        <div className={styles.congrats}>
+          {true && <ConfettiExplosion onComplete={onCompleteHandler} zIndex={3} />}
+        </div>
+      }
     </div>
   )
 }

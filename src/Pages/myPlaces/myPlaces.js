@@ -29,47 +29,46 @@ const  ClientTrips = (props) => {
   return (
 
     <>      
-      {
-        showModal && 
+      
         <Modal        
           onClose={onHideModalHandler.bind(false, true)}
           show={showModal} 
         >
           {
-            showCreateModal && <CreateTrip onClose={onHideModalHandler} />
+            showCreateModal && <CreateTrip onRefresh={props.onRefresh} onClose={onHideModalHandler} />
           }
         </Modal>
-      }
+      
 
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <div className={styles.wrapper}>
 
 
-        <h1 className={styles.main_header}>Share places with others</h1>
+          <h1 className={styles.main_header}>Share places with others</h1>
 
-        <div className={styles.box_content}>
-          <div onClick={onOpenModalHandler} className={styles.box}>
-            <img src={plus_logo} alt='' />
-            <h1>Click to add</h1>
+          <div className={styles.box_content}>
+            <div onClick={onOpenModalHandler} className={styles.box}>
+              <img src={plus_logo} alt='' />
+              <h1>Click to add</h1>
+            </div>
+
+          </div>
+
+          <div className={styles.details}>
+            
+            <div className={styles.details_content}>
+              <img src={view_count_logo} alt='' />
+              <p>{`${props.numberOfPlaces > 0 ? `You are shared ${props.numberOfPlaces} places` : `Share interesting place`}`}</p>
+            </div>
+            
+            <div className={styles.details_previev}>
+              <img src={view_places_logo} alt='' />
+            </div>
           </div>
 
         </div>
-
-        <div className={styles.details}>
-          
-          <div className={styles.details_content}>
-            <img src={view_count_logo} alt='' />
-            <p>{`${props.numberOfPlaces > 0 ? `You are shared ${props.numberOfPlaces} places` : `Share interesting place`}`}</p>
-          </div>
-          
-          <div className={styles.details_previev}>
-            <img src={view_places_logo} alt='' />
-          </div>
-        </div>
-
       </div>
-    </div>
-  </>
+    </>
   )
 }
 

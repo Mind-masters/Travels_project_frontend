@@ -1,25 +1,86 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "./filter.module.css";
 import Button from '../../../components/shared/UI/button/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 // logos
 import globe_logo from "../../../assets/explore/filter/globe.png";
-import location_logo from "../../../assets/explore/filter/location.png";
 import popularity_logo from "../../../assets/explore/filter/popularity.png";
 import input_sign_logo from "../../../assets/landing/expanded_logo.png";
 import add_new_place_logo from "../../../assets/explore/filter/add_new_place.png";
+import { useState } from 'react';
+
+import Modal from "../../../components/shared/UI/Modal";
+import SelectCountryModal from "../../../components/shared/UI/Popups/selectCountryModal";
+import SelectTypesModal from "../../../components/shared/UI/typesOfPlaces";
 
 
 const Filter = (props) => {
 
   const navigate = useNavigate();
 
+  const [showModal, setShowModal] = useState(false);
+
+  const [countryValue, setCountryValue] = useState(props.CountryValue);
+  const [showCountryModal, setShowCountryModal] = useState(false);
+
+  const [typesValue, setTypesValue] = useState(props.typeValue);
+  const [showTypesModal, setShowTypesModal] = useState(false);
+
+  const closeAllModals = () => {
+    setShowModal(false);
+    setShowCountryModal(false);
+    setShowTypesModal(false)
+  }
+
+  const submitCountryHandler = (value) => {
+    closeAllModals();
+    setCountryValue(value.name.common);
+    return
+  }
+
+  const submitTypesHandler = (types) => {
+    if(types.length < 1)return;
+
+    closeAllModals();
+    setTypesValue(types[0].value);
+    return
+  }
+
+  const onOpenCountryModalHandler = () => {
+    setShowModal(true)
+    setShowCountryModal(true);
+  }
+
+  const onOpenTypesModalHandler = () => {
+    setShowModal(true)
+    setShowTypesModal(true);
+  }
+
+  const onSubmitFilter = () => {
+    if(countryValue && props.onFilterByCountry)props.onFilterByCountry(countryValue);
+    if(typesValue && props.onFilterByType)props.onFilterByType(typesValue);
+    return
+  }
+
+
   return (
     <div className={styles.container}>
+
       
+      <Modal
+        show={showModal}
+        onClose={closeAllModals}
+      >
+        {showCountryModal && <SelectCountryModal onSubmit={submitCountryHandler} />}
+        {showTypesModal && 
+        <div className={styles.types_container}>
+          <SelectTypesModal onChangeState={submitTypesHandler} />
+        </div>
+        }
+      </Modal>
 
       <div className={styles.btn_container}>
-        <Button height="auto" color="#EE7D15">
+        <Button height="auto" color="#EE7D15" onSubmit={onSubmitFilter}>
           <h1>Filter</h1>
         </Button>
       </div>
@@ -29,19 +90,9 @@ const Filter = (props) => {
         <div className={styles.filter_option}>
           <h2>Country</h2>
 
-          <div>
+          <div onClick={onOpenCountryModalHandler}>
             <img src={globe_logo} alt='globe' />
-            <p>Select</p>
-            <img style={{ width: "1.5rem ", alignSelf: "center"}} src={input_sign_logo} alt='input' />
-          </div>
-        </div>
-
-        <div className={styles.filter_option}>
-          <h2>Popularity</h2>
-
-          <div>
-            <img src={location_logo} alt='location' />
-            <p>Where to</p>
+            <p>{countryValue ? countryValue : "Where to"}</p>
             <img style={{ width: "1.5rem ", alignSelf: "center"}} src={input_sign_logo} alt='input' />
           </div>
         </div>
@@ -49,12 +100,14 @@ const Filter = (props) => {
         <div className={styles.filter_option}>
           <h2>Travel type</h2>
 
-          <div>
+          <div onClick={onOpenTypesModalHandler}>
             <img src={popularity_logo} alt='vacation' />
-            <p>Vacation</p>
+            <p>{typesValue ? typesValue : "Vacation"}</p>
             <img style={{ width: "1.5rem ", alignSelf: "center"}} src={input_sign_logo} alt='input' />
           </div>
         </div>
+
+
         
       </div>
 

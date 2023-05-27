@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import styles from "./interestsFlex.module.css"
+import { DEFAULT_OPTIONS } from './Data';
 
+const TypesOfInterests = (props) => {
 
-const FlexBox = (props) => {
-
-    const [selectedInterestsArray, setSetectedInterestsArray] = useState(props.existing_data || []);
+    const [selectedInterestsArray, setSetectedInterestsArray] = useState(props.selected_types || []);
 
     
     const FlexItem = ({item}) => {
@@ -46,9 +46,9 @@ const FlexBox = (props) => {
 
     return (
         <div className={styles.container}>
-            {props.data && props.data.map((item, key) => <FlexItem key={key} item={item} />)}
+            {DEFAULT_OPTIONS.map((item, key) => <FlexItem key={key} item={item} />)}
         </div>
     );
 }
 
-export default FlexBox;
+export default TypesOfInterests;

@@ -12,7 +12,7 @@ const UserAvatar = (props) => {
     <div style={{ display:"flex", flexDirection: "column" }}>
       <Header 
         mainText={"Style your avatar"}
-        subText={"This is how people will see you on TripMaster. You can change it later if you'd like"}
+        subText={"This is how people will see you on TripWhoop. You can change it later if you'd like"}
       />
       <MixAvatarApearance onSubmit={submitHandler} />
     </div>

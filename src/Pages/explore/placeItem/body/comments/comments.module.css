@@ -2,7 +2,7 @@
     width: 100%;
 }
 
-.container h1{
+.container .comm_info_header{
     color: rgba(83, 81, 81, 0.7);
     text-align: left;
     font-size: 1rem;
@@ -32,7 +32,7 @@
 }
 
 @media (max-width: 850px) {
-    .container h1{
+    .container .comm_info_header{
         padding-bottom: 0.3rem;
         font-size: 0.9rem;
     }

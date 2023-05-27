@@ -1,7 +1,5 @@
 .container{
-    
     margin: 20px 0 ;
-    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -21,10 +19,10 @@
     margin: 10px;
 }
 
-
 .flex_item img{
-    width: 1.4rem;
-    margin-right: 0.7rem;
+    width: 1.5rem;
+    align-self: center;
+    margin-right: 1rem;
 }
 
 .flex_item_selected{
@@ -45,7 +43,7 @@
 
 @media (max-width: 400px) {
     .flex_item img{
-        width: 1.5rem;
+        width: 1.3rem;
         align-self: center;
         margin-right: 1rem;
     }
@@ -58,7 +56,14 @@
     }
 }
 
-@media (max-width: 260px) {
+@media (max-width: 270px) {
+
+    .flex_item img{
+        display: none;
+    }
+}
+
+@media (max-width: 250px) {
     .container{
         padding: 8px;
     }

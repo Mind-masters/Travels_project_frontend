@@ -2,7 +2,7 @@ export const DEFAULT_OPTIONS = [
     {
         key: 1,
         icon: require("../../../../assets/registration-modals/1_scary.png"),
-        value: "Scary places"
+        value: "Mystery places"
     },
     {
         key: 2,
@@ -11,9 +11,9 @@ export const DEFAULT_OPTIONS = [
     },
 
     {
-        key: 3,
-        icon:  require("../../../../assets/registration-modals/2_trip.png"),
-        value: "Trip by car"
+        key: 7,
+        icon: require("../../../../assets/registration-modals/4_photography.png"),
+        value: "Housing"
     },
 
 
@@ -37,10 +37,18 @@ export const DEFAULT_OPTIONS = [
     },
 
    
+    
+
     {
-        key: 7,
+        key: 3,
+        icon:  require("../../../../assets/registration-modals/2_trip.png"),
+        value: "Trip by car"
+    },
+
+    {
+        key: 8,
         icon: require("../../../../assets/registration-modals/4_photography.png"),
-        value: "Photography"
+        value: "Other"
     },
 
 ]

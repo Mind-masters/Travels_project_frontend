@@ -1,5 +1,5 @@
 .container{
-    top: 13vh;
+    top: 16vh;
     position: sticky;
     width: 90%;
     float: right;
@@ -17,6 +17,12 @@
 
 .filter_body{
     margin-bottom: 0.5rem;
+}
+
+.types_container{
+    background-color: white;
+    border-radius: 24px;
+    width: 28rem;
 }
 
 .filter_option{
@@ -83,5 +89,17 @@
 @media (max-width: 700px) {
     .body{
         display: none;
+    }
+
+    .types_container{
+        padding-top: 10px;
+        width: 20rem;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .types_container{
+        width: 90vw;
     }
 }

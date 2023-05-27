@@ -1,15 +1,18 @@
-import React, {useRef} from 'react';
+import React, {useContext, useRef} from 'react';
 import styles from "./popup.module.css";
 import commentsLogo from "../../../../../assets/explore/send_vector.png";
 import CloseCommentsLogo from "../../../../../assets/explore/close_comments_logo.png";
 import InsideBounce from "../../../../../components/shared/UI/LoadingSpinner/InsideBounce";
 import { useState } from 'react';
 import { useEffect } from 'react';
+import AuthRequired from '../../../../../components/shared/layouts/AuthRequired';
+import { AuthContext } from '../../../../../contextAPI/AuthContext';
 
 
 const Popup = (props) => {
 
   const commentsTopRef = useRef(null);
+  const Auth = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,6 +29,7 @@ const Popup = (props) => {
   const onSubmitHandler = () => {
     const executeScroll = () => commentsTopRef.current ? commentsTopRef.current.scrollIntoView() : null;
     executeScroll();
+    if(!Auth.authenticatedUser)return;
     return props.onSubmit();
   }
 
@@ -68,7 +72,9 @@ const Popup = (props) => {
           className={styles.input} 
           placeholder='Write your comment' 
         />
-        <img onClick={onSubmitHandler} src={commentsLogo} alt='' />
+        <AuthRequired>
+          <img onClick={onSubmitHandler} src={commentsLogo} alt='' />
+        </AuthRequired>
       </div>
 
     </div>

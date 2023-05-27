@@ -33,7 +33,6 @@
     background-color: rgba(229, 235, 148, 0.626);
 }
 
-
 @media (max-width: 768px) {
     .modal_content{
         height: 55vh;

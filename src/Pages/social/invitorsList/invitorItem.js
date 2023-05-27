@@ -12,6 +12,7 @@ const InvitorItem = (props) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
 
+  console.log("item: ", props.invite)
 
   return (
     <div>
@@ -22,15 +23,21 @@ const InvitorItem = (props) => {
             <img className={styles.user_image} src={props.invite.user_id.avatar} alt="" />
             <div className={styles.user_content}>
               <h1>{props.invite.user_id.name}</h1>
-              <p>{props.invite.user_id.country}</p>
+              { props.invite.user_id.country && props.invite.user_id.country.name &&
+                <div className={styles.user_country}>
+                  <img src={props.invite.user_id.country.flag} alt='flag'/>
+                  <p>{props.invite.user_id.country.name}</p>
+                </div>
+              }
+
             </div>
           </div>
 
           <div className={styles.details}>
             <img src={earthLogo} alt="" />
-            <h1>GOING TO: {`${props.invite.destination}`.toUpperCase()}</h1>
+            <h1 className={styles.directions_header}>GOING TO: <span style={{ color: "#EE7D15", paddingLeft: "5px" }}>{`${props.invite.destination.name}`.toUpperCase()}</span></h1>
             <div className={styles.details_btn}>
-              <Button onSubmit={()=>setShowDetails(true)} color="#2C2B2A">
+              <Button height="auto" onSubmit={()=>setShowDetails(true)} color="#2C2B2A">
                 <h1>Details</h1>
               </Button>
 

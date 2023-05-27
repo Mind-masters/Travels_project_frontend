@@ -9,7 +9,8 @@ import where_input_icon from "../../../assets/social/where_input_icon.png";
 import about_input_icon from "../../../assets/social/about_input_icon.png";
 import { useEffect } from 'react';
 import InsideBounce from '../../../components/shared/UI/LoadingSpinner/InsideBounce';
-
+import Modal from "../../../components/shared/UI/Modal";
+import SelectCountry from "../../../components/shared/UI/Popups/selectCountryModal";
 
 const InvitorForm = (props) => {
 
@@ -18,8 +19,16 @@ const InvitorForm = (props) => {
   const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null  // for storing date value
 
   // for storing FinalPlaceValue value
-  const [destinationValue, setDestinationValue] = useState("")
-  const onDestinationChangeHandler = (value) => setDestinationValue(value)
+  const [destinationValue, setDestinationValue] = useState("");
+  const [openCountryModal, setOpenCountryModal] = useState(false);
+  const onDestinationChangeHandler = (value) => {
+    setDestinationValue({
+      flag: value.flag.png,
+      name: value.name.common
+    })
+
+    setOpenCountryModal(false)
+  }
 
   // for storing about value
   const [aboutValue, setAboutValue] = useState("")
@@ -49,7 +58,10 @@ const InvitorForm = (props) => {
       
       const create_new_inviting = await Create(
         {
-          destination: destinationValue,
+          destination: {
+            flag: destinationValue.flag,
+            name: destinationValue.name
+          },
           about: aboutValue,
         },
         token
@@ -71,21 +83,24 @@ const InvitorForm = (props) => {
             <h1 className={`${styles.login_form_title}`}>
               Calling all travel enthusiasts
             </h1>
-            <p>
+            <p className={styles.intro_paragraph}>
               Let's find the perfect companion for our upcoming odyssey!
             </p>
 
             <div className={styles.inputs_container}>
 
 
-              <Input 
-                value={destinationValue} 
-                isValid={true} 
-                name="Where are you going?"
-                onChange={onDestinationChangeHandler}
-              >
+              <div onClick={()=>setOpenCountryModal(true)} className={styles.select_country}>
                 <img style={{ width: "1.5rem", margin: "0 10px" }} src={where_input_icon} alt='' /> 
-              </Input>
+                <p>{destinationValue ? destinationValue.name : "Where are you going?"}</p>
+              </div>
+
+              <Modal
+                show={openCountryModal}
+                onClose={() => setOpenCountryModal(false)}
+              > 
+                <SelectCountry onSubmit={onDestinationChangeHandler}/>
+              </Modal>
 
               <Input 
                 type="description"

@@ -27,13 +27,10 @@ const InvitorsList = ({data}) => {
         <InsideBounce />
       }
       
-      <div className={styles.header_line}>
-        <h1>{data.length} travelers are looking for companions</h1>
         <div className={styles.filter}>
-          <img src={filter_icon} alt=""/>
-          <h1>Filter</h1>
+          filter
         </div>
-      </div>
+        <h1 className={styles.header_line}>{data.length} travelers are looking for companions</h1>
 
       {data.map((invite, key) => <InvitorItem key={key} invite={invite} />)}
     </div>

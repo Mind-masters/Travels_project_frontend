@@ -197,20 +197,20 @@ export const MixAvatarApearance = (props) => {
         /> 
 
         <div className={styles.buttons_container}>
-            <div className={styles.randomize_btn} style={{ margin: "14px auto"}}>
-                <div className={styles.inner}>
-                    <Button
-                        height="auto"  
-                        onSubmit={() => setReload(!reload)} 
-                        border="2px solid #EE7D15"
-                        color="rgba(255, 255, 255, 0.8)" 
-                    >
-                        <h1 style={{ padding: "0.7rem" }}>Randomize</h1>
-                    </Button>
-                </div>
+
+
+            <div className={styles.randomize_btn}>
+                <Button
+                    height="auto"  
+                    onSubmit={() => setReload(!reload)} 
+                    border="2px solid #EE7D15"
+                    color="rgba(255, 255, 255, 0.8)" 
+                >
+                    <h1 style={{ padding: "0.7rem" }}>Randomize</h1>
+                </Button>
             </div>
 
-            <div style={{ margin: "14px auto"}}>
+            <div className={styles.continue_btn}>
                 <Button
                     height="auto"  
                     onSubmit={submitHandler} 
@@ -220,6 +220,7 @@ export const MixAvatarApearance = (props) => {
                 <h1 style={{ padding: "0.7rem", color: "white" }}>Continue</h1>
                 </Button>
             </div>
+
         </div>
 
         

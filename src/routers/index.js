@@ -21,7 +21,8 @@ const Routing = () => {
         
         <Route path="/new-member" element={<LandingPage extra={true} />}/>
 
-        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/explore/" element={<ExplorePage />} />
+        <Route path="/explore/:type" element={<ExplorePage />} />
 
         <Route path="/my-places" element={<MyPlaces />} />
 

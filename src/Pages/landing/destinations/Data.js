@@ -2,7 +2,7 @@ export const PlacesData = [
     
     {
         image: "https://i.pinimg.com/564x/74/28/b0/7428b0829f6dffffbf36f18fbc0cdc88.jpg",
-        type: "Abandoned",
+        type: "Mystery places",
         location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
     },
 
@@ -14,7 +14,7 @@ export const PlacesData = [
  
     {
         image: "https://www.thewanders.eu/wp-content/uploads/2021/05/The-Road-to-Hell.jpg",
-        type: "Roads",
+        type: "Trip by car",
         location: {lat: "32.176999", lng: "-104.441106"}
     },
  
@@ -31,7 +31,7 @@ export const PlacesData = [
     },
  
     {
-        image: "https://scontent.fkun1-1.fna.fbcdn.net/v/t39.30808-6/240589720_6638321146185420_423813899530551590_n.jpg?stp=dst-jpg_s960x960&_nc_cat=104&ccb=1-7&_nc_sid=a26aad&_nc_ohc=MkObIytbmtYAX9a_Bzy&_nc_ht=scontent.fkun1-1.fna&oh=00_AfCpujcolQSSuWnSaAc0hrdKUgcetQdfHB7j86hqWVYOmA&oe=64591D63",
+        image: "https://i.pinimg.com/564x/c2/77/70/c27770cccc15e0a328849dce146cb9e6.jpg",
         type: "Romantic",
         location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
     },

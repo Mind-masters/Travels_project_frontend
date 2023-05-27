@@ -56,6 +56,19 @@
     color: #EE7D15;
 }
 
+.user_country{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.user_country img{
+    width: 3rem;
+    margin-right: 8px;
+    border-radius: 25px;
+    
+}
+
 .destination img{
     width: 2.5rem;
     margin-right: 1rem;
@@ -104,7 +117,13 @@
         justify-content: space-between;
     }
 
+    .user_bar{
+        justify-content: left;
+    }
 
+    .user_bar img{
+        margin-right: 1rem;
+    }
 
     .name_country{
         margin: 0;
@@ -126,7 +145,7 @@
     }
 
     .user_bar{
-        width: 80%;
+        width: 100%;
     }
 
     .destination{
@@ -141,9 +160,10 @@
         font-size: 13px;
     }
 
-    .user_bar img{
-        width: 3rem;
 
+
+    .name_country{
+        margin-left: 1rem;
     }
 
     .description{

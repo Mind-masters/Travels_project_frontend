@@ -3,7 +3,6 @@ import { Like_ } from '../../../utils/places/like.js';
 import React, { useState, useContext, useEffect } from 'react'
 import io from 'socket.io-client';
 import "./like.css"
-import Authentication from '../../../../Pages/PopUpPages/Authentication/index.js';
 
 const Like = (props) => {
 
@@ -18,8 +17,12 @@ const Like = (props) => {
 
     // Listen for 'like' and 'unlike' events from the server
     socket.on('place_like_unlike', (data) => {
-      setLikes(data.likes.length)
-      setLiked(data.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id))
+
+      if(data.place._id === props.item.id){
+
+        setLiked(data.place.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id))
+        setLikes(data.likes.length)
+      }
     });
 
     // // Clean up the socket event listeners when the component unmounts
@@ -33,7 +36,6 @@ const Like = (props) => {
   const onLikeHandler = async() => {
 
     if(!Auth.authenticatedUser)return
-
     setLikes(!liked ? likes + 1 : likes - 1);
     setLiked(!liked)
 

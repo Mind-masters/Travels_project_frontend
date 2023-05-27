@@ -5,12 +5,20 @@ import Button from "../button/Button"
 import Location from "../map/location";
 import Modal from '../Modal';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const SlideItem = ({item, key}) => {
+  const navigate = useNavigate();
 
   const [showMapModal, setShowMapModal] = useState(false);
   const [showLoader, setShowLoader] = useState(true);
+
+  const onShowAllHandler = () => {
+    if(!item.type)return
+    
+    return navigate(`/explore/${item.type}`, )
+  }
 
 
   useEffect(() => {
@@ -29,7 +37,6 @@ const SlideItem = ({item, key}) => {
     setShowLoader(true);
 
   }
-
   return (
     <div className={styles.slide_container}>
       <div className={styles.filter}></div>
@@ -39,6 +46,7 @@ const SlideItem = ({item, key}) => {
         <div className={styles.content_body}>
           <div className={styles.content_body_text}>
             <h1>{item.type}</h1>
+            <h2 style={{ cursor: "pointer" }} onClick={onShowAllHandler}>See all</h2>
           </div>
 
           <div className={styles.content_body_map}>

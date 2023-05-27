@@ -8,9 +8,9 @@ const ImageContainer = () => {
   return (
 
     <div className={styles.welcome_page_bg_images}>
-        <div className={styles.image_big} />
-        <div className={styles.image_small} />
-        <img className={styles.scroll_logo} src={scroll_logo} alt='' />
+      <div className={styles.image_big} />
+      <div className={styles.image_small} />
+      <img className={styles.scroll_logo} src={scroll_logo} alt='' />
     </div>
     
   )

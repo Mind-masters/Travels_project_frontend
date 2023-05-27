@@ -1,35 +1,94 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from "../../components/shared/UI/Card";
 import styles from "./index.module.css";
 import PlaceList from "./placeList";
 import Filter from "./filter";
 import MainHeader from "../../components/shared/UI/pagesHeaders/index";
+import { fetchAllPlaces } from '../../components/utils/places/fetchPlaces';
+import { notify } from "../../components/shared/UI/toast";
+import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
+import { useParams } from 'react-router-dom';
+
+const Explore = (props) => {
+
+  let { type } = useParams();
+  const [filterByType, setFilterByType] = useState(type);
+  const [filterByCountry, setFilterByCountry] = useState(null);
+
+  const onFilterByType = (value) => {
+    if(value)setFilterByType(value);
+  }
+
+  const onFilterByCountry = (value) => {
+    console.log("heyyyd: ", value)
+
+    if(value)setFilterByCountry(value);
+  }
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+
+    window.scrollTo(0, 0);
+
+    const fetchData = async() => {
+      setIsLoading(true)
+      const placesData = await fetchAllPlaces();
+      setIsLoading(false);
+      if(!placesData.status)notify(placesData.message, "error")
+
+      const filteredPlaces = placesData.data.filter(place => {
 
 
-const explore = (props) => {
+        if(filterByCountry && filterByType)return place.type === filterByType && place.country.name === filterByCountry
+
+        if(filterByCountry)return place.country.name === filterByCountry
+
+        if(filterByType) return place.type === filterByType
+
+      });
+
+      setData(filteredPlaces.length > 0 ? filteredPlaces : placesData.data);
+    }
+
+
+    fetchData();
+  }, [filterByType, filterByCountry])
+
+
   return (
     <Card>
-      <div className={styles.container}>
+      { isLoading ? 
+        <LoadingSpinner />
+        :
+        <div className={styles.container}>
 
-        <MainHeader 
-          header="Explore Places"
-          paragraph="Travel around the world has become much easier with this community"
-        />
-        
+          <MainHeader 
+            header="Explore Places"
+            paragraph="Travel around the world has become much easier with this community"
+          />
+          
 
-        <div className={styles.main_content}>
+          <div className={styles.main_content}>
 
-          <div className={styles.filter_container}>
-            <Filter />
+            <div className={styles.filter_container}>
+              <Filter 
+                typeValue={filterByType}
+                onFilterByType={onFilterByType}
+                CountryValue={filterByCountry}
+                onFilterByCountry={onFilterByCountry}
+              />
+            </div>
+
+            {data && !isLoading && <PlaceList data={data} />}
+
           </div>
 
-          <PlaceList />
-
         </div>
-
-      </div>
+      }
     </Card>
   )
 }
 
-export default explore
+export default Explore
