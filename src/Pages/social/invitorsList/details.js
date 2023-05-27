@@ -52,13 +52,16 @@ const InvitingDetails = (props) => {
 
           <div className={styles.name_country}>
             <h1>{`${props.invite.user_id.name}`}</h1>
-            <p>{`${props.invite.user_id.country}`}</p>
+            <div className={styles.user_country}>
+              <img src={props.invite.user_id.country.flag} alt='flag'/>
+              <p>{props.invite.user_id.country.name}</p>
+            </div>
           </div>
         </div>
 
         <div className={styles.destination}>
           <img src={earth_logo} alt='' />
-          <h1>GOING TO: <span>{`${props.invite.destination}`.toUpperCase()}</span></h1>
+          <h1>GOING TO: <span>{`${props.invite.destination.name}`.toUpperCase()}</span></h1>
         </div>
       </div>
 

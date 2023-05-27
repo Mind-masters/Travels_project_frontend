@@ -1,21 +1,17 @@
 .modal_content{
-    width: 26rem;
+    width: 28rem;
     background-color: rgb(255, 255, 255);
     text-align: center;
     border-radius: 24px;
     display: flex;
+    max-height: 90vh;
+    overflow: scroll;
 }
 
 
 @media (max-width: 600px) {
     .modal_content{
-        width: 22rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .modal_content{
-        width: 85vw;
+        width: 19.5rem;
     }
 }
 

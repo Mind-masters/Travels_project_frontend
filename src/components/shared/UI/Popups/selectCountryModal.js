@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./selectCountryModal.module.css";
-import LoadingSpinner from "../../LoadingSpinner";
-import Switch from "react-switch";
+import InsideBounce from "../LoadingSpinner/InsideBounce";
+
 
 const SelectCountryModal = (props) => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  const [showContriesNames, setShowCountriesNames] = useState(true); 
+  const [showContriesNames, setShowCountriesNames] = useState(false); 
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const SelectCountryModal = (props) => {
 
   
       } catch (error) {
-        console.log("Failed to fetch countries...", error);
+        console.log("Cannot get countries")
       }
     }
 
@@ -55,18 +55,16 @@ const SelectCountryModal = (props) => {
   
 
   return (
-    <>
+    <div className={styles.wrapper}>
       {
         isLoading 
         ? 
-        <LoadingSpinner /> 
+        <div className={styles.loading_container}>
+          <InsideBounce />
+        </div>
         :
         <div className={styles.modal_content}>
           <div className={styles.top_menu_container}>
-            <div className={styles.toogle_container}>
-              <p>Show countries</p>
-              <Switch onChange={() => {setShowCountriesNames(!showContriesNames)}} checked={showContriesNames} />
-            </div>
 
             <div className={styles.search_container}>
               <input placeholder='Search by keywords' onChange={(event) => setSearchTerm(event.target.value)} />
@@ -78,7 +76,7 @@ const SelectCountryModal = (props) => {
           }
         </div>
       }
-    </>
+    </div>
   )
 }
 

@@ -64,23 +64,23 @@ const Authentication = (props) => {
             }
     
             User.login(responseData);
-            props.onClose();
             setIsLoading(false);
-
-            if(props.no_redirect && !props.signup)return
-
-            if(isLoginMode) {
-                notify("You loged In successfully", "success");
-                return navigation("/my-places")
-            }
             
+            if(props.onClose)props.onClose();
 
             if(!isLoginMode) return navigation("/new-member")
+
+            notify("logged In", "success");
+            
+            if(props.redirect){
+                return navigation("/my-places")
+            }
+
+            
+            else return;            
             // // // some session method to store token
             // // // some session method to store refresh token
     
-            
-
             
         } catch (error) {
             setIsLoading(false)

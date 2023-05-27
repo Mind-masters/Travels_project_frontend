@@ -2,17 +2,19 @@ import React, {useContext, useState} from 'react';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import styles from './dropDown.module.css';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
-import { useNavigate, NavLink, Navigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 
 // logos
 import user_logo from "../../../../assets/dropDown/user_logo.png"
 import coints_logo from "../../../../assets/dropDown/coints_logo.png"
-import star_logo from "../../../../assets/dropDown/star_logo.png"
+import messages_logo from "../../../../assets/dropDown/messages.png"
+import notification_logo from "../../../../assets/dropDown/notifications.png"
+
+import star_logo from "../../../../assets/dropDown/kazkas.png"
 
 export default function AccountMenu() {
 
@@ -99,13 +101,31 @@ export default function AccountMenu() {
                     <MenuItem>
                         <div className={styles.body}>
                             <div>
-                                <img src={star_logo} alt="" />
+                                {/* <img src={star_logo} alt="" /> */}
                                 <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
                             </div>
 
                             <div>
-                                <img src={coints_logo} alt="" />
+                                {/* <img src={coints_logo} alt="" /> */}
                                 <h1>Get more points</h1>
+                            </div>
+                        </div>
+                    </MenuItem>
+
+                    <MenuItem>
+                        <div className={styles.body}>
+                            <div>
+                                <img src={messages_logo} alt="" />
+                                <h1>Messages</h1>
+                            </div>
+                        </div>
+                    </MenuItem>
+
+                    <MenuItem>
+                        <div className={styles.body}>
+                            <div>
+                                <img src={notification_logo} alt="" />
+                                <h1>Notifications</h1>
                             </div>
                         </div>
                     </MenuItem>

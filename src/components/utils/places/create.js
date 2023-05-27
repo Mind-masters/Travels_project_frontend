@@ -8,10 +8,11 @@ export const Create = async(data, token) => {
     
     const method = "POST";
     const body = {
-        title: data.title,
+        type: data.type,
         description: data.description,
         image: data.image,
-        location: data.location
+        location: data.location,
+        country: data.country
     }
 
     const fetch_api_request = await FetchAPI_template(url,method,body,token);

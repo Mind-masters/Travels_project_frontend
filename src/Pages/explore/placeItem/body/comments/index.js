@@ -86,7 +86,7 @@ const Comments = ({item}) => {
   
   return (
     <div className={styles.container}>
-      <h1 onClick={expandCommentsHandler}>{`${commentsCount ? `View ${commentsCount} comments` : "No Comments Yet"}`}</h1>
+      <h1 className={styles.comm_info_header} onClick={expandCommentsHandler}>{`${commentsCount ? `View ${commentsCount} comments` : "No Comments Yet"}`}</h1>
       
       <AuthRequired>
         <div className={styles.input_container}>

@@ -3,7 +3,6 @@ import Modal from '../Modal'
 import AlertContainer from './alertContainer'
 import { useState } from 'react'
 import MapContent from './mapContent'
-import Authentication from '../../../../Pages/PopUpPages/Authentication'
 
 
 const ViewOnMap = (props) => {
@@ -22,7 +21,6 @@ const ViewOnMap = (props) => {
         }
       </Modal>
 
-      <Authentication  />
     </div>
   )
 }

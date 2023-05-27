@@ -13,15 +13,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .body_description{
     width: 95%;
-    padding-top: 1rem;
     text-align: left;
     color: #7B7B7B;
     line-height: 28px;
     font-size: 17px;
+    max-height: 7rem;
+    overflow: scroll;
 }
 
 .mobile_panel{

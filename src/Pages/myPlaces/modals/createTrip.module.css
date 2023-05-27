@@ -9,9 +9,6 @@
     visibility: hidden;
 }
 
-.only_members_hint{
-    color: rgb(248, 101, 101);
-}
 
 .login_form_title
 {
@@ -40,6 +37,24 @@
     justify-content: space-around;
 }
 
+.select_type{
+    border: 2px solid rgba(48, 47, 47, 0.3);
+    border-radius: 11px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    color:#999999;
+    cursor: pointer;
+}
+
+.select_type div{
+    display: flex;
+    align-items: center;
+}
+
+.select_type img{
+    margin: 1rem;
+    width: 22px;
+}
 
 .logo_menu{
     display: flex;
@@ -57,13 +72,12 @@
 
 }
 
-.logo_menu img:hover{
-    /* background-color: rgb(168, 219, 132); */
-    border: 2px solid rgba(238, 125, 21, 1);
-}
-
 .icon_invalid{
     border: 2px solid rgb(209, 127, 127);
+}
+
+.icon_valid{
+    border: 2px solid rgb(127, 209, 138);
 }
 
 

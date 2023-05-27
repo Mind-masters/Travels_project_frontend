@@ -14,7 +14,6 @@ import {PlacesData} from "./Data"
 
 const Destinations = () => {
 
-  const [allPlaces, setAllPlaces] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -24,8 +23,7 @@ const Destinations = () => {
       
       const placesData = await fetchAllPlaces();
       setIsLoading(false);
-      if(!placesData.status)notify(placesData.message, "error")
-      setAllPlaces(placesData.data);
+      if(!placesData.status)notify("Website under maintenance ", "error")
     }
 
 
@@ -41,7 +39,7 @@ const Destinations = () => {
 
       {isLoading && <LoadingSpinner asOverlay/>}
 
-      {!isLoading && allPlaces && 
+      {!isLoading && 
         <div className={styles.content}>
           <Header />
 

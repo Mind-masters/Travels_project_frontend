@@ -35,7 +35,8 @@ const YoutTrip = () => {
       const author_places = await fetchUserPlaces(Author.authenticatedUser.token.access_token)
 
       if(!author_places.status){
-        navigate("/");
+        Author.logout();
+        return navigate("/");
       }
 
       setUserPlaces(author_places.data && author_places.data.length);
@@ -51,7 +52,9 @@ const YoutTrip = () => {
   return (
     <Card>
 
-      { isLoading ? <LoadingSpinner /> :
+      { 
+        isLoading ? <LoadingSpinner /> :
+        
         <div className={styles.container}>
           
           <MainHeader 

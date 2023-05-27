@@ -1,22 +1,23 @@
 .welcome_page{
-    height: 75vh;
     display: flex;
-    padding-top: 10vh;
+    padding: 15vh 0;
+    padding-bottom: 2rem;
+    align-items:center;
     position: relative;
 }
 
 .welcome_page_content{
-    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     flex: 1;
-
+    height: 100%;
 }
 
+
 .content{
-    height: 70%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -25,6 +26,7 @@
 
 .welcome_page_controllers{
     width: 70%;
+    margin-top: 3rem;
 }
 
 .controllers{
@@ -39,34 +41,37 @@
 }
 
 .computer_bg_images, .mobile_bg_images{
+    align-self: center;
     flex: 1;
-    padding-bottom: 4vh;
 }
 
 
-/* conainer styles */
+
 
 @media (max-width: 600px)
 {
 
     .welcome_page{
-        height: 100vh
-    }
-    
-    .content{
-        height: 95%;
-        width: auto;
+        height: 100vh;
+        height: 100svh;
+        padding-top: 10vh;
+        padding-bottom: 0;
     }
 
+    .content{
+        min-height: 95%;
+        justify-content: space-around;
+    }
+    
     .computer_bg_images{
         display: none;
     }
 
     .mobile_bg_images{
         display: block;
-        padding-bottom: 0;
         flex: 0;
     }
+
 }
 
 @media (max-width: 400px)
@@ -74,19 +79,30 @@
     .content{
         position: relative;
         width: 95%;
-        justify-content: space-between;
     }  
+
+    .mobile_bg_images{
+        padding-right: 1rem;
+    }
 }
 
-@media (max-width: 300px)
+@media (max-width: 350px)
 {
     .content{
-        justify-content: space-around;
+        position: relative;
+        width: 95%;
     }  
+
 }
 
+@media (max-width: 270px)
+{
+    .mobile_bg_images{
+        padding: 0;
+    }  
 
-/* controllers style */
+}
+
 
 @media (max-width: 1200px)
 {
@@ -119,6 +135,17 @@
     
 }
 
+@media (max-width: 400px)
+{
+
+    .welcome_page_controllers{
+        width: 17rem;
+        margin: 0 auto;
+    }
+
+    
+}
+
 @media (max-width: 300px)
 {
     .controllers p{
@@ -126,7 +153,7 @@
     }
      
     .welcome_page_controllers{
-        width: 95%;
+        width: 90%;
     } 
 }
 

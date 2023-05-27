@@ -7,7 +7,7 @@ import hiddenIcon from "../../../assets/explore/hiden.png";
 import vissibleIcon from "../../../assets/explore/visible.png";
 
 
-const PlaceItem = ({item}) => {
+const PlaceItem = (props) => {
 
   const [showMobDescription, setShowMobDescription] = useState(false);
 
@@ -15,28 +15,27 @@ const PlaceItem = ({item}) => {
     setShowMobDescription(!showMobDescription);
   }
 
-  console.log("author: ", item.user_id)
-  if(!item.user_id)return
+  if(!props.item.user_id)return
   
   return (
     <div className={`${styles.container} ${"box effect2"}`}>
 
       <div className={styles.mobile_user_panel}>
-        <UserPanel user={item.user_id} />
+        <UserPanel user={props.item.user_id} place={props.item} />
       </div>
 
       <div className={styles.image_container}>
-        <img src={item.image} alt=""/>
+        <img src={props.item.image} alt=""/>
         <div className={`${styles.mobile_description} ${showMobDescription && styles.visible_mobile_description}`}>
           <div onClick={clickOnEyeHandler} className={styles.mobile_description_icon}>
             <img src={ showMobDescription ? hiddenIcon : vissibleIcon} alt='eye'/>
           </div>
-          {showMobDescription && <p>{item.description}</p>}
+          {showMobDescription && <p>{props.item.description}</p>}
         </div>
       </div>
 
       <div className={styles.body_container}>
-        <Body item={item} />
+        <Body item={props.item} />
       </div>
     </div>
   )

@@ -35,6 +35,7 @@ const NewUser = () => {
     const [selectedInterestsData, setSelectedInterestsData] = useState([]);
     const [selectedAvatarData, setSelectedAvatarData] = useState(null);
 
+
     const backHandler = (page_number) => {
         if(page_number === 1){
             setShowAvatarModal(false);
@@ -93,7 +94,7 @@ const NewUser = () => {
 
         const submit_update_data = await Update(
             {
-                country:lastmodal.country.name.common,
+                country:lastmodal.country,
                 avatar: selectedAvatarData,
                 gender:lastmodal.gender,
             },
@@ -104,7 +105,6 @@ const NewUser = () => {
             setIsLoading(false);
             notify(submit_update_data.message || "please try again", "error");
             setShowInterestsModal(true);
-            setIsLoading(false);
             return
         }
 
@@ -112,7 +112,6 @@ const NewUser = () => {
         else if(submit_settings_data.status && submit_update_data.status && submit_interests_data.status){
             const user = {data: submit_update_data.data,token: Auth.authenticatedUser.token};
             notify(submit_update_data.message, "success");
-
             Auth.update(user);
             navigate("/")
         }
@@ -122,19 +121,21 @@ const NewUser = () => {
     }
   
     return (
-        <Modal
-            show={true}
-        >
-            {
-                isLoading ? <LoadingSpinner /> :
-                <div className={styles.modal_content}>
-                    {showInterestsModal && <UserInterests existing_data={selectedInterestsData || []} onSubmit={onInterestsModalSubmit} />}
-                    {showAvatarModal && <UserAvatar onPrev={backHandler.bind(null, 1)} onSubmit={onAvatarModalSubmit} />}
-                    {showSettingsModal && <DefineUserSettings onPrev={backHandler.bind(null, 2)} onSubmit={onSettingsModalSubmit} />}
-                </div>
-            }
-            
-        </Modal>
+        <>
+            <Modal
+                show={true}
+            >
+                {
+                    isLoading ? <LoadingSpinner /> :
+                    <div className={styles.modal_content}>
+                        {showInterestsModal && <UserInterests existing_data={selectedInterestsData || []} onSubmit={onInterestsModalSubmit} />}
+                        {showAvatarModal && <UserAvatar onPrev={backHandler.bind(null, 1)} onSubmit={onAvatarModalSubmit} />}
+                        {showSettingsModal && <DefineUserSettings onPrev={backHandler.bind(null, 2)} onSubmit={onSettingsModalSubmit} />}
+                    </div>
+                }
+                
+            </Modal>
+        </>
     )
 }
 

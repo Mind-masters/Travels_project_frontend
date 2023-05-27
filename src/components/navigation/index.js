@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import MainHeader from './NavHeader/NavHeader';
-import StatusHeader from './NavHeader/StatusHeader';
 import NavLinks from './NavLinks/NavLinks';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from '../shared/UI/Backdrop';

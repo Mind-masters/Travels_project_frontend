@@ -130,7 +130,14 @@
 }
 
 @media (max-width: 400px) {
-  .header_login{
+
+
+  .header_logo{
     display: none;
   }
+
+  .mobile_navigation{
+    flex: 0.5;
+  }
+
 }

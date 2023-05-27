@@ -1,40 +1,51 @@
-.avatar{
-    width: 55%;
+.avatar_container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
     margin: 0 auto;
-    padding: 0;
+}
+
+.avatar{
+    margin: 0 auto;
+    height: 15rem;
 }
 
 .buttons_container{
-    margin-top: 1rem;
     display: flex;
     justify-content: space-around;
-    position: relative;
+    padding: 1rem 0;
 }
+
 
 
 @media (max-width: 600px)
 {   
-    .avatar
-    {
-        width: 90%;
-        background-color: rgba(255, 255, 255, 0.711);
-    }
-}
 
-@media (max-width: 450px)
-{   
+    .avatar{
+        height: 12rem;
+    }
+
     .buttons_container
     {
         margin-top: 0;
         flex-direction: column;
+        width: 9rem;
+        margin: 0 auto;
     }
 
     .randomize_btn{
-        position: absolute;
-        top: -4rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 350px)
+{   
+
+    .avatar{
+        width: 12rem;
     }
 
+    
 }
+
