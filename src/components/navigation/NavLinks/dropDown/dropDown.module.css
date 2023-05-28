@@ -1,6 +1,6 @@
    .dropDownContainer{
       background-color: white;
-      width: 16rem;
+      width: 17rem;
    }
 
    .logo{
@@ -83,6 +83,6 @@
    @media(max-width: 500px){
       .body{
 
-         font-size: 18px;
+         font-size: 20px;
       }
    }
