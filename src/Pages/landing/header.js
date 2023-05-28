@@ -10,9 +10,9 @@ const MainHeader = () => {
       <div className={styles.welcome_page_text}>
         <p>Unexplored locations,</p>
         <div className={styles.main_line}>
-            <p>Discounts, </p>
+            <p>Blogs, </p>
             <div>
-                <p>new friends</p>
+                <p>travel friends</p>
                 <hr style={{ marginLeft: "5%", bottom: "5px" }} />
                 <hr />
             </div>

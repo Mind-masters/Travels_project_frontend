@@ -11,7 +11,7 @@ const NavLinks = () => {
 
     <li className="onFocus">
       <NavLink to="/explore" >
-        Discover
+        Places
         <hr />
       </NavLink>
     </li>

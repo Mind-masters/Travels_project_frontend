@@ -1,7 +1,9 @@
 .container{
   width: 100%;
-  background-color: rgb(255, 255, 255);
   height: 100vh;
+  height: 100svh;
+  min-height: 40rem;
+  max-height: 50rem;
   position: relative;
 }
 
@@ -25,7 +27,6 @@
 
 .places_list{
   flex: 1;
-  max-height: 33rem;
 }
 
 @media screen and (max-width: 850px) {

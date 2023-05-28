@@ -12,6 +12,7 @@
     background-repeat: no-repeat;
     border-radius: 30px;
     background-size: cover;
+    width: 80%;
 }
 
 @media screen and (max-width: 600px) {

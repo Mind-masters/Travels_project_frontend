@@ -39,16 +39,14 @@ const Destinations = () => {
 
       {isLoading && <LoadingSpinner asOverlay/>}
 
-      {!isLoading && 
-        <div className={styles.content}>
-          <Header />
+      <div className={styles.content}>
+        <Header />
 
-          <div className={styles.places_list}>
-            <CarouseleList data={PlacesData}/>
-          </div>
-          
+        <div className={styles.places_list}>
+          <CarouseleList data={PlacesData}/>
         </div>
-      }
+        
+      </div>
       
     </div>
     
