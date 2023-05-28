@@ -116,7 +116,7 @@ export default function AccountMenu() {
                         <div className={styles.body}>
                             <div>
                                 <img src={messages_logo} alt="" />
-                                <h1>Messages</h1>
+                                <h1>Messages <span>{`(${2})`}</span></h1>
                             </div>
                         </div>
                     </MenuItem>
@@ -125,7 +125,7 @@ export default function AccountMenu() {
                         <div className={styles.body}>
                             <div>
                                 <img src={notification_logo} alt="" />
-                                <h1>Notifications</h1>
+                                <h1>Notifications <span>{`(${6})`}</span></h1>
                             </div>
                         </div>
                     </MenuItem>

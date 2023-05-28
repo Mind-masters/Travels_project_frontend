@@ -2,6 +2,10 @@
 	height: 100%;
 }
 
+.container *{
+    z-index: 0;
+}
+
 .map_icon{
 	height: 80%;
     animation-name: bounce;

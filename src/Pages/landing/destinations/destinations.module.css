@@ -25,7 +25,7 @@
 
 .places_list{
   flex: 1;
-
+  max-height: 33rem;
 }
 
 @media screen and (max-width: 850px) {
