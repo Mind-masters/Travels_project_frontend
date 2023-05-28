@@ -1,6 +1,6 @@
    .dropDownContainer{
       background-color: white;
-      width: 15rem;
+      width: 16rem;
    }
 
    .logo{
@@ -29,6 +29,12 @@
       justify-content: space-between;
       width: 100%;
       font-size: 20px;
+   }
+
+   .body span{
+      font-weight: 800;
+      margin-left: 10px;
+      color: #ee7d15;
    }
 
    .body div{
@@ -70,13 +76,13 @@
    @media (max-width: 900px) {
 
       .dropDownContainer{
-         width: 13rem;
+         width: 15rem;
       }
    }
    
    @media(max-width: 500px){
       .body{
 
-         font-size: 1rem;
+         font-size: 18px;
       }
    }

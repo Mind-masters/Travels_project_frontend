@@ -52,7 +52,7 @@ const NavHeader = props => {
   >
     <div className={styles.mobile_navigation}>
       <MobileNavButton onClick={props.onMobile}/>
-      <div className={`${styles.header_text} ${styles.none}`}>
+      <div className={`${styles.header_text}`}>
         <h1><span>Trip</span>Whoop<span>!</span></h1>
       </div>
     </div>

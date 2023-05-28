@@ -51,13 +51,13 @@ const UserPanel = ({user, place}) => {
             <div className={styles.expanded_content}>
               {
                 Auth && Auth.data && Auth.data.id === place.user_id._id ?
-                <h1 onClick={onDeletePlaceHandler} style={{ color: "red" }}>Delete</h1>
+                <h1 onClick={onDeletePlaceHandler} style={{ color: "#f63939" }}>Delete</h1>
                 :
-                <h1 onClick={onReportPlaceHandler} style={{ color: "red" }}>Report</h1>
+                <h1 onClick={onReportPlaceHandler} style={{ color: "#f63939" }}>Report</h1>
               }
               <h1 onClick={onViewOnMapHandler}>View on map</h1>
               <h1 onClick={onUserProfileHandler}>About this account</h1>
-              <h1 onClick={()=>setExpandedOptions(false)} style={{ backgroundColor: "red", color: "white", margin: "0" }}>Cancel</h1>
+              <h1 onClick={()=>setExpandedOptions(false)} style={{ backgroundColor: "#f63939", color: "white", margin: "0" }}>Cancel</h1>
             </div>
 
           </div>
