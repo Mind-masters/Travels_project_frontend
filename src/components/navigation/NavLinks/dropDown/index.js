@@ -39,6 +39,11 @@ export default function AccountMenu() {
         navigate("/");
     }
 
+    const getPointHandler = () => {
+        navigate("/benefits");
+    }
+
+
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent:"right", alignItems: 'center', textAlign: 'center' }}>
@@ -105,7 +110,7 @@ export default function AccountMenu() {
                                 <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
                             </div>
 
-                            <div>
+                            <div onClick={getPointHandler}>
                                 {/* <img src={coints_logo} alt="" /> */}
                                 <h1>Get more points</h1>
                             </div>
