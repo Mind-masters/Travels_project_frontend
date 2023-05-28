@@ -6,6 +6,7 @@ import PrivateRouter from "./privateRouter";
 import Profile from "../Pages/profile";
 import MyPlaces from "../Pages/myPlaces";
 import Social from "../Pages/social";
+import Benefits from "../Pages/benefits/Benefits";
 
 const Routing = () => {
   return (
@@ -27,6 +28,7 @@ const Routing = () => {
         <Route path="/my-places" element={<MyPlaces />} />
 
         <Route path="/social" element={<Social />} />
+        <Route path="/benefits" element={<Benefits/>}/>
 
       </Routes>
     </Suspense>
