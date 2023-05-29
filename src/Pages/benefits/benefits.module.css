@@ -18,14 +18,23 @@
     display: grid;
   }
   .section_heading{
-   
+   margin: auto ;
     color: #0f0e0e;
+    align-items: center;
+    align-self: center;
   }
   .section_heading h2{
     margin: 24px;
     text-align: center;
     font-size: 33px;
   }
+  /* .section_heading p{
+    text-align: center;
+    display: flex;
+    width: 60%;
+    align-items: center;
+    align-content: center;
+  } */
   .row {
     display: flex;
     flex-wrap: wrap;
@@ -59,6 +68,11 @@
     font-size: 15px;
     line-height: 1.6;
     letter-spacing: 0.03em;
+  }
+  .description{
+    color: #575a7b;
+    font-size: 15px;
+    line-height: 1.4;
   }
   .icon_wrapper {
     background-color:  #F08D32;
@@ -105,9 +119,13 @@
       flex: 0 0 33.33%;
       max-width: 33.33%;
     }
+    
   }
   @media screen and (max-width: 700px) {
     .column{
         margin: auto;
+    }
+    .point_description{
+      padding: 15px;
     }
   }
