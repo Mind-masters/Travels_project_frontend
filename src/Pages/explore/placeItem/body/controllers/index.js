@@ -1,8 +1,7 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import Like from '../../../../../components/shared/UI/Ratings/like';
 import styles from "./controllers.module.css";
 import Ripple from '../../../../../components/shared/UI/ripple';
-import ViewOnMap from "../../../../../components/shared/UI/viewOnMap";
 import AuthRequired from '../../../../../components/shared/layouts/AuthRequired';
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
 
@@ -11,11 +10,10 @@ const Controllers = (props) => {
   const Auth = useContext(AuthContext);
 
   const item = props.item;
-  const [showMap, setShowMap] = useState(false);
 
   const showOnMapHandler = () => {
     if(!Auth.authenticatedUser)return
-    setShowMap(true)
+    return props.onShowMap && props.onShowMap(true)
   }
 
   return (
@@ -40,8 +38,6 @@ const Controllers = (props) => {
           </button>
         </AuthRequired>
       </div>
-
-      {showMap && <ViewOnMap location={props.item && props.item.location} onClose={()=>{setShowMap(false)}}/> }
 
     </div>
   )

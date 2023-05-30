@@ -18,8 +18,9 @@ const NewUser = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(!Auth.authenticatedUser){
-            notify("Session expired", "error");
+        if(!Auth.registrationData){
+            notify("You do not have permission for this", "error");
+            Auth.logout();
             return navigate("/");
         }
     })
@@ -81,7 +82,7 @@ const NewUser = () => {
                     booking_opportunities
                 }
             },
-            Auth.authenticatedUser.token.access_token
+            Auth.registrationData.token.access_token
         )
 
         const submit_interests_data = await UpdateInterests(
@@ -89,7 +90,7 @@ const NewUser = () => {
                 interests: 
                 selectedInterestsData
             },
-            Auth.authenticatedUser.token.access_token
+            Auth.registrationData.token.access_token
         )
 
         const submit_update_data = await Update(
@@ -98,7 +99,7 @@ const NewUser = () => {
                 avatar: selectedAvatarData,
                 gender:lastmodal.gender,
             },
-            Auth.authenticatedUser.token.access_token
+            Auth.registrationData.token.access_token
         )
 
         if(!submit_update_data.status || !submit_settings_data.status || !submit_interests_data.status){
@@ -110,7 +111,7 @@ const NewUser = () => {
 
         
         else if(submit_settings_data.status && submit_update_data.status && submit_interests_data.status){
-            const user = {data: submit_update_data.data,token: Auth.authenticatedUser.token};
+            const user = {data: submit_update_data.data,token: Auth.registrationData.token};
             notify(submit_update_data.message, "success");
             Auth.update(user);
             navigate("/")

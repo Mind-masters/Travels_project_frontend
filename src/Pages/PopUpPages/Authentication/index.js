@@ -63,7 +63,10 @@ const Authentication = (props) => {
             throw new Error(responseData.message)
             }
     
-            User.login(responseData);
+            
+            if(isLoginMode)User.login(responseData);
+            if(!isLoginMode)User.signup(responseData);
+            
             setIsLoading(false);
             
             if(props.onClose)props.onClose();
