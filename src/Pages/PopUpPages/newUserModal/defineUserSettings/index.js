@@ -46,8 +46,8 @@ const DefineUserSettings = (props) => {
     closeModalHandler();
     if(!status)console.log("err");
     setCountryValue({
-      flag: country.flags.png,
-      name: country.name.common
+      flag: country.flag,
+      name: country.name
     })
   }
 

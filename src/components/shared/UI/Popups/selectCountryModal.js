@@ -15,15 +15,18 @@ const SelectCountryModal = (props) => {
     const fetchCountriesData = async() => {
 
       try {
-        const reqData = await fetch("https://restcountries.com/v3.1/all");
-
+        //https://restcountries.com/v3.1/all
+        const reqData = await fetch("https://countriesnow.space/api/v0.1/countries/flag/images");
+        
         if(!reqData.ok)throw new Error("failed to fetch countries");
 
         const rspJson = await reqData.json();
+        
+        if(rspJson.error || !rspJson.data)return;
 
         setIsLoading(false);
 
-        setData(rspJson);
+        setData(rspJson.data.reverse());
 
   
       } catch (error) {
@@ -41,15 +44,19 @@ const SelectCountryModal = (props) => {
   const countriesList = data ? data
     .filter((country) => {
       if (searchTerm === '') return country
-      else if (country.name.common.toLowerCase().includes(searchTerm.toLowerCase()))
+      else if (country.name.toLowerCase().includes(searchTerm.toLowerCase()))
         return country
     })
-    .map((country) => (
-      <div key={country.name.common} onClick={countryClickHandler.bind(null,country)} className={`${styles.countries_container} ${showContriesNames ? styles.countries_container_extra_space : styles.countries_container_collapsed}`}>
-        <img src={country.flags.png} alt="flag"/>
-        {showContriesNames && <h1>{country.name.common}</h1>}
-      </div>
-    ))
+    .map((country) => 
+    {
+      return (
+        <div key={country.name} onClick={countryClickHandler.bind(null,country)} className={`${styles.countries_container} ${showContriesNames ? styles.countries_container_extra_space : styles.countries_container_collapsed}`}>
+          <img src={country.flag} alt=''/>
+          {true && <h1>{country.name.slice(0,5)}..</h1>}
+        </div>
+      )
+    }
+    )
     : []
 
   
@@ -67,7 +74,7 @@ const SelectCountryModal = (props) => {
           <div className={styles.top_menu_container}>
 
             <div className={styles.search_container}>
-              <input placeholder='Search by keywords' onChange={(event) => setSearchTerm(event.target.value)} />
+              <input placeholder='Search by country name' onChange={(event) => setSearchTerm(event.target.value)} />
             </div>
             
           </div>

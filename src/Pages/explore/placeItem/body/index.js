@@ -3,29 +3,30 @@ import UserPanel from "../userPanel";
 import Controllers from "./controllers";
 import Comments from "./comments";
 
-const Body = ({item}) => {
+const Body = (props) => {
 
 
   return (
     <div className={styles.container}>
 
       <div className={styles.big_screen}>
-        <UserPanel user={item.user_id} place={item} />
+        <UserPanel user={props.item.user_id} place={props.item} onFilter={props.onFilter} onShowMap={props.onShowMap}/>
       </div>
 
       <div className={styles.body}>
 
         <div className={styles.body_description}>
           <p>
-            {item.description}
+            {props.item.description}
           </p>
         </div>
 
         <Controllers
-          item={item}
+          item={props.item}
+          onShowMap={props.onShowMap}
         />
 
-        <Comments item={item} />
+        <Comments item={props.item} />
       
       </div>
 

@@ -9,7 +9,7 @@ export const PlacesData = [
     {
         image: "https://i.pinimg.com/564x/13/9a/82/139a82ffb736c59d77154ffcf229fed1.jpg",
         type: "Hills",
-        location: {lat: "9.829735271774409", lng: "124.13967191952347"}
+        location: {lat: "54.699310", lng: "25.280455"}
     },
  
     {

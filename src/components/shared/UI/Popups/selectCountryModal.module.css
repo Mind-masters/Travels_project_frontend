@@ -55,13 +55,14 @@
 
 .countries_container img{
     width: 3rem;
-    border-radius: 30px;
+    border-radius: 11px;
     align-self: center;
 }
 
 .countries_container{
     margin: 1rem;
     cursor: pointer;
+    color: rgb(125, 124, 124);
 }
 
 @media (max-width: 600px) {

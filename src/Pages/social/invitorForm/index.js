@@ -23,8 +23,8 @@ const InvitorForm = (props) => {
   const [openCountryModal, setOpenCountryModal] = useState(false);
   const onDestinationChangeHandler = (value) => {
     setDestinationValue({
-      flag: value.flag.png,
-      name: value.name.common
+      flag: value.flag,
+      name: value.name
     })
 
     setOpenCountryModal(false)

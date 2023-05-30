@@ -15,6 +15,7 @@ const AuthRequired = (props) => {
 
     const clickHandler = () => {
 
+
         if(Auth.authenticatedUser){
             setSecuredContent(false);
             return props.onClick ? props.onClick() : null

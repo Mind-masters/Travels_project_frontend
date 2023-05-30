@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className={styles.title_container}>
         <h1>
-            Choose your Destination
+        Your journey starts here
         </h1>
         <div className={styles.discover_all}>
             <p onClick={() => {navigate("/explore")}}>Discover All</p>

@@ -61,8 +61,8 @@ const CreateTrip = (props) => {
 
   const onSubmitDescription = (value) => setDescriptionValue(value);
   const onSubmitCountryModal = (results) => {  setCountryValue({
-    flag: results.flags.png,
-    name: results.name.common
+    flag: results.flag,
+    name: results.name
   }); onModalHide()}
   const onSubmitLocationModal = (results) => {setLocationValue(results); onModalHide()}
   const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
@@ -80,8 +80,13 @@ const CreateTrip = (props) => {
     if(!imageValue){setImageInputError(true);return}
 
     if(!token)return
-    setIsLoading(true);
 
+    const {lat, lng} = locationValue;
+    if(!lat || !lng){
+      return notify("Please contact support team", "warning");
+    }
+    setIsLoading(true);
+  
 
     const create_new_place = await Create(
       {

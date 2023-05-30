@@ -71,6 +71,7 @@
     padding: 13px;
     margin-bottom: 1rem;
     letter-spacing: 1px;
+    cursor: pointer;
 }
 
 @media (max-width: 1050px) {
@@ -118,5 +119,20 @@
     
     .user_content p{
         font-size: 10px;
+    }
+
+}
+
+@media (max-width: 300px) {
+
+    .expanded_container{
+        width: 90vw;
+    }
+}
+
+@media (max-width: 270px) {
+
+    .expanded_content h1{
+        font-size: 15px;
     }
 }
