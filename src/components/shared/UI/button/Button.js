@@ -11,6 +11,7 @@ const Button = (props) => {
         onClick={props.onSubmit} 
         style={{ backgroundColor:props.color, height: props.height}} 
         className={styles.btn}
+        type="submit"
       >
         {props.children}
       </button>

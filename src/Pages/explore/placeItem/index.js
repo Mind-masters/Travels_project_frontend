@@ -5,14 +5,21 @@ import Body from "./body";
 import UserPanel from './userPanel';
 import hiddenIcon from "../../../assets/explore/hiden.png";
 import vissibleIcon from "../../../assets/explore/visible.png";
+import ViewOnMap from '../../../components/shared/UI/viewOnMap';
 
 
 const PlaceItem = (props) => {
 
   const [showMobDescription, setShowMobDescription] = useState(false);
+  const [showMap, setShowMap] = useState(false);
 
   const clickOnEyeHandler = () => {
     setShowMobDescription(!showMobDescription);
+  }
+
+  const onShowMapHandler = () => {
+    console.log("labutis. map will appear now")
+    setShowMap(true)
   }
 
   if(!props.item.user_id)return
@@ -21,7 +28,7 @@ const PlaceItem = (props) => {
     <div className={`${styles.container} ${"box effect2"}`}>
 
       <div className={styles.mobile_user_panel}>
-        <UserPanel user={props.item.user_id} place={props.item} />
+        <UserPanel user={props.item.user_id} place={props.item} onFilter={props.onFilter} onShowMap={onShowMapHandler} />
       </div>
 
       <div className={styles.image_container}>
@@ -35,8 +42,11 @@ const PlaceItem = (props) => {
       </div>
 
       <div className={styles.body_container}>
-        <Body item={props.item} />
+        <Body item={props.item} onFilter={props.onFilter} onShowMap={onShowMapHandler}/>
       </div>
+
+      {showMap && <ViewOnMap location={props.item && props.item.location} onClose={()=>{setShowMap(false)}}/> }
+
     </div>
   )
 }

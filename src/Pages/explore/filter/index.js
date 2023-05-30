@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styles from "./filter.module.css";
 import Button from '../../../components/shared/UI/button/Button';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // logos
 import globe_logo from "../../../assets/explore/filter/globe.png";
 import popularity_logo from "../../../assets/explore/filter/popularity.png";
@@ -34,7 +34,7 @@ const Filter = (props) => {
 
   const submitCountryHandler = (value) => {
     closeAllModals();
-    setCountryValue(value.name.common);
+    setCountryValue(value.name);
     return
   }
 

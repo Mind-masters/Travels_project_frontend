@@ -17,7 +17,6 @@
 }
 
 .messageBox{
-    border: 2px solid red;
     width: 20%;
     background-color: rgba(255, 255, 255, 0.281);
     height: 50vh;
@@ -35,17 +34,29 @@
     display: flex;
     justify-content: right;
     align-items: center;
-    padding-right: 10%;
 }
 
-.controllers_zoom{
+.controllers_insider{
+    display: flex;
+    justify-content: space-around;
+    width: 18rem;
+    padding-right: 1rem;
+}
+
+.btn_text{
+    color: white;
+}
+
+.get_coordinates{
     position: fixed;
     bottom: 3rem;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap; 
+
 }
+
 
 .btn_content {
     display: flex;
@@ -57,8 +68,6 @@
     margin-left: 1rem;
 }
 
-
-
 .footer{
     position: fixed;
     bottom: 0;
@@ -68,3 +77,41 @@
     background-color: rgb(0, 0, 0);
 }
 
+.loading__{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading__icon{
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    text-align: center;
+}
+
+
+@media (max-width: 350px) {
+    .controllers_insider{
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media (max-width: 280px) {
+    .controllers_insider{
+        width: 100%;
+        padding: 0;
+    }
+
+    .btn_text{
+        font-size: 10px;
+    }
+}

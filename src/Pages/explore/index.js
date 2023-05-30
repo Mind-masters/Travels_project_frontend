@@ -20,9 +20,9 @@ const Explore = (props) => {
   }
 
   const onFilterByCountry = (value) => {
-    console.log("heyyyd: ", value)
 
     if(value)setFilterByCountry(value);
+    return
   }
 
   const [isLoading, setIsLoading] = useState(false);
@@ -47,9 +47,11 @@ const Explore = (props) => {
 
         if(filterByType) return place.type === filterByType
 
+        else return place
+
       });
 
-      setData(filteredPlaces.length > 0 ? filteredPlaces : placesData.data);
+      setData(filteredPlaces);
     }
 
 

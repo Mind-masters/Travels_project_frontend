@@ -11,6 +11,7 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [authenticatedUser, setAuthenticatedUser] = useState();
+  const [registrationData, setRegistrationData] = useState();
 
   const login = useCallback((user) => {
     if(!user.status === "success"){
@@ -21,6 +22,16 @@ function App() {
 
     setIsLoggedIn(true)
     setAuthenticatedUser({data: response, token: token})
+  }, [])
+
+  const signup = useCallback((user) => {
+    if(!user.status === "success"){
+      setIsLoggedIn(false);
+      return;
+    }
+    const {response, token} = user.data;
+
+    setRegistrationData({data: response, token: token})
   }, [])
 
   const update = useCallback(user => {
@@ -42,7 +53,7 @@ function App() {
 
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, login, logout, update }}>
+    <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, registrationData, login, signup, logout, update }}>
       <MainNavigation />
       <Routing />
       <Footer />

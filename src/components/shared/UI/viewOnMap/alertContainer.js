@@ -3,7 +3,7 @@ import styles from "./alertContainer.module.css"
 import Button from '../button/Button';
 import alert_logo from "../../../../assets/map_alert_logo.png";
 import { useState } from 'react';
-import MapContent from './mapContent';
+
 
 const AlertContainer = (props) => {
 
@@ -17,7 +17,7 @@ const AlertContainer = (props) => {
   return (
     <div className={styles.alert}>
         {
-            !isSubmited ?
+            !isSubmited &&
             <>
                 <div className={styles.alert_header}>
                     <h1>Approved</h1>
@@ -46,11 +46,7 @@ const AlertContainer = (props) => {
                 </div>
             </>
             
-            :
 
-            <>
-                <MapContent />
-            </>
         }
 
 

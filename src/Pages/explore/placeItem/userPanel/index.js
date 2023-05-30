@@ -4,23 +4,53 @@ import more_icon from "../../../../assets/explore/more_icon.png";
 import Modal from '../../../../components/shared/UI/Modal';
 import { useContext } from 'react';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
+import { deletePlaceById } from '../../../../components/utils/places/delete';
+import { notify } from "../../../../components/shared/UI/toast";
+import { reportPlaceById } from '../../../../components/utils/places/report';
 
 
-const UserPanel = ({user, place}) => {
+const UserPanel = ({user, place, onFilter, onShowMap}) => {
 
   const [expandedOptions, setExpandedOptions] = useState(false);
   const Auth = useContext(AuthContext).authenticatedUser;
 
-  const onDeletePlaceHandler = () => {
-    console.log("on delete place")
+  const onDeletePlaceHandler = async() => {
+    if(!Auth)return
+
+    setExpandedOptions(false);
+    
+    try {
+      const deletePlaceReq = await deletePlaceById(place._id, Auth.token.access_token);
+      if(!deletePlaceReq.status) throw new Error(deletePlaceReq.message);
+      notify("Place deleted", "success")
+      return onFilter ? onFilter(place._id) : null;
+
+    } catch (error) {
+      return notify(error.message || "Cannot delete place", "error");
+    }
   }
 
-  const onReportPlaceHandler = () => {
-    console.log("on report place")
+  const onReportPlaceHandler = async() => {
+
+    if(!Auth)return notify("Only available for TripWhoop members", "warning")
+
+    setExpandedOptions(false);
+
+    try {
+      const reportPlaceReq = await reportPlaceById(place._id, Auth.token.access_token);
+      if(!reportPlaceReq.status)throw new Error("");
+      else return notify("Thanks! Now this place is under review", "success")
+
+    } catch (error) {
+
+      return notify(error.message || "Cannot report place", "error");
+    }
   }
 
   const onViewOnMapHandler = () => {
-    console.log("View on map")
+    if(!Auth)return notify("Only available for TripWhoop members", "warning");
+    setExpandedOptions(false);
+    return onShowMap && onShowMap();
   }
 
   const onUserProfileHandler = () => {
