@@ -87,6 +87,9 @@
     place-items: center;
     transition: 0.5s;
   }
+  .point_details{
+    margin: 20px;
+  }
   .card:hover {
     background-position: 0 100%;
   }

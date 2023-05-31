@@ -52,7 +52,7 @@ const Benefits = () => {
             </p>
           </div>
         </div>
-
+      <div className={styles.point_details}>
         <p className={styles.point_description}>
           We are thrilled to introduce an exciting feature that rewards your engagement and creativity
            on our website. Starting today, you have the opportunity to earn points in multiple ways, unlocking
@@ -69,7 +69,8 @@ const Benefits = () => {
                 d)Free Month Membership for 400+ Likes: We have something special in store for our most influential users. If the place you shared receives an outstanding 400 likes or more, you will not only earn points but also enjoy a complimentary month of our premium membership plan. Unlock exclusive features and premium benefits, making your experience even more extraordinary.</p><br/>
               <p className={styles.point_description}>Referrals: Sharing your positive experience with friends and family can be highly rewarding. When you refer someone to join our community, both you and the referred user will earn points. Spread the word, invite others to experience our platform, and watch your points grow as your network expands.</p><br/>
               <p className={styles.point_description}>Booking: We believe in rewarding your loyalty and trust in our platform. For every booking you make through our website, you will earn points. The more you explore and discover new places with us, the more points you will accumulate, bringing you closer to exciting rewards.
-</p>
+            </p>
+            </div>
       </div>
     </section>
     </div>
