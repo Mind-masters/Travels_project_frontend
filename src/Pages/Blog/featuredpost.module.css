@@ -1,0 +1,106 @@
+/* Basic design of blog card */
+.write_post{
+ text-align: center;
+  background-color: #eccebe;
+  width: 50px;
+}
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* Blog post design starts from here */
+.card {
+  overflow: hidden;
+  box-shadow: 0px 2px 20px #d7dfe2; /* Card outline shadow */
+  background: white; /* post background color */
+  border-radius: 0.5rem;
+  position: relative;
+  width: 350px; /* post card width */
+  margin: 1rem;
+  transition: 250ms all ease-in-out;
+  cursor: pointer;
+}
+.card:hover {  /* blog post hover */
+  transform: scale(1.05);
+  box-shadow: 0px 2px 40px #d7dfe2;
+}
+/*Design banner image*/
+.banner_img {
+  position: absolute;
+  object-fit: cover;
+  height: 14rem; /* image height */
+  width: 100%;
+}
+/* Design catagory text */
+.category_tag {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white; /* text color */
+  background: red;  /* text background color */
+  padding: 0.5rem 1.3rem 0.5rem 1rem;
+  text-transform: uppercase;
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  border-radius: 0 2rem 2rem 0;
+  background: #e85808;
+}
+/* 1st catagory text background color */
+.popular {
+  background: #ef257a;
+}
+/* 2st catagory text background color */
+.technology {
+  background: #651fff;
+}
+/* 3st catagory text background color */
+.psychology {
+  background: #e85808;
+}
+/* Design of # tags, heading, description starts from here */
+.card_body {
+  margin: 15rem 1rem 1rem 1rem;
+}
+/* #tags design */
+.blog_hashtag {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4d97b2;
+}
+/* heading design */
+.blog_title {
+  line-height: 1.5rem;
+  margin: 1rem 0 0.5rem;
+  font-size: 23px;
+}
+/* description design */
+.blog_description {
+  color: #616b74;
+  font-size: 0.9rem;
+}
+/*Design of profile image, name, followers starts from here*/
+.card_profile {
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+}
+/* Profile image */
+.profile_img {
+  width: 60px; /* image width */
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.card_profile_info {
+  margin-left: 1rem;
+}
+/* profile name */
+.profile_name {
+  font-size: 1rem;
+}
+/*Profile followers */
+.profile_followers {
+  color: #616b74;
+  font-size: 0.9rem;
+}
