@@ -5,7 +5,7 @@ import React, {useState} from 'react'
 import InvitingDetails from "./details";
 import Authentication from "../../PopUpPages/Authentication/index";
 import Modal from "../../../components/shared/UI/Modal";
-import InsideBounce from '../../../components/shared/UI/LoadingSpinner/InsideBounce';
+
 
 const InvitorItem = (props) => {
 

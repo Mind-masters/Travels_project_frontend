@@ -36,7 +36,12 @@ const InvitingDetails = (props) => {
     if(isCreator){
       try {
         const deleteInviting = await deleteInviteById(props.invite._id, Auth.authenticatedUser.token.access_token);
-        if(!deleteInviting.status)return alert(deleteInviting.message);
+        if(!deleteInviting.status){
+
+          if(deleteInviting.message === "Unauthorized")Auth.logout();
+          props.onClose();
+          return alert(deleteInviting.message);
+        }
       } catch (error) {
         alert(error)
       }

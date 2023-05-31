@@ -1,40 +1,24 @@
 import React, {useState, useEffect}from 'react';
-import styles from './profile_component.module.css';
-import { BiCoinStack } from 'react-icons/bi';
-import { BsPencil } from 'react-icons/bs';
+import styles from './profileContent.module.css';
+import MainHeader from "../../components/shared/UI/pagesHeaders/index";
 
-import ProfileImage from '../../../assets/profile/profile.png';
-
+import UserPanel from './userPanel';
 
 
-const ProfileComponet = () => {
 
+const ProfileComponet = (props) => {
 
+  console.log("user: ",props.Auth )
+
+  if(!props.Auth)return
 
   return (
     <div className={styles.main_container}>
         
-      <h1 className={styles.profileBox}>Profile</h1>
+      <MainHeader header="Profile"/>
         
-      <div className={styles.container} >
-        
-        <img src={ProfileImage} alt='Profile'/>
-        <div className={styles.profile_name_email}>
-          <h2>William Jones</h2>
-          <p>jones23@gmail.com</p>
-        </div>
-        
-        <div className={styles.points}>
-          <span className={styles.coin}> <BiCoinStack/></span>
-          <h3>Active Points </h3>
-          <h3>30</h3>
-        </div>
-
-        <div className={styles.edit_profile}>
-          <span ><BsPencil/></span>
-        </div>   
-      </div>
-
+      <UserPanel user={props.Auth.data} />
+           
       <div className={styles.about_section}>
         <h1>About</h1>
         <p>Lorem ipsum dolor sit amet consectetur. Iaculis purus proin a blandit arcu condimentum. Risus varius in diam risus sed nullam penatibus tempus sed. Sit a elementum ut p

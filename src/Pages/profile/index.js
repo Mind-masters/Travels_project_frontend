@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react';
-import { useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Card from '../../components/shared/UI/Card';
 import {AuthContext} from "../../contextAPI/AuthContext";
 import LoadingSpinner from "../../components/shared/UI/LoadingSpinner";
-import ProfilePage from './profilePage';
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../components/shared/UI/toast";
 import { fetchUserPlaces } from '../../components/utils/places/fetchPlaces';
-import ProfileComponet from './new-profile/Profile_Component';
+import ProfileComponet from './profileContent';
+import { useParams } from 'react-router-dom';
 
 
 const Profile = () => {
@@ -45,7 +43,7 @@ const Profile = () => {
         {
             (authPlaces && ! isLoading)  ?
             <Card>
-                <ProfileComponet />
+                <ProfileComponet Auth={Auth.authenticatedUser}/>
             </Card>
             :
             <LoadingSpinner />

@@ -99,19 +99,17 @@ export default function AccountMenu() {
                 <div className={styles.dropDownContainer}>
                     <MenuItem>
                         <div className={styles.profile_link}>
-                            <NavLink to={"/profile"}>Visit your profile</NavLink>
+                            <NavLink to={`/profile/${UserData.id}`}>Visit your profile</NavLink>
                         </div>
                     </MenuItem>
 
                     <MenuItem>
-                        <div className={styles.body}>
+                        <div className={styles.body} onClick={getPointHandler}>
                             <div>
-                                {/* <img src={star_logo} alt="" /> */}
                                 <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
                             </div>
 
-                            <div onClick={getPointHandler}>
-                                {/* <img src={coints_logo} alt="" /> */}
+                            <div>
                                 <h1>Get more points</h1>
                             </div>
                         </div>
