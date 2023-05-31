@@ -7,6 +7,7 @@ import Profile from "../Pages/profile";
 import MyPlaces from "../Pages/myPlaces";
 import Social from "../Pages/social";
 import Benefits from "../Pages/benefits/Benefits";
+import Blog from "../Pages/Blog";
 
 const Routing = () => {
   return (
@@ -29,6 +30,7 @@ const Routing = () => {
 
         <Route path="/social" element={<Social />} />
         <Route path="/benefits" element={<Benefits/>}/>
+        <Route path="/blog" element={<Blog/>}/>
 
       </Routes>
     </Suspense>
