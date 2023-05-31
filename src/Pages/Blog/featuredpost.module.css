@@ -1,4 +1,9 @@
 /* Basic design of blog card */
+.write_post{
+ text-align: center;
+  background-color: #eccebe;
+  width: 50px;
+}
 .wrapper {
   display: flex;
   flex-wrap: wrap;
