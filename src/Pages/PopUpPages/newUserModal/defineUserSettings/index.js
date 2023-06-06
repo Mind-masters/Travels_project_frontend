@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from '../../../../components/shared/UI/Modal';
 import SelectCountryModal from '../../../../components/shared/UI/Popups/selectCountryModal';
 import SelectGenderModal from './selectGenderModal';
@@ -68,20 +68,32 @@ const DefineUserSettings = (props) => {
     
   }
 
-  const onCompleteHandler = () => {
-    if(genderValue && countryValue)return props.onSubmit(
-      {
-        gender: genderValue, 
-        country: countryValue, 
-        settings: {
-          looking_followed_travelers: fellowValue, 
-          home_stay_programs: homeStayValue, 
-          booking_opportunities: true
+  useEffect(()=>{
+
+    const onCompleteHandler = () => {
+      if(genderValue && countryValue)return props.onSubmit(
+        {
+          gender: genderValue, 
+          country: countryValue, 
+          settings: {
+            looking_followed_travelers: fellowValue, 
+            home_stay_programs: homeStayValue, 
+            booking_opportunities: true
+          }
         }
-      }
-    )
-    return
-  }
+      )
+      return
+    }
+
+    if(isFinished){
+      setTimeout(() => {
+        onCompleteHandler();
+      }, 1000);
+
+    }
+
+  }, [isFinished]);
+
 
 
 
@@ -143,7 +155,7 @@ const DefineUserSettings = (props) => {
 
       { isFinished &&
         <div className={styles.congrats}>
-          {true && <ConfettiExplosion onComplete={onCompleteHandler} zIndex={3} />}
+          {true && <ConfettiExplosion zIndex={3} />}
         </div>
       }
     </div>

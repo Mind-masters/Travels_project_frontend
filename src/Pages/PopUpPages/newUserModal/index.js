@@ -113,6 +113,7 @@ const NewUser = () => {
         else if(submit_settings_data.status && submit_update_data.status && submit_interests_data.status){
             const user = {data: submit_update_data.data,token: Auth.registrationData.token};
             notify(submit_update_data.message, "success");
+            console.log("created user: ", user)
             Auth.update(user);
             navigate("/")
         }

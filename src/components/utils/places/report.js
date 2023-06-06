@@ -5,6 +5,9 @@ export const reportPlaceById = async(pid, token) => {
     if(!pid || !token)return {message: "Something is missing"};
 
     const url = `https://mind-master-backend-production.up.railway.app/api/v1/user/places/report/${pid}`;
+    // const url = `http://localhost:5000/api/v1/user/places/report/${pid}`;
+
+
     const method = "POST";
     const body = {};
 

@@ -7,8 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import Footer from './components/shared/UI/Footer/Footer';
 
 function App() {
-
-
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [authenticatedUser, setAuthenticatedUser] = useState();
   const [registrationData, setRegistrationData] = useState();
@@ -49,7 +48,6 @@ function App() {
     setAuthenticatedUser(null);
     setIsLoggedIn(false)
   }, [])
-
 
 
   return (

@@ -10,15 +10,16 @@ import { useNavigate, NavLink } from 'react-router-dom';
 
 // logos
 import user_logo from "../../../../assets/dropDown/user_logo.png"
-import coints_logo from "../../../../assets/dropDown/coints_logo.png"
 import messages_logo from "../../../../assets/dropDown/messages.png"
 import notification_logo from "../../../../assets/dropDown/notifications.png"
 
-import star_logo from "../../../../assets/dropDown/kazkas.png"
+import Notifications from '../../../../Pages/PopUpPages/Notifications';
 
-export default function AccountMenu() {
+
+export default function AccountMenu(props) {
 
     const [anchorEl, setAnchorEl] = useState(null);
+    const [showNavModal, setShowNavModal] = useState(false);
     const open = Boolean(anchorEl);
 
     const handleClick = (event) => {
@@ -34,6 +35,8 @@ export default function AccountMenu() {
     const ActiveUser = User.authenticatedUser || null;
     const UserData = ActiveUser ? ActiveUser.data : null;
 
+
+
     const logoutHandler = () => {
         User.logout();
         navigate("/");
@@ -41,6 +44,11 @@ export default function AccountMenu() {
 
     const getPointHandler = () => {
         navigate("/benefits");
+    }
+
+    const onNavigationsShowHandler = () => {
+        handleClose();
+        return setShowNavModal(true);
     }
 
 
@@ -60,6 +68,12 @@ export default function AccountMenu() {
                 </IconButton>
                 </Tooltip>
             </Box>
+
+            <Notifications
+                show={showNavModal}
+                onClose={()=>setShowNavModal(false)}
+                notifications={props.notifications}
+            />
 
             <Menu
                 anchorEl={anchorEl}
@@ -124,11 +138,11 @@ export default function AccountMenu() {
                         </div>
                     </MenuItem>
 
-                    <MenuItem>
+                    <MenuItem onClick={onNavigationsShowHandler}>
                         <div className={styles.body}>
                             <div>
                                 <img src={notification_logo} alt="" />
-                                <h1>Notifications <span>{`(${6})`}</span></h1>
+                                <h1>Notifications <span>{`(${props.notifications && props.notifications.length})`}</span></h1>
                             </div>
                         </div>
                     </MenuItem>
