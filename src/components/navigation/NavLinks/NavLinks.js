@@ -5,7 +5,7 @@ import styles from './NavLinks.module.css';
 import "./onFocusStyles.css"
 
 
-const NavLinks = () => {
+const NavLinks = (props) => {
 
   return <ul className={styles.nav_links_container}>
 
@@ -37,8 +37,8 @@ const NavLinks = () => {
     </li>
 
     <li className="onFocus">
-      <NavLink  to="/about-us" >
-        AboutUs
+      <NavLink  to="/blog" >
+        Blogs
         <hr />
       </NavLink>
     </li>

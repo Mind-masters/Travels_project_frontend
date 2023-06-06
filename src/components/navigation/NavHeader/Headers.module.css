@@ -6,13 +6,10 @@
   min-height: 10vh;
   display: flex;
   width: 100%;
-}
-
-
-.mainHeaderFixed{
   position: fixed;
   top: 0;
 }
+
 
 .header_text{
   margin-left: 2.5rem;

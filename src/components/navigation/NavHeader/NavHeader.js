@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import {useLocation} from "react-router-dom"
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import styles from "./Headers.module.css";
 import UserDropDown from '../NavLinks/dropDown';
@@ -8,12 +7,11 @@ import MobileNavButton from '../Mobile';
 import Button from '../../shared/UI/button/Button';
 import NavLinks from '../NavLinks/NavLinks';
 
-const NavHeader = props => {
+
+
+const NavHeader = (props) => {
 
   const User = useContext(AuthContext);
-    
-  const ActiveUser = User.authenticatedUser || null;
-  const UserData = ActiveUser ? ActiveUser.data : null
 
   const [authenticationIsOpen, setAuthenticationIsOpen] = useState(false);
 
@@ -24,32 +22,8 @@ const NavHeader = props => {
   const closeAuthenticationForm = () => {
       setAuthenticationIsOpen(false);
   };
-  const isModalOpen = useContext(AuthContext).isUserModalActive;
-  const [fixedNavBar, setFixedNavBar] = useState(false);
 
-  const changeFixedStatus = () => {
-    if(window.scrollY > 75){
-      setFixedNavBar(true)
-    }
-    else{
-      setFixedNavBar(false)
-    }
-
-  }
-
-  window.addEventListener("scroll", changeFixedStatus);
-
-
-  const location = useLocation();
-  const homePath = location.pathname === "/" || location.pathname === "/new-member";
-
-  return <div 
-    className= {`
-      ${styles.mainHeader} 
-      ${homePath && styles.custom_width}
-      ${fixedNavBar && !isModalOpen && styles.mainHeaderFixed}
-    `}
-  >
+  return <div className={styles.mainHeader}>
     <div className={styles.mobile_navigation}>
       <MobileNavButton onClick={props.onMobile}/>
       <div className={`${styles.header_text}`}>
@@ -75,7 +49,7 @@ const NavHeader = props => {
             <h1>Login</h1>
           </Button>
           :
-          <UserDropDown />
+          <UserDropDown notifications={props.notifications}  />
         }
       </div>
     </div>

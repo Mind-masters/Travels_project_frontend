@@ -18,10 +18,10 @@ const Like = (props) => {
     // Listen for 'like' and 'unlike' events from the server
     socket.on('place_like_unlike', (data) => {
 
-      if(data.place._id === props.item.id){
+      if(data.place._id === props.item._id){
 
         setLiked(data.place.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id))
-        setLikes(data.likes.length)
+        setLikes(data.place.likes.length)
       }
     });
 
