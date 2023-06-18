@@ -1,90 +1,102 @@
-import React from 'react'
-import { useState } from 'react';
-import styles from "./upload_image.module.css";
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-
-import "react-toastify/dist/ReactToastify.css";
-import { notify } from "../../../../components/shared/UI/toast";
+import React from "react";
+import photo_icon from "../../../../assets/photo_icon.png";
+import "./style.css"
 
 
-const UploadImage = (props) => {
+class ImageUpload extends React.Component {
 
-  const [customURLs, setCustomURLs] = useState([]);
+  state = {
+    mainState: "initial", // initial, search, gallery, uploaded
+    imageUploaded: 0,
+    selectedFile: null
+  };
 
-  const inputArr = [
-    {
-      type: "text",
-      id: 1,
-      value: ""
-    }
-  ];
+  handleUploadClick = event => {
+    var file = event.target.files[0];
+    const reader = new FileReader();
+    var url = reader.readAsDataURL(file);
+    console.log("pasirinktas failas: ", file);
+    console.log("isgrynintas url: ", url);
 
-  
+    reader.onloadend = function(e) {
+      this.setState({
+        selectedFile: [reader.result]
+      });
+    }.bind(this);
 
-  const [arr, setArr] = useState(inputArr);
-
-  const addInput = () => {
-    setArr(s => {
-      return [
-        ...s,
-        {
-          type: "text",
-          value: ""
-        }
-      ];
+    this.setState({
+      mainState: "uploaded",
+      selectedFile: event.target.files[0],
+      imageUploaded: 1
     });
   };
 
-  const onSubmitHandler = () => {
-    var validUrl = require('valid-url');
-  
-    if (validUrl.isUri(customURLs)){
-      props.onSubmit(customURLs)
-    } else {
-      notify("Invalid url", "error");
-    }
 
+  renderInitialState() {
+
+    return (
+      <React.Fragment>
+        <div>
+          <input
+            accept="image/*"
+            className="input"
+            id="contained-button-file"
+            multiple
+            type="file"
+            onChange={this.handleUploadClick}
+          />
+          <label htmlFor="contained-button-file">
+            {/* <img src={photo_icon} alt="" /> */}
+            <p className="add_photo">Add photo</p>
+          </label>
+        </div>
+      </React.Fragment>
+    );
   }
 
-  const handleChange = e => {
-    e.preventDefault();
+  
+  renderUploadedState() { // in use
 
-    // const index = e.target.id;
-    // setArr(s => {
-    //   const newArr = s.slice();
-    //   newArr[index].value = e.target.value;
+    return (
+      <React.Fragment>
+        <div onClick={this.imageResetHandler}>
+          <img
+            className={"media"}
+            src={this.state.selectedFile}
+            alt=""
+          />
+        </div>
+      </React.Fragment>
+    );
+  }
 
-    //   return newArr;
-    // });
-
-    setCustomURLs(e.target.value)
+  imageResetHandler = event => {
+    console.log("Click!");
+    this.setState({
+      mainState: "initial",
+      selectedFile: null,
+      imageUploaded: 0
+    });
   };
 
-  return (
-    <>
-      {/* <div className={styles.inputList}>
-        {arr.map((item, i) => {
-          return (
-            <TextField id={i} label="Enter url" value={item.value} onChange={handleChange} fullWidth variant="outlined" />
+  render() {
 
-          );
-        })}
-      </div>
-      <div className={styles.add_icon} onClick={addInput}>
-        <AddIcon />
-      </div> */}
-
-      <TextField label="Enter url..." className={styles.textArea} onChange={handleChange} fullWidth variant="outlined" />
-
-      <div className={styles.buttons}>
-        <Button className={styles.cancel} onClick={props.onClose} variant="contained" color="success">Cancel</Button>
-        <Button className={styles.submit} onClick={onSubmitHandler} variant="contained" color="success">Submit</Button>
-      </div>
-      
-    </>
-  )
+    return (
+      <React.Fragment>
+        <div className={"root"}>
+          {
+            (
+              this.state.mainState === "initial" && this.renderInitialState()
+            ) 
+            ||
+            (
+              this.state.mainState === "uploaded" && this.renderUploadedState()
+            )
+          }
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
-export default UploadImage
+export default ImageUpload;

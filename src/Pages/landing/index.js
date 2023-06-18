@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Authentication from '../PopUpPages/Authentication';
 import { AuthContext } from '../../contextAPI/AuthContext';
+import FellowTravelers from './FellowTravelers';
 
 
 const LandingMain = (props) => {
@@ -68,6 +69,7 @@ const LandingMain = (props) => {
             </div>
 
             <Destinations/>
+            <FellowTravelers />
             <AboutUs />
             <Faq />
 

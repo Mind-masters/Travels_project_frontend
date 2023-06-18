@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./fellowTraveler.module.css"
+import styles from "./social.module.css"
 import { useState } from 'react';
 import InvitorsList from "./invitorsList";
 import Controllers from './controllers';
@@ -58,29 +58,8 @@ const FellowTraveler = () => {
                 />
 
                 <h1 className={styles.main_header}>
-                    Where interests become friendships
+                    Whatever your interest, from hiking and reading to networking and exploring abandoned places, there are thousands of people who share it on TripWhoop.
                 </h1>
-
-                <div className={styles.representing_cards}>
-
-                    
-                    <div className={styles.child_card}>
-                        <img src={card_image_1} alt='' />
-                        <h1>Join a group</h1>
-                        <p>
-                            Do what you love, meet others who love it, find your community. The rest is history
-                        </p>
-                    </div>
-
-                    <div className={styles.child_card}>
-                        <img src={card_image_2} alt='' />
-                        <h1>Start a group</h1>
-                        <p>
-                            You don’t have to be an expert to gather people together and explore shared interests                    
-                        </p>
-                    </div>                
-
-                </div>
 
                 <Controllers />
                 <InvitorsList data={invitingsData}/>

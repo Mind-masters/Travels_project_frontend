@@ -30,7 +30,7 @@ const Popup = (props) => {
     const executeScroll = () => commentsTopRef.current ? commentsTopRef.current.scrollIntoView() : null;
     executeScroll();
     if(!Auth.authenticatedUser)return;
-    return props.onSubmit();
+    return props.onSubmit(props.item._id);
   }
 
   

@@ -2,6 +2,7 @@ export const PlacesData = [
     
     {
         image: "https://i.pinimg.com/564x/74/28/b0/7428b0829f6dffffbf36f18fbc0cdc88.jpg",
+        // image: "../../../assets/landing/destinations/abandoned",
         type: "Mystery places",
         location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
     },
