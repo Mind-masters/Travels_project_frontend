@@ -19,7 +19,7 @@ const ModalOverlay = props => {
     }
 
     const content = (
-        <div ref={parentRef} onClick={clickOutsideModalHandler} className={styles.modal_container}>
+        <div style={{ backgroundColor: props.bgColor }} ref={parentRef} onClick={clickOutsideModalHandler} className={styles.modal_container}>
             <div 
                 // style={{ width: props.width, minHeight: props.height, backgroundColor: props.color, padding: props.padding }} 
                 className={`${styles.modal_content_wrapper} ${props.fullSize && styles.full_width}`}
