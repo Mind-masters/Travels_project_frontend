@@ -1,25 +1,27 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import LandingPage from "../Pages/landing";
-import ExplorePage from "../Pages/explore";
-import PrivateRouter from "./privateRouter";
-import Profile from "../Pages/profile";
-import MyPlaces from "../Pages/myPlaces";
-import Social from "../Pages/social";
-import Benefits from "../Pages/benefits/Benefits";
-import Blog from "../Pages/Blog";
+import LoadingSpinner from "../components/shared/UI/LoadingSpinner";
+
+const LandingPage = lazy(()=>import("../Pages/landing"));
+const ExplorePage = lazy(()=>import("../Pages/explore"));
+const PrivateRouter = lazy(()=>import("./privateRouter"));
+const Profile = lazy(()=>import("../Pages/profile"));
+const MyPlaces = lazy(()=>import("../Pages/myPlaces"));
+const Social = lazy(()=>import("../Pages/social"));
+const Benefits = lazy(()=>import("../Pages/benefits/Benefits"));
+const Blog = lazy(()=>import("../Pages/Blog"));
+
+
 
 const Routing = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={
+      <LoadingSpinner asOverflow />
+    }>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         
         <Route path="/profile/:uid" element={<Profile />} />
-
-        {/* <Route path="/new-member" element={<PrivateRouter />}>
-          <Route index element={<LandingPage extra={true} />} />
-        </Route> */}
         
         <Route path="/new-member" element={<LandingPage extra={true} />}/>
 

@@ -23,9 +23,13 @@ const Comments = ({item}) => {
 
     // Listen for 'like' and 'unlike' events from the server
     socket.on('place_comments', (data) => {
-      setCommentsData(data.savedPlace.comments)
-      setCommentsCount(data.savedPlace.comments.length);
-      setPlaceLikesCount(data.savedPlace.likes.length)
+      
+      if(item._id === data.savedPlace._id){
+        setCommentsData(data.savedPlace.comments)
+        setCommentsCount(data.savedPlace.comments.length);
+        setPlaceLikesCount(data.savedPlace.likes.length)
+      }
+      
     });
 
     // // Clean up the socket event listeners when the component unmounts
@@ -41,24 +45,23 @@ const Comments = ({item}) => {
     setCommentValue(e.target.value);
   }
 
-  const onCommentSubmitHandler = async() => {
+  const onCommentSubmitHandler = async(pid) => {
 
     if(!commentValue | token)return
 
     const comment_reference = commentValue;
     setCommentValue("");
-
     
-
-    setCommentsCount(commentsCount + 1);
-
-    const newCommentObj = {
-      user_avatar: User.authenticatedUser.data.avatar,
-      username: User.authenticatedUser.data.name,
-      text: comment_reference
+    if(item._id === pid) {
+      setCommentsCount(commentsCount + 1);
+      const newCommentObj = {
+        user_avatar: User.authenticatedUser.data.avatar,
+        username: User.authenticatedUser.data.name,
+        text: comment_reference
+      }
+  
+      setCommentsData([...commentsData, newCommentObj])
     }
-
-    setCommentsData([...commentsData, newCommentObj])
 
     const create_new_comment = await OnComment(
       {
@@ -70,8 +73,7 @@ const Comments = ({item}) => {
 
     if(!create_new_comment.status){
       return
-    }
-  
+    }  
 
   }
 
@@ -91,7 +93,7 @@ const Comments = ({item}) => {
       <AuthRequired>
         <div className={styles.input_container}>
           <input value={commentValue} onChange={onChangeInputValue} className={styles.input} placeholder='Write your comment' />
-          <img onClick={onCommentSubmitHandler} src={commentsLogo} alt='' />
+          <img onClick={()=>{onCommentSubmitHandler(item._id)}} src={commentsLogo} alt='' />
         </div>
       </AuthRequired>
 
@@ -100,6 +102,7 @@ const Comments = ({item}) => {
         onClose={collapseCommentsHandler}
       >
         <Popup 
+          item={item}
           likes={placeLikesCount}
           comments={commentsCount}
           onClose={collapseCommentsHandler} 
