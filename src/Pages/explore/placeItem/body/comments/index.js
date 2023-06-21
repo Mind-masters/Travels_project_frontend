@@ -21,7 +21,6 @@ const Comments = ({item}) => {
 
   useEffect(() => {
 
-    // Listen for 'like' and 'unlike' events from the server
     socket.on('place_comments', (data) => {
       
       if(item._id === data.savedPlace._id){

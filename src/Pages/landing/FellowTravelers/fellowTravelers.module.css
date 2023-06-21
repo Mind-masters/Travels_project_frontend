@@ -12,6 +12,7 @@
 }
 
 .child_card{
+    align-self: center;
     cursor: pointer;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
     justify-content: center;
@@ -30,7 +31,7 @@
 
 .child_card h1{
     font-size: 25px;
-    margin: 1rem auto;
+    margin: 10px auto;
     color: #EE7D15;
 }
 
@@ -77,7 +78,7 @@
     }
 
     .child_card img{
-        width: 7rem;
+        width: 8.5rem;
     }
 
     .paragraph_container p{

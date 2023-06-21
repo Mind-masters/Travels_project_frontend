@@ -1,34 +1,42 @@
 import React from "react";
-import photo_icon from "../../../../assets/photo_icon.png";
+import photo_icon from "../../../../assets/retake_photo.png";
 import "./style.css"
 
 
 class ImageUpload extends React.Component {
 
   state = {
-    mainState: "initial", // initial, search, gallery, uploaded
+    mainState: this.props.curr_image ? "uploaded" : "initial", // initial, search, gallery, uploaded
     imageUploaded: 0,
-    selectedFile: null
+    selectedFile: this.props.curr_image
   };
 
-  handleUploadClick = event => {
+  convertToBase64 = file =>{
+
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onloadend = () => {
+        // resolve(fileReader.result)
+        this.setState({
+          mainState: "uploaded",
+          selectedFile: [fileReader.result],
+          imageUploaded: 1
+        });
+      }
+      fileReader.onerror = error => {
+        reject(error);
+      }
+    })
+
+    
+  }
+
+  handleUploadClick = async(event) => {
     var file = event.target.files[0];
-    const reader = new FileReader();
-    var url = reader.readAsDataURL(file);
-    console.log("pasirinktas failas: ", file);
-    console.log("isgrynintas url: ", url);
 
-    reader.onloadend = function(e) {
-      this.setState({
-        selectedFile: [reader.result]
-      });
-    }.bind(this);
+    await this.convertToBase64(file);
 
-    this.setState({
-      mainState: "uploaded",
-      selectedFile: event.target.files[0],
-      imageUploaded: 1
-    });
   };
 
 
@@ -47,7 +55,7 @@ class ImageUpload extends React.Component {
           />
           <label htmlFor="contained-button-file">
             {/* <img src={photo_icon} alt="" /> */}
-            <p className="add_photo">Add photo</p>
+            <p className="add_photo_header">Add photo</p>
           </label>
         </div>
       </React.Fragment>
@@ -56,11 +64,12 @@ class ImageUpload extends React.Component {
 
   
   renderUploadedState() { // in use
-
     return (
       <React.Fragment>
-        <div onClick={this.imageResetHandler}>
+        <div>
+          <img src={photo_icon} alt="" onClick={this.imageResetHandler} className="retake" />
           <img
+            onClick={this.imageSubmitHandler}
             className={"media"}
             src={this.state.selectedFile}
             alt=""
@@ -71,7 +80,6 @@ class ImageUpload extends React.Component {
   }
 
   imageResetHandler = event => {
-    console.log("Click!");
     this.setState({
       mainState: "initial",
       selectedFile: null,
@@ -79,11 +87,15 @@ class ImageUpload extends React.Component {
     });
   };
 
+  imageSubmitHandler = event => {
+    return this.props.onSubmit(this.state.selectedFile);
+  };
+
   render() {
 
     return (
       <React.Fragment>
-        <div className={"root"}>
+        <div className="media_container">
           {
             (
               this.state.mainState === "initial" && this.renderInitialState()

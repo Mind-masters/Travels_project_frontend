@@ -6,7 +6,7 @@ const LandingPage = lazy(()=>import("../Pages/landing"));
 const ExplorePage = lazy(()=>import("../Pages/explore"));
 const PrivateRouter = lazy(()=>import("./privateRouter"));
 const Profile = lazy(()=>import("../Pages/profile"));
-const MyPlaces = lazy(()=>import("../Pages/myPlaces"));
+const Uploads = lazy(()=>import("../Pages/uploads"));
 const Social = lazy(()=>import("../Pages/social"));
 const Benefits = lazy(()=>import("../Pages/benefits/Benefits"));
 const Blog = lazy(()=>import("../Pages/Blog"));
@@ -28,7 +28,7 @@ const Routing = () => {
         <Route path="/explore/" element={<ExplorePage />} />
         <Route path="/explore/:type" element={<ExplorePage />} />
 
-        <Route path="/my-places" element={<MyPlaces />} />
+        <Route path="/uploads" element={<Uploads />} />
 
         <Route path="/social" element={<Social />} />
         <Route path="/benefits" element={<Benefits/>}/>

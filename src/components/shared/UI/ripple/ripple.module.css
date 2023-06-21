@@ -1,10 +1,8 @@
 .container{
 	height: 100%;
+    -webkit-perspective: 500px;
 }
 
-.container *{
-    z-index: 0;
-}
 
 .map_icon{
 	height: 80%;
@@ -20,8 +18,6 @@
 	margin: 0 auto;
 }
 
-
-
 .pulse{
     border-radius: 50%;
     width: 50%;
@@ -29,7 +25,9 @@
     position: absolute;
     top: 50%;
     left: 1.2%;
-    transform: rotateX(55deg);
+    rotate: x 55deg;
+    -webkit-rotate: x 55deg;
+    -ms-rotate: x 55deg;
 	z-index: 0;
 }
 
@@ -40,9 +38,8 @@
     height: 100%;
     position: absolute;
     opacity: 1;
-	/* background-color: #EE7D15; */
+	background-color: #EE7D15;
     background-color: rgba(255, 255, 255, 0.49);
-	/* #FCD24F */
     animation-delay: 1.1s;
     animation: pulsate 1s ease-out;
     animation-iteration-count: infinite;
@@ -52,7 +49,7 @@
     background-color: #F5C69B;
 }
 
-@keyframes bounce{
+/* @keyframes bounce{
 	0%{
 		opacity: 0;
 		filter: alpha(opacity=0);
@@ -68,7 +65,7 @@
 	100%{
 		transform: translateY(30) rotate(-45deg);
 	}
-}
+} */
 
 @keyframes pulsate{
     0%{

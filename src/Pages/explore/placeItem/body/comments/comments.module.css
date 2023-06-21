@@ -6,8 +6,10 @@
     color: rgba(83, 81, 81, 0.7);
     text-align: left;
     font-size: 1rem;
-    padding: 0.7rem 0;
+    padding: 0.8rem 0;
+    cursor: pointer;
 }
+
 
 .input_container{
     padding: 0.5rem;
@@ -33,12 +35,19 @@
 
 @media (max-width: 850px) {
     .container .comm_info_header{
-        padding-bottom: 0.3rem;
+        padding-bottom: 0.6rem;
         font-size: 0.9rem;
     }
 
     .input_container{
         padding: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .comm_info_header{
+        font-size: 1rem;
+        font-weight: 800;
     }
 }
 

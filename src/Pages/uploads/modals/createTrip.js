@@ -33,7 +33,7 @@ const CreateTrip = (props) => {
   const [typesModal, setTypesModal] = useState(false);
   const [locationModal, setLocationModal] = useState(false);
   const [imageModal, setImageModal] = useState(false);
-  const parentModalHidden = countryModal || locationModal || imageModal;
+  const parentModalHidden = countryModal || locationModal || imageModal || typesModal;
 
   const onModalHide = () => {setCountryModal(false);setLocationModal(false);setImageModal(false);setTypesModal(false)}
   const onOpenTypesModal = () => setTypesModal(true);
@@ -65,7 +65,10 @@ const CreateTrip = (props) => {
     name: results.name
   }); onModalHide()}
   const onSubmitLocationModal = (results) => {setLocationValue(results); onModalHide()}
-  const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
+  const onSubmitImageModal = (results) => {
+    console.log("res of image: ", results)
+    setImageValue(results); onModalHide()
+  }
 
   const onFormSubmitHandler = async() => {
 
@@ -122,6 +125,7 @@ const CreateTrip = (props) => {
           <form className={styles.form_container} onSubmit={(e)=>{e.preventDefault()}}>
 
             <Modal 
+              bgColor="transparent"
               onClose={onModalHide}
               show={countryModal || locationModal || imageModal || typesModal} 
             >
@@ -134,7 +138,7 @@ const CreateTrip = (props) => {
                     onClose={onModalHide}
                   />
               }
-              {imageModal && <ImageUpload onClose={onModalHide} onSubmit={onSubmitImageModal} />}
+              {imageModal && <ImageUpload curr_image={imageValue} onClose={onModalHide} onSubmit={onSubmitImageModal} />}
 
             </Modal>
 
