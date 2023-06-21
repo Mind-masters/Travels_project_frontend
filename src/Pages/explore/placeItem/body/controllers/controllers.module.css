@@ -14,12 +14,15 @@
     border: 2px solid #F5C69B;
     border-radius: 40px;
     font-size: 1rem;
-    padding: 0 1rem;
+    padding: 2px 1rem;
+    
     align-self:normal
 }
 
 .map_btn_content{
     display: flex;
+    font-size: 1rem;
+    font-weight: 800;
     justify-content: space-around;
     color: #F5C69B;
     align-items: center;
@@ -32,11 +35,11 @@
 }
 
 .icon_ripple{
-    height: 30px;
+    height: 35px;
     border-radius: 50%;
-    top: 5px;
-    left: -10px;
-    width: 50px;
+    left: -13px;
+    width: 43px;
+    height: 38px;
     position: absolute;
     cursor: pointer;
 }
@@ -57,10 +60,7 @@
         height: 35px;
     }
 
-    .icon_ripple{
-        left: -10px;
-        width: 40px;
-    }
+
 }
 
 @media (max-width: 350px) {

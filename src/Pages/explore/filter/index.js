@@ -81,7 +81,7 @@ const Filter = (props) => {
 
       <div className={styles.btn_container}>
         <Button height="auto" color="#EE7D15" onSubmit={onSubmitFilter}>
-          <h1>Filter</h1>
+          <h1>Search</h1>
         </Button>
       </div>
 

@@ -7,7 +7,7 @@
 }
 
 .discover_all{
-    font-size: 25px;
+
     color: #EE7D15;
     display: inline-flex;
     cursor: pointer;
@@ -17,6 +17,12 @@
     border-bottom: 2px solid #EE7D15 ;
     margin: 1.5rem 0;
     margin-right: 3rem;
+}
+
+.discover_all p{
+    font-size: 28px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 0;
 }
 
 

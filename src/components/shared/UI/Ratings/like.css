@@ -6,7 +6,7 @@
 .like-button {
   z-index: 0;
   align-self: center;
-  border: 2px solid #c7c7c7;
+  /* border: 2px solid #c7c7c7; */
   border-radius: 40px;
   padding: 0.45rem 0.75rem;
   color: #878787;
@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 18px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   filter: grayscale(100%);
@@ -25,16 +25,14 @@
   border-color: currentColor;
   filter: grayscale(0);
 }
-.like-button:hover {
-  border-color: currentColor;
-}
+
 
 .like-icon {
-  width: 18px;
-  height: 16px;
+  width: 1.8rem;
+  height: 1.8rem;
   display: inline-block;
   position: relative;
-  margin-right: 0.25em;
+  margin-right: 0.4em;
   font-size: 1.5rem;
   background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAyMSAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAuMTAxIDQuNDE3UzguODk1LjIwNyA1LjExMS4yMDdjLTQuNDY1IDAtMTAuOTY3IDYuODQ2IDUuMDgyIDE3LjU5MkMyNS4yMzcgNy4wMyAxOS42NjUuMjAyIDE1LjUwMS4yMDJjLTQuMTYyIDAtNS40IDQuMjE1LTUuNCA0LjIxNXoiIGZpbGw9IiNGRjZFNkYiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==") no-repeat center;
   background-size: 100%;

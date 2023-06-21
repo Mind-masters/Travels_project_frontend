@@ -29,8 +29,8 @@ const SwiperList = (props) => {
         if(currentWidth >= 1100 && currentWidth <= 1400)number_of_slides = 3;
         if(currentWidth >= 850 && currentWidth <= 1100)number_of_slides = 2.5;
         if(currentWidth >= 650 && currentWidth <= 850)number_of_slides = 2;
-        if(currentWidth <= 650 && currentWidth > 410)number_of_slides = 1.5;
-        if(currentWidth <= 410) number_of_slides = "auto";
+        if(currentWidth <= 650 && currentWidth > 450)number_of_slides = 1.5;
+        if(currentWidth <= 450) number_of_slides = "auto";
         setSlidesCount(number_of_slides);
     }
 
@@ -52,6 +52,7 @@ const SwiperList = (props) => {
                     ref={swiperRef}
                     effect={'coverflow'}
                     centeredSlides={true}
+                    freeMode={true}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 10,
@@ -59,11 +60,11 @@ const SwiperList = (props) => {
                         modifier: 3.5,
                         slideShadows: false,
                     }}
+                    
                     spaceBetween={70}
                     loop
                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                     slidesPerView={slidesCount}
-
                     navigation
                     style={{
                         "--swiper-navigation-color": "#EE7D15",

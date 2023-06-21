@@ -1,6 +1,6 @@
 .container{
     width: 30rem;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(143, 56, 56);
     /* background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.782)); */
     display: flex;
     align-items: center;
@@ -14,7 +14,7 @@
 .loading{
     position: absolute;
     top: 0;
-    background-color: #ffffff;
+    background-color: #27aa59;
     width: 100%;
     bottom: 0;
     z-index: 1;
@@ -24,7 +24,7 @@
 }
 
 .popup_header{
-    background: #ffffff;
+    background: #0a9cad;
     width: 100%;
     position: sticky;
     top: 0;
