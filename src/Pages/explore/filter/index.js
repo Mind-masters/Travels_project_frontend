@@ -111,7 +111,7 @@ const Filter = (props) => {
         
       </div>
 
-      <div onClick={()=>navigate("/my-places")} className={styles._add}>
+      <div onClick={()=>navigate("/uploads")} className={styles._add}>
         <p>If you dont find anything, share your experience if us!</p>
         <img src={add_new_place_logo} alt='plus' />
 

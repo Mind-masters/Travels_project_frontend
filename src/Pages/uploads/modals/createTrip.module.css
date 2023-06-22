@@ -90,7 +90,7 @@
 {   
     .container
     {
-        width: 18rem;
+        width: 75vw;
     }
 }
 
@@ -98,11 +98,11 @@
 {   
     .container
     {
-        width: 80vw;
+        width: 85vw;
     }
 }
 
-@media (max-width: 300px)
+@media (max-width: 350px)
 {   
     .container
     {

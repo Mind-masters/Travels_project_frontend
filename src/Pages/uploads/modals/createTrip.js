@@ -65,10 +65,7 @@ const CreateTrip = (props) => {
     name: results.name
   }); onModalHide()}
   const onSubmitLocationModal = (results) => {setLocationValue(results); onModalHide()}
-  const onSubmitImageModal = (results) => {
-    console.log("res of image: ", results)
-    setImageValue(results); onModalHide()
-  }
+  const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
 
   const onFormSubmitHandler = async() => {
 
@@ -89,21 +86,19 @@ const CreateTrip = (props) => {
       return notify("Please contact support team", "warning");
     }
     setIsLoading(true);
-  
 
-    const create_new_place = await Create(
-      {
-        type: typeValue[0].value,
-        description: descriptionValue,
-        country: countryValue,
-        location: locationValue,
-        image: imageValue
-      },
-      token
-    )
+    const formData = new FormData();
+    formData.append('type', typeValue[0].value)
+    formData.append('description', descriptionValue)
+    formData.append('country_flag', countryValue.flag)
+    formData.append('country_name', countryValue.name)
+    formData.append('lat', locationValue.lat)
+    formData.append('lng', locationValue.lng)
+    formData.append('image', imageValue)
+    
+    const create_new_place = await Create(formData,token)
 
     setIsLoading(false);
-
 
     if(create_new_place.status){
       notify(create_new_place.message, "success");
