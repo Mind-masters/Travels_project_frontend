@@ -52,7 +52,6 @@ const SwiperList = (props) => {
                     ref={swiperRef}
                     effect={'coverflow'}
                     centeredSlides={true}
-                    freeMode={true}
                     coverflowEffect={{
                         rotate: 0,
                         stretch: 10,

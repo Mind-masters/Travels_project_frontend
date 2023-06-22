@@ -1,114 +1,58 @@
-import React from "react";
-import photo_icon from "../../../../assets/retake_photo.png";
-import "./style.css"
+import React, { useEffect, useState } from "react";
+import styles from "./styles.module.css"
+import InitialState from "./InitialState";
+import UploadedState from "./UploadedState";
 
+const ImageUpload = (props) => {
 
-class ImageUpload extends React.Component {
+  const [file, setFile] = useState(props.curr_image);
+  const [mainState, setMainState] = useState(props.curr_image ? "uploaded" : "initial",) // initial, search, gallery, uploaded
+  const [previewUrl, setPreviewUrl] = useState();
 
-  state = {
-    mainState: this.props.curr_image ? "uploaded" : "initial", // initial, search, gallery, uploaded
-    imageUploaded: 0,
-    selectedFile: this.props.curr_image
+  useEffect(() => {
+    if (!file) {
+      return;
+    }
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      setPreviewUrl(fileReader.result);
+      setMainState("uploaded")
+    };
+    fileReader.readAsDataURL(file);
+  }, [file]);
+
+  const handleUploadClick = async(event) => {
+    if (!(event.target.files && event.target.files.length === 1)) return
+
+    const file = event.target.files[0];
+    setFile(file);
   };
 
-  convertToBase64 = file =>{
-
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onloadend = () => {
-        // resolve(fileReader.result)
-        this.setState({
-          mainState: "uploaded",
-          selectedFile: [fileReader.result],
-          imageUploaded: 1
-        });
-      }
-      fileReader.onerror = error => {
-        reject(error);
-      }
-    })
-
-    
-  }
-
-  handleUploadClick = async(event) => {
-    var file = event.target.files[0];
-
-    await this.convertToBase64(file);
-
+  const imageResetHandler = () => {
+    setMainState("initial");
+    setFile(null);
+    setPreviewUrl(null);
   };
 
-
-  renderInitialState() {
-
-    return (
-      <React.Fragment>
-        <div>
-          <input
-            accept="image/*"
-            className="input"
-            id="contained-button-file"
-            multiple
-            type="file"
-            onChange={this.handleUploadClick}
-          />
-          <label htmlFor="contained-button-file">
-            {/* <img src={photo_icon} alt="" /> */}
-            <p className="add_photo_header">Add photo</p>
-          </label>
-        </div>
-      </React.Fragment>
-    );
-  }
-
-  
-  renderUploadedState() { // in use
-    return (
-      <React.Fragment>
-        <div>
-          <img src={photo_icon} alt="" onClick={this.imageResetHandler} className="retake" />
-          <img
-            onClick={this.imageSubmitHandler}
-            className={"media"}
-            src={this.state.selectedFile}
-            alt=""
-          />
-        </div>
-      </React.Fragment>
-    );
-  }
-
-  imageResetHandler = event => {
-    this.setState({
-      mainState: "initial",
-      selectedFile: null,
-      imageUploaded: 0
-    });
+  const imageSubmitHandler = () => {
+    return props.onSubmit(file);
   };
 
-  imageSubmitHandler = event => {
-    return this.props.onSubmit(this.state.selectedFile);
-  };
-
-  render() {
-
-    return (
-      <React.Fragment>
-        <div className="media_container">
-          {
-            (
-              this.state.mainState === "initial" && this.renderInitialState()
-            ) 
-            ||
-            (
-              this.state.mainState === "uploaded" && this.renderUploadedState()
-            )
-          }
-        </div>
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      <div className={styles.media_container}>
+        {
+          (
+            mainState === "initial" && <InitialState onChangeFile={handleUploadClick}/>
+          ) 
+          ||
+          (
+            mainState === "uploaded" && previewUrl && <UploadedState imageResetHandler={imageResetHandler} imageSubmitHandler={imageSubmitHandler} file_base64={previewUrl} />
+          )
+        }
+      </div>
+    </React.Fragment>
+  )
 }
 
 export default ImageUpload;
