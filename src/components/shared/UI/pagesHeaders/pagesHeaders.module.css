@@ -29,24 +29,32 @@
     color: #909090;
 }
 
+@media screen and (max-width: 500px) {
 
-@media screen and (max-width: 700px) {
 
     .main_header{
-        font-size: 30px;
-        letter-spacing: 2.5px;
+        font-size: 32px;
     }
-}
 
+}
 
 @media screen and (max-width: 300px) {
 
 
     .main_header{
-        font-size: 25px;
+        font-size: 30px;
     }
 
     .header_paragraph{
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 250px) {
+
+
+    .main_header{
+        font-size: 26px;
+        letter-spacing: 0;
     }
 }

@@ -5,13 +5,13 @@
     padding-top: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .wrapper{
         width: 18rem;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 380px) {
     .wrapper{
         width: 80vw;
     }
