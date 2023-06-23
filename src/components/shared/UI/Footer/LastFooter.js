@@ -3,7 +3,7 @@ import { FaFacebookF } from 'react-icons/fa';
 import { BsTwitter} from 'react-icons/bs';
 import { AiFillYoutube } from 'react-icons/ai';
 import styles from './lastFooter.module.css';
-import Logo from '../../../../assets/footerSection/code.jpg';
+import Logo from '../../../../assets/footerSection/tripwhoop_logo.jpg';
 
 const LastFooter = () => {
   return (
@@ -11,8 +11,8 @@ const LastFooter = () => {
         <div className={styles.column_about}>
             <img src={Logo} alt=''></img>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-                voluptatem corporis error non,
+            Discover the world with ease, connect with fellow travelers,and create<br/> unforgettable memories. 
+            Start your extraordinary adventure today!
             </p>
                             
             <div className={styles.social}>

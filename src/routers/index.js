@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import LoadingSpinner from "../components/shared/UI/LoadingSpinner";
+import AboutUS from "../Pages/About";
 
 const LandingPage = lazy(()=>import("../Pages/landing"));
 const ExplorePage = lazy(()=>import("../Pages/explore"));
@@ -10,6 +11,7 @@ const Uploads = lazy(()=>import("../Pages/uploads"));
 const Social = lazy(()=>import("../Pages/social"));
 const Benefits = lazy(()=>import("../Pages/benefits/Benefits"));
 const Blog = lazy(()=>import("../Pages/Blog"));
+const About = lazy(()=>import("../Pages/About"));
 
 
 
@@ -32,7 +34,8 @@ const Routing = () => {
 
         <Route path="/social" element={<Social />} />
         <Route path="/benefits" element={<Benefits/>}/>
-        <Route path="/blog" element={<Blog/>}/>
+        {/* <Route path="/blog" element={<Blog/>}/> */}
+        <Route path="/aboutus" element={<About/>}/>
 
         <Route path="*" element={<LandingPage></LandingPage>}/>
 
