@@ -2,6 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tripwhoop.com/",
   "dependencies": {
     "@dicebear/adventurer": "^4.10.5",
     "@dicebear/avatars": "^4.10.5",

@@ -36,14 +36,19 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
-    <li className="onFocus">
+    {/* <li className="onFocus">
       <NavLink  to="/blog" >
         Blogs
         <hr />
       </NavLink>
-    </li>
+    </li> */}
 
-
+      <li className="onFocus">
+          <NavLink  to="/aboutus" >
+          About us
+            <hr />
+          </NavLink>
+        </li>
   </ul>
 };
 
