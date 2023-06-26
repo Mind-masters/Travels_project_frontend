@@ -11,6 +11,9 @@
 }
 
 
+.nav_links_container .home_start{
+  display: none;
+}
 
 /* navigation links styles for desktop screen */
 @media (min-width: 1000px) {
@@ -43,4 +46,17 @@
     display: flex;
     align-items: center;
   }
+
+  .nav_links_container .home_start{
+    display: block;
+  }
+
+  .nav_links_container .home_start img{
+    width: 2.5rem;
+  }
+
+  .nav_links_container .home_middle{
+    display: none;
+  }
+
 }

@@ -11,12 +11,10 @@ import { notify } from "../../../components/shared/UI/toast";
 import AuthRequired from "../../../components/shared/layouts/AuthRequired";
 
 // icons
-import flag_icon from "../../../assets/flag.png";
 import map_icon from "../../../assets/map_icon.png";
 import photo_icon from "../../../assets/photo_icon.png";
 
 // submodals
-import SelectCountryModal from '../../../components/shared/UI/Popups/selectCountryModal';
 import Location from '../../../components/shared/UI/map/location/index';
 import ImageUpload from "./uploadImage";
 import FormInput from '../../../components/shared/UI/formInput';
@@ -37,20 +35,17 @@ const CreateTrip = (props) => {
 
   const onModalHide = () => {setCountryModal(false);setLocationModal(false);setImageModal(false);setTypesModal(false)}
   const onOpenTypesModal = () => setTypesModal(true);
-  const onOpenCountryModal = () => setCountryModal(true);
   const onOpenLocationModal = () => {setLocationModal(true)};  
   const onOpenImageModal = () => setImageModal(true);
 
   // states and functions for validation
   const [typeInputError, setTypeInputError] = useState(false);
-  const [countryInputError, setCountryInputError] = useState(false);
   const [locationInputError, setLocationInputError] = useState(false);
   const [imageInputError, setImageInputError] = useState(false);
   
   // states and functions for storing values
   const [typeValue, setTypeValue] = useState(null);
   const [descriptionValue, setDescriptionValue] = useState("");
-  const [countryValue, setCountryValue] = useState(null);
   const [locationValue, setLocationValue] = useState(null);
   const [imageValue, setImageValue] = useState(null);
 
@@ -60,22 +55,23 @@ const CreateTrip = (props) => {
   };
 
   const onSubmitDescription = (value) => setDescriptionValue(value);
-  const onSubmitCountryModal = (results) => {  setCountryValue({
-    flag: results.flag,
-    name: results.name
-  }); onModalHide()}
-  const onSubmitLocationModal = (results) => {setLocationValue(results); onModalHide()}
+  // const onSubmitCountryModal = (results) => {  setCountryValue({
+  //   flag: results.flag,
+  //   name: results.name
+  // }); onModalHide()}
+  const onSubmitLocationModal = (results) => {
+    setLocationValue(results); 
+    onModalHide()
+  }
   const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
 
   const onFormSubmitHandler = async() => {
 
     setTypeInputError(false);
-    setCountryInputError(false);
     setLocationInputError(false);
     setImageInputError(false);
     if(!typeValue){setTypeInputError(true);return}
     if(!descriptionValue){return}    
-    if(!countryValue || !countryValue.flag || !countryValue.name){setCountryInputError(true);return}
     if(!locationValue){setLocationInputError(true);return}
     if(!imageValue){setImageInputError(true);return}
 
@@ -85,19 +81,23 @@ const CreateTrip = (props) => {
     if(!lat || !lng){
       return notify("Please contact support team", "warning");
     }
+
+    const country_request = await (await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=en`)).json()
+    const countryValue = country_request && country_request.address.country;
+
     setIsLoading(true);
 
     const formData = new FormData();
     formData.append('type', typeValue[0].value)
     formData.append('description', descriptionValue)
-    formData.append('country_flag', countryValue.flag)
-    formData.append('country_name', countryValue.name)
-    formData.append('lat', locationValue.lat)
-    formData.append('lng', locationValue.lng)
+    formData.append('country', countryValue)
+    formData.append('lat', lat)
+    formData.append('lng', lng)
     formData.append('image', imageValue)
     
     const create_new_place = await Create(formData,token)
-
+    const kazkas = await create_new_place.json();
+    console.log("nah: ", kazkas)
     setIsLoading(false);
 
     if(create_new_place.status){
@@ -122,10 +122,9 @@ const CreateTrip = (props) => {
             <Modal 
               bgColor="transparent"
               onClose={onModalHide}
-              show={countryModal || locationModal || imageModal || typesModal} 
+              show={locationModal || imageModal || typesModal} 
             >
               {typesModal && <DefineType onClose={onModalHide} onSubmit={onSubmitType} />}
-              {countryModal && <SelectCountryModal onClose={onModalHide} onSubmit={onSubmitCountryModal} />}
               {
                 locationModal && 
                   <Location 
@@ -164,7 +163,6 @@ const CreateTrip = (props) => {
               
 
               <div className={styles.logo_menu}>
-                <img className={`${countryInputError && styles.icon_invalid} ${countryValue && !countryInputError && styles.icon_valid}`} onClick={onOpenCountryModal}  src={flag_icon} alt="" />
                 <img className={`${locationInputError && styles.icon_invalid} ${locationValue && styles.icon_valid}`} onClick={onOpenLocationModal} src={map_icon} alt="" />
                 <img className={`${imageInputError && styles.icon_invalid} ${imageValue && styles.icon_valid}`} onClick={onOpenImageModal} src={photo_icon} alt="" />
               </div>

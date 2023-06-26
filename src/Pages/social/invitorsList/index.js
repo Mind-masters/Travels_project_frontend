@@ -27,9 +27,6 @@ const InvitorsList = ({data}) => {
         <InsideBounce />
       }
       
-        <div className={styles.filter}>
-          filter
-        </div>
         <h1 className={styles.header_line}>{data.length} travelers are looking for companions</h1>
 
       {data.map((invite, key) => <InvitorItem key={key} invite={invite} />)}

@@ -1,19 +1,25 @@
 .wrapper{
     width: 25rem;
-    max-height: 90vh;
-    overflow: scroll;
     position: relative;
     overflow: hidden;
-    border-radius: 24px;
 }
+
 
 .container{
     background: rgb(239, 235, 235);
     overflow: hidden;
     padding: 2rem;
+    padding-top: 10px;
     margin: 0 auto;
-    padding-bottom: 0;
+    padding-bottom: 13px;
+    border-radius: 24px;
+    max-height: 85vh;
+    overflow: scroll;
 }
+.transparent{
+    visibility: hidden;
+}
+
 
 .select_country{
     border: 2px solid rgba(48, 47, 47, 0.3);
@@ -27,19 +33,11 @@
     cursor: pointer;
 }
 
-.login_form_title
-{
-    display: block;
-    font-size: 25px;
-    font-weight: 700;
-    color: #575555;
-    text-align: center;
-}
 
 .intro_paragraph{
     margin: 1.5rem auto;
     width: 80%;
-    font-size: 1rem;
+    font-size: 18px;
     color: #706f6f;
     text-align: center;
 }
@@ -57,21 +55,19 @@
 }
 
 
+.madal_icons{
+    flex-direction: column;
+    display: flex;
+}
 
+.madal_icons img{
+    margin-right: 1rem;
+    width: 2.2rem;
+}
 
 @media screen and (max-width: 650px) {
     .wrapper{
         width: 22rem;
-    }
-
-    .login_form_title
-    {
-        font-size: 22px;
-        font-weight: 600;
-    }
-
-    .container p{
-        margin: 1rem auto;
     }
 
     .submit_btn{
@@ -85,11 +81,6 @@
     .wrapper{
         width: 20rem;
     }
-
-    .login_form_title{
-        padding: 1rem;
-    }
-
 
 
     .container{
@@ -122,15 +113,13 @@
 @media screen and (max-width: 370px) {
 
     .intro_paragraph{
-        font-size: 19px;
+        font-size: 16px;
         color: #676262;
         width: 90%;
         margin-top: 0;
     }
 
-    .login_form_title{
-        display: none;
-    }
+
 }
 
 @media screen and (max-width: 300px) {

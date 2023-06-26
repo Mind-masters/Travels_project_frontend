@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Modal from '../../../../components/shared/UI/Modal';
 import SelectCountryModal from '../../../../components/shared/UI/Popups/selectCountryModal';
-import SelectGenderModal from './selectGenderModal';
+import GenderSelector from '../../../../components/shared/UI/Popups/GenderSelector';
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../../components/shared/UI/toast";
 import Button from '../../../../components/shared/UI/button/Button';
@@ -123,7 +123,7 @@ const DefineUserSettings = (props) => {
           }
 
           {openGenderModalActive &&
-            <SelectGenderModal onSubmit={SubmitGenderModal} onClose={closeModalHandler} /> 
+            <GenderSelector onSubmit={SubmitGenderModal} onClose={closeModalHandler} /> 
           }
         </Modal>
 

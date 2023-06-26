@@ -6,21 +6,27 @@ import Button from "../../../components/shared/UI/button/Button";
 import { Create } from '../../../components/utils/invitings/create';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import where_input_icon from "../../../assets/social/where_input_icon.png";
+import gender_icon from "../../../assets/social/gender_icon.png";
 import about_input_icon from "../../../assets/social/about_input_icon.png";
 import { useEffect } from 'react';
 import InsideBounce from '../../../components/shared/UI/LoadingSpinner/InsideBounce';
 import Modal from "../../../components/shared/UI/Modal";
 import SelectCountry from "../../../components/shared/UI/Popups/selectCountryModal";
+import GenderSelector from "../../../components/shared/UI/Popups/GenderSelector"
 
 const InvitorForm = (props) => {
 
   const Auth = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
+  const [transparentModal, setTransparentModal] = useState(false);
   const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null  // for storing date value
 
   // for storing FinalPlaceValue value
   const [destinationValue, setDestinationValue] = useState("");
+  const [genderValue, setGenderValue] = useState(null);
   const [openCountryModal, setOpenCountryModal] = useState(false);
+  const [openGenderModal, setOpenGenderModal] = useState(false);
+
   const onDestinationChangeHandler = (value) => {
     setDestinationValue({
       flag: value.flag,
@@ -28,8 +34,25 @@ const InvitorForm = (props) => {
     })
 
     setOpenCountryModal(false)
+    setTransparentModal(false);
   }
 
+  const onGenderChangeHandler = (value) => {
+    setGenderValue(value);
+    setOpenGenderModal(false)
+    setTransparentModal(false);
+  }
+
+  const onOpenCountryModal = () => {
+    setTransparentModal(true);
+    setOpenCountryModal(true);
+  }
+
+  const onOpenGenderModal = () => {
+    setTransparentModal(true);
+    setOpenGenderModal(true);
+  }
+ 
   // for storing about value
   const [aboutValue, setAboutValue] = useState("")
   const onAboutChangeHandler = (value) => setAboutValue(value)
@@ -79,27 +102,42 @@ const InvitorForm = (props) => {
     <Fragment>
       <div className={styles.wrapper}>
         <div>
-          <form className={styles.container} onSubmit={(e) => {e.preventDefault()}}>
-            <h1 className={`${styles.login_form_title}`}>
-              Calling all travel enthusiasts
-            </h1>
+          <form className={`${styles.container} ${transparentModal && styles.transparent}`} onSubmit={(e) => {e.preventDefault()}}>
+
             <p className={styles.intro_paragraph}>
               Let's find the perfect companion for our upcoming odyssey!
             </p>
 
             <div className={styles.inputs_container}>
+              <div className={styles.madal_icons}>
+                <div style={{ marginBottom: "1rem" }} onClick={onOpenCountryModal} className={styles.select_country}>
+                  <img style={{ borderRadius: "10px", margin: "0 10px" }} src={where_input_icon} alt='' /> 
+                  <p>{destinationValue ? `Going to ${destinationValue.name}` : "Where are you going?"}</p>
+                </div>
 
+                <div onClick={onOpenGenderModal} className={styles.select_country}>
+                  <img style={{ margin: "0 10px" }} src={gender_icon} alt='' /> 
+                  <p>{genderValue ? `Looking for ${genderValue}` : "prefered gender?"}</p>
+                </div>
 
-              <div onClick={()=>setOpenCountryModal(true)} className={styles.select_country}>
-                <img style={{ width: "1.5rem", margin: "0 10px" }} src={where_input_icon} alt='' /> 
-                <p>{destinationValue ? destinationValue.name : "Where are you going?"}</p>
               </div>
 
               <Modal
-                show={openCountryModal}
-                onClose={() => setOpenCountryModal(false)}
+                show={openCountryModal || openGenderModal}
+                onClose={() => {
+                  setTransparentModal(false);
+                  setOpenCountryModal(false);
+                  setOpenGenderModal(false);
+                }}
+                bgColor="transparent"
               > 
-                <SelectCountry onSubmit={onDestinationChangeHandler}/>
+                {openCountryModal &&
+                  <SelectCountry onSubmit={onDestinationChangeHandler}/>
+                }
+
+                {openGenderModal &&
+                  <GenderSelector onSubmit={onGenderChangeHandler}/> 
+                }
               </Modal>
 
               <Input 
