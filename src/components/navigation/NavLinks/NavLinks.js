@@ -42,14 +42,25 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
+<<<<<<< HEAD
     <li className="onFocus">
       <NavLink  to="/about" >
         AboutUs
+=======
+    {/* <li className="onFocus">
+      <NavLink  to="/blog" >
+        Blogs
+>>>>>>> a1308da771bd12bca85c60f10bf8219650cfe640
         <hr />
       </NavLink>
-    </li>
+    </li> */}
 
-
+      <li className="onFocus">
+          <NavLink  to="/aboutus" >
+          About us
+            <hr />
+          </NavLink>
+        </li>
   </ul>
 };
 
