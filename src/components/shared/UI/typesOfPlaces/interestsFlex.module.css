@@ -30,7 +30,7 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .container{
         justify-content: space-around;
     }
@@ -39,11 +39,17 @@
         margin: 0;
         margin-bottom: 1.2rem;
     }
+
+    .flex_item img{
+        width: 1.6rem;
+        align-self: center;
+        margin-right: 1rem;
+    }
 }
 
 @media (max-width: 400px) {
     .flex_item img{
-        width: 1.3rem;
+        width: 1.5rem;
         align-self: center;
         margin-right: 1rem;
     }

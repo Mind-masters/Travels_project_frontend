@@ -8,8 +8,9 @@ import Ripple from "../../ripple";
 
 const Location = (props) => {
   const [isLoading, setIsLoading] = useState(true);
+  const access_token = 'pk.eyJ1IjoiZG9tYnViMSIsImEiOiJjbGR4N3M5ZWowZW1jM29yeHR6ZDZ4a2Z2In0.Nvxa1Vv6L-7YlWhT5CW47w'
 
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZG9tYnViMSIsImEiOiJjbGR4N3M5ZWowZW1jM29yeHR6ZDZ4a2Z2In0.Nvxa1Vv6L-7YlWhT5CW47w'; 
+  mapboxgl.accessToken = access_token; 
 
   const [coords, setCoords] = useState( props.show_location || [ 32.29650083636824, 23.670783991562146 ] );
 
@@ -32,7 +33,7 @@ const Location = (props) => {
     
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t",
+      style: "mapbox://styles/dombub1/cle3ugc4t000601p8afbwwb9t?optimize=true",
       center: coords,
     });
 
@@ -75,9 +76,9 @@ const Location = (props) => {
     setActiveButton(true);
   }
 
-  const onSubmitHandler = () => {
+  const onSubmitHandler = async() => {
     const {lat, lng} = coords;
-    console.log("submitas: ", coords)
+
     if(!props.show_location)return props.onSubmit({lat,lng}); // cords[lng, lat]
     else return props.onClose();
   }

@@ -5,7 +5,6 @@ import React, { useContext, useState } from 'react'
 
 import Destinations from "./destinations";
 import AboutUs from './aboutUs';
-import Faq from './FAQ';
 
 import MainHeader from './header';
 import ImageContainer from "./imageContainer";
@@ -71,7 +70,6 @@ const LandingMain = (props) => {
             <Destinations/>
             <FellowTravelers />
             <AboutUs />
-            <Faq />
 
             {
                 showAuthenticationForm &&

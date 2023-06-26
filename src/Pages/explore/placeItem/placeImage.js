@@ -22,7 +22,7 @@ const PlaceImage = (props) => {
         { place_image &&
         <>
             <div className={styles.image_container}>
-                <img onClick={()=>setExpandedImage(true)} src={place_image} alt=""/>
+                <img onClick={()=>setExpandedImage(true)} src={place_image} alt="" loading='lazy'/>
                 <div className={`${styles.mobile_description} ${showMobDescription && styles.visible_mobile_description}`}>
                     <div onClick={clickOnEyeHandler} className={styles.mobile_description_icon}>
                         <img src={ showMobDescription ? hiddenIcon : vissibleIcon} alt='eye'/>
@@ -37,7 +37,7 @@ const PlaceImage = (props) => {
                 bgColor="rgba(237, 235, 235, 0.8)"
             >
              <div className={styles.expanded_image}>
-                <img src={place_image} alt='' />
+                <img src={place_image} alt='' loading='lazy' />
                 <div className={styles.expanded_btn} onClick={()=>setExpandedImage(false)}>
                     <div>
                         <h1>Close</h1>

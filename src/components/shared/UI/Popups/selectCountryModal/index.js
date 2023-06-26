@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./selectCountryModal.module.css";
-import InsideBounce from "../LoadingSpinner/InsideBounce";
+import InsideBounce from "../../LoadingSpinner/InsideBounce";
 
 
 const SelectCountryModal = (props) => {

@@ -1,7 +1,6 @@
 import Button from '../../../../components/shared/UI/button/Button';
 import React, { useState } from 'react'
 import Header from "../header";
-import styles from "./defineUserInterests.module.css";
 import TypesOfInterests from '../../../../components/shared/UI/typesOfPlaces';
 
 const UserInterests = (props) => {

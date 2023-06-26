@@ -1,6 +1,6 @@
 .wrapper{
     padding: 1.5rem;
-    margin-top: 18vh;
+    margin-top: 15vh;
     width: 70%;
     text-align: center;
 }
@@ -57,6 +57,10 @@
     .wrapper{
         width: 95%;
     }
+
+    .main_header{
+        width: 80%;
+    }
 }
 
 
@@ -76,6 +80,11 @@
         font-size: 12px;
     }
 
+    .main_header{
+        font-size: 20px;
+        margin: 2rem auto;
+        width: 90%;
+    }
 }
 
 
@@ -118,9 +127,8 @@
     }
 
     .main_header{
-        font-size: 25px;
-        margin-bottom: 4rem;
-        margin-top: 2rem;
+        font-size: 18px;
+        width: 100%;
     }
     
 }
@@ -136,11 +144,7 @@
         width: 100%;
     }
     
-    .main_header{
-        font-size: 22px;
-        margin-bottom: 3rem;
-        margin-top: 1.5rem;
-    }
+
     
     .child_card img{
         width: 6rem;

@@ -9,9 +9,9 @@
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     .modal_content{
-        width: 19.5rem;
+        width: 18rem;
     }
 }
 

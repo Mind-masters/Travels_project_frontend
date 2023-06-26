@@ -22,15 +22,16 @@
 
 .modal_content ul h1{
     text-align: center;
-    border-radius: 30px;
+    border-radius: 24px;
     padding: 16px;
     cursor: pointer;
-    transition-duration: 0.3s;
+    transition-duration: 0.2s;
     font-size: 1.2rem;
+    color: rgb(85, 84, 84);
 }
 
 .modal_content ul h1:hover{
-    background-color: rgba(229, 235, 148, 0.626);
+    background-color: #ee7e1556;
 }
 
 @media (max-width: 768px) {

@@ -9,6 +9,12 @@ const NavLinks = (props) => {
 
   return <ul className={styles.nav_links_container}>
 
+    <li className={`onFocus ${styles.home_start}`}>
+      <NavLink to="/" >
+        <img alt='home-logo' src={homeLinkLogo} />
+      </NavLink>
+    </li>
+
     <li className="onFocus">
       <NavLink to="/explore" >
         Places
@@ -23,7 +29,7 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
-    <li className="onFocus">
+    <li className={`onFocus ${styles.home_middle}`}>
       <NavLink to="/" >
         <img alt='home-logo' src={homeLinkLogo} />
       </NavLink>
@@ -36,9 +42,15 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
+<<<<<<< HEAD
+    <li className="onFocus">
+      <NavLink  to="/about" >
+        AboutUs
+=======
     {/* <li className="onFocus">
       <NavLink  to="/blog" >
         Blogs
+>>>>>>> a1308da771bd12bca85c60f10bf8219650cfe640
         <hr />
       </NavLink>
     </li> */}
