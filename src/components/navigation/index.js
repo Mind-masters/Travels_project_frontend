@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
-import MainHeader from './NavHeader/NavHeader';
-import NavLinks from './NavLinks/NavLinks';
+import MainHeader from './NavHeader';
+import NavLinks from './NavLinks';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from '../shared/UI/Backdrop';
 import styles from './navigation.module.css';

@@ -11,12 +11,12 @@
 
 @media (max-width: 500px) {
     .modal_content{
-        width: 18rem;
+        width: 22rem;
     }
 }
 
 
-@media (max-width: 330px) {
+@media (max-width: 400px) {
     .modal_content{
         width: 92vw;
     }

@@ -1,18 +1,18 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
-import styles from "./Headers.module.css";
+import styles from "./NavHeader.module.css";
 import UserDropDown from '../NavLinks/dropDown';
 import Authentication from '../../../Pages/PopUpPages/Authentication';
 import MobileNavButton from '../Mobile';
 import Button from '../../shared/UI/button/Button';
-import NavLinks from '../NavLinks/NavLinks';
-
+import NavLinks from '../NavLinks';
+import { useNavigate } from 'react-router-dom';
 
 
 const NavHeader = (props) => {
 
   const User = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const [authenticationIsOpen, setAuthenticationIsOpen] = useState(false);
 
   const openAuthenticationForm = () => {
@@ -26,7 +26,7 @@ const NavHeader = (props) => {
   return <div className={styles.mainHeader}>
     <div className={styles.mobile_navigation}>
       <MobileNavButton onClick={props.onMobile}/>
-      <div className={`${styles.header_text}`}>
+      <div className={`${styles.header_text}`} onClick={()=>navigate("/")}>
         <h1><span>Trip</span>Whoop<span>!</span></h1>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./item.module.css";
-import expand_logo from "../../../assets/landing/expand_logo.png";
-import expanded_logo from "../../../assets/landing/expanded_logo.png";
+import expand_logo from "../../../../../assets/landing/expand_logo.png";
+import expanded_logo from "../../../../../assets/landing/expanded_logo.png";
 import { useState } from 'react';
 
 const FaqItem = ({obj}) => {

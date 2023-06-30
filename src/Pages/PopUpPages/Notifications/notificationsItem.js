@@ -3,10 +3,9 @@ import styles from "./notificationsItem.module.css";
 
 
 const NotificationsItem = ({item}) => {
-
     return (
     <div className={styles.container}>
-        <img src={item.icon} alt='' />
+        <img src={`https://mind-master-backend-production.up.railway.app/${item.icon}`} alt='' />
         <p>{item.text}</p>
     </div>
   )

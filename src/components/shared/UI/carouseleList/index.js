@@ -15,7 +15,6 @@ SwiperCore.use([EffectCoverflow, Autoplay, Pagination,Navigation]);
 const SwiperList = (props) => {
 
     const swiperRef = useRef(null);
-  
     const [slidesCount, setSlidesCount] = useState("auto");
     const container_ref = useRef(null);
 
@@ -48,7 +47,6 @@ const SwiperList = (props) => {
 
             { props.data && props.data.length > 0 &&
                 <Swiper
-                
                     ref={swiperRef}
                     effect={'coverflow'}
                     centeredSlides={true}
@@ -78,7 +76,7 @@ const SwiperList = (props) => {
                                     return (
                                     <SwiperSlide 
                                         key={key} 
-                                        style={{ backgroundImage: `url(${place.image})`, backgroundPosition: "center" }}
+                                        style={{ backgroundImage: `url(${place.image})`}}
                                         className={styles.SwiperSlide}
                                     >
                                         <SlideItem item={place}/>
@@ -88,6 +86,7 @@ const SwiperList = (props) => {
                                 }
                             )
                         }
+
                     </>
                 </Swiper>
             }

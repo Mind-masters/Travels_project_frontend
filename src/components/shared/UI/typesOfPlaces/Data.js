@@ -42,7 +42,7 @@ export const DEFAULT_OPTIONS = [
     {
         key: 3,
         icon:  require("../../../../assets/registration-modals/2_trip.png"),
-        value: "Trip by car"
+        value: "Road trip"
     },
 
     {

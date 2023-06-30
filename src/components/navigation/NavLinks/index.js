@@ -42,12 +42,14 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
-      <li className="onFocus">
-          <NavLink  to="/aboutus" >
-          About us
-            <hr />
-          </NavLink>
-        </li>
+    <li className="onFocus">
+      <NavLink  to="/about" >
+        AboutUs
+        <hr />
+      </NavLink>
+    </li>
+
+
   </ul>
 };
 
