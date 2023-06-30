@@ -36,23 +36,17 @@ const BlogPostForm = () => {
     formData.append('image', image);
     formData.append('hashTag', hashTag);
 
-     
-
     // try {
     //      //Make API request to save the blog post
     //     const response = await axios.post('api/post', formData);
-
-    //  // Invoke the callback function passed as props
-    // // to notify the parent component about the new post
-    //     onPostCreated(response.data);
-        
-
-    //     // reset form fields     
+    // // reset form fields     
     //     setImage(null);
     //     setTitle('');
     //     setContent('');
     //     setHashTag('');
 
+    //     onPostCreated(response.data);
+        
     // } catch (error) {
     //     console.log('error creating post:', error);
     // }

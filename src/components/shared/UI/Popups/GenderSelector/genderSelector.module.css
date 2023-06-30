@@ -34,17 +34,11 @@
     background-color: #ee7e1556;
 }
 
-@media (max-width: 768px) {
-    .modal_content{
-        height: 55vh;
-    }
-}
 
 
 @media (max-width: 400px) {
     .modal_content{
         width: 80vw;
-        height: 55vh;
         padding: 0;
     }
 }

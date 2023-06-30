@@ -7,25 +7,25 @@
 
 @media (max-width: 500px) {
     .wrapper{
-        width: 18rem;
+        width: 21rem;
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 360px) {
     .wrapper{
-        width: 80vw;
+        width: 90vw;
     }
 }
 
 
-@media (max-width: 330px) {
+@media (max-width: 310px) {
+    .wrapper{
+        width: 85vw;
+    }
+}
+
+@media (max-width: 270px) {
     .wrapper{
         width: 92vw;
-    }
-}
-
-@media (max-width: 280px) {
-    .wrapper{
-        width: 95vw;
     }
 }

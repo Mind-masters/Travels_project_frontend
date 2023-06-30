@@ -12,15 +12,8 @@
     background-repeat: no-repeat;
     border-radius: 30px;
     background-size: cover;
-    width: 80%;
+    background-position: center;
+    width: 78%;
+    position: relative;
 }
 
-@media screen and (max-width: 600px) {
-    .add_logo{
-        display: none;
-    }
-
-    .Swiper{
-        width: 100%;
-    }
-}

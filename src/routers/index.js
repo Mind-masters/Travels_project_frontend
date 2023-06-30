@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import LoadingSpinner from "../components/shared/UI/LoadingSpinner";
 import AboutUs from "../Pages/aboutUs";
+
 const LandingPage = lazy(()=>import("../Pages/landing"));
 const ExplorePage = lazy(()=>import("../Pages/explore"));
 const Profile = lazy(()=>import("../Pages/profile"));
@@ -31,7 +32,9 @@ const Routing = () => {
         <Route path="/social" element={<Social />} />
         <Route path="/benefits" element={<Benefits/>}/>
         <Route path="/about" element={<AboutUs/>}/>
+
         <Route path="*" element={<LandingPage></LandingPage>}/>
+
 
       </Routes>
     </Suspense>

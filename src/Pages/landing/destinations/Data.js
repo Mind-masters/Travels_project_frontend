@@ -15,7 +15,7 @@ export const PlacesData = [
  
     {
         image: "https://www.thewanders.eu/wp-content/uploads/2021/05/The-Road-to-Hell.jpg",
-        type: "Trip by car",
+        type: "Road trip",
         location: {lat: "32.176999", lng: "-104.441106"}
     },
  

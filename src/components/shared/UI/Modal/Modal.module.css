@@ -1,13 +1,14 @@
 .modal_container {
   position: fixed;
   height: 100vh;
-  height: 100bvh;
-  height: -webkit-fill-available;
+  height: 100dvh;
+  /* height: -webkit-fill-available; */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(114, 114, 114, 0.79);
+  /* background: rgba(114, 114, 114, 0.79); */
+  background-color: rgba(50, 48, 48, 0.763);
   z-index: 3;
 
 }

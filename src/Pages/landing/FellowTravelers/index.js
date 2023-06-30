@@ -26,7 +26,7 @@ const FellowTravelers = () => {
           <h1>Join a group</h1>
           { showFirstContent &&
             <p>
-              Do what you love, meet others who love it, find your community. The rest is history <span onClick={onNavigate}>See all</span>
+              Do what you love, meet others who love it, find your community. The rest is history<span onClick={onNavigate}>More...</span>
             </p>
           }
         </div>
@@ -36,7 +36,7 @@ const FellowTravelers = () => {
           <h1>Start a group</h1>
           { showSecondContent &&
             <p>
-              You don’t have to be an expert to gather people together and explore shared interests <span onClick={onNavigate}>See all</span>                  
+              You don’t have to be an expert to gather people together and explore shared interests<span onClick={onNavigate}>More...</span>                  
             </p>
           }
         </div>                

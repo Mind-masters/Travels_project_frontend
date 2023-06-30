@@ -133,7 +133,7 @@ export default function AccountMenu(props) {
                         <div className={styles.body}>
                             <div>
                                 <img src={messages_logo} alt="" />
-                                <h1>Messages <span>{`(${2})`}</span></h1>
+                                <h1>Messages <span>{`(${0})`}</span></h1>
                             </div>
                         </div>
                     </MenuItem>
