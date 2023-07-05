@@ -87,7 +87,8 @@ const CreateTrip = (props) => {
       return notify("Incorrect location", "warning");
     }
 
-    setIsLoading(true);
+    // setIsLoading(true);
+    console.log(imageValue)
 
     const formData = new FormData();
     formData.append('type', typeValue[0].value)
@@ -113,7 +114,6 @@ const CreateTrip = (props) => {
       setIsLoading(false);
       return notify(error.message, "error");
     }
-
 
 
   }

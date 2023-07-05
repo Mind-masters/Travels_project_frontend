@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "https://tripwhoop.com/",
   "dependencies": {
+    "@cloudinary/react": "^1.11.2",
+    "@cloudinary/url-gen": "^1.10.1",
     "@dicebear/adventurer": "^4.10.5",
     "@dicebear/avatars": "^4.10.5",
     "@dicebear/avatars-identicon-sprites": "^4.10.5",
