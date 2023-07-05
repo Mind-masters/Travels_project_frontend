@@ -30,7 +30,7 @@ const PlaceItem = (props) => {
         <Body item={props.item} onFilter={props.onFilter} onShowMap={onShowMapHandler}/>
       </div>
 
-      {showMap && <ViewOnMap location={props.item && props.item.location} onClose={()=>{setShowMap(false)}}/> }
+      {showMap && <ViewOnMap pid={props.item._id} location={props.item && props.item.location} onClose={()=>{setShowMap(false)}}/> }
 
     </div>
   )

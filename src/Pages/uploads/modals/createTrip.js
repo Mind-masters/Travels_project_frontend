@@ -15,7 +15,7 @@ import map_icon from "../../../assets/map_icon.png";
 import photo_icon from "../../../assets/photo_icon.png";
 
 // submodals
-import Location from '../../../components/shared/UI/map/location/index';
+import Location from '../../../components/shared/UI/map/location';
 import ImageUpload from "./uploadImage";
 import FormInput from '../../../components/shared/UI/formInput';
 import DefineType from './defineType';
@@ -55,10 +55,6 @@ const CreateTrip = (props) => {
   };
 
   const onSubmitDescription = (value) => setDescriptionValue(value);
-  // const onSubmitCountryModal = (results) => {  setCountryValue({
-  //   flag: results.flag,
-  //   name: results.name
-  // }); onModalHide()}
   const onSubmitLocationModal = (results) => {
     setLocationValue(results); 
     onModalHide()
@@ -83,31 +79,42 @@ const CreateTrip = (props) => {
     }
 
     const country_request = await (await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=en`)).json()
-    const countryValue = country_request && country_request.address.country;
+    const countryValue = country_request && country_request.address && country_request.address.country;
+
+    if(!countryValue) {
+      setLocationInputError(true);
+      setLocationValue(null)
+      return notify("Incorrect location", "warning");
+    }
 
     // setIsLoading(true);
     console.log(imageValue)
 
-    // const formData = new FormData();
-    // formData.append('type', typeValue[0].value)
-    // formData.append('description', descriptionValue)
-    // formData.append('country', countryValue)
-    // formData.append('lat', lat)
-    // formData.append('lng', lng)
-    // formData.append('image', imageValue)
-    
-    // const create_new_place = await Create(formData,token)
-    // const kazkas = await create_new_place.json();
-    // console.log("nah: ", kazkas)
-    setIsLoading(false);
+    const formData = new FormData();
+    formData.append('type', typeValue[0].value)
+    formData.append('description', descriptionValue)
+    formData.append('country', countryValue)
+    formData.append('lat', lat)
+    formData.append('lng', lng)
+    formData.append('image', imageValue)
 
-    // if(create_new_place.status){
-    //   notify(create_new_place.message, "success");
-    //   navigate("/explore");
-    //   if(props.onRefresh)props.onRefresh();
-    //   return props.onClose();
-    // }
-    // else if(!create_new_place.status)notify(create_new_place.message, "error");
+    try {
+      const create_new_place = await Create(formData,token)
+      const jsonData = await create_new_place.json();
+      setIsLoading(false);
+
+      if(create_new_place.status && jsonData.status){
+        notify(jsonData.message, "success");
+        navigate("/explore");
+        if(props.onRefresh)props.onRefresh();
+        return props.onClose();
+      }
+      else if(!jsonData.status)notify(jsonData.message, "error");
+    } catch (error) {
+      setIsLoading(false);
+      return notify(error.message, "error");
+    }
+
 
   }
 

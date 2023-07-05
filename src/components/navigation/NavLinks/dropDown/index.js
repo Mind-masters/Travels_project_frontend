@@ -142,7 +142,7 @@ export default function AccountMenu(props) {
                         <div className={styles.body}>
                             <div>
                                 <img src={notification_logo} alt="" />
-                                <h1>Notifications <span>{`(${props.notifications && props.notifications.length})`}</span></h1>
+                                <h1>Notifications <span>{`(${(props.notifications && props.notifications.length) || 0})`}</span></h1>
                             </div>
                         </div>
                     </MenuItem>
