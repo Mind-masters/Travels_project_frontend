@@ -1,10 +1,10 @@
 import styles from "./location.module.css";
-import Button from "../../button/Button";
+import Button from "../button/Button";
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import closeIcon from "../../../../../assets/close-logo.png";
-import submitIcon from "../../../../../assets/submit-logo.png";
-import Ripple from "../../ripple";
+import closeIcon from "../../../../assets/close-logo.png";
+import submitIcon from "../../../../assets/submit-logo.png";
+import Ripple from "../ripple";
 
 const Location = (props) => {
   const [isLoading, setIsLoading] = useState(true);

@@ -1,31 +1,61 @@
-import React, { useEffect } from 'react'
+import React, {useState, useContext} from 'react'
 import Modal from '../Modal'
 import AlertContainer from './alertContainer'
-import { useState } from 'react'
 import Location from '../map/location'
-import { useContext } from 'react'
 import { AuthContext } from '../../../../contextAPI/AuthContext'
-import Ripple from '../ripple'
+import { notify } from "../../../../components/shared/UI/toast";
+import { Map } from '../../../utils/places/map'
 
 const ViewOnMap = (props) => {
 
   const [showMap, setShowMap] = useState(false);
-  const Auth = useContext(AuthContext).authenticatedUser;
+  const [updatedUser, setUpdatedUser] = useState(null);
+  const Auth = useContext(AuthContext);
+  const token = Auth && Auth.authenticatedUser && Auth.authenticatedUser.token.access_token;
 
+  const submitAlertHandler = async() => {
+    if(!token)return;
 
+    setShowMap(true)
 
+    const showMapReq = await Map({pid: props.pid}, token);
+    if(!showMapReq.status){
+      notify("Please contact us", "error")
+      setShowMap(false);
+    }
 
+    const {user} = showMapReq.data;
+    setUpdatedUser(user);
+  }
+
+  const onUpdateUserDelay = () => {
+
+    if(!updatedUser)return props.onClose();
+
+    Auth.update({
+      data: updatedUser, 
+      token: 
+      {
+        access_token: updatedUser.access_token,
+        refresh_token: updatedUser.refresh_token
+      } 
+    })
+
+    return props.onClose();
+  }
+
+  
   return (
     <div>
       <Modal 
         onClose={props.onClose}
-        show={true } 
+        show={true} 
       >
-        { !showMap && <AlertContainer onGo={() => setShowMap(true)} onClose={props.onClose} />}
+        { !showMap && <AlertContainer onGo={submitAlertHandler} onClose={props.onClose} />}
         <>
-          { showMap &&  Auth &&
+          { showMap && Auth.authenticatedUser &&
             <Location 
-              onClose={props.onClose} 
+              onClose={onUpdateUserDelay} 
               show_location={props.location}
             />
           }

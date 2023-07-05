@@ -1,20 +1,7 @@
 
-
-/* section {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    margin-left: 95px;
-       
-  } */
-
-  .main_container{
-    padding-top: 80px;
-    margin-bottom: 50px;
-  }
   .container{
-    height: 100%;
     width: 100%;
+    padding: 8rem 10px;
     display: grid;
   }
   .section_heading{
@@ -28,25 +15,18 @@
     text-align: center;
     font-size: 33px;
   }
-  /* .section_heading p{
-    text-align: center;
-    display: flex;
-    width: 60%;
-    align-items: center;
-    align-content: center;
-  } */
+  
   .row {
     display: flex;
     flex-wrap: wrap;
   }
   .column {
-    width: 70vw;
+    width: 20rem;
     padding: 0 1em 1em 1em;
     text-align: center;
   }
   .card {
     width: 100%;
-    height: 50vh;
     padding: 2em 1.5em;
     background: linear-gradient(#ffffff 50%,  #F08D32 50%);
     background-size: 100% 200%;
@@ -130,5 +110,11 @@
     }
     .point_description{
       padding: 15px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .column{
+      width: 90vw;
     }
   }

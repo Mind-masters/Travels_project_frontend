@@ -2,9 +2,9 @@ import React from 'react'
 import styles from "./insideBounce.module.css";
 import { Bounce } from 'react-activity';
 
-const InsideBounce = () => {
+const InsideBounce = (props) => {
   return (
-    <div className={styles.loading}>
+    <div style={{ backgroundColor: props.bgColor }} className={styles.loading}>
       <Bounce size="20px" color="#EE7D15" />
     </div>
   )

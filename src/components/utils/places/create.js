@@ -1,7 +1,5 @@
 export const Create = async(data, token) => {
 
-    console.log("Create _ data: ", data)
-
     const url = "https://mind-master-backend-production.up.railway.app/api/v1/user/places/new";
     // const url = "http://localhost:5000/api/v1/user/places/new"
 
