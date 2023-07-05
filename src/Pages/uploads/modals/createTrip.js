@@ -85,28 +85,29 @@ const CreateTrip = (props) => {
     const country_request = await (await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=en`)).json()
     const countryValue = country_request && country_request.address.country;
 
-    setIsLoading(true);
+    // setIsLoading(true);
+    console.log(imageValue)
 
-    const formData = new FormData();
-    formData.append('type', typeValue[0].value)
-    formData.append('description', descriptionValue)
-    formData.append('country', countryValue)
-    formData.append('lat', lat)
-    formData.append('lng', lng)
-    formData.append('image', imageValue)
+    // const formData = new FormData();
+    // formData.append('type', typeValue[0].value)
+    // formData.append('description', descriptionValue)
+    // formData.append('country', countryValue)
+    // formData.append('lat', lat)
+    // formData.append('lng', lng)
+    // formData.append('image', imageValue)
     
-    const create_new_place = await Create(formData,token)
-    const kazkas = await create_new_place.json();
-    console.log("nah: ", kazkas)
+    // const create_new_place = await Create(formData,token)
+    // const kazkas = await create_new_place.json();
+    // console.log("nah: ", kazkas)
     setIsLoading(false);
 
-    if(create_new_place.status){
-      notify(create_new_place.message, "success");
-      navigate("/explore");
-      if(props.onRefresh)props.onRefresh();
-      return props.onClose();
-    }
-    else if(!create_new_place.status)notify(create_new_place.message, "error");
+    // if(create_new_place.status){
+    //   notify(create_new_place.message, "success");
+    //   navigate("/explore");
+    //   if(props.onRefresh)props.onRefresh();
+    //   return props.onClose();
+    // }
+    // else if(!create_new_place.status)notify(create_new_place.message, "error");
 
   }
 
