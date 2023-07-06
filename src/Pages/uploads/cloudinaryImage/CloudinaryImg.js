@@ -11,11 +11,11 @@ const CloudinaryImg = () => {
         const formData = new FormData()
         formData.append('file', selectedImage)
         formData.append('upload_preset', 'e0rbdj0k')
-
+console.log("ok")
         const postImage = async()=>{
             try {
                 const response = await axios.post("https://api.cloudinary.com/v1_1/dvmptmthb/upload", formData)
-                console.log(response.data)
+                console.log("hey: ")
                 // setImageData(response.data)
             } catch (error) {
                 console.log(error)
@@ -33,7 +33,7 @@ const CloudinaryImg = () => {
         name='file'
         id='file'
         onChange={(e)=> setSelectedImage(e.target.files[0])}/>
-        <button onClick={uploadImage} >UploadImage</button>
+        <button onClick={uploadImage} >sendin</button>
         </div>
 
         {/* <div>
