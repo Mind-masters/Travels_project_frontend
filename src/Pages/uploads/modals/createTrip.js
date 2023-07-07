@@ -87,29 +87,26 @@ const CreateTrip = (props) => {
       return notify("Incorrect location", "warning");
     }
 
-    // setIsLoading(true);
-    console.log(imageValue)
-
-    const formData = new FormData();
-    formData.append('type', typeValue[0].value)
-    formData.append('description', descriptionValue)
-    formData.append('country', countryValue)
-    formData.append('lat', lat)
-    formData.append('lng', lng)
-    formData.append('image', imageValue)
+    setIsLoading(true);
 
     try {
-      const create_new_place = await Create(formData,token)
-      const jsonData = await create_new_place.json();
+      const create_new_place = await Create({
+        type: typeValue[0].value,
+        description:descriptionValue,
+        country:countryValue,
+        lat:lat,
+        lng:lng,
+        image:imageValue,
+      },token)
       setIsLoading(false);
 
-      if(create_new_place.status && jsonData.status){
-        notify(jsonData.message, "success");
+      if(create_new_place.status){
+        notify(create_new_place.message, "success");
         navigate("/explore");
         if(props.onRefresh)props.onRefresh();
         return props.onClose();
       }
-      else if(!jsonData.status)notify(jsonData.message, "error");
+      else if(!create_new_place.status)notify(create_new_place.message, "error");
     } catch (error) {
       setIsLoading(false);
       return notify(error.message, "error");
