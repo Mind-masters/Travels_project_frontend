@@ -7,6 +7,7 @@ import Faq from './FAQ';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import HowItWorks from './HowItWorks';
+import PrivacyPolicy from './Privacy Policy';
 
 
 const Footer = () => {
@@ -15,12 +16,14 @@ const Footer = () => {
   const [showAbout, setShowAbout] = useState(false);
   const [showHow, setShowHow] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [ShowPrivacyP, setShowPrivacyP] = useState(false);
 
   const onCloseModal = () => {
     setShowFAQ(false);
     setShowAbout(false);
     setShowHow(false);
     setShowContactForm(false);
+    setShowPrivacyP(false)
   }
 
 
@@ -28,7 +31,7 @@ const Footer = () => {
   <>
     <>
       <Modal
-        show={showFAQ || showAbout || showHow || showContactForm}
+        show={showFAQ || showAbout || showHow || showContactForm ||ShowPrivacyP }
         onClose={onCloseModal}
       >
         <div className={styles.modal_wrapper}>
@@ -39,6 +42,7 @@ const Footer = () => {
           {showAbout && <AboutUs />}
           {showContactForm && <ContactUs />}
           {showHow && <HowItWorks />}
+          {ShowPrivacyP && <PrivacyPolicy />}
         </div>
       </Modal>
     </>
@@ -62,6 +66,7 @@ const Footer = () => {
             <ul className={styles.links}>
               <li onClick={()=>setShowHow(true)}>How it works</li>
               <li onClick={()=>setShowContactForm(true)}>Contact Us</li>
+              <li onClick={()=>setShowPrivacyP(true)}>Privacy Policy</li>
             </ul>
           </div>
 
