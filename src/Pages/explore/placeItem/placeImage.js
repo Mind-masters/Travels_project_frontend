@@ -10,7 +10,7 @@ const PlaceImage = (props) => {
     const [showMobDescription, setShowMobDescription] = useState(false);
     const [expandedImage, setExpandedImage] = useState(false);
 
-    const place_image = props.item && `https://mind-master-backend-production.up.railway.app/${props.item.image}`
+    const place_image = props.item.image // && `https://mind-master-backend-production.up.railway.app/${props.item.image}`
   
     const clickOnEyeHandler = () => {
       setShowMobDescription(!showMobDescription);
