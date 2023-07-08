@@ -19,10 +19,12 @@ import Location from '../../../components/shared/UI/map/location';
 import ImageUpload from "./uploadImage";
 import FormInput from '../../../components/shared/UI/formInput';
 import DefineType from './defineType';
+import axios from 'axios';
 
 const CreateTrip = (props) => {
 
   const navigate = useNavigate();
+  const [preparedImageUrl, setPreparedImageUrl] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const Auth = useContext(AuthContext);
   const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null
@@ -59,7 +61,10 @@ const CreateTrip = (props) => {
     setLocationValue(results); 
     onModalHide()
   }
-  const onSubmitImageModal = (results) => {setImageValue(results); onModalHide()}
+  const onSubmitImageModal = async(results) => {
+    setImageValue(results); 
+    onModalHide();
+  }
 
   const onFormSubmitHandler = async() => {
 
@@ -70,7 +75,7 @@ const CreateTrip = (props) => {
     if(!descriptionValue){return}    
     if(!locationValue){setLocationInputError(true);return}
     if(!imageValue){setImageInputError(true);return}
-
+    if(!preparedImageUrl)return notify("Image under review", "warning")
     if(!token)return
 
     const {lat, lng} = locationValue;
@@ -87,30 +92,49 @@ const CreateTrip = (props) => {
       return notify("Incorrect location", "warning");
     }
 
-    setIsLoading(true);
+    console.log("image value: ", imageValue.type)
+    notify(`Size: ${imageValue.size} | type: ${imageValue.type}`, "warning")
 
-    try {
-      const create_new_place = await Create({
-        type: typeValue[0].value,
-        description:descriptionValue,
-        country:countryValue,
-        lat:lat,
-        lng:lng,
-        image:imageValue,
-      },token)
-      setIsLoading(false);
+    return
 
-      if(create_new_place.status){
-        notify(create_new_place.message, "success");
-        navigate("/explore");
-        if(props.onRefresh)props.onRefresh();
-        return props.onClose();
-      }
-      else if(!create_new_place.status)notify(create_new_place.message, "error");
-    } catch (error) {
-      setIsLoading(false);
-      return notify(error.message, "error");
-    }
+    // setPreparedImageUrl(false)
+
+    // const formData = new FormData()
+    // formData.append('file', imageValue)
+    // formData.append('upload_preset', 'e0rbdj0k')
+
+    // try {
+    //   const response = await axios.post("https://api.cloudinary.com/v1_1/dvmptmthb/upload", formData)
+    //   console.log("hey response: ", response.data.secure_url);
+    //   setPreparedImageUrl(response.data.secure_url)
+    // } catch (error) {
+    //   console.log(error)
+    // }
+
+    // setIsLoading(true);
+
+    // try {
+    //   const create_new_place = await Create({
+    //     type: typeValue[0].value,
+    //     description:descriptionValue,
+    //     country:countryValue,
+    //     lat:lat,
+    //     lng:lng,
+    //     image:"imageValue",
+    //   },token)
+    //   setIsLoading(false);
+
+    //   if(create_new_place.status){
+    //     notify(create_new_place.message, "success");
+    //     navigate("/explore");
+    //     if(props.onRefresh)props.onRefresh();
+    //     return props.onClose();
+    //   }
+    //   else if(!create_new_place.status)notify(create_new_place.message, "error");
+    // } catch (error) {
+    //   setIsLoading(false);
+    //   return notify(error.message, "error");
+    // }
 
 
   }
@@ -177,7 +201,7 @@ const CreateTrip = (props) => {
 
             <div className={styles.btn_container} >
               <AuthRequired>
-                <Button onSubmit={onFormSubmitHandler} color="rgba(238, 125, 21, 1)">
+                <Button onSubmit={onFormSubmitHandler} color={preparedImageUrl ? "rgba(238, 125, 21, 1)" : "rgba(238, 125, 21, 0.6)"}>
                   <h1 style={{ color: "white" }}>Continue</h1>
                 </Button>
               </AuthRequired>
