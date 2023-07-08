@@ -7,8 +7,8 @@ import Faq from './FAQ';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import HowItWorks from './HowItWorks';
-import PrivacyPolicy from './Privacy Policy';
-
+import PrivacyPolicy from './PrivacyPolicy';
+import PrivacyPolicyIcon from "../../../../assets/privacy_icon.png";
 
 const Footer = () => {
 
@@ -66,7 +66,6 @@ const Footer = () => {
             <ul className={styles.links}>
               <li onClick={()=>setShowHow(true)}>How it works</li>
               <li onClick={()=>setShowContactForm(true)}>Contact Us</li>
-              <li onClick={()=>setShowPrivacyP(true)}>Privacy Policy</li>
             </ul>
           </div>
 
@@ -79,6 +78,10 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className={styles.privacy} onClick={()=>setShowPrivacyP(true)}>
+        <img src={PrivacyPolicyIcon} alt='' />
+        <h1>Privacy Policy</h1>
       </div>
     </div>
   </>  
