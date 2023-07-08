@@ -142,12 +142,12 @@ const InvitorForm = (props) => {
 
               <Input 
                 type="description"
-                value={aboutValue} 
+                value={aboutValue}
                 isValid={true} 
                 name="Tell us more!"
                 onChange={onAboutChangeHandler}
               >
-                <img style={{ width: "10px", visibility: "hidden"}} src={about_input_icon} alt='' /> 
+                <img style={{ width: "10px", visibility: "hidden"}} src={about_input_icon} alt='' />
               </Input>
             </div>
 
