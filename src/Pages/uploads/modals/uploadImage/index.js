@@ -35,7 +35,7 @@ const ImageUpload = (props) => {
   };
 
   const imageSubmitHandler = () => {
-    return props.onSubmit(previewUrl);
+    return props.onSubmit(file);
   };
 
   return (
