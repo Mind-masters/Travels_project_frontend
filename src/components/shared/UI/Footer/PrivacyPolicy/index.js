@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
         <div className={styles.header_wrapper}>
           <img src={header_logo} alt='' />
           <div>
-            <h1>User Data Privacy Policy</h1>
+            <h1>User Data Privacy</h1>
             <hr />
           </div>
         </div>

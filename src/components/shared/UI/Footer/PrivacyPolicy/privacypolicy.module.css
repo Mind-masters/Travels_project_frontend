@@ -92,9 +92,17 @@
     }
 }
 
-@media (max-width: 280px)
+@media (max-width: 300px)
 {
     .header_wrapper div{
         font-size: 25px;
+    }
+
+    .list_item p{
+        font-size: 17px;
+    }
+
+    .list_item h1{
+        font-size: 21px;
     }
 }
