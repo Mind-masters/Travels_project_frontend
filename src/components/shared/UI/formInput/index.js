@@ -33,7 +33,7 @@ const FormInput = (props) => {
                 {   props.type === "description" ? 
                     <textarea 
                         autoCapitalize="off"
-                        style={{ minHeight: "6rem" }}
+                        style={{ minHeight: "6rem", paddingTop: "10px" }}
                         className={`${styles.input} ${props.value && styles.has_val}`}
                         onChange={onInputChangeHanlder} 
                         onBlur={()=>{setIsTouched(true)}}
