@@ -1,0 +1,33 @@
+.icon_wrapper {
+    background-color:  #F08D32;
+    position: relative;
+    margin: auto;
+    font-size: 30px;
+    height: 2.8em;
+    width: 2.8em;
+    color: #ffffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: 0.5s;
+}
+
+.earn_point {
+    font-size: 23px;
+    font-weight: 600;
+    margin: 1em 0;
+    color: #615e5e;
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+
+    .icon_wrapper{
+        width: 2.5em;
+        height: 2.5em;
+    }
+
+    .earn_point{
+        font-size: 20px;
+    }
+}

@@ -4,9 +4,20 @@
     padding: 8rem 10px;
     display: grid;
   }
+
+  .modal_wrapper{
+    background-color: rgb(255, 255, 255);
+    width: 30rem;
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+    border-radius: 13px;
+    max-height: 80vh;
+    overflow: scroll;
+    padding: 1rem;
+  }
+
   .section_heading{
    margin: auto ;
-    color: #0f0e0e;
+    color: #333131;
     align-items: center;
     align-self: center;
   }
@@ -19,14 +30,19 @@
   .row {
     display: flex;
     flex-wrap: wrap;
+    min-height: 40vh;
   }
   .column {
     width: 20rem;
     padding: 0 1em 1em 1em;
     text-align: center;
+    margin: 2rem auto;
+
   }
+
   .card {
     width: 100%;
+    height: 100%;
     padding: 2em 1.5em;
     background: linear-gradient(#ffffff 50%,  #F08D32 50%);
     background-size: 100% 200%;
@@ -35,25 +51,29 @@
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
     cursor: pointer;
     transition: 0.5s;
-    
   }
+
   .earn_point {
     font-size: 20px;
     font-weight: 600;
-   
     margin: 1em 0;
+    color: #615e5e;
+
   }
+
   .point_description {
     color: #575a7b;
     font-size: 15px;
     line-height: 1.6;
     letter-spacing: 0.03em;
   }
+  
   .description{
     color: #575a7b;
     font-size: 15px;
     line-height: 1.4;
   }
+
   .icon_wrapper {
     background-color:  #F08D32;
     position: relative;
@@ -67,22 +87,28 @@
     place-items: center;
     transition: 0.5s;
   }
+
   .point_details{
     margin: 20px;
   }
+
   .card:hover {
     background-position: 0 100%;
   }
+
   .card:hover .icon_wrapper {
     background-color: #ffffff;
     color: #F08D32;
   }
+
   .card:hover h3 {
     color: #ffffff;
   }
+
   .card:hover p {
     color: #f0f0f0;
   }
+
   @media screen and (min-width: 768px) {
     section {
       padding: 0 2em;
@@ -106,14 +132,21 @@
   }
   @media screen and (max-width: 700px) {
     .column{
-        margin: auto;
+      margin: 1.5rem auto;
+      width: 25rem;
     }
     .point_description{
       padding: 15px;
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 550px) {
+    .modal_wrapper{
+      width: 90vw;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
     .column{
       width: 90vw;
     }

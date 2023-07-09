@@ -33,7 +33,8 @@ const ContactUs = (props) => {
       notify(message_response.message, "success");
       return props.onClose();
     } catch (error) {
-      return notify(error._message || "Cannot send message","error")
+      setIsSubmited(false)
+      return notify(error.message || "Cannot send message","error");
     }
 
   }
