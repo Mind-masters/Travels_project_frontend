@@ -14,6 +14,8 @@ import { useNavigate } from 'react-router-dom';
 import Authentication from '../PopUpPages/Authentication';
 import { AuthContext } from '../../contextAPI/AuthContext';
 import FellowTravelers from './FellowTravelers';
+import CloudinaryImg from '../uploads/cloudinaryImage/CloudinaryImg';
+import ScrollToTop from '../../components/shared/UI/ScrollToTop/ScrollToTop';
 
 
 const LandingMain = (props) => {
@@ -79,7 +81,10 @@ const LandingMain = (props) => {
                     onClose={()=>setShowAuthenticationForm(false)}
                 />
             }
-
+            <div >
+                
+                <ScrollToTop/>
+            </div>
         </div>
     )
 }
