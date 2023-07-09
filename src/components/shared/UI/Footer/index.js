@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
           {showFAQ && <Faq />}
           {showAbout && <AboutUs />}
-          {showContactForm && <ContactUs />}
+          {showContactForm && <ContactUs onClose={onCloseModal} />}
           {showHow && <HowItWorks />}
           {ShowPrivacyP && <PrivacyPolicy />}
         </div>
