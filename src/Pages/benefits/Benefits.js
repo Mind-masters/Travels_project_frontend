@@ -75,7 +75,7 @@ const Benefits = () => {
             <div className={styles.icon_wrapper}>
               <FaRegCalendarCheck/>
             </div>
-            <h3 className={styles.earn_point}>Earn Point Booking</h3>
+            <h3 className={styles.earn_point}>Get Points Daily</h3>
             <p  className={styles.point_description}>
               Earn points for every booking made through this platform.
             </p>

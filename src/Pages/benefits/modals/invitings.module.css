@@ -1,0 +1,78 @@
+.subheader{
+    margin-bottom: 1rem;
+}
+
+.subheader p{
+    color: #2836467e;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.card_input{
+    width: 80%;
+}
+
+.card h1{
+    font-size: 20px;
+    color: #F08D32;
+}
+
+.card_btn{
+    display: inline-block;
+    
+    margin: 20px 0;
+}
+
+.card_btn h1{
+    color: whitesmoke;
+    font-size: 13px;
+    padding: 6px 4px;
+}
+
+.note span{
+    align-self: center;
+    color: #f3ad6c;
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.note{
+    font-size: 14px;
+    color: #3f50637e;
+}
+
+.points_item_header{
+    align-self: flex-start;
+    display: flex;
+}
+
+.list_btn{
+    margin-top: 2rem;
+    display: inline-block;
+}
+
+
+@media screen and (max-width: 400px) {
+    .card_input{
+        width: 100%;
+    }
+
+    .card h1{
+        font-size: 19px;
+    }
+
+    .card_btn h1{
+        font-size: 12px;
+    }
+
+    .subheader h1{
+        font-size: 20px;
+    }
+
+    .subheader p{
+        font-size: 1rem;
+        margin-top: 10px;
+        line-height:normal;
+        text-align: center;
+    }
+}
