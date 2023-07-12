@@ -11,15 +11,30 @@ import { notify } from '../shared/UI/toast';
 
 const MainNavigation = props => {
 
-  const Auth = useContext(AuthContext).authenticatedUser;
+  const updateUser = useContext(AuthContext);
+  const Auth = updateUser.authenticatedUser;
+
   const socket = io('https://mind-master-backend-production.up.railway.app/', {transports: ['websocket', 'polling', 'flashsocket']});
+  // const socket = io('http://localhost:5000/', {transports: ['websocket', 'polling', 'flashsocket']});
+
   const [notifications, setNotifications] = useState(null);
 
   useEffect(() => {
 
     socket.on('notifications', (data) => {
 
-      if(Auth && Auth.data.id === data.uid){
+      if(Auth && Auth.data._id === data.uid){
+        console.log("[New notification] updated_user: ", data.updated_user);
+        if(data.updated_user){
+          updateUser.update({
+            data: data.updated_user, 
+            token: 
+            {
+              access_token: data.updated_user.access_token,
+              refresh_token: data.updated_user.refresh_token
+            } 
+          });
+        }
         setNotifications(data.notifications.messages)
         notify("New notification", "success")
       }

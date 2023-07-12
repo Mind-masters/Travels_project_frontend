@@ -26,7 +26,7 @@ const InvitingDetails = (props) => {
 
   const Auth = useContext(AuthContext);
   if(!props.invite)return;
-  const isCreator = (Auth.authenticatedUser && Auth.authenticatedUser.data.id) === props.invite.user_id._id;
+  const isCreator = (Auth.authenticatedUser && Auth.authenticatedUser.data._id) === props.invite.user_id._id;
 
   const SubmitButtonHandler = async() => {
     setIsLoading(true)

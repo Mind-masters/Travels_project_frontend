@@ -18,7 +18,6 @@ function App() {
       return;
     }
     const {response, token} = user.data;
-
     setIsLoggedIn(true)
     setAuthenticatedUser({data: response, token: token})
   }, [])
