@@ -22,9 +22,7 @@ const Benefits = () => {
     setShowBookingsModal(false);
   }
 
-  const onInvitingsModalSubmit = (email) => {
-    console.log("submiting invitings modal..");
-  }
+
 
   return (
     <section className={styles.container}>
@@ -39,7 +37,7 @@ const Benefits = () => {
         >
           <div className={styles.modal_wrapper}>
             {showLikesModal && <LikesModal onClose={onCloseModalHandler}/>}
-            {showInvitingsModal && <InvitingsModal onSubmit={onInvitingsModalSubmit} />}
+            {showInvitingsModal && <InvitingsModal onClose={onCloseModalHandler} />}
             {showBookingsModal && <BookingsModal />}
           </div>
         </Modal>
@@ -75,32 +73,13 @@ const Benefits = () => {
             <div className={styles.icon_wrapper}>
               <FaRegCalendarCheck/>
             </div>
-            <h3 className={styles.earn_point}>Earn Point Booking</h3>
+            <h3 className={styles.earn_point}>Get Points Daily</h3>
             <p  className={styles.point_description}>
               Earn points for every booking made through this platform.
             </p>
           </div>
         </div>
 
-        {/* <div className={styles.point_details}>
-          <p className={styles.point_description}>
-            We are thrilled to introduce an exciting feature that rewards your engagement and creativity
-            on our website. Starting today, you have the opportunity to earn points in multiple ways, unlocking
-              a world of benefits and exclusive perks. Let's explore the various avenues through which you can
-              accumulate points and enjoy the rewards!</p> <br/>
-              <p className={styles.point_description}>Sharing and Likes: Sharing your favorite places has never been more rewarding! You can earn points based on the number of likes your shared place receives: <br/>
-
-                a) 40 Points for 50 Likes: When a place you shared receives a minimum of 50 likes, you will earn a well-deserved 40 points. Your contributions to the community are recognized and appreciated.<br/>
-
-                b) 70 Points for 80 Likes: Achieve a higher milestone by accumulating 80 likes on your shared place, and you will be rewarded with 70 points. Your popularity is growing, and so are your benefits!<br/>
-
-                c) 100 Points for 100+ Likes: Aim for the stars and watch your points soar! If the place you shared surpasses 100 likes, you will earn an impressive 100 points. Your ability to captivate and engage the community is truly commendable.</p><br/>
-                <p className={styles.point_description}>
-                  d)Free Month Membership for 400+ Likes: We have something special in store for our most influential users. If the place you shared receives an outstanding 400 likes or more, you will not only earn points but also enjoy a complimentary month of our premium membership plan. Unlock exclusive features and premium benefits, making your experience even more extraordinary.</p><br/>
-                <p className={styles.point_description}>Referrals: Sharing your positive experience with friends and family can be highly rewarding. When you refer someone to join our community, both you and the referred user will earn points. Spread the word, invite others to experience our platform, and watch your points grow as your network expands.</p><br/>
-                <p className={styles.point_description}>Booking: We believe in rewarding your loyalty and trust in our platform. For every booking you make through our website, you will earn points. The more you explore and discover new places with us, the more points you will accumulate, bringing you closer to exciting rewards.
-              </p>
-            </div> */}
       </div>
     </section>
   )

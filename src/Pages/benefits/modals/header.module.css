@@ -3,8 +3,8 @@
     position: relative;
     margin: auto;
     font-size: 30px;
-    height: 2.8em;
-    width: 2.8em;
+    height: 2.3em;
+    width: 2.3em;
     color: #ffffff;
     border-radius: 50%;
     display: grid;
@@ -21,11 +21,6 @@
 }
 
 @media screen and (max-width: 400px) {
-
-    .icon_wrapper{
-        width: 2.5em;
-        height: 2.5em;
-    }
 
     .earn_point{
         font-size: 20px;

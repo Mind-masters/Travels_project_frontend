@@ -18,6 +18,8 @@ export const Auth_Login = async(data) => {
 export const Auth_Signup = async(data) => {
 
     const url = "https://mind-master-backend-production.up.railway.app/api/v1/client/auth/register";
+    // const url = "http://localhost:5000/api/v1/client/auth/register"
+
     const method = "POST";
     const body = {
         name: data.name,

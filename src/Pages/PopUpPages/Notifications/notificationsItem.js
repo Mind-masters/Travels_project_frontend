@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from "./notificationsItem.module.css";
-
+import icon from "../../../assets/friends_inviting_icon.png"
 
 const NotificationsItem = ({item}) => {
     return (
     <div className={styles.container}>
-        <img src={`https://mind-master-backend-production.up.railway.app/${item.icon}`} alt='' />
+        <img src={item.icon || icon} alt='' />
         <p>{item.text}</p>
     </div>
   )

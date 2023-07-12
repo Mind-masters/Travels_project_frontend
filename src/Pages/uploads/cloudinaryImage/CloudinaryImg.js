@@ -1,48 +1,60 @@
-import React, {useState}from 'react';
-import axios from 'axios';
-import {AdvancedImage } from '@cloudinary/react';
+import React from "react";
+
+const WIDTH = 500;
+
+const ImageUploader = () => {
+  // Event handler for file input change
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
 
 
-const CloudinaryImg = () => {
-    const [selectedImage, setSelectedImage] = useState([]);
-    const [imageData, setImageData] = useState("");
+    const reader = new FileReader();
+    reader.readAsDataURL(imageFile);
 
-    const uploadImage = ()=>{
-        const formData = new FormData()
-        formData.append('file', selectedImage)
-        formData.append('upload_preset', 'e0rbdj0k')
-console.log("ok")
-        const postImage = async()=>{
-            try {
-                const response = await axios.post("https://api.cloudinary.com/v1_1/dvmptmthb/upload", formData)
-                console.log("hey: ")
-                // setImageData(response.data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
+    reader.onload = (event) => {
+      // Retrieve the base64-encoded image URL
+      const image_url = event.target.result;
 
-        postImage()
-    }
+      // Create a new image element and set the source URL
+      const image = new Image();
+      image.src = image_url;
+
+      image.onload = () => {
+        // Create a canvas element with a specific width and height
+        const canvas = document.createElement("canvas");
+        const ratio = WIDTH / image.width;
+        canvas.width = WIDTH;
+        canvas.height = image.height * ratio;
+
+        // Get the 2D rendering context of the canvas
+        const context = canvas.getContext("2d");
+
+        // Draw the image on the canvas with the specified dimensions
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        // Convert the canvas content to a new base64-encoded image URL
+        const newImageUrl = canvas.toDataURL("image/jpeg", 90);
+
+        // Create a new image element with the new image URL
+        const newImage = new Image();
+        newImage.src = newImageUrl;
+        console.log("kazkas: ", newImage);
+
+        // Append the new image to the "wrapper" element in the DOM
+        document.getElementById("wrapper").appendChild(newImage);
+      };
+    };
+  };
 
   return (
-    <div>CloudinaryImg
-        <div>
-        <input
-        type='file'
-        name='file'
-        id='file'
-        onChange={(e)=> setSelectedImage(e.target.files[0])}/>
-        <button onClick={uploadImage} >sendin</button>
-        </div>
+    <div>
+      {/* File input element */}
+      <input type="file" id="input" onChange={handleImageChange} />
 
-        {/* <div>
-            
-            <AdvancedImage cloudName="dvmptmthb" publicId={`https://res.cloudinary.com/dvmptmthb/image/upload/v1688469581/${imageData.public_id}`}/>
-           
-        </div> */}
+      {/* Placeholder for the uploaded images */}
+      <div id="wrapper"></div>
     </div>
-  )
-}
+  );
+};
 
-export default CloudinaryImg
+export default ImageUploader;

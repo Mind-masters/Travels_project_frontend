@@ -11,7 +11,7 @@ const Like = (props) => {
   const Auth = useContext(AuthContext);
 
   const [likes, setLikes] = useState(props.item.likes.length);
-  const [liked, setLiked] = useState(props.item.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id));
+  const [liked, setLiked] = useState(props.item.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data._id));
 
   useEffect(() => {
 
@@ -19,7 +19,7 @@ const Like = (props) => {
     socket.on('place_like_unlike', (data) => {
       if(data.place._id === props.item._id){
 
-        setLiked(data.place.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id))
+        setLiked(data.place.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data._id))
         setLikes(data.place.likes.length)
       }
     });
@@ -45,7 +45,7 @@ const Like = (props) => {
       if(!fetch_like.status)return
 
       if(fetch_like.data.likes)setLikes(fetch_like.data.likes.length)
-      setLiked(fetch_like.data.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data.id));
+      setLiked(fetch_like.data.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data._id));
     } catch (err) {
       console.log(err);
     }
