@@ -64,8 +64,7 @@ const CreateTrip = (props) => {
   }
   const onSubmitImageModal = async(compressed, origin) => {
     setImageValue(compressed); 
-    onModalHide();
-    alert(`compressed: ${compressed.size} | original: ${origin.size}`);
+    return onModalHide();
   }
 
   const onFormSubmitHandler = async() => {
