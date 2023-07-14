@@ -87,20 +87,20 @@ const Filter = (props) => {
 
       <div className={styles.filter_body}>
 
-        <div className={styles.filter_option}>
+        <div onClick={onOpenCountryModalHandler} className={styles.filter_option}>
           <h2>Country</h2>
 
-          <div onClick={onOpenCountryModalHandler}>
+          <div >
             <img src={globe_logo} alt='globe' />
             <p>{countryValue ? countryValue : "Where to"}</p>
             <img style={{ width: "1.5rem ", alignSelf: "center"}} src={input_sign_logo} alt='input' />
           </div>
         </div>
 
-        <div className={styles.filter_option}>
+        <div onClick={onOpenTypesModalHandler} className={styles.filter_option}>
           <h2>Travel type</h2>
 
-          <div onClick={onOpenTypesModalHandler}>
+          <div>
             <img src={popularity_logo} alt='vacation' />
             <p>{typesValue ? typesValue : "Vacation"}</p>
             <img style={{ width: "1.5rem ", alignSelf: "center"}} src={input_sign_logo} alt='input' />

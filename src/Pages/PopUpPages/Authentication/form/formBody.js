@@ -5,6 +5,7 @@ import header_logo from "../../../../assets/landing/about_us_text_decoration.png
 import username_icon from "../../../../assets/authentication/username_icon.png";
 import email_icon from "../../../../assets/authentication/email_icon.png";
 import password_icon from "../../../../assets/authentication/password_icon.png";
+import save_icon from "../../../../assets/safe_icon.png";
 
 import Button from '../../../../components/shared/UI/button/Button';
 import FormInput from '../../../../components/shared/UI/formInput';
@@ -95,9 +96,17 @@ const FormBody = (props) => {
 
 			{
 				props.isLoginMode ? 
-				<p onClick={props.onSwithChMode} className={styles.footer}>New User? <span>Join us</span></p> 
+				<p onClick={props.onSwithChMode} className={styles.footer}>Don't have an account? <span>Join us</span></p> 
 				:
 				<p onClick={props.onSwithChMode} className={styles.footer}>Already a member? <span>Login</span></p>
+			}
+
+			{
+				props.isLoginMode &&
+				<div className={styles.safe_content}>
+					<img src={save_icon} alt='' />
+					<h1>This website is safe</h1>
+				</div>
 			}
 			
 

@@ -64,6 +64,24 @@
     color: #283646dc;
 }
 
+.safe_content{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+}
+
+.safe_content h1{
+    color: #283646a0;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-style: italic;
+}
+
+.safe_content img{
+    width: 25px;
+    margin-right: 1rem;
+}
+
 @media (max-width: 450px)
 {   
     .inputs_container{
