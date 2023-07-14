@@ -2,7 +2,8 @@
     flex: 0.8;
     height: 100%;
     cursor: pointer;
-
+    display: flex;
+    align-items: center;
 }
 
 .image_container img{
@@ -57,7 +58,18 @@
         height: 0;
         flex: 1;
         position: relative;
+        border-radius: 14px;
+        overflow: hidden;
     }
+
+    .image_container img{
+        height: auto;
+        min-height: 70%;
+        width: 100%;
+        border-radius: 0;
+        object-fit: cover;
+    }
+
 
     .mobile_description{
         display: block;
@@ -68,7 +80,6 @@
         text-align: left;
         color: #636060;
         line-height: 28px;
-
         opacity: 0.6;
     }
 

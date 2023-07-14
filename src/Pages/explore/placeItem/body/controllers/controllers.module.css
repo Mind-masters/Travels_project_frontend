@@ -21,7 +21,7 @@
 
 .map_btn_content{
     display: flex;
-    font-size: 1rem;
+    font-size: 19px;
     font-weight: 800;
     justify-content: space-around;
     color: #F5C69B;
@@ -63,19 +63,19 @@
 
 }
 
-@media (max-width: 350px) {
-    .map_btn_container h1{
-        font-size: 15px;
-    }
-}
 
 @media (max-width: 300px) {
 
     .map_btn_container{
         margin-left: 0.5rem;
+        font-size: 18px;
     }
-    
+}
+
+
+@media (max-width: 270px) {
+
     .map_btn_container h1{
-        font-size: 13px;
+        font-size: 15px;
     }
 }

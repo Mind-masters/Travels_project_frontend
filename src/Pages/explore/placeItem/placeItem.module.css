@@ -30,9 +30,10 @@
 @media (max-width: 850px) {
 
     .container{
-        height: 600px;
+        height: 610px;
         flex-direction: column;
         width: 70%;
+        padding: 5px;
     }
 
     .body_container{
@@ -57,7 +58,6 @@
     .container{
         width: 70%;
     }
-
 }
 
 
@@ -67,7 +67,7 @@
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 380px) {
     .container{
         height: 550px;
         width: 94%;

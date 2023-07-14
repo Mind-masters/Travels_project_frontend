@@ -38,7 +38,7 @@ const ImageUpload = (props) => {
 
     const options = {
       maxSizeMB: 1,
-      maxWidthOrHeight: 500,
+      maxWidthOrHeight: 700,
       useWebWorker: true,
       fileType: "image/jpeg"
     };
