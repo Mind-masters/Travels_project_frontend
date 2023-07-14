@@ -85,9 +85,9 @@ const LandingMain = (props) => {
                 
                 <ScrollToTop/>
             </div>
-            <div>
+            {/* <div>
                 <ImageUploader/>
-            </div>
+            </div> */}
         </div>
     )
 }

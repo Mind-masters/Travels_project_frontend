@@ -6,12 +6,12 @@ export const DummyData = [
 
     {
         question: "How do I create an account?",
-        answer: "To create an account, click on the LOGIN button located at the top right corner of the homepage. Fill in the required information, including your username, email address, and password. Once submitted, you'll receive a confirmation email to verify your account.",
+        answer: "To create an account, click on the LOGIN button located at the top right corner of the homepage. Fill in the required information, including your username, email address, and password. Once submitted, you'll be redirect to the landing page.",
     },
 
     {
         question: "How can I post my travel experience?",
-        answer: "Posting your travel experience is simple. After logging in, click on the MyPlaces located at the top. Provide a captivating title, add your description, and attach relevant photos. You can also include the coordinates of the location if you wish. Once you're satisfied, click ADD to share your experience with the community.",
+        answer: "Posting your travel experience is simple. After logging in, click on the UPloads located at the top. Provide a Type by selecting it, add your description, and attach relevant photos. You can also include the coordinates of the location if you wish. Once you're satisfied, click CONTINUE to share your experience with the community.",
     },
     {
         question: "How can I interact with other travelers?",
@@ -25,6 +25,6 @@ export const DummyData = [
     
      {
         question: "How can I contact support for further assistance?",
-        answer: "If you need further assistance or have any questions, you can reach out to our support team by scrolling down to the footer of the app. Fill in the Reach Out to Us form with your query, and our team will get back to you as soon as possible.",
+        answer: "If you need further assistance or have any questions, you can reach out to our support team by scrolling down to the footer section. Click on Contact Us fill in the form with your query, and our team will get back to you as soon as possible.",
     },
 ]

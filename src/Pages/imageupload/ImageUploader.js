@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-const WIDTH = 500;
+const MAX_WIDTH = 300;
+const MAX_HEIGHT = 300;
 
 const ImageUploader = () => {
+  const [uploadedImages, setUploadedImages] = useState([]);
+
   // Event handler for file input change
   const handleImageChange = (event) => {
     const imageFile = event.target.files[0];
@@ -19,27 +22,47 @@ const ImageUploader = () => {
       image.src = image_url;
 
       image.onload = () => {
-        // Create a canvas element with a specific width and height
+        // Calculate the new dimensions while maintaining the aspect ratio
+        let newWidth = image.width;
+        let newHeight = image.height;
+
+        if (image.width > MAX_WIDTH) {
+          newWidth = MAX_WIDTH;
+          newHeight = (image.height * MAX_WIDTH) / image.width;
+        }
+
+        if (newHeight > MAX_HEIGHT) {
+          newHeight = MAX_HEIGHT;
+          newWidth = (newWidth * MAX_HEIGHT) / newHeight;
+        }
+
+        // Create a canvas element with the new dimensions
         const canvas = document.createElement("canvas");
-        const ratio = WIDTH / image.width;
-        canvas.width = WIDTH;
-        canvas.height = image.height * ratio;
+        canvas.width = newWidth;
+        canvas.height = newHeight;
 
         // Get the 2D rendering context of the canvas
         const context = canvas.getContext("2d");
 
-        // Draw the image on the canvas with the specified dimensions
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        // Draw the image on the canvas with the new dimensions
+        context.drawImage(image, 0, 0, newWidth, newHeight);
 
-        // Convert the canvas content to a new base64-encoded image URL
-        const newImageUrl = canvas.toDataURL("image/jpeg", 90);
+        // Convert the canvas content to a Blob object with reduced size
+        canvas.toBlob((blob) => {
+          // Create a new FileReader instance to read the Blob content
+          const reader = new FileReader();
 
-        // Create a new image element with the new image URL
-        const newImage = new Image();
-        newImage.src = newImageUrl;
+          reader.onloadend = () => {
+            // Retrieve the base64-encoded image URL with reduced size
+            const newImageUrl = reader.result;
 
-        // Append the new image to the "wrapper" element in the DOM
-        document.getElementById("wrapper").appendChild(newImage);
+            // Add the new image URL to the uploadedImages state
+            setUploadedImages((prevImages) => [...prevImages, newImageUrl]);
+          };
+          console.log(reader)
+          // Read the Blob content as a data URL
+          reader.readAsDataURL(blob);
+        }, "image/jpeg", 0.9); // Use JPEG format with 90% quality
       };
     };
   };
@@ -50,7 +73,11 @@ const ImageUploader = () => {
       <input type="file" id="input" onChange={handleImageChange} />
 
       {/* Placeholder for the uploaded images */}
-      <div id="wrapper"></div>
+      <div id="wrapper">
+        {uploadedImages.map((imageUrl, index) => (
+          <img key={index} src={imageUrl} alt={`Uploaded ${index}`} />
+        ))}
+      </div>
     </div>
   );
 };
