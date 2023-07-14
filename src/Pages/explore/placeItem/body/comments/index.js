@@ -88,7 +88,8 @@ const Comments = ({item}) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.comm_info_header} onClick={expandCommentsHandler}>{`${commentsCount ? `View ${commentsCount} comments` : "No Comments Yet"}`}</h1>
-      
+      <h1 className={styles.comm_info_header_mobiles} onClick={expandCommentsHandler}>View comments</h1>
+
       <AuthRequired>
         <div className={styles.input_container}>
           <input value={commentValue} onChange={onChangeInputValue} className={styles.input} placeholder='Write your comment' />

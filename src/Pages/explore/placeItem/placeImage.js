@@ -22,7 +22,7 @@ const PlaceImage = (props) => {
         { place_image &&
         <>
             <div className={styles.image_container}>
-                <img onClick={()=>setExpandedImage(true)} src={place_image} alt="" loading='lazy'/>
+                <img className={styles.item_image} onClick={()=>setExpandedImage(true)} src={place_image} alt="" loading='lazy'/>
                 <div className={`${styles.mobile_description} ${showMobDescription && styles.visible_mobile_description}`}>
                     <div onClick={clickOnEyeHandler} className={styles.mobile_description_icon}>
                         <img src={ showMobDescription ? hiddenIcon : vissibleIcon} alt='eye'/>
