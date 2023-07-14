@@ -2,40 +2,59 @@ import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css"
 import InitialState from "./InitialState";
 import UploadedState from "./UploadedState";
+import imageCompression from 'browser-image-compression';
+import { notify } from "../../../../components/shared/UI/toast";
+
 
 const ImageUpload = (props) => {
 
-  const [file, setFile] = useState(props.curr_image);
-  const [mainState, setMainState] = useState(props.curr_image ? "uploaded" : "initial",) // initial, search, gallery, uploaded
-  const [previewUrl, setPreviewUrl] = useState();
+  const [origImage, setOrigImage] = useState("");
+  const [origImageFile, setOrigImageFile] = useState("");
 
-  useEffect(() => {
-    if (!file) {
-      return;
+  useEffect(()=>{
+    if(props.curr_image){
+      setOrigImage(props.curr_image)
+      setOrigImageFile(URL.createObjectURL(props.curr_image));
     }
-    const fileReader = new FileReader();
-    fileReader.onload = () => {
-      setPreviewUrl(fileReader.result);
-      setMainState("uploaded")
-    };
-    fileReader.readAsDataURL(file);
-  }, [file]);
+  }, [])
+
+  const [mainState, setMainState] = useState(props.curr_image ? "uploaded" : "initial",) // initial, search, gallery, uploaded
 
   const handleUploadClick = async(event) => {
-    if (!(event.target.files && event.target.files.length === 1)) return
+    const imageFile = event.target.files[0];
 
-    const file = event.target.files[0];
-    setFile(file);
+    setOrigImage(imageFile);
+    setOrigImageFile(URL.createObjectURL(imageFile));
+    setMainState("uploaded")
   };
 
   const imageResetHandler = () => {
     setMainState("initial");
-    setFile(null);
-    setPreviewUrl(null);
+    setOrigImage("");
+    setOrigImageFile("");
   };
 
-  const imageSubmitHandler = () => {
-    return props.onSubmit(file);
+  const imageSubmitHandler = async() => {
+
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 500,
+      useWebWorker: true,
+      fileType: "image/jpeg"
+    };
+
+    if(options.maxSizeMB >= origImage / 1024){
+      alert("Image is too small, can't be compressed");
+      return 0;
+    }
+
+
+    imageCompression(origImage, options).then((x)=>{
+      return props.onSubmit(x, origImage)
+    })
+
+    return 
+    
   };
 
   return (
@@ -47,7 +66,7 @@ const ImageUpload = (props) => {
           ) 
           ||
           (
-            mainState === "uploaded" && previewUrl && <UploadedState imageResetHandler={imageResetHandler} imageSubmitHandler={imageSubmitHandler} file_base64={previewUrl} />
+            mainState === "uploaded" && origImageFile && <UploadedState imageResetHandler={imageResetHandler} imageSubmitHandler={imageSubmitHandler} file={origImageFile} />
           )
         }
       </div>

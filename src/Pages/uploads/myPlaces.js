@@ -15,8 +15,13 @@ const  ClientTrips = (props) => {
 
   const [showModal, setShowModal] = useState(false);
   const [showCreateModal, setShowCreateModal] = useState(false);
-  
+  const [isProcessing, setIsProcessing] = useState(false);
+
   const onHideModalHandler = () => {
+    if(isProcessing){
+      console.log("In process!");
+      return
+    }
     setShowModal(false);
     setShowCreateModal(false);
   }
@@ -26,16 +31,20 @@ const  ClientTrips = (props) => {
     setShowModal(true); 
   }
 
+  const onTripSubmitProcessChange = status => setIsProcessing(status);
+
+  
+
   return (
 
     <>      
       
         <Modal        
-          onClose={onHideModalHandler.bind(false, true)}
+          onClose={onHideModalHandler}
           show={showModal} 
         >
           {
-            showCreateModal && <CreateTrip onRefresh={props.onRefresh} onClose={onHideModalHandler} />
+            showCreateModal && <CreateTrip onClose={onHideModalHandler} onProcessChange={onTripSubmitProcessChange}/>
           }
         </Modal>
       

@@ -119,7 +119,7 @@ export default function AccountMenu(props) {
                 <div className={styles.dropDownContainer}>
                     <MenuItem onClick={navigateToProfile}>
                         <div className={styles.profile_link}>
-                            <a href={false}>Visit your profile</a>
+                            <a href={"#"}>Visit your profile</a>
                         </div>
                     </MenuItem>
 

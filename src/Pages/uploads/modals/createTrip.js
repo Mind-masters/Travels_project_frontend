@@ -4,7 +4,7 @@ import Modal from '../../../components/shared/UI/Modal';
 import { Create } from '../../../components/utils/places/create';
 import Button from '../../../components/shared/UI/button/Button';
 import { AuthContext } from '../../../contextAPI/AuthContext';
-import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
+import InsideBounce from '../../../components/shared/UI/LoadingSpinner/InsideBounce';
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../../components/shared/UI/toast";
@@ -21,12 +21,11 @@ import FormInput from '../../../components/shared/UI/formInput';
 import DefineType from './defineType';
 import axios from 'axios';
 
-import ImageUploader from "../cloudinaryImage/CloudinaryImg"
 
 const CreateTrip = (props) => {
 
   const navigate = useNavigate();
-  const [preparedImageUrl, setPreparedImageUrl] = useState(true);
+  const [preparingImageUrl, setPreparingImageUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const Auth = useContext(AuthContext);
   const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null
@@ -63,9 +62,10 @@ const CreateTrip = (props) => {
     setLocationValue(results); 
     onModalHide()
   }
-  const onSubmitImageModal = async(results) => {
-    setImageValue(results); 
+  const onSubmitImageModal = async(compressed, origin) => {
+    setImageValue(compressed); 
     onModalHide();
+    alert(`compressed: ${compressed.size} | original: ${origin.size}`);
   }
 
   const onFormSubmitHandler = async() => {
@@ -74,16 +74,19 @@ const CreateTrip = (props) => {
     setLocationInputError(false);
     setImageInputError(false);
     if(!typeValue){setTypeInputError(true);return}
-    if(!descriptionValue){return}    
+    if(!descriptionValue){return notify("Enter description", "warning")}    
     if(!locationValue){setLocationInputError(true);return}
     if(!imageValue){setImageInputError(true);return}
-    if(!preparedImageUrl)return notify("Image under review", "warning")
-    if(!token)return
+    if(!token)return notify("Please login", "warning")
 
     const {lat, lng} = locationValue;
     if(!lat || !lng){
       return notify("Please contact support team", "warning");
     }
+
+    setPreparingImageUrl(true);
+    setIsLoading(true)
+    props.onProcessChange(true);
 
     const country_request = await (await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=en`)).json()
     const countryValue = country_request && country_request.address && country_request.address.country;
@@ -94,84 +97,81 @@ const CreateTrip = (props) => {
       return notify("Incorrect location", "warning");
     }
 
-    console.log("image value: ", imageValue.type)
-    notify(`Size: ${imageValue.size} | type: ${imageValue.type}`, "warning")
+    const formData = new FormData()
+    formData.append('file', imageValue)
+    formData.append('upload_preset', 'e0rbdj0k')
 
-    return
+    try {
+      const getImageUrl = await axios.post("https://api.cloudinary.com/v1_1/dvmptmthb/upload", formData)
+      if(!getImageUrl.data.secure_url)return notify(`Cannot verify image`, "warning")
+      setPreparingImageUrl(false)
 
-    // setPreparedImageUrl(false)
+      const create_new_place = await Create({
+        type: typeValue[0].value,
+        description:descriptionValue,
+        country:countryValue,
+        lat:lat,
+        lng:lng,
+        image:getImageUrl.data.secure_url,
+      },token);
 
-    // const formData = new FormData()
-    // formData.append('file', imageValue)
-    // formData.append('upload_preset', 'e0rbdj0k')
-
-    // try {
-    //   const response = await axios.post("https://api.cloudinary.com/v1_1/dvmptmthb/upload", formData)
-    //   console.log("hey response: ", response.data.secure_url);
-    //   setPreparedImageUrl(response.data.secure_url)
-    // } catch (error) {
-    //   console.log(error)
-    // }
-
-    // setIsLoading(true);
-
-    // try {
-    //   const create_new_place = await Create({
-    //     type: typeValue[0].value,
-    //     description:descriptionValue,
-    //     country:countryValue,
-    //     lat:lat,
-    //     lng:lng,
-    //     image:"imageValue",
-    //   },token)
-    //   setIsLoading(false);
-
-    //   if(create_new_place.status){
-    //     notify(create_new_place.message, "success");
-    //     navigate("/explore");
-    //     if(props.onRefresh)props.onRefresh();
-    //     return props.onClose();
-    //   }
-    //   else if(!create_new_place.status)notify(create_new_place.message, "error");
-    // } catch (error) {
-    //   setIsLoading(false);
-    //   return notify(error.message, "error");
-    // }
-
+      if(!create_new_place.status)throw new Error(create_new_place.message)
+      navigate("/explore");
+      return props.onClose();
+      
+    } catch (error) {
+      return notify(error.message || "Please try again!", "error");
+    }
 
   }
 
 
   return (
     <>
-      { !isLoading ?
-        <div className={`${styles.container} ${parentModalHidden && styles.hidden}`}>
-          <h1 className={styles.login_form_title}>Share Your Adventures</h1>
-
-          <form className={styles.form_container} onSubmit={(e)=>{e.preventDefault()}}>
-
-            <Modal 
-              bgColor="transparent"
+      <Modal 
+        bgColor="transparent"
+        onClose={onModalHide}
+        show={locationModal || imageModal || typesModal} 
+      >
+        {typesModal && <DefineType onClose={onModalHide} onSubmit={onSubmitType} />}
+        {
+          locationModal && 
+            <Location 
+              onSubmit={onSubmitLocationModal} 
               onClose={onModalHide}
-              show={locationModal || imageModal || typesModal} 
-            >
-              {typesModal && <DefineType onClose={onModalHide} onSubmit={onSubmitType} />}
-              {
-                locationModal && 
-                  <Location 
-                    onSubmit={onSubmitLocationModal} 
-                    onClose={onModalHide}
-                  />
-              }
-              {imageModal && <ImageUpload curr_image={imageValue} onClose={onModalHide} onSubmit={onSubmitImageModal} />}
+            />
+        }
+        {imageModal && <ImageUpload curr_image={imageValue} onClose={onModalHide} onSubmit={onSubmitImageModal} />}
 
-            </Modal>
-            <ImageUploader />
+      </Modal>
 
+      
+      <div className={`${styles.container} ${parentModalHidden && styles.hidden}`}>
+        {
+          isLoading ?
+          <>
+            {
+              preparingImageUrl ? 
+              <div className={styles.preparing_url}>
+                <h1>Veryfying...</h1>
+                <p>This will take up to 20 seconds</p>
+              </div>
+              :
+              <div className={styles.almost_there}>
+                <div className={styles.almost_there_loader}>
+                  <InsideBounce />
+                </div>
+                <h1>We are almost there...</h1>
+              </div>
 
-            
+            }
+          </>
+          :
+
+          <>
+            <h1 className={styles.login_form_title}>Share Your Adventures</h1>
+
             <div className={styles.form_content}>
-
               <div onClick={onOpenTypesModal} style={{ border: `${typeInputError ? "2px solid rgb(209, 127, 127)" : "2px solid rgba(48, 47, 47, 0.3)"}` }} className={styles.select_type}>
                 {typeValue ? 
                   <div> 
@@ -192,7 +192,7 @@ const CreateTrip = (props) => {
               >
                 <div style={{ paddingLeft: "10px" }}></div>
               </FormInput>
-              
+                
 
               <div className={styles.logo_menu}>
                 <img className={`${locationInputError && styles.icon_invalid} ${locationValue && styles.icon_valid}`} onClick={onOpenLocationModal} src={map_icon} alt="" />
@@ -200,22 +200,18 @@ const CreateTrip = (props) => {
               </div>
             </div>
 
-
-
             <div className={styles.btn_container} >
               <AuthRequired>
-                <Button onSubmit={onFormSubmitHandler} color={preparedImageUrl ? "rgba(238, 125, 21, 1)" : "rgba(238, 125, 21, 0.6)"}>
-                  <h1 style={{ color: "white" }}>Continue</h1>
+                <Button height="auto" onSubmit={onFormSubmitHandler} color={"rgba(238, 125, 21, 1)"}>
+                  <h1>Continue</h1>
                 </Button>
               </AuthRequired>
             </div>
+          </>
+        }
+        
 
-
-          </form>
-        </div>
-        :
-        <LoadingSpinner asOverlay />
-      }
+      </div>
     </>
   )
 }

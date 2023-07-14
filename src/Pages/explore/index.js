@@ -43,7 +43,7 @@ const Explore = (props) => {
 
         if(filterByCountry && filterByType)return place.type === filterByType && place.country.name === filterByCountry
 
-        if(filterByCountry)return place.country.name === filterByCountry
+        if(filterByCountry)return place.country === filterByCountry
 
         if(filterByType) return place.type === filterByType
 

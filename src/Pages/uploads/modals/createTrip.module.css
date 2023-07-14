@@ -22,14 +22,6 @@
     padding: 1.2rem 0;
 }
 
-.form_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 2rem 0;
-    padding-top: 1rem;
-}
 
 .form_content{
     width: 100%;
@@ -84,9 +76,44 @@
 
 
 .btn_container{
-    width: 50%;
+    display: inline-block;
+    margin-bottom: 1rem;
 }
 
+.btn_container h1{
+    color: whitesmoke;
+    padding: 10px 0;
+}
+
+.preparing_url{
+    text-align: center;
+    color: #686767;
+    font-size: 21px;
+    padding-bottom: 3rem;
+}
+
+.preparing_url h1{
+    color: #EE7D15;
+    font-size: 28px;
+    margin: 3rem 0;
+}
+
+.almost_there{
+    text-align: center;
+}
+
+.almost_there_loader{
+    width: 100%;
+    position: relative;
+    min-height: 10rem;
+    background-color: aquamarine;
+}
+
+.almost_there h1{
+    color: #686767;
+    font-size: 21px;
+    margin-bottom: 3rem;
+}
 
 @media (max-width: 500px)
 {   

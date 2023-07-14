@@ -83,8 +83,9 @@ const InvitorForm = (props) => {
         {
           destination: {
             flag: destinationValue.flag,
-            name: destinationValue.name
+            name: destinationValue.name,
           },
+          gender: "Man",
           about: aboutValue,
         },
         token
@@ -110,15 +111,15 @@ const InvitorForm = (props) => {
 
             <div className={styles.inputs_container}>
               <div className={styles.madal_icons}>
-                <div style={{ marginBottom: "1rem" }} onClick={onOpenCountryModal} className={styles.select_country}>
+                <div onClick={onOpenCountryModal} className={styles.select_country}>
                   <img style={{ borderRadius: "10px", margin: "0 10px" }} src={where_input_icon} alt='' /> 
                   <p>{destinationValue ? `Going to ${destinationValue.name}` : "Where are you going?"}</p>
                 </div>
 
-                <div onClick={onOpenGenderModal} className={styles.select_country}>
+                {/* <div onClick={onOpenGenderModal} className={styles.select_country}>
                   <img style={{ margin: "0 10px" }} src={gender_icon} alt='' /> 
                   <p>{genderValue ? `Looking for ${genderValue}` : "prefered gender?"}</p>
-                </div>
+                </div> */}
 
               </div>
 

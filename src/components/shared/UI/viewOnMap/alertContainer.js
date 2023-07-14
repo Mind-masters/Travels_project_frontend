@@ -18,9 +18,14 @@ const AlertContainer = (props) => {
             notify("Get more bonus points", "warning")
             return navigate("/benefits");
         }
-        props.onGo();
+        setSubmited(true);
 
-        return setSubmited(true);
+        const timer = setTimeout(() => {
+            console.log('This will run after 1 second!')
+            props.onGo();
+        }, 1200);
+
+        return timer
     }
     
   return (
