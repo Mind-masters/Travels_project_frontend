@@ -24,6 +24,8 @@
 
 .input_container img{
     width: 1.5rem;
+    cursor: pointer;
+
 }
 
 .input{
@@ -38,11 +40,13 @@
 }
 
 @media (max-width: 850px) {
+
     .comm_info_header{
         display: none;
     }
     .comm_info_header_mobiles{
         display: inline-block;
+        padding: 1.2rem;
         padding-bottom: 0.8rem;
         font-weight: 800;
 

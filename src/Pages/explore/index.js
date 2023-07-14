@@ -38,7 +38,9 @@ const Explore = (props) => {
       setIsLoading(false);
       if(!placesData.status)notify(placesData.message, "error")
 
-      const filteredPlaces = placesData.data.filter(place => {
+      if(!placesData.data.reverse)return notify("No places found", "warning")
+
+      const filteredPlaces = placesData.data.reverse().filter(place => {
 
 
         if(filterByCountry && filterByType)return place.type === filterByType && place.country.name === filterByCountry
