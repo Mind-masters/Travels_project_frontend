@@ -12,7 +12,7 @@ const InvitorItem = (props) => {
   const [showDetails, setShowDetails] = useState(false);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
 
-  console.log("item: ", props.invite)
+  // console.log("item: ", props.invite)
 
   return (
     <div>

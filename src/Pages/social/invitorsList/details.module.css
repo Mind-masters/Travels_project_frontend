@@ -43,6 +43,11 @@
     font-size: 15px;
 }
 
+.gender_content{
+    border: 2px solid red;
+    padding: 2rem 0;
+}
+
 .destination{
     display: flex;
     align-items: center;

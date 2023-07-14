@@ -14,15 +14,9 @@ const YoutTrip = () => {
   const navigate = useNavigate();
 
   const [userPlaces, setUserPlaces] = useState([]);
-  const [onRefresh, setOnRefresh] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const Author = useContext(AuthContext);
-
-  const onRefreshHandler = () => {
-    setOnRefresh(!onRefresh);
-    setIsLoading(true)
-  }
 
 
 
@@ -47,7 +41,7 @@ const YoutTrip = () => {
     fetchAuthPlaces();
 
 
-  }, [onRefresh])
+  }, [])
 
   return (
     <Card>
@@ -61,7 +55,7 @@ const YoutTrip = () => {
             header="My Places"
           />
 
-          <MyPlaces numberOfPlaces={userPlaces} onRefresh={onRefreshHandler} />
+          <MyPlaces numberOfPlaces={userPlaces} />
           
         </div>
       }

@@ -70,6 +70,10 @@ const InvitingDetails = (props) => {
         </div>
       </div>
 
+      {/* <div className={styles.gender_content}>
+        <h1>Looking for {props.invite.gender}</h1>
+      </div> */}
+
       <div className={styles.description}>
         <p>
           {props.invite.about}

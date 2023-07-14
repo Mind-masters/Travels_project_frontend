@@ -18,6 +18,9 @@
     text-align: center;
 }
 
+.main_header span{
+    color: #EE7D15;
+}
 
 @media (max-width: 900px)
 {

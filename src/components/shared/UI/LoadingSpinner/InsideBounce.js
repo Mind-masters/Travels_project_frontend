@@ -5,7 +5,7 @@ import { Bounce } from 'react-activity';
 const InsideBounce = (props) => {
   return (
     <div style={{ backgroundColor: props.bgColor }} className={styles.loading}>
-      <Bounce size="20px" color="#EE7D15" />
+      <Bounce size="20px" color={props.color || "#EE7D15"} />
     </div>
   )
 }

@@ -58,11 +58,11 @@ const FellowTraveler = () => {
                 />
 
                 <h1 className={styles.main_header}>
-                    Whatever your interest, from hiking and reading to networking and exploring abandoned places, there are thousands of people who share it on TripWhoop.
+                    Whatever your interest, from hiking and reading to networking and exploring abandoned places, there are thousands of people who share it on <span>TripWhoop</span>.
                 </h1>
 
                 <Controllers />
-                <InvitorsList data={invitingsData}/>
+                {invitingsData && invitingsData.length > 0 && <InvitorsList data={invitingsData}/>}
             </div>
         </Card>
         }
