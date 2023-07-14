@@ -43,7 +43,13 @@ export default function AccountMenu(props) {
     }
 
     const getPointHandler = () => {
-        navigate("/benefits");
+        handleClose();
+        return navigate("/benefits");
+    }
+
+    const navigateToProfile = () => {
+        handleClose();
+        return navigate(`/profile/${UserData._id}`)
     }
 
     const onNavigationsShowHandler = () => {
@@ -111,14 +117,14 @@ export default function AccountMenu(props) {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <div className={styles.dropDownContainer}>
-                    <MenuItem>
+                    <MenuItem onClick={navigateToProfile}>
                         <div className={styles.profile_link}>
-                            <NavLink to={`/profile/${UserData.id}`}>Visit your profile</NavLink>
+                            <a href={false}>Visit your profile</a>
                         </div>
                     </MenuItem>
 
-                    <MenuItem>
-                        <div className={styles.body} onClick={getPointHandler}>
+                    <MenuItem onClick={getPointHandler}>
+                        <div className={styles.body}>
                             <div>
                                 <h1>{UserData.points > 1 ? `${UserData.points} points` : `${UserData.points} point`}</h1>
                             </div>

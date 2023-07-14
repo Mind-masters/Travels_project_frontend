@@ -21,6 +21,8 @@ import FormInput from '../../../components/shared/UI/formInput';
 import DefineType from './defineType';
 import axios from 'axios';
 
+import ImageUploader from "../cloudinaryImage/CloudinaryImg"
+
 const CreateTrip = (props) => {
 
   const navigate = useNavigate();
@@ -164,6 +166,7 @@ const CreateTrip = (props) => {
               {imageModal && <ImageUpload curr_image={imageValue} onClose={onModalHide} onSubmit={onSubmitImageModal} />}
 
             </Modal>
+            <ImageUploader />
 
 
             

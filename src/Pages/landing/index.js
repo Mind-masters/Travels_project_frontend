@@ -15,7 +15,6 @@ import Authentication from '../PopUpPages/Authentication';
 import { AuthContext } from '../../contextAPI/AuthContext';
 import FellowTravelers from './FellowTravelers';
 import ScrollToTop from '../../components/shared/UI/ScrollToTop/ScrollToTop';
-import ImageUploader from '../imageupload/ImageUploader';
 
 
 const LandingMain = (props) => {
@@ -81,13 +80,13 @@ const LandingMain = (props) => {
                     onClose={()=>setShowAuthenticationForm(false)}
                 />
             }
-            <div >
-                
+            <div>   
                 <ScrollToTop/>
             </div>
             {/* <div>
                 <ImageUploader/>
             </div> */}
+            
         </div>
     )
 }

@@ -80,7 +80,7 @@ const UserPanel = ({user, place, onFilter, onShowMap}) => {
           <div className={styles.expanded_container}>
             <div className={styles.expanded_content}>
               {
-                Auth && Auth.data && Auth.data.id === place.user_id._id ?
+                Auth && Auth.data && Auth.data._id === place.user_id._id ?
                 <h1 onClick={onDeletePlaceHandler} style={{ color: "#f63939" }}>Delete</h1>
                 :
                 <h1 onClick={onReportPlaceHandler} style={{ color: "#f63939" }}>Report</h1>
