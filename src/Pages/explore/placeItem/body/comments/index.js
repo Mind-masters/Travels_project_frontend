@@ -7,6 +7,7 @@ import Modal from '../../../../../components/shared/UI/Modal';
 import AuthRequired from '../../../../../components/shared/layouts/AuthRequired';
 import { OnComment } from '../../../../../components/utils/places/comment';
 import io from 'socket.io-client';
+import { notify } from '../../../../../components/shared/UI/toast';
 
 const Comments = ({item}) => {
   const socket = io('https://mind-master-backend-production.up.railway.app/', {transports: ['websocket', 'polling', 'flashsocket']});
@@ -62,17 +63,20 @@ const Comments = ({item}) => {
       setCommentsData([...commentsData, newCommentObj])
     }
 
-    const create_new_comment = await OnComment(
-      {
-        text: comment_reference,
-        pid: item._id
-      },
-      token
-    )
+    try {
+      const create_new_comment = await OnComment(
+        {
+          text: comment_reference,
+          pid: item._id
+        },
+        token
+      )
 
-    if(!create_new_comment.status){
-      return
-    }  
+      if(!create_new_comment.status)throw new Error(create_new_comment.message); 
+      
+    } catch (error) {
+      return notify(error.message || "Please try again", "error");
+    }
 
   }
 

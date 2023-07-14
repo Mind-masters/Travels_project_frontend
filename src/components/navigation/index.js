@@ -24,7 +24,6 @@ const MainNavigation = props => {
     socket.on('notifications', (data) => {
 
       if(Auth && Auth.data._id === data.uid){
-        console.log("[New notification] updated_user: ", data.updated_user);
         if(data.updated_user){
           updateUser.update({
             data: data.updated_user, 

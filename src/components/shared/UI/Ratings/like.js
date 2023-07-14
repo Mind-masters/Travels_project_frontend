@@ -3,6 +3,7 @@ import { Like_ } from '../../../utils/places/like.js';
 import React, { useState, useContext, useEffect } from 'react'
 import io from 'socket.io-client';
 import "./like.css"
+import { notify } from '../toast.js';
 
 const Like = (props) => {
 
@@ -42,12 +43,12 @@ const Like = (props) => {
       const fetch_like = await Like_(props.item._id, Auth.authenticatedUser.token.access_token);
 
       if(fetch_like.message === "Unauthorized")return Auth.logout();
-      if(!fetch_like.status)return
+      if(!fetch_like.status)throw new Error(fetch_like.message)
 
       if(fetch_like.data.likes)setLikes(fetch_like.data.likes.length)
       setLiked(fetch_like.data.likes.includes(Auth.authenticatedUser && Auth.authenticatedUser.data._id));
     } catch (err) {
-      console.log(err);
+      return notify(err.message || "Please try again")
     }
 
   }
