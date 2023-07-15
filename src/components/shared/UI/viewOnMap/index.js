@@ -31,7 +31,6 @@ const ViewOnMap = (props) => {
   const onUpdateUserDelay = () => {
 
     if(!updatedUser)return props.onClose();
-
     Auth.update({
       data: updatedUser, 
       token: 

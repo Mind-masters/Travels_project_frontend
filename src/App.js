@@ -34,7 +34,6 @@ function App() {
 
   const update = useCallback(user => {
     const {data, token} = user;
-
     if(!data || !token){
       setIsLoggedIn(false);
       return;
