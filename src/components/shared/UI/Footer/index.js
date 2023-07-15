@@ -64,7 +64,7 @@ const Footer = () => {
             <h1>Quick Links</h1>
                             
             <ul className={styles.links}>
-              <li onClick={()=>setShowHow(true)}>How it works</li>
+              <li onClick={()=>setShowHow(true)}>How It Works</li>
               <li onClick={()=>setShowContactForm(true)}>Contact Us</li>
             </ul>
           </div>
@@ -73,8 +73,8 @@ const Footer = () => {
             <h1>About</h1>
                             
             <ul className={styles.links}>
-              <li onClick={()=>setShowFAQ(true)}>frequently asked questions</li>
-              <li onClick={()=>setShowAbout(true)}>About us</li>
+              <li onClick={()=>setShowFAQ(true)}>Frequently Asked Questions</li>
+              <li onClick={()=>setShowAbout(true)}>About Us</li>
             </ul>
           </div>
         </div>

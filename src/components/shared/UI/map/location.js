@@ -32,7 +32,10 @@ const Location = (props) => {
       if(!messageRes.status)throw new Error(messageRes.message);
       setSendingEmail(false);
       setShowEmailInput(false);
-      return notify(messageRes.data || "Sent!", "success");
+      return notify(<div className={styles.notify_message}>
+        <h1>{messageRes.data || "Sent!"}</h1>
+        <h2><span>Note:</span>check spam section</h2>
+      </div >, "success");
     } catch (error) {
       setSendingEmail(false);
       return notify(error.message || "Cannot send coords to this email", "error");
