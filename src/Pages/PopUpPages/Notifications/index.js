@@ -6,7 +6,7 @@ import NotificationsList from "./notificationsList";
 import { Remove } from '../../../components/utils/Notifications/remove';
 import { useContext } from 'react';
 import {AuthContext} from "../../../contextAPI/AuthContext";
-
+import {notify} from "../../../components/shared/UI/toast"
 
 const Notifications = (props) => {
 
@@ -20,9 +20,9 @@ const Notifications = (props) => {
       if(!Auth || !Auth.token)return;
       try {
         const CleanNotifications = await Remove(Auth.token.access_token)
-        console.log("CleanNotifications: ", CleanNotifications);
+        if(!CleanNotifications.status)throw new Error(CleanNotifications.message);
       } catch (error) {
-        console.log("error: ", error)
+       return notify(error.message || "Cannot read notifications", "warning");
       }
     }
     

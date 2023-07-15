@@ -71,6 +71,19 @@
       font-size: 25px;
    }
 
+   .notifications_bell_amount{
+      background-color: #ee7d15;
+      align-self: flex-start;
+      color: rgb(251, 251, 251);
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      font-size: 13px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
 
 
    @media (max-width: 900px) {
