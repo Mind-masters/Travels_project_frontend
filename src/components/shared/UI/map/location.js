@@ -1,10 +1,15 @@
 import styles from "./location.module.css";
 import Button from "../button/Button";
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import closeIcon from "../../../../assets/close-logo.png";
 import submitIcon from "../../../../assets/submit-logo.png";
 import Ripple from "../ripple";
+import {AuthContext} from "../../../../contextAPI/AuthContext";
+import Modal from "../Modal";
+import FormInput from "../formInput";
+import { SendCoordinatesMessage } from "../../../utils/message";
+import {notify} from "../toast";
 
 const Location = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,11 +18,25 @@ const Location = (props) => {
   mapboxgl.accessToken = access_token; 
 
   const [coords, setCoords] = useState( props.show_location || [ 32.29650083636824, 23.670783991562146 ] );
+  const [showEmailInput, setShowEmailInput] = useState(false);
+  const Auth = useContext(AuthContext).authenticatedUser;
+  const [emailValue, setEmailValue] = useState((Auth && Auth.data && Auth.data.email) || "");
+  const [sendingEmail, setSendingEmail] = useState(false);
 
-  const onSendCoordinatesHandler = () => {
-    const {lat, lng} = coords;
+  const onOpenCoordinatesHandler = () => setShowEmailInput(true);
 
-    console.log("sending coords: lat: ",lat ," lng:", lng)
+  const sendCoordinatesHandler = async() => {
+    setSendingEmail(true);
+    try {
+      const messageRes = await SendCoordinatesMessage({email: emailValue, coordinates: coords});
+      if(!messageRes.status)throw new Error(messageRes.message);
+      setSendingEmail(false);
+      setShowEmailInput(false);
+      return notify(messageRes.data || "Sent!", "success");
+    } catch (error) {
+      setSendingEmail(false);
+      return notify(error.message || "Cannot send coords to this email", "error");
+    }
   }
 
   const mapContainer = useRef(null);
@@ -78,7 +97,6 @@ const Location = (props) => {
 
   const onSubmitHandler = async() => {
     const {lat, lng} = coords;
-
     if(!props.show_location)return props.onSubmit({lat,lng}); // cords[lng, lat]
     else return props.onClose();
   }
@@ -93,9 +111,27 @@ const Location = (props) => {
           </div>
         </div>
       }
+
       <div className={styles.globe} style={{ position: "relative" }}>
         <div ref={mapContainer} className={styles.map_container} />
-        { ((!props.show_location && activeButton) || props.show_location) &&
+        {
+          <Modal
+            show={showEmailInput}
+            onClose={()=>setShowEmailInput(false)}
+            bgColor="transparent"
+          >
+            <div className={styles.email_popup}>
+              <h1 className={styles.email_header}>Discover Location Coordinates</h1>
+              <FormInput onChange={(val)=>setEmailValue(val)} value={emailValue} isValid={true} name="Enter your email"><div style={{ width: "10px" }}></div></FormInput>
+              <div className={styles.email_btn}>
+                <Button onSubmit={sendCoordinatesHandler} color="#F08D32" height="auto">
+                  <h1>{sendingEmail ? "Sending..." : "Send"}</h1>
+                </Button>
+              </div>
+            </div>
+          </Modal>
+        }
+        { ((!props.show_location && activeButton) || props.show_location) && !showEmailInput &&
           <div className={styles.controllers}>
             <div className={styles.controllers_insider}>
               <Button color="rgba(0, 0, 0, 0.5)" border="2px solid white" onSubmit={() => setZoomed(!zoomed)}>
@@ -111,9 +147,9 @@ const Location = (props) => {
             </div>
           </div>
         }
-        { props.show_location &&
+        { props.show_location && !showEmailInput &&
           <div className={styles.get_coordinates}>
-            <Button color="rgba(0, 0, 0, 0.5)" border="2px solid white" onSubmit={onSendCoordinatesHandler}>
+            <Button color="rgba(0, 0, 0, 0.5)" border="2px solid white" onSubmit={onOpenCoordinatesHandler}>
               <h1 className={styles.btn_text}>Get coordinates</h1>
             </Button>
           </div>

@@ -54,7 +54,31 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap; 
+}
 
+.email_popup{
+    padding: 10px;
+    background-color:rgb(217, 213, 213);
+    border-radius: 11px;
+    width: 20rem;
+    /* border: 5px solid #F08D32; */
+}
+
+.email_header{
+    text-align: center;
+    font-size: 21px;
+    margin: 1rem 0;
+    color: #F08D32;
+}
+.email_btn{
+    display: inline-block;
+    margin: 1.6rem 0;
+    margin-bottom: 5px;
+}
+
+.email_btn h1{
+    color: aliceblue;
+    padding: 7px 2px;
 }
 
 
