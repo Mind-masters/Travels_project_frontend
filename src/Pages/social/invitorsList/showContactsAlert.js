@@ -1,20 +1,20 @@
 import React, { useContext, useState } from 'react'
-import styles from "./alertContainer.module.css"
-import Button from '../button/Button';
-import alert_logo from "../../../../assets/points_alert.png";
-import alert_submited_logo from "../../../../assets/map_alert_logo.png";
-import { AuthContext } from '../../../../contextAPI/AuthContext';
+import styles from "./showContactsAlert.module.css"
+import Button from '../../../components/shared/UI/button/Button';
+import alert_logo from "../../../assets/points_alert.png";
+import alert_submited_logo from "../../../assets/map_alert_logo.png";
+import { AuthContext } from '../../../contextAPI/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { notify } from '../toast';
+import { notify } from '../../../components/shared/UI/toast';
 
-const AlertContainer = (props) => {
+const ShowContactsAlert = (props) => {
     const Auth = useContext(AuthContext);
     const navigate = useNavigate();
     const [submited, setSubmited] = useState(false);
 
     const onGoHandler = async() => {
         if(!Auth.authenticatedUser)return;
-        if(Auth.authenticatedUser.data.points < 3) {
+        if(Auth.authenticatedUser.data.points < 5) {
             notify("Get more bonus points", "warning")
             return navigate("/benefits");
         }
@@ -49,7 +49,7 @@ const AlertContainer = (props) => {
             
 
             <div className={styles.alert_message}>
-                <h1>{`${submited ? "You spent 3 points" : "This review is rated 3 points"}`}</h1>
+                <h1>{`${submited ? "You spent 5 bonus points" : "This action costs 5 bonus points"}`}</h1>
             </div>
 
             {   !submited &&
@@ -64,4 +64,4 @@ const AlertContainer = (props) => {
   )
 }
 
-export default AlertContainer
+export default ShowContactsAlert
