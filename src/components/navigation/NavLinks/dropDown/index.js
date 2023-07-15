@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import styles from './dropDown.module.css';
 import { AuthContext } from '../../../../contextAPI/AuthContext';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // logos
 import user_logo from "../../../../assets/dropDown/user_logo.png"
@@ -34,9 +34,7 @@ export default function AccountMenu(props) {
     const User = useContext(AuthContext);
     const ActiveUser = User.authenticatedUser || null;
     const UserData = ActiveUser ? ActiveUser.data : null;
-
-
-
+    
     const logoutHandler = () => {
         User.logout();
         navigate("/");
@@ -71,6 +69,10 @@ export default function AccountMenu(props) {
                     aria-expanded={open ? 'true' : undefined}
                 >
                     <img className={styles.logo} src={user_logo} alt="logo" />
+                    {
+                        props.notifications.length > 0 &&
+                        <span className={styles.notifications_bell_amount}>{props.notifications.length}</span>
+                    }
                 </IconButton>
                 </Tooltip>
             </Box>
@@ -108,7 +110,6 @@ export default function AccountMenu(props) {
                     bgcolor: 'rgba(238, 125, 21, 1)',
                     transform: 'translateY(-50%) rotate(45deg)',
                     zIndex: 0,
-                    // overflow: "hidden"
                     },
                 },
                 
