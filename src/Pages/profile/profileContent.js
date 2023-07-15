@@ -1,21 +1,17 @@
-import React, {useState, useEffect}from 'react';
-
+import React, {useState}from 'react';
+import Button from "../../components/shared/UI/button/Button";
 import styles from './profileContent.module.css';
 import MainHeader from "../../components/shared/UI/pagesHeaders/index";
 import { AiFillEdit } from 'react-icons/ai';
-import { useContext } from 'react';
-import { AuthContext } from '../../contextAPI/AuthContext';
 import UserPanel from './userPanel';
 
 const ProfileComponet = (props) => {
 
   const [description, setDescription] = useState('The user has not provided an introduction yet');
   const [editMode, setEditMode] = useState(false);
+  const Auth = props.Auth && props.Auth.data;
 
-  const Auth = useContext(AuthContext)
-  console.log("user: ",props.Auth )
-
-  if(!props.Auth)return
+  if(!Auth)return
 
   const handleEditClick = () => {
     setEditMode(!editMode);
@@ -29,7 +25,7 @@ const ProfileComponet = (props) => {
     setEditMode(false);
   };
 
-  
+  console.log("int: ", Auth)
   return (
     <div className={styles.main_container}>
         
@@ -52,27 +48,41 @@ const ProfileComponet = (props) => {
             value={description} 
             onChange={(e) => setDescription(e.target.value)} required />
 
-            <div  className={styles.save_btn}>
-            <button type="submit">Save</button>
+            <div className={styles.save_btn}>
+              <Button color="#EE7D15" height="auto" onSubmit={handleFormSubmit}>
+                <h1>Save</h1>
+              </Button>
             </div>
           </form>
           ):(
             
-        <p>
+        <p style={{ color:"#EE7D15", fontSize: "17px" }}>
           {description}
         </p>
           )
         }
       </div>
 
-      {/**Hobbies */}
+      <div className={styles.living_place}>
+        <h1 style={{ fontSize: "22px" , color:"#4a4a4a" }}>Living in <span style={{ display: "flex", color:"#EE7D15", fontSize: "17px", paddingTop:"10px" }}>
+          <img style={{ borderRadius:"11px", width: "40px", marginRight: "1rem" }} src={Auth.country.flag} alt='' />
+          {Auth.country.name}  
+        </span></h1>
+      </div>
+
+
+      
       <div className={styles.hobbies_section}>
         <h1>Hobbies</h1>
 
         <div className={styles.interest}>
-          <p>Travelling</p>
-          <p>Nature</p>
-          <p>Exploration</p>
+          {
+            Auth.interests && Auth.interests.interests.map(interest => {
+              return <p key={interest._id}>
+                {interest.value}
+              </p>
+            })
+          }
         </div>
       </div>
      
