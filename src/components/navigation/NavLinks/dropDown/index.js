@@ -70,7 +70,7 @@ export default function AccountMenu(props) {
                 >
                     <img className={styles.logo} src={user_logo} alt="logo" />
                     {
-                        props.notifications.length > 0 &&
+                        props.notifications && props.notifications.length > 0 &&
                         <span className={styles.notifications_bell_amount}>{props.notifications.length}</span>
                     }
                 </IconButton>
