@@ -12,8 +12,8 @@ export const DEFAULT_OPTIONS = [
 
     {
         key: 7,
-        icon: require("../../../../assets/registration-modals/4_photography.png"),
-        value: "Housing"
+        icon: require("../../../../assets/registration-modals/8_houses.png"),
+        value: "Houses"
     },
 
 
@@ -35,9 +35,6 @@ export const DEFAULT_OPTIONS = [
         icon: require("../../../../assets/registration-modals/6_nature.png"),
         value: "Nature"
     },
-
-   
-    
 
     {
         key: 3,
