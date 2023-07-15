@@ -20,7 +20,7 @@ const ViewOnMap = (props) => {
 
     const showMapReq = await Map({pid: props.pid}, token);
     if(!showMapReq.status){
-      notify("Please contact us", "error")
+      notify(showMapReq.message || "Please contact us", "error")
       setShowMap(false);
     }
 
