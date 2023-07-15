@@ -81,6 +81,25 @@
     padding: 7px 2px;
 }
 
+.notify_message{
+    margin-left: 1rem;
+}
+
+.notify_message h1{
+    font-size: 16px;
+}
+
+.notify_message h2{
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.notify_message span{
+    font-size: 15px;
+    color: #F08D32;
+    margin-right: 10px;
+}
+
 
 .btn_content {
     display: flex;
