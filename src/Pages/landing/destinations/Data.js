@@ -1,16 +1,15 @@
 export const PlacesData = [
     
     {
-        image: "https://i.pinimg.com/564x/74/28/b0/7428b0829f6dffffbf36f18fbc0cdc88.jpg",
-        // image: "../../../assets/landing/destinations/abandoned",
+        image: require("../../../assets/landing/destinations/mystery.jpg"),
         type: "Mystery places",
-        location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
+        location: {lat: "40.049653511689016", lng: "-78.14118634505498"}
     },
 
     {
-        image: "https://i.pinimg.com/564x/13/9a/82/139a82ffb736c59d77154ffcf229fed1.jpg",
+        image: require("../../../assets/landing/destinations/hills.jpg"),
         type: "Hills",
-        location: {lat: "54.699310", lng: "25.280455"}
+        location: {lat: "6.219184964695388", lng: "-75.17905956871508"}
     },
  
     {
@@ -20,22 +19,26 @@ export const PlacesData = [
     },
  
     {
-        image: "https://i.pinimg.com/originals/86/c2/b4/86c2b4308ad6710b5fb03eaab8429519.jpg",
+        image: require("../../../assets/landing/destinations/camping.jpg"),
         type: "Camping",
-        location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
+        location: {lat: "29.048062871490732", lng: "110.48018250938345"}
     },
  
     {
-        image: "https://i.pinimg.com/564x/a4/a5/85/a4a585cc05d979457e91d1b50cb14783.jpg",
+        image: require("../../../assets/landing/destinations/nature.jpg"),
         type: "Nature",
-        location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
+        location: {lat: "35.01682494551417", lng: "135.6712987590481"}
     },
  
     {
-        image: "https://i.pinimg.com/564x/c2/77/70/c27770cccc15e0a328849dce146cb9e6.jpg",
+        image: require("../../../assets/landing/destinations/romantic.jpg"),
         type: "Romantic",
-        location: {lat: "-25.49778735456157", lng: "16.18188633925526"}
+        location: {lat: "36.39474019388572", lng: "25.43819349858093"}
     },
  
-    
+    {
+        image: require("../../../assets/landing/destinations/abandoned"),
+        type: "Abandoned places",
+        location: {lat: "63.45910125140077", lng: "-19.364755139321502"}
+    },
 ]

@@ -14,11 +14,10 @@ const SlideItem = ({item, key}) => {
 
   const onShowAllHandler = () => {
     if(!item.type)return
+    if(item.type==="Abandoned places")item.type="Mystery places"
     
-    return navigate(`/explore/${item.type}`, )
+    return navigate(`/explore/${item.type}`)
   }
-
-
 
   const showOnMap = () => {
     setShowMapModal(true);
