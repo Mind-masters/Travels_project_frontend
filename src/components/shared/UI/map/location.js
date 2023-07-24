@@ -72,9 +72,9 @@ const Location = (props) => {
     if(zoomed){
       map.current.flyTo({
         center: coords,
-        zoom: 10,
+        zoom: 18,
         essential: true,
-        duration: 25000
+        duration: 23000
       });
     }      
 

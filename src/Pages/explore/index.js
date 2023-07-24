@@ -43,7 +43,7 @@ const Explore = (props) => {
       const filteredPlaces = placesData.data.reverse().filter(place => {
 
 
-        if(filterByCountry && filterByType)return place.type === filterByType && place.country.name === filterByCountry
+        if(filterByCountry && filterByType)return place.type === filterByType && place.country === filterByCountry
 
         if(filterByCountry)return place.country === filterByCountry
 

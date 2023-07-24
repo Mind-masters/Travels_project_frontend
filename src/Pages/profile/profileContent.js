@@ -25,7 +25,6 @@ const ProfileComponet = (props) => {
     setEditMode(false);
   };
 
-  console.log("int: ", Auth)
   return (
     <div className={styles.main_container}>
         

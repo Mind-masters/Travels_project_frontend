@@ -57,6 +57,7 @@ const Filter = (props) => {
   }
 
   const onSubmitFilter = () => {
+    console.log("submiting filter: ", countryValue, " | ", typesValue);
     if(countryValue && props.onFilterByCountry)props.onFilterByCountry(countryValue);
     if(typesValue && props.onFilterByType)props.onFilterByType(typesValue);
     return
