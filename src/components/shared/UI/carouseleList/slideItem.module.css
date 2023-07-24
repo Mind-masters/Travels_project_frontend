@@ -23,39 +23,66 @@
 .content{
     background-color: #08080866;
     text-align: center;
-    flex: 1;
+    flex: 0.5;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.top_bar{
-    padding: 10px 5px;
-    color: antiquewhite;
-    display: flex;
-    font-size: 22px;
+    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
-} 
-
-.top_bar .type_all{
-    font-weight: 900;
-    color: #EE7D15;
-    cursor: pointer;
+    padding: 1rem 8px;
 }
 
-.bottom_bar{
-    display: inline-flex;
-    margin: 1rem 0;
-    border: 3px solid rgba(240, 248, 255, 0.2);;
-    padding: 5px 1rem;
-    border-radius: 11px;
-    font-size: 23px;
-    cursor: pointer;
-    align-self: center;
+.type_name{
+    margin-right: 1rem;
 }
+
+.type_name img{
+    width: 35px;
+    height: 35px;
+    margin-right: 1rem;
+    margin-bottom: 5px;
+}
+
 
 .location_icon{
     height: 2.5rem;
     margin-right: 15px;
+}
+
+
+.map_btn, .type_name{
+    border: 2px solid #F5C69B;
+    border-radius: 40px;
+    font-size: 18.5px;
+    font-weight: 800;
+    padding: 2px 1rem;
+    align-self:center;
+    color: #F5C69B;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.btn_icon{
+    position: relative;
+    width: 38px;
+    height: 38px;
+}
+
+.icon_ripple{
+    height: 35px;
+    border-radius: 50%;
+    left: -13px;
+    width: 43px;
+    height: 38px;
+    position: absolute;
+}
+
+
+
+
+@media (max-width: 1100px) {
+    .map_btn_container{
+        margin-left: 1rem;
+    }
 }
