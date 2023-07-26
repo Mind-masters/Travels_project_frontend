@@ -31,7 +31,7 @@ const LandingMain = (props) => {
                 <NewUser />
             }
         
-            <div className={styles.welcome_page}>
+            {/* <div className={styles.welcome_page}>
 
                 <div className={styles.welcome_page_content}>
 
@@ -66,7 +66,11 @@ const LandingMain = (props) => {
                 </div>
 
 
+            </div> */}
+            <div style={{ paddingTop:"4rem" }}>
+
             </div>
+
 
             <Destinations/>
             <FellowTravelers />

@@ -21,7 +21,7 @@ const FellowTravelers = () => {
 
       <div className={styles.representing_cards}>
 
-        <div className={styles.child_card} onClick={()=>setShowFirstContent(!showFirstContent)}>
+        <div className={styles.child_card} onClick={()=>onNavigate()}>
           <img src={card_image_1} alt='' />
           <h1>Join a group</h1>
           { showFirstContent &&
@@ -31,7 +31,7 @@ const FellowTravelers = () => {
           }
         </div>
 
-        <div className={styles.child_card} onClick={()=>setShowSecondContent(!showSecondContent)}>
+        <div className={styles.child_card} onClick={()=>onNavigate()}>
           <img src={card_image_2} alt='' />
           <h1>Start a group</h1>
           { showSecondContent &&

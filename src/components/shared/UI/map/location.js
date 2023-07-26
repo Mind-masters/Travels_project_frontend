@@ -12,6 +12,8 @@ import { SendCoordinatesMessage } from "../../../utils/message";
 import {notify} from "../toast";
 
 const Location = (props) => {
+  console.log("props: ", props)
+
   const [isLoading, setIsLoading] = useState(true);
   const access_token = 'pk.eyJ1IjoiZG9tYnViMSIsImEiOiJjbGR4N3M5ZWowZW1jM29yeHR6ZDZ4a2Z2In0.Nvxa1Vv6L-7YlWhT5CW47w'
 
@@ -77,6 +79,7 @@ const Location = (props) => {
         duration: 23000
       });
     }      
+
 
 
   }, [zoomed]);
