@@ -6,7 +6,6 @@ import "./like.css"
 import { notify } from '../toast.js';
 
 const Like = (props) => {
-
   const socket = io('https://mind-master-backend-production.up.railway.app/', {transports: ['websocket', 'polling', 'flashsocket']});
 
   const Auth = useContext(AuthContext);

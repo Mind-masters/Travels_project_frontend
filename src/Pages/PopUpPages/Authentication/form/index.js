@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import styles from "./form.module.css"
-
-import login_bg from "../../../../assets/authentication/login_bg_2.jpg"
 import FormBody from './formBody'
 
 const Form = (props) => {

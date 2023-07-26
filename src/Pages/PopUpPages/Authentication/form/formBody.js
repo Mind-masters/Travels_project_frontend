@@ -96,7 +96,7 @@ const FormBody = (props) => {
 
 			{
 				props.isLoginMode ? 
-				<p onClick={props.onSwithChMode} className={styles.footer}>Don't have an account? <span>Join us</span></p> 
+				<p onClick={props.onSwithChMode} className={styles.footer}>Don't have an account? <span>Sign up</span></p> 
 				:
 				<p onClick={props.onSwithChMode} className={styles.footer}>Already a member? <span>Login</span></p>
 			}
