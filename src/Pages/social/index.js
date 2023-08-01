@@ -11,6 +11,7 @@ import io from 'socket.io-client';
 import { useEffect } from 'react';
 import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
 import { fetchAllInvitings } from '../../components/utils/invitings/fetchInvitings';
+import PageViewTracker from '../../components/shared/UI/RouteChnage/PageViewTracker';
 
 
 const FellowTraveler = () => {
@@ -64,6 +65,7 @@ const FellowTraveler = () => {
                 <Controllers />
                 {invitingsData && invitingsData.length > 0 && <InvitorsList data={invitingsData}/>}
             </div>
+            <PageViewTracker/>
         </Card>
         }
         </>
