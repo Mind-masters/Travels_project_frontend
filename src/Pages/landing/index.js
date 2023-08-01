@@ -15,6 +15,7 @@ import Authentication from '../PopUpPages/Authentication';
 import { AuthContext } from '../../contextAPI/AuthContext';
 import FellowTravelers from './FellowTravelers';
 import ScrollToTop from '../../components/shared/UI/ScrollToTop/ScrollToTop';
+import PageViewTracker from '../../components/shared/UI/RouteChnage/PageViewTracker';
 
 
 const LandingMain = (props) => {
@@ -75,6 +76,7 @@ const LandingMain = (props) => {
             <Destinations/>
             <FellowTravelers />
             <AboutUs />
+            <PageViewTracker/>
 
             {
                 showAuthenticationForm &&
