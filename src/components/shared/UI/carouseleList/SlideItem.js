@@ -5,7 +5,7 @@ import Location from "../map/location";
 import Modal from '../Modal';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../button/Button';
+import ReactGA from 'react-ga';
 
 
 const SlideItem = ({item, key}) => {
@@ -15,16 +15,28 @@ const SlideItem = ({item, key}) => {
 
   const onShowAllHandler = () => {
     if(!item.type)return
+    
     let type_of_place=item.type;
+    
     if(item.type==="Abandoned")type_of_place="Mystery places"
     if(item.type==="Mystery")type_of_place="Mystery places"
     if(item.type==="Roads")type_of_place="Road trip"
 
-    
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked the button',
+      label: type_of_place
+    });
+
     return navigate(`/explore/${type_of_place}`)
   }
 
   const showOnMap = () => {
+    ReactGA.event({
+      category: 'User',
+      action: 'Clicked the button',
+      label: `${item.type} view on map`
+    });
     setShowMapModal(true);
   }
   
