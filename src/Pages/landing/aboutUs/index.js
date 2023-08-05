@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./aboutUs.module.css";
 import mainLogo from "../../../assets/landing/about_us_logo.png"
 import header_logo from "../../../assets/landing/about_us_text_decoration.png";
-import PageViewTracker from '../../../components/shared/UI/RouteChnage/PageViewTracker';
+
 const AboutUs = () => {
   return (
     <div className={styles.wrapper}>
@@ -45,7 +45,6 @@ const AboutUs = () => {
         <div className={styles.main_image}>
             <img src={mainLogo} alt='' />
         </div>
-        <PageViewTracker/>
     </div>
   )
 }

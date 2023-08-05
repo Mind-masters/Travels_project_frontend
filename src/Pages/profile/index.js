@@ -8,7 +8,7 @@ import { notify } from "../../components/shared/UI/toast";
 import { fetchUserPlaces } from '../../components/utils/places/fetchPlaces';
 import ProfileComponet from './profileContent';
 import { useParams } from 'react-router-dom';
-import PageViewTracker from '../../components/shared/UI/RouteChnage/PageViewTracker';
+
 
 
 const Profile = () => {
@@ -45,7 +45,6 @@ const Profile = () => {
             (authPlaces && ! isLoading)  ?
             <Card>
                 <ProfileComponet Auth={Auth.authenticatedUser}/>
-                <PageViewTracker/>
             </Card>
             :
             <LoadingSpinner />
