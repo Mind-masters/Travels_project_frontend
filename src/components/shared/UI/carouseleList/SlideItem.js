@@ -17,6 +17,7 @@ const SlideItem = ({item, key}) => {
     if(!item.type)return
     
     let type_of_place=item.type;
+
     
     if(item.type==="Abandoned")type_of_place="Mystery places"
     if(item.type==="Mystery")type_of_place="Mystery places"
