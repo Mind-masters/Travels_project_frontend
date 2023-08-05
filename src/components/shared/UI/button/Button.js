@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from "./Button.module.css";
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 const Button = (props) => {
 
