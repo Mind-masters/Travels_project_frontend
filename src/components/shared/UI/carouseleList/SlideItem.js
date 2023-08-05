@@ -5,7 +5,7 @@ import Location from "../map/location";
 import Modal from '../Modal';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 
 
 const SlideItem = ({item, key}) => {
