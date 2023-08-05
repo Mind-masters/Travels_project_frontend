@@ -6,7 +6,7 @@ import MainNavigation from "./components/navigation";
 import { ToastContainer } from 'react-toastify';
 import Footer from './components/shared/UI/Footer';
 import ReactGA from "react-ga4";
-import PageViewTracker from './components/shared/UI/RouteChnage/PageViewTracker';
+
 
 
 function App() {
@@ -61,7 +61,6 @@ function App() {
       <Routing />
       <Footer />
       <ToastContainer />
-      <PageViewTracker/>
     </AuthContext.Provider>
   )
 }
