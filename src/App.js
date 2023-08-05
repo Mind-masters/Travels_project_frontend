@@ -5,13 +5,15 @@ import { useState, useCallback } from 'react'
 import MainNavigation from "./components/navigation";
 import { ToastContainer } from 'react-toastify';
 import Footer from './components/shared/UI/Footer';
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga4";
 import PageViewTracker from './components/shared/UI/RouteChnage/PageViewTracker';
 
 
 function App() {
-  const TRACKING_ID = "G-FSNVB5E4YW"; // YOUR_OWN_TRACKING_ID
+
+  const TRACKING_ID = 'G-TRX7W3GVTH'; 
   ReactGA.initialize(TRACKING_ID);
+  ReactGA.send("pageview");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [authenticatedUser, setAuthenticatedUser] = useState();

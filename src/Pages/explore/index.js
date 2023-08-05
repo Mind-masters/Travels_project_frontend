@@ -8,7 +8,7 @@ import { fetchAllPlaces } from '../../components/utils/places/fetchPlaces';
 import { notify } from "../../components/shared/UI/toast";
 import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
 import { useParams } from 'react-router-dom';
-import PageViewTracker from '../../components/shared/UI/RouteChnage/PageViewTracker';
+
 
 const Explore = (props) => {
 
@@ -92,7 +92,6 @@ const Explore = (props) => {
 
         </div>
       }
-    <PageViewTracker/>
     </Card>
   )
 }
