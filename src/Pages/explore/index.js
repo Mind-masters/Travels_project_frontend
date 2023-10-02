@@ -7,11 +7,13 @@ import MainHeader from "../../components/shared/UI/pagesHeaders/index";
 import { fetchAllPlaces } from '../../components/utils/places/fetchPlaces';
 import { notify } from "../../components/shared/UI/toast";
 import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import BottomNavigation from './bottom_nav';
 
 
 const Explore = (props) => {
 
+  const navigate = useNavigate();
   let { type } = useParams();
   const [filterByType, setFilterByType] = useState(type);
   const [filterByCountry, setFilterByCountry] = useState(null);
@@ -69,10 +71,14 @@ const Explore = (props) => {
         :
         <div className={styles.container}>
 
-          <MainHeader 
-            header="Explore Places"
-            paragraph="Travel around the world has become much easier with this community"
-          />
+          <div className={styles.pc_header}>
+            <MainHeader 
+              header="Explore Places"
+              paragraph="Travel around the world has become much easier with this community"
+            />
+          </div>
+
+          {/* <Header/> */}
           
 
           <div className={styles.main_content}>
@@ -85,6 +91,10 @@ const Explore = (props) => {
                 onFilterByCountry={onFilterByCountry}
               />
             </div>
+
+            
+
+            <BottomNavigation />
 
             {data && !isLoading && <PlaceList data={data} />}
 

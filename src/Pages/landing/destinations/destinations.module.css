@@ -2,17 +2,17 @@
   width: 100%;
   height: 100vh;
   height: 100svh;
-  min-height: 40rem;
-  max-height: 50rem;
+  min-height: 35rem;
   position: relative;
 }
 
 .header_block{
-  background-image: url("../../../assets/landing/big.png");
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.147), rgba(0, 0, 0, 0.744) 100%) no-repeat;
+  background-image: url("../../../assets/landing/big_kazkas_1.png");
   background-repeat: no-repeat;
   background-size:cover;
-  width: 100%;
-  height: 100%;
 }
 
 .content{
@@ -22,35 +22,54 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-
+  justify-content: space-between;
 }
+
+.header_wrapper{
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+}
+
+.header_menu{
+  display: flex;
+  flex: 1;
+  padding-top: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+.header_menu img{
+  cursor: pointer;
+  width: 43px;
+  height: 43px;
+  margin-right: 15px;
+}
+
+.header_menu img:hover{
+  animation: animate 0.3s linear;
+}
+
+@keyframes animate{
+  40% {transform: translateY(10px) ;} 
+}
+
 
 .places_list{
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-@media screen and (max-width: 850px) {
-  .container{
-    height: 90vh;
-  }
+.places_list .carousele{
+  flex: 1;
+  min-height: 50vh;
+  max-height: 25rem;
+  padding-bottom: 1rem;
 }
-  
 
-@media screen and (max-width: 700px) {
 
-  .header_block{
-    background-image: url("../../../assets/landing/middle.png");
-  }
-
-}
-  
-@media screen and (max-width: 400px) {
-  .container{
-    height: 80vh;
-  }
-
-  .header_block{
-    background-image: url("../../../assets/landing/small.png");
-    background-size: contain;
-  }
-}

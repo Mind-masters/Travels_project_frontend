@@ -24,7 +24,7 @@ const NavLinks = (props) => {
 
     <li className="onFocus">
       <NavLink to="/uploads" >
-        Uploads
+        Products
         <hr />
       </NavLink>
     </li>

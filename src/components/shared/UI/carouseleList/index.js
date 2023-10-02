@@ -15,6 +15,7 @@ SwiperCore.use([EffectCoverflow, Autoplay, Pagination,Navigation]);
 const SwiperList = (props) => {
 
     const swiperRef = useRef(null);
+    const [activeSlide, setActiveSlide] = useState(null);
     const [slidesCount, setSlidesCount] = useState("auto");
     const container_ref = useRef(null);
 
@@ -62,7 +63,9 @@ const SwiperList = (props) => {
                     loop
                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                     slidesPerView={slidesCount}
+                    initialSlide={1}
                     navigation
+                    watchSlidesProgress
                     style={{
                         "--swiper-navigation-color": "#EE7D15",
                         "--swiper-navigation-size": "3rem",
@@ -79,14 +82,19 @@ const SwiperList = (props) => {
                                         style={{ backgroundImage: `url(${place.image})`}}
                                         className={styles.SwiperSlide}
                                     >
-                                        <SlideItem item={place}/>
+                                        {
+                                            ({ isActive }) => (
+                                                <SlideItem item={place} setType={props.callback} isActive={isActive}/>
+                                            )
+                                        }
+                                        
                                     </SwiperSlide>
                                     
                                     )
                                 }
                             )
                         }
-
+                        
                     </>
                 </Swiper>
             }

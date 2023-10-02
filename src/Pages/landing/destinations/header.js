@@ -1,25 +1,27 @@
 import React from 'react'
 import styles from "./header.module.css";
-import discover_all_arrow from '../../../assets/landing/long-arrow-right.png'
-import { useNavigate, NavLink, Navigate } from 'react-router-dom';
 
+const MainHeader = () => {
 
-const Header = () => {
-
-  const navigate = useNavigate();
 
   return (
-    <div className={styles.title_container}>
-        <h1>
-        Your journey begins
-        <span> here</span>
-        </h1>
-        <div className={styles.discover_all}>
-            <p onClick={() => {navigate("/explore")}}>Discover All</p>
-            <img src={discover_all_arrow} alt='' />
+
+    <div className={styles.container}> 
+      <div>
+        <div className={styles.main_line}>
+          <p>Your</p>
+          <div>
+            <p>Journey</p>
+            <hr style={{ marginLeft: "7%", bottom: "5px" }} />
+            <hr />
+          </div>
+          <p>Starts</p>
+          <p className={styles.flex_}>Here</p>
         </div>
+      </div>         
     </div>
+    
   )
 }
 
-export default Header
+export default MainHeader

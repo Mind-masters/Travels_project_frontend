@@ -1,0 +1,34 @@
+.fixed_add_icon{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    display: none;
+    bottom: 0;
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+.controll_logos{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.controll_logos img{
+    width: 3.3rem;
+}
+
+.scrollDown_logo{
+    margin: 0 auto;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .fixed_add_icon{
+        display: flex;
+    }
+}
+

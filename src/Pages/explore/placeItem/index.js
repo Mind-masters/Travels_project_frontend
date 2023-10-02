@@ -29,6 +29,7 @@ const PlaceItem = (props) => {
       <div className={styles.body_container}>
         <Body item={props.item} onFilter={props.onFilter} onShowMap={onShowMapHandler}/>
       </div>
+      
 
       {showMap && <ViewOnMap pid={props.item._id} location={props.item && props.item.location} onClose={()=>{setShowMap(false)}}/> }
 

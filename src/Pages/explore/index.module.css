@@ -20,7 +20,6 @@
 }
 
 
-
 @media (max-width: 1200px) {
     .filter_container{
         width: 400px;
@@ -60,14 +59,19 @@
         display: none;
     }
 
+    .container{
+        margin-top: 35px;
+    }
+
+    .pc_header{
+        display: none;
+    }
 
     .side_image{
         display: block;
         padding: 5px;
     }
 }
-
-
 
 
 @media (max-width: 400px) {
