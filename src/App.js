@@ -11,7 +11,7 @@ import ReactGA from "react-ga4";
 
 function App() {
 
-  const TRACKING_ID = 'G-TRX7W3GVTH'; 
+  const TRACKING_ID = 'G-E4QLGDLHF8'; 
   ReactGA.initialize(TRACKING_ID);
   ReactGA.send("pageview");
 

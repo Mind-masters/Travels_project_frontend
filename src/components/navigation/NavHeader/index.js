@@ -43,6 +43,7 @@ const NavHeader = (props) => {
 
     <div className={`${styles.header_login}`}>
       <div className={styles.login_btn}>
+        
         {!User.isLoggedIn ? 
 
           <Button color={"#EE7D15"} height="auto" onSubmit={openAuthenticationForm}>
