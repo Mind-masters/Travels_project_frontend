@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import globe_logo from "../../../assets/explore/filter/globe.png";
 import popularity_logo from "../../../assets/explore/filter/popularity.png";
 import input_sign_logo from "../../../assets/landing/expanded_logo.png";
-import add_new_place_logo from "../../../assets/explore/filter/add_new_place.png";
+import add_new_place_logo from "../../../assets/signs/plus.png";
 import { useState } from 'react';
 
 import Modal from "../../../components/shared/UI/Modal";
@@ -113,7 +113,8 @@ const Filter = (props) => {
       </div>
 
       <div onClick={()=>navigate("/uploads")} className={styles._add}>
-        <p>If you dont find anything, share your experience if us!</p>
+        {/* <p>If you dont find anything, share your experience if us!</p> */}
+        <p>Discover something fascinating around you, share it, and earn bonus points</p>
         <img src={add_new_place_logo} alt='plus' />
 
         <h1>Share your place</h1>

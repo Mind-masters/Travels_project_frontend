@@ -1,122 +1,41 @@
-
-.title_container{
-    color: rgb(255, 255, 255);
+.container{
+    display: flex;
+    flex-direction: column;
     text-align: center;
+}
+
+.main_line{
+    display: flex;
     font-size: 40px;
-    padding-top: 1.8rem;
-}
-
-.discover_all{
-    color: #EE7D15;
+    color: rgb(227, 229, 231);
+    letter-spacing: 2px;
     display: inline-flex;
-    cursor: pointer;
-    align-items: center;
-    float: right;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #EE7D15 ;
-    margin: 1.5rem 0;
-    margin-right: 3rem;
+
 }
 
-.discover_all p{
-    font-size: 28px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 0;
+.main_line div{
+    display: inline-block;
+    display: inline-block;
+    position: relative;
 }
 
-
-.discover_all img{
-    width: 2.3rem;
-    margin: 0 1rem;
-    align-self: center;
+.main_line hr{
+    position: absolute;
+    padding: 1px;
+    background-color: #EE7D15;
+    border-radius: 30%;
+    width: 72%;
 }
 
-    
-@media (max-width: 950px)
-{   
-    .title_container
-    {
-        /* font-size: 35px; */
-    }
-    
-    .discover_all{
-        /* font-size: 23px; */
-    }
-
-    .title_container span{
-    }
+.main_line p{
+    margin: 0 5px;
 }
 
-@media (max-width: 900px)
-{   
-    /* .title_container
-    {
-        font-size: 30px;
-    }
-
-    .discover_all{
-        font-size: 20px;
-    } */
-}
 
 @media (max-width: 700px)
 {   
-    .title_container
+    .main_line
     {
         font-size: 35px;
-    }
-
-    .discover_all{
-        font-size: 18px;
-        margin: 1.8rem 0;
-        margin-right: 1rem;
-    }
-}
-
-@media (max-width: 400px)
-{
-    .title_container h1
-    {
-        display: inline-flex;
-        flex-direction: column;
-    }
-
-    .title_container{
-        padding-bottom: 2.5rem;
-    }
-
-    .discover_all{
-        display: none;
-    }
-
-}
-
-
-@media (max-width: 350px)
-{
-    .title_container
-    {
-        font-size: 23px;
-    }
-
-    .discover_all{
-        font-size: 14px;
-    }
-
-    .discover_all img{
-        width: 1.8rem;
-    }
-}
-
-
-@media (max-width: 300px)
-{
-    .title_container
-    {
-        font-size: 17px;
-    }
-
-    .discover_all{
-        margin-right: 0;
     }
 }

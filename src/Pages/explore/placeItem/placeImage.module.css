@@ -74,22 +74,24 @@
     .mobile_description{
         display: block;
         position: absolute;
-        bottom: 0;
-        width: 100%;
-        background-color: #ffffff;
+        top: 5px;
+        left: 5px;
         text-align: left;
         color: #636060;
         line-height: 28px;
-        opacity: 0.6;
     }
 
     .visible_mobile_description{
         opacity: 1;
+        top: 0;
+        left: 0;
         overflow: scroll;
         padding-bottom: 1rem;
         animation-name: slide-up;
         animation-duration: 0.5s;
         animation-fill-mode: forwards;
+        background-color: #ffffff;
+        width: 100%;
     }
 
     .mobile_description img{

@@ -7,14 +7,20 @@ import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
 import { useState } from 'react';
 import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
-import BGImage from "../../../assets/hero-section.png";
 import Header from './header';
 import {PlacesData} from "./Data"
+import BottomBar from './Navi/bottomBar';
+import friends_logo from "../../../assets/signs/friends.png"
+import gifts_logo from "../../../assets/signs/gifts.png"
+import shop_logo from "../../../assets/signs/shop.png"
+import TopBar from './Navi/topBar';
+import { useNavigate } from 'react-router-dom';
 
 
 const Destinations = () => {
-
   const [isLoading, setIsLoading] = useState(true);
+  const [currPlaceType, setCurrPlaceType] = useState("Abandoned places")
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async() => {
@@ -31,22 +37,38 @@ const Destinations = () => {
   }, [])
 
 
+
+
   
   return (
     <div className={styles.container}>
+      <TopBar />
 
       <div className={styles.header_block}></div>
 
       {isLoading && <LoadingSpinner asOverlay/>}
 
       <div className={styles.content}>
-        <Header />
+
+        <div className={styles.header_wrapper}>
+          <Header />
+          <div className={styles.header_menu}>
+            <img onClick={()=>navigate("/social")} src={friends_logo} alt='' />
+            <img onClick={()=>navigate("/shop")} src={shop_logo} alt='' />
+            <img onClick={()=>navigate("/benefits")} src={gifts_logo} alt='' />
+          </div>
+        </div>
 
         <div className={styles.places_list}>
-          <CarouseleList data={PlacesData}/>
+          <BottomBar currPlaceType={currPlaceType} />
+
+          <div className={styles.carousele}>
+            <CarouseleList callback={(data)=>{setCurrPlaceType(data)}} data={PlacesData}/>
+          </div>
         </div>
         
       </div>
+
       
     </div>
     

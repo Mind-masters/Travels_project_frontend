@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import styles from "./placeImage.module.css"
 import Modal from '../../../components/shared/UI/Modal';
-import vissibleIcon from "../../../assets/explore/visible.png";
-import hiddenIcon from "../../../assets/explore/hiden.png";
+import vissibleIcon from "../../../assets/signs/description.png";
+import hiddenIcon from "../../../assets/signs/no_description.png";
 
 
 const PlaceImage = (props) => {

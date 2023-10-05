@@ -4,7 +4,7 @@ import styles from "./controllers.module.css";
 import Ripple from '../../../../../components/shared/UI/ripple';
 import AuthRequired from '../../../../../components/shared/layouts/AuthRequired';
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
-
+import gift_icon from "../../../../../assets/gift_icon.png"
 
 const Controllers = (props) => {
   const Auth = useContext(AuthContext);
@@ -38,6 +38,8 @@ const Controllers = (props) => {
           </button>
         </AuthRequired>
       </div>
+
+        <img className={styles.gift_icon} src={gift_icon} />
 
     </div>
   )
