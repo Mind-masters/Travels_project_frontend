@@ -13,10 +13,10 @@ import { useEffect } from 'react';
 
 function App() {
 
-  const TRACKING_ID = 'G-E4QLGDLHF8'; 
+  // const TRACKING_ID = 'G-E4QLGDLHF8'; 
   const location = useLocation();
 
-  ReactGA.initialize(TRACKING_ID);
+  // ReactGA.initialize(TRACKING_ID);
   ReactGA.send("pageview");
   const [isMobile, setIsMobile] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
