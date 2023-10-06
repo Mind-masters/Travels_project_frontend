@@ -24,15 +24,8 @@ const NavLinks = (props) => {
     </li>
 
     <li className="onFocus">
-      <NavLink to="/uploads" >
-        Products
-        <hr />
-      </NavLink>
-    </li>
-
-    <li className="onFocus">
       <NavLink to="/shop" >
-        Shop
+        Products
         <hr />
       </NavLink>
     </li>
@@ -59,8 +52,7 @@ const NavLinks = (props) => {
 
     <li className="onFocus">
       <NavLink  to="/shopcart" >
-       <BsCart4/>
-        <hr />
+
       </NavLink>
     </li>
 
