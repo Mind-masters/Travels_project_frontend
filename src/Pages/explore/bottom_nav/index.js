@@ -4,13 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import filter_places_logo from "../../../assets/signs/filter.png";
 import add_new_place_logo from "../../../assets/signs/plus.png";
 import new_friends_logo from "../../../assets/signs/friends.png";
-import scrollDown_logo from "../../../assets/signs/scroll_down.png";
+import Backdrop from '../../../components/shared/UI/Backdrop';
 import ScrollDown from './scroll_down';
+import SideDrawer from '../../../components/shared/UI/SideDrawer';
+import Filter from '../filter/mobile';
 
-const BottomNavigation = () => {
+const BottomNavigation = (props) => {
 
     const navigate = useNavigate();
 
+    const [showFilterDrawer, setShowFilterDrawer] = useState(false);
     const [showArrow, setShowArrow] = useState(true);
 
     const handleScroll = () => {
@@ -31,6 +34,12 @@ const BottomNavigation = () => {
 
     return (
         <div className={styles.fixed_add_icon}>
+
+{showFilterDrawer && <Backdrop onClick={()=>setShowFilterDrawer(false)} />}
+
+<SideDrawer color="rgba(255, 255, 255, 1)" show={showFilterDrawer} >
+  <Filter onClick={()=>setShowFilterDrawer(false)}/>
+</SideDrawer>
             {
                 showArrow ? 
                 <div className={styles.scrollDown_logo}> 
@@ -38,7 +47,7 @@ const BottomNavigation = () => {
                 </div>
                 :
                 <div className={styles.controll_logos}>
-                    <img style={{ marginRight:"12px" }} alt='' src={filter_places_logo} />
+                    <img style={{ marginRight:"12px" }} onClick={()=>setShowFilterDrawer(true)} alt='' src={filter_places_logo} />
                     <img onClick={()=>{navigate("/uploads")}} style={{ marginRight:"12px" }} src={add_new_place_logo} alt=''/>
                     <img onClick={()=>{navigate("/social")}} src={new_friends_logo} alt=''/>
                 </div>

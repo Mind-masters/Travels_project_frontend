@@ -1,6 +1,5 @@
   .controll_bar{
-    width: 90%;
-    border-bottom-right-radius: 30px;
+    width: 97%;
     margin: 0 auto;
     color: #D6C5B6;
     font-size: 21px;
@@ -24,7 +23,7 @@
     align-items: center;
     position: absolute;
     width: 100%;
-    top: 25px;
+    top: 10px;
     z-index: 2;
   }
   
@@ -41,7 +40,6 @@
     border: 3px solid #F08D32;
     display: flex;
     margin-left: auto;
-    
   }
   
   .controll_bar_all{
@@ -56,35 +54,12 @@
   }
 
   .controll_bar_all img{
-    width: 19px;
-    height: 19px;
+
     margin: 0 10px;
     align-self: center;
     animation: animate 0.9s linear infinite;  
   }
 
-  .modal_wrapper{
-    background-color: rgb(255, 255, 255);
-    width: 35rem;
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
-    border-radius: 13px;
-    max-height: 80vh;
-    overflow: scroll;
-  }
-  
-  .modal_wrapper_header{
-    position: sticky;
-    top: 0;
-    padding: 1rem;
-    color: #EE7D15;
-    font-weight: bold;
-    text-align: right;
-    font-size: 1.2rem;
-    border-radius: 13px;
-    background-color: rgb(255, 255, 255);
-    z-index: 1;
-  }
-  
 
   @keyframes animate{
     40% {transform: translateX(5px);}
@@ -101,12 +76,16 @@
     .controll_bar{
       width: 97%; 
     }
+
+    .controll_bar_type{
+      margin-left: 0;
+    }
   
   }
 
-  @media screen and (max-width: 860px) {
+  @media screen and (max-width: 800px) {
     .inner_bar{
-      position: relative;
+      top: -20px;
     }
   
   }
@@ -114,7 +93,8 @@
   @media screen and (max-width: 700px) {
   
     .inner_bar{
-      top: -20px;
+      position: relative;
+      height: 20px;
     }
   
   }

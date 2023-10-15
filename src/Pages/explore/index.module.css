@@ -1,6 +1,5 @@
 .container{
     width: 100%;
-    margin-top: 7rem;
     text-align: center;
     min-height: 90vh;
 }
@@ -57,10 +56,6 @@
 
     .filter_container{
         display: none;
-    }
-
-    .container{
-        margin-top: 35px;
     }
 
     .pc_header{

@@ -4,37 +4,45 @@
     text-align: center;
 }
 
-.main_line{
+.header{
     display: flex;
     font-size: 40px;
     color: rgb(227, 229, 231);
     letter-spacing: 2px;
     display: inline-flex;
-
+    justify-content: center;
+    letter-spacing: 5px;
 }
 
-.main_line div{
-    display: inline-block;
+.header div{
     display: inline-block;
     position: relative;
 }
 
-.main_line hr{
+.container hr{
     position: absolute;
     padding: 1px;
     background-color: #EE7D15;
     border-radius: 30%;
-    width: 72%;
+    width: 70%;
 }
 
-.main_line p{
-    margin: 0 5px;
+.header p{
+    margin: 0 7px;
 }
 
+.subheader
+{
+    color: aliceblue;
+    font-size: 20px;
+    letter-spacing: 2px;
+    width: 80%;
+    margin: 1rem auto;
+}
 
 @media (max-width: 700px)
 {   
-    .main_line
+    .header
     {
         font-size: 35px;
     }

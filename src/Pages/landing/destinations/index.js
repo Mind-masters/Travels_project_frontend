@@ -10,9 +10,10 @@ import LoadingSpinner from '../../../components/shared/UI/LoadingSpinner';
 import Header from './header';
 import {PlacesData} from "./Data"
 import BottomBar from './Navi/bottomBar';
+
 import friends_logo from "../../../assets/signs/friends.png"
-import gifts_logo from "../../../assets/signs/gifts.png"
-import shop_logo from "../../../assets/signs/shop.png"
+import gift_logo from "../../../assets/signs/gifts.png"
+import explore_logo from "../../../assets/signs/map_pin.png"
 import TopBar from './Navi/topBar';
 import { useNavigate } from 'react-router-dom';
 
@@ -46,17 +47,10 @@ const Destinations = () => {
 
       <div className={styles.header_block}></div>
 
-      {isLoading && <LoadingSpinner asOverlay/>}
-
       <div className={styles.content}>
 
         <div className={styles.header_wrapper}>
           <Header />
-          <div className={styles.header_menu}>
-            <img onClick={()=>navigate("/social")} src={friends_logo} alt='' />
-            <img onClick={()=>navigate("/shop")} src={shop_logo} alt='' />
-            <img onClick={()=>navigate("/benefits")} src={gifts_logo} alt='' />
-          </div>
         </div>
 
         <div className={styles.places_list}>

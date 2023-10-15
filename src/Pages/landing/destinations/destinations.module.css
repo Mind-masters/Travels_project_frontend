@@ -26,12 +26,12 @@
 }
 
 .header_wrapper{
-  flex: 0.5;
+  flex: 0.8;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 10vh;
+  /* background-color:aqua; */
 }
 
 .header_menu{
@@ -69,7 +69,6 @@
   flex: 1;
   min-height: 50vh;
   max-height: 25rem;
-  padding-bottom: 1rem;
+  padding-bottom: 4px;
 }
-
 
