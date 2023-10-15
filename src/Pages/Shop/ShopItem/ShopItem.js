@@ -1,25 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Card from '../../../components/shared/UI/Card';
 import styles from './ShopItem.module.css';
+import { ShopContext } from '../../../contextAPI/shopContext/ShopContextProvider';
+
 
 const ShopItem = ({TravelData}) => {
-  //state variable to store CartItem
-const [cart, setCart] = useState([]);
 
-//function to add to item to cart
-const addToCart = (product)=>{
-if(product){
-  const newItem = {
-    name: product.name,
-    image: product.image,
-    price: product.price,
-  };
-
-  //update the cart state with a new item
-  setCart([...cart, newItem]);
-}
-}
-
+const {addToCart} = useContext(ShopContext);
 //condition to check if products item exist or not
   if(TravelData.length ===0){
     return( <div className='center'>
@@ -36,14 +23,16 @@ if(product){
       <div className={styles.image}>
         <img src={product.image} alt={product.name}/>
         </div>
-        <div className={styles.name_job}>{product.name}</div>
-        <p> Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.</p>
+        <div className={styles.name}>{product.name}</div>
+        <p> {product.description}.</p>
         <p>Tripwhoop: Extra 5% off with bonus points $10</p>
         <p>Amazon: $12</p>
         <p>Ebay: $15</p>
         
         <div className={styles.btns}>
-          <button onClick={()=> addToCart(product)}>Add To Cart</button>
+          <button onClick={()=> addToCart(product.id)} >
+            Add To Cart
+            </button>
         </div>
       </div>
       ))}

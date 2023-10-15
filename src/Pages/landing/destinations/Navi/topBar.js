@@ -21,7 +21,7 @@ const TopBar = () =>
 
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
-        console.log("Scrolled: ", scrolled)
+        // console.log("Scrolled: ", scrolled)
         if (scrolled > 140){
             setVisible(true)
         } 
