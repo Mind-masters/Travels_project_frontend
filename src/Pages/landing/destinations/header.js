@@ -20,7 +20,7 @@ const MainHeader = () => {
 
         <div className={styles.subheader}>
           <p>
-            Meet new friends, share unique places and make money
+          Share unique places, make money and meet new friends
           </p>
 {/* 
           <p>
