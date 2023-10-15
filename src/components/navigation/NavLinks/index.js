@@ -52,7 +52,7 @@ const NavLinks = (props) => {
 
     <li className="onFocus">
       <NavLink  to="/shopcart" >
-
+        {BsCart4}
       </NavLink>
     </li>
 
