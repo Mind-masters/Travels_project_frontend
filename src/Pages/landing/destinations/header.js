@@ -7,8 +7,7 @@ const MainHeader = () => {
   return (
 
     <div className={styles.container}> 
-      <div>
-        <div className={styles.main_line}>
+        <div className={styles.header}>
           <p>Your</p>
           <div>
             <p>Journey</p>
@@ -18,7 +17,19 @@ const MainHeader = () => {
           <p>Starts</p>
           <p className={styles.flex_}>Here</p>
         </div>
-      </div>         
+
+        <div className={styles.subheader}>
+          <p>
+            Meet new friends, share unique places and make money
+          </p>
+{/* 
+          <p>
+            share places & make money
+            <hr style={{ marginLeft: "7%", bottom: "5px" }} />
+            <hr />
+          </p> */}
+        </div>
+
     </div>
     
   )

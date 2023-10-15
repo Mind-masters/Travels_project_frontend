@@ -2,12 +2,12 @@ import React from 'react'
 import ReactGA from 'react-ga4';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../../../assets/registration-modals/2_trip.png"
-import about_logo from "../../../../assets/signs/about.png"
 import all_right_logo from "../../../../assets/landing/all_right_logo.png"
 import styles from "./bottomBar.module.css"
 import { useState } from 'react';
 import Modal from '../../../../components/shared/UI/Modal';
 import AboutUs from '../../../../components/shared/UI/Footer/AboutUs';
+
 const BottomBar = ({currPlaceType}) => {
     const navigate = useNavigate();
     const [showAbout, setShowAbout] = useState(false);
@@ -55,8 +55,8 @@ const BottomBar = ({currPlaceType}) => {
                 </div>
 
                 <div onClick={()=>navigate("/explore")} className={styles.controll_bar_all}>
-                <p>All</p>
-                <img src={all_right_logo} alt='' />
+                    <p>All</p>
+                    <img src={all_right_logo} alt='' />
                 </div>
             </div>
         </div>
