@@ -9,7 +9,7 @@ const ShopItem = ({TravelData}) => {
 const {addToCart} = useContext(ShopContext);
 //condition to check if products item exist or not
   if(TravelData.length ===0){
-    return( <div className='center'>
+    return( <div className={styles.center}>
       <Card>
       <h2>No Product found</h2>
       </Card>

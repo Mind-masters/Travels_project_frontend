@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import Card from '../../../components/shared/UI/Card';
 import {TravelData} from '../../Shop/Products';
+import styles from './ShoppingCart.module.css';
 import { ShopContext } from '../../../contextAPI/shopContext/ShopContextProvider';
 import ShoppingCartItem from './ShoppingCartItem';
 import {useNavigate} from 'react-router-dom';
@@ -16,7 +17,7 @@ const ShoppingCart = () => {
       <h1>Cart Items</h1>
       </div>
        */}
-      <div className="cart-items">
+      <div className={styles.cart_items}>
         {TravelData.map((product)=>{
           if(cartItems[product.id] !== 0){
             return<ShoppingCartItem key={product.id} data = {product}/>
@@ -25,12 +26,12 @@ const ShoppingCart = () => {
       </div>
 
       {total > 0 ?
-      <div className='checkout'>
+      <div className={styles.checkout}>
         <p>SubTotal: ${total}</p>
         <button onClick={()=>navigate("/shop")}>Continue Shopping</button>
         <button>Checkout</button>
       </div>
-   : <h1>Your Cart is Empty</h1>}
+   : <h1 className={styles.empty}>Your Cart is Empty</h1>}
     </Card>
   )
 }
