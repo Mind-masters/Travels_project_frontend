@@ -27,6 +27,23 @@ const Benefits = () => {
   return (
     <section className={styles.container}>
       <div className={styles.section_heading}>
+        <h2 >Ways To Make money with TripWhoop</h2>
+      </div>
+
+      <div className={styles.make_money_container}>
+        <div>
+          <p>There is always something interested near you</p>
+          <p>Share unique places and make money</p>
+          <div>
+            <p>1 level. Once you sign in you became 1 level</p>
+            <p>2 level allows you to put price on your sharings between 0.5$ to 2$</p>
+            <p>3 level allows you to put price on your sharings between 2$ to 5$</p>
+            <p>Becoming a pro master allows you to sell hight quality places for as much as you want</p>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.section_heading}>
         <h2 >Ways To Get Points</h2>
       </div>
 
@@ -49,9 +66,9 @@ const Benefits = () => {
             <div className={styles.icon_wrapper}>
               <AiFillHeart/>
             </div>
-            <h3 className={styles.earn_point}>Get Points with Likes <br/></h3>
+            <h3 className={styles.earn_point}>Share unique places</h3>
             <p className={styles.description}>
-              Sharing your favorite places has never been more rewarding! Get points based on the number of likes your shared place receives
+              Get 4 points every time you share new place
             </p>
           </div>
         </div>
@@ -61,7 +78,7 @@ const Benefits = () => {
             <div className={styles.icon_wrapper}>
               <MdGroups/>
             </div>
-            <h3 className={styles.earn_point}>Get Points By Sharing</h3>
+            <h3 className={styles.earn_point}>Invite new people</h3>
             <p className={styles.point_description}>
               Get points for inviting new people to join TripWhoop
             </p>
@@ -73,7 +90,7 @@ const Benefits = () => {
             <div className={styles.icon_wrapper}>
               <FaRegCalendarCheck/>
             </div>
-            <h3 className={styles.earn_point}>Get Points Daily</h3>
+            <h3 className={styles.earn_point}>Login every day</h3>
             <p  className={styles.point_description}>
               Earn points for every booking made through this platform.
             </p>
@@ -81,6 +98,8 @@ const Benefits = () => {
         </div>
 
       </div>
+
+
     </section>
   )
 }

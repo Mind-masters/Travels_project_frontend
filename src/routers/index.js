@@ -10,7 +10,7 @@ const LandingPage = lazy(()=>import("../Pages/landing"));
 const ExplorePage = lazy(()=>import("../Pages/explore"));
 const Profile = lazy(()=>import("../Pages/profile"));
 const Uploads = lazy(()=>import("../Pages/uploads"));
-const Shops = lazy(()=>import("../Pages/Shop/Index"));
+const Shop = lazy(()=>import("../Pages/Shop/Index"));
 const Social = lazy(()=>import("../Pages/social"));
 const ShopingCart= lazy(()=>import("../Pages/Shop/ShoppingCart/ShoppingCart"));
 const Benefits = lazy(()=>import("../Pages/benefits/Benefits"));
@@ -62,7 +62,7 @@ const Routing = () => {
         
 
         <Route path="/uploads" element={<Uploads />} />
-        <Route path="/shop" element={<Shops />} />
+        <Route path="/shop" element={<Shop />} />
 
         <Route path="/social" element={<Social />} />
         <Route path="/benefits" element={<Benefits/>}/>

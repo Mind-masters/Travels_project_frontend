@@ -1,12 +1,5 @@
-.container{
-    max-width: 1100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 20px;
-  }
-  .container .box{
+
+  .box{
     width: calc(34% - 10px);
     background: #fff;
     display: flex;
@@ -15,14 +8,13 @@
     align-items: center;
     padding: 20px 30px;
     border-radius: 5px;
-  
   }
   .box .quote i{
   margin-top: 10px;
   font-size: 45px;
   color: #17c0eb
   }
-  .container .box .image{
+  .box .image{
     margin: 10px 0;
     height: 280px;
     width: 250px;
@@ -90,13 +82,13 @@
     color: #fff;
   }
   @media (max-width:1045px){
-    .container .box{
+    .box{
       width: calc(50% - 10px);
       margin-bottom: 20px;
     }
   }
   @media (max-width:710px){
-    .container .box{
+    .box{
       width: 100%;
     }
   }
