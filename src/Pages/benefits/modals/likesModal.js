@@ -19,42 +19,23 @@ const LikesModal = (props) => {
                 <div className={styles.list_item}>
                     <div className={styles.points_item_header}>
                         <span />
-                        <h1>More than 10 likes</h1>
+                        <h1>Uploads</h1>
                     </div>
                     <div>
-                        <p>Get 5 bonus points</p>
+                        <p>Get 4 bonus points</p>
                     </div>
                 </div>
 
                 <div className={styles.list_item}>
                     <div className={styles.points_item_header}>
                         <span />
-                        <h1>More than 30 likes</h1>
+                        <h1>Donations</h1>
                     </div>
                     <div>
-                        <p>Get 10 bonus points</p>
+                        <p>Get 2, 5 or 10 bonus points from people who supports you</p>
                     </div>
                 </div>
 
-                <div className={styles.list_item}>
-                    <div className={styles.points_item_header}>
-                        <span />
-                        <h1>More than 50 likes</h1>
-                    </div>
-                    <div>
-                        <p>Get 15 bonus points</p>
-                    </div>
-                </div>
-
-                <div className={styles.list_item}>
-                    <div className={styles.points_item_header}>
-                        <span />
-                        <h1>More than 100 likes</h1>
-                    </div>
-                    <div>
-                        <p>Get unlimited bonus points for one week</p>
-                    </div>
-                </div>
 
                 <div className={styles.list_btn}>
                     <Button onSubmit={()=>navigate("/uploads")} height="auto" color="#F08D32">
