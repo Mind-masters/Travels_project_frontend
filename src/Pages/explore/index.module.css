@@ -15,40 +15,15 @@
 }
 
 .filter_container{
-    width: 450px;
-}
-
-
-@media (max-width: 1200px) {
-    .filter_container{
-        width: 400px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .filter_container{
-        width: 350px;
-    }
+    width: 80vw;
+    margin: 10px auto;
+    margin-top: 3rem;
 }
 
 @media (max-width: 900px) {
 
     .filter_container{
-        width: 250px;
-    }
-}
-
-@media (max-width: 850px) {
-
-    .filter_container{
-        width: 450px;
-    }
-}
-
-@media (max-width: 750px) {
-
-    .filter_container{
-        width: 400px;
+        width: 95vw;
     }
 }
 
