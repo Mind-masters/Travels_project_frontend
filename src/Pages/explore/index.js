@@ -71,33 +71,26 @@ const Explore = (props) => {
         :
         <div className={styles.container}>
 
+
           <div className={styles.pc_header}>
             <MainHeader 
               header="Explore Places"
               paragraph="Travel around the world has become much easier with this community"
             />
           </div>
-
-          {/* <Header/> */}
           
+          <div className={styles.filter_container}>
+            <Filter 
+              typeValue={filterByType}
+              onFilterByType={onFilterByType}
+              CountryValue={filterByCountry}
+              onFilterByCountry={onFilterByCountry}
+            />
+          </div>
 
           <div className={styles.main_content}>
-
-            <div className={styles.filter_container}>
-              <Filter 
-                typeValue={filterByType}
-                onFilterByType={onFilterByType}
-                CountryValue={filterByCountry}
-                onFilterByCountry={onFilterByCountry}
-              />
-            </div>
-
-            
-
             <BottomNavigation />
-
             {data && !isLoading && <PlaceList data={data} />}
-
           </div>
 
         </div>

@@ -3,10 +3,9 @@ import styles from "./filter.module.css";
 import Button from '../../../components/shared/UI/button/Button';
 import { useNavigate } from 'react-router-dom';
 // logos
-import globe_logo from "../../../assets/explore/filter/globe.png";
-import popularity_logo from "../../../assets/explore/filter/popularity.png";
+import country_logo from "../../../assets/explore/filter/country_logo.png";
+import types_logo from "../../../assets/explore/filter/travel_type.png";
 import input_sign_logo from "../../../assets/landing/expanded_logo.png";
-import add_new_place_logo from "../../../assets/signs/plus.png";
 import { useState } from 'react';
 
 import Modal from "../../../components/shared/UI/Modal";
@@ -80,45 +79,39 @@ const Filter = (props) => {
         }
       </Modal>
 
-      <div className={styles.btn_container}>
-        <Button height="auto" color="#EE7D15" onSubmit={onSubmitFilter}>
-          <h1>Search</h1>
-        </Button>
-      </div>
 
       <div className={styles.filter_body}>
 
         <div onClick={onOpenCountryModalHandler} className={styles.filter_option}>
-          <h2>Country</h2>
+          <img src={country_logo} alt='globe' />
+          <h1>Country</h1>
 
           <div >
-            <img src={globe_logo} alt='globe' />
-            <p>{countryValue ? countryValue : "Where to"}</p>
-            <img style={{ width: "1.5rem ", alignSelf: "center"}} src={input_sign_logo} alt='input' />
+            <p >{countryValue ? countryValue : "Where to"}</p>
+            <img style={{ marginLeft:"5px", width: "1rem ", alignSelf: "center", opacity: "0.6"}} src={input_sign_logo} alt='input' />
           </div>
         </div>
 
         <div onClick={onOpenTypesModalHandler} className={styles.filter_option}>
-          <h2>Travel type</h2>
+          
+          <img src={types_logo} alt='vacation' />
+          <h1>Travel type</h1>
 
           <div>
-            <img src={popularity_logo} alt='vacation' />
             <p>{typesValue ? typesValue : "Vacation"}</p>
-            <img style={{ width: "1.5rem ", alignSelf: "center"}} src={input_sign_logo} alt='input' />
+            <img style={{ marginLeft:"5px", width: "1rem ", alignSelf: "center", opacity: "0.6"}} src={input_sign_logo} alt='input' />
           </div>
         </div>
 
-
+          <Button onSubmit={onSubmitFilter} height="auto" color="#EE7D15">
+            <h1 style={{ color:"white", padding: "10px 0" }}>Search</h1>
+          </Button>
         
       </div>
 
-      <div onClick={()=>navigate("/uploads")} className={styles._add}>
-        {/* <p>If you dont find anything, share your experience if us!</p> */}
-        <p>Discover something fascinating around you, share it, and earn bonus points</p>
-        <img src={add_new_place_logo} alt='plus' />
-
-        <h1>Share your place</h1>
-      </div>
+        <Button height="auto" color="#EE7D15" onSubmit={()=>{navigate("/uploads")}}>
+          <h1 style={{ color:"white", padding: "1rem 0" }}>Share new place</h1>
+        </Button>
 
     </div>
   )

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "./index.module.css";
 import PlaceItem from "../placeItem";
 import { useNavigate } from 'react-router-dom';
+import Grid from "../../../components/shared/layouts/Grid";
 
 const PlaceList = ({data}) => {
 

@@ -1,22 +1,62 @@
 .container{
-    top: 16vh;
-    position: sticky;
-    width: 90%;
-    float: right;
-}
-
-.btn_container{
-    width: 55%;
-    margin: 1.5rem auto;
-}
-
-.btn_container h1{
-    padding: 0.5rem 0;
-    color: white;
+    display: flex;
+    align-items: center;
 }
 
 .filter_body{
-    margin-bottom: 0.5rem;
+    flex: 1;
+    display: flex;
+    margin-right: 2rem;
+    align-items: center;
+    box-shadow: 0 1rem 2rem hsl(0 0% 0% / 20%);
+    padding: 12px 1rem;
+    border-radius: 14px;
+}
+
+.filter_body img{
+    width: 1rem;
+}
+
+.filter_option h1{
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 19px;
+    color:#4D4D4D;
+    margin-left: 5px;
+}
+
+.filter_option{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.filter_option div{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 10px;
+    margin-left: 1rem;
+}
+
+.filter_option img{
+    width: 2rem;
+    align-self: center;
+}
+
+.filter_option div p{
+    align-self: center;
+    color: #888888;
+}
+
+.filter_option:nth-child(1){
+    margin-right: 2rem;
+}
+
+.filter_option:nth-child(2){
+    flex:1;
+    margin-right: 2rem;
 }
 
 .types_container{
@@ -25,73 +65,15 @@
     width: 28rem;
 }
 
-.filter_option{
-    cursor: pointer;
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 1.5rem;
-}
+
 .filter_option h2{
     text-align: left;
     margin-bottom: 5px;
     color: #4D4D4D;
 }
 
-.filter_option div{
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid #9C9C9C;
-    border-radius: 8px;
-    padding: 7px;
-}
-
-.filter_option div img{
-    width: 1.5rem;
-}
-
-.filter_option div p{
-    align-self: center;
-    color: #696868;
-}
-
-._add p{
-    font-size: 15px;
-    margin: 1.5rem auto;
-    width: 80%;
-    color: #909090;
-
-}
-
-._add img{
-    cursor: pointer;
-    margin: 0.8rem auto;
-    width: 3.5rem;
-}
-
-._add h1{
-    color: #6E6E6E;
-    font-size: 20px;
-}
-
-@media (max-width: 900px) {
-    .container{
-        width: 95%;
-    }
-}
-
-@media (max-width: 850px) {
-
-    .container{
-        width: 85%;
-    }
-}
-
 
 @media (max-width: 700px) {
-    .body{
-        display: none;
-    }
-
     .types_container{
         padding-top: 10px;
         width: 20rem;
