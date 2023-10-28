@@ -92,6 +92,7 @@ const Explore = (props) => {
             <BottomNavigation />
             {data && !isLoading && <PlaceList data={data} />}
           </div>
+          
 
         </div>
       }

@@ -1,6 +1,7 @@
 .container{
     display: flex;
     align-items: center;
+    
 }
 
 .filter_body{
@@ -72,6 +73,11 @@
     color: #4D4D4D;
 }
 
+@media (max-width: 900px) {
+    .new_place_btn{
+        display: none;
+    }
+}
 
 @media (max-width: 700px) {
     .types_container{

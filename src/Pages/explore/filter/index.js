@@ -103,15 +103,17 @@ const Filter = (props) => {
           </div>
         </div>
 
-          <Button onSubmit={onSubmitFilter} height="auto" color="#EE7D15">
-            <h1 style={{ color:"white", padding: "10px 0" }}>Search</h1>
-          </Button>
+        <Button onSubmit={onSubmitFilter} height="auto" color="#EE7D15">
+          <h1 style={{ color:"white", padding: "10px 0" }}>Search</h1>
+        </Button>
         
       </div>
 
+      <div className={styles.new_place_btn}>
         <Button height="auto" color="#EE7D15" onSubmit={()=>{navigate("/uploads")}}>
           <h1 style={{ color:"white", padding: "1rem 0" }}>Share new place</h1>
         </Button>
+      </div>
 
     </div>
   )
