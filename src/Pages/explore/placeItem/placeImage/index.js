@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 import styles from "./placeImage.module.css"
-import Modal from '../../../components/shared/UI/Modal';
-import vissibleIcon from "../../../assets/signs/description.png";
-import hiddenIcon from "../../../assets/signs/no_description.png";
+import Modal from '../../../../components/shared/UI/Modal';
+import hiddenIcon from "../../../../assets/signs/no_description.png";
+import HoveredImage from './HoveredImage';
 
 
 const PlaceImage = (props) => {
 
     const [showMobDescription, setShowMobDescription] = useState(false);
     const [expandedImage, setExpandedImage] = useState(false);
+    const [isHoveredImage, setIsHoveredImage] = useState(false);
 
     const place_image = props.item.image // && `https://mind-master-backend-production.up.railway.app/${props.item.image}`
   
@@ -21,14 +22,17 @@ const PlaceImage = (props) => {
     <>
         { place_image &&
         <>
-            <div className={styles.image_container}>
+            <div className={styles.image_container}
+                onMouseEnter={() => setIsHoveredImage(true)}
+                onMouseLeave={() => setIsHoveredImage(false)}
+            >
                 <img className={styles.item_image} onClick={()=>setExpandedImage(true)} src={place_image} alt="" loading='lazy'/>
-                <div className={`${styles.mobile_description} ${showMobDescription && styles.visible_mobile_description}`}>
+                {/* <div className={`${styles.mobile_description} ${showMobDescription && styles.visible_mobile_description}`}>
                     <div onClick={clickOnEyeHandler} className={styles.mobile_description_icon}>
-                        <img src={ showMobDescription ? hiddenIcon : vissibleIcon} alt='eye'/>
+                        <img src={vissibleIcon} alt='eye'/>
                     </div>
-                    {showMobDescription && <p>{props.item.description}</p>}
-                </div>
+                </div> */}
+                <HoveredImage hovered={isHoveredImage} />
             </div>
 
             <Modal

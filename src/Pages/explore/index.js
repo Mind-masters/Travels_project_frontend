@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from "../../components/shared/UI/Card";
-import styles from "./index.module.css";
+import styles from "./explore.module.css";
 import PlaceList from "./placeList";
 import Filter from "./filter";
 import MainHeader from "../../components/shared/UI/pagesHeaders/index";
