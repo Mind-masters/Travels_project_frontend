@@ -8,6 +8,7 @@ import Backdrop from '../../../components/shared/UI/Backdrop';
 import ScrollDown from './scroll_down';
 import SideDrawer from '../../../components/shared/UI/SideDrawer';
 import Filter from '../filter/mobile';
+import Button from '../../../components/shared/UI/button/Button';
 
 const BottomNavigation = (props) => {
 
@@ -35,11 +36,18 @@ const BottomNavigation = (props) => {
     return (
         <div className={styles.fixed_add_icon}>
 
-{showFilterDrawer && <Backdrop onClick={()=>setShowFilterDrawer(false)} />}
+            {showFilterDrawer && <Backdrop onClick={()=>setShowFilterDrawer(false)} />}
 
-<SideDrawer color="rgba(255, 255, 255, 1)" show={showFilterDrawer} >
-  <Filter onClick={()=>setShowFilterDrawer(false)}/>
-</SideDrawer>
+            <SideDrawer color="rgba(255, 255, 255, 1)" show={showFilterDrawer} >
+                <Filter onClick={()=>setShowFilterDrawer(false)}/>
+            </SideDrawer>
+
+            <div className={styles.filter_section_button}>
+                <Button height="auto" color="#EE7D15" onSubmit={()=>{navigate("/uploads")}}>
+                    <h1 style={{ color:"white", padding: "1rem 0" }}>Share new place</h1>
+                </Button>
+            </div>
+
             {
                 showArrow ? 
                 <div className={styles.scrollDown_logo}> 

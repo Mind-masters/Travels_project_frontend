@@ -39,7 +39,7 @@ const Controllers = (props) => {
         </AuthRequired>
       </div>
 
-        <img className={styles.gift_icon} src={gift_icon} />
+      <img alt='' className={styles.gift_icon} src={gift_icon} />
 
     </div>
   )

@@ -18,11 +18,13 @@ const PlaceItem = (props) => {
   if(!props.item.user_id)return
   
   return (
-    <div className={`${styles.container} ${"box effect2"}`}>
+    <div style={{ backgroundImage:`url(${props.item.image})` }} className={`${styles.container} ${"box effect2"}`}>
 
-      <div className={styles.mobile_user_panel}>
+      <div className={styles.filter}></div>
+
+      {/* <div className={styles.mobile_user_panel}>
         <UserPanel user={props.item.user_id} place={props.item} onFilter={props.onFilter} onShowMap={onShowMapHandler} />
-      </div>
+      </div> */}
 
       <PlaceImage item={props.item} />
 

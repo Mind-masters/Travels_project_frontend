@@ -22,7 +22,7 @@ const PlaceList = ({data}) => {
   }
 
   const ListItemElement = () => (
-    <div className={styles.list_container}>
+    <Grid className={styles.list_container}>
       {
         filteredData && filteredData.length > 0?
         filteredData.map(item => <PlaceItem onFilter={onFilterHandler} key={item._id} item={item} />)
@@ -33,7 +33,7 @@ const PlaceList = ({data}) => {
           <p onClick={()=>navigate("/uploads")}>Create place</p>
         </div>
       }
-    </div>
+    </Grid>
   )
 
   return (
