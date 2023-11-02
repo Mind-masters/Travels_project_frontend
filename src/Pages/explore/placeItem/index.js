@@ -2,14 +2,15 @@ import React from 'react'
 import { useState } from 'react';
 import styles from "./placeItem.module.css";
 import Body from "./body";
-import UserPanel from './userPanel';
 import ViewOnMap from '../../../components/shared/UI/viewOnMap';
 import PlaceImage from './placeImage';
+import MainContent from './mainContent';
 
 
 const PlaceItem = (props) => {
 
   const [showMap, setShowMap] = useState(false);
+  const [hovered, setHovered] = useState(undefined);
 
   const onShowMapHandler = () => {
     setShowMap(true)
@@ -18,21 +19,26 @@ const PlaceItem = (props) => {
   if(!props.item.user_id)return
   
   return (
-    <div style={{ backgroundImage:`url(${props.item.image})` }} className={`${styles.container} ${"box effect2"}`}>
+    <div 
+      style={{ backgroundImage:`url(${props.item.image})` }} 
+      className={`${styles.container} ${"box effect2"}`}
+    >
 
       <div className={styles.filter}></div>
 
-      {/* <div className={styles.mobile_user_panel}>
-        <UserPanel user={props.item.user_id} place={props.item} onFilter={props.onFilter} onShowMap={onShowMapHandler} />
-      </div> */}
+      <div className={styles.wrapper}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {hovered !== undefined && <MainContent onClose={()=>setHovered(false)} onShowMap={onShowMapHandler} item={props.item}/>}
+        <PlaceImage hovered={hovered} item={props.item}/>
+      </div>
 
-      <PlaceImage item={props.item} />
 
       <div className={styles.body_container}>
         <Body item={props.item} onFilter={props.onFilter} onShowMap={onShowMapHandler}/>
       </div>
       
-
       {showMap && <ViewOnMap pid={props.item._id} location={props.item && props.item.location} onClose={()=>{setShowMap(false)}}/> }
 
     </div>

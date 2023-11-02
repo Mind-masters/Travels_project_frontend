@@ -7,21 +7,18 @@ const Body = (props) => {
 
 
   return (
-    <div className={styles.container}>
 
       <div className={styles.body}>
-
 
         <Controllers
           item={props.item}
           onShowMap={props.onShowMap}
         />
 
-        {/* <Comments item={props.item} /> */}
+        <Comments item={props.item} />
       
       </div>
 
-    </div>
   )
 }
 
