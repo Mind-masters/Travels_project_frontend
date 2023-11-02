@@ -8,6 +8,7 @@ import { useState } from 'react';
 import LikesModal from './modals/likesModal';
 import InvitingsModal from './modals/invitingsModal';
 import BookingsModal from './modals/bookingsModal';
+import MakeMoney from './MakeMoney';
 
 
 const Benefits = () => {
@@ -26,22 +27,8 @@ const Benefits = () => {
 
   return (
     <section className={styles.container}>
-      <div className={styles.section_heading}>
-        <h2 >Ways To Make money with TripWhoop</h2>
-      </div>
-
-      <div className={styles.make_money_container}>
-        <div>
-          <p>There is always something interested near you</p>
-          <p>Share unique places and make money</p>
-          <div>
-            <p>1 level. Once you sign in you became 1 level</p>
-            <p>2 level allows you to put price on your sharings between 0.5$ to 2$</p>
-            <p>3 level allows you to put price on your sharings between 2$ to 5$</p>
-            <p>Becoming a pro master allows you to sell hight quality places for as much as you want</p>
-          </div>
-        </div>
-      </div>
+      
+        <MakeMoney/>
 
       <div className={styles.section_heading}>
         <h2 >Ways To Get Points</h2>
