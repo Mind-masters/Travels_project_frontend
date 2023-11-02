@@ -1,50 +1,44 @@
-
-  .container{
+.money_container{
+    border: solid red;
     width: 100%;
-    padding: 8rem 10px;
-    display: grid;
+    overflow: hidden;
   }
 
-  
-
-  .modal_wrapper{
-    background-color: rgb(255, 255, 255);
-    width: 30rem;
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
-    border-radius: 13px;
-    max-height: 80vh;
-    overflow: scroll;
-    padding: 1rem;
-  }
-
-  .section_heading{
-   margin: auto ;
-    color: #333131;
-    align-items: center;
-    align-self: center;
-  }
-  .section_heading h2{
+  .text_heading h2{
     margin: 24px;
     text-align: center;
-    font-size: 33px;
+    font-size: 30px;
   }
-  
+  .text_heading p{
+    margin: 24px;
+    text-align: center;
+    font-size: 18px;
+    color: #AAAAAA;
+    font-weight: 500;
+    line-height: 27px;
+  }
+
+
   .row {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     min-height: 40vh;
+    padding-right: 53px;
+    width: 80%;
+    /* border: solid blue; */
   }
-  .column {
+  .container_column {
     width: 20rem;
     padding: 0 1em 1em 1em;
     text-align: center;
     margin: 2rem auto;
-
   }
-
-  .card {
-    width: 100%;
-    height: 100%;
+  .expert{
+    margin-top: 6rem;
+  }
+  .point_card {
+    width: 325px;
+    height: 329px;
     padding: 2em 1.5em;
     background: linear-gradient(#ffffff 50%,  #F08D32 50%);
     background-size: 100% 200%;
@@ -56,11 +50,12 @@
   }
 
   .earn_point {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
     margin: 1em 0;
     color: #615e5e;
-
+    line-height: 37.89px;
   }
 
   .point_description {
@@ -72,12 +67,29 @@
   
   .description{
     color: #575a7b;
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 20px;
+    line-height: 34.89px;
+    font-weight: 400;
   }
 
   .icon_wrapper {
-    background-color:  #F08D32;
+    background-color:  #FFF;
+    border: solid 1px #DEDEDE;
+    position: relative;
+    margin: auto;
+    font-size: 30px;
+    height: 2.5em;
+    width: 2.5em;
+    color: #ffffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: 0.5s;
+  }
+
+  .icon_wrapper2 {
+    background-color:  #FFF;
+    border: solid 1px #F2571A;
     position: relative;
     margin: auto;
     font-size: 30px;
@@ -94,7 +106,7 @@
     margin: 20px;
   }
 
-  .card:hover {
+  /* .card:hover {
     background-position: 0 100%;
   }
 
@@ -109,36 +121,47 @@
 
   .card:hover p {
     color: #f0f0f0;
-  }
+  } */
 
   @media screen and (min-width: 768px) {
-    section {
-      padding: 0 2em;
-      width: 100%;
-    }
-    .column {
+    .container_column {
       flex: 0 50%;
       max-width: 50%;
     }
   }
   @media screen and (min-width: 992px) {
-    section {
-      padding: 1em 3em;
-      width: 100%;
-    }
-    .column {
+    
+    .container_column {
       flex: 0 0 33.33%;
       max-width: 33.33%;
     }
     
   }
   @media screen and (max-width: 700px) {
-    .column{
+    .conatiner_column{
       margin: 1.5rem auto;
       width: 25rem;
     }
     .point_description{
       padding: 15px;
+    }
+    .expert{
+      margin-left: 0;
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (max-width:986px) {
+    .row{
+      flex-wrap: wrap;
+      margin: 23px;
+    }
+    /* .container_column{
+      width: 60rem;
+    } */
+
+    .expert{
+      margin-left: 5rem;
     }
   }
 
@@ -146,10 +169,18 @@
     .modal_wrapper{
       width: 90vw;
     }
+    .expert{
+      margin-left: 0;
+      margin-top: 0;
+    }
   }
 
   @media screen and (max-width: 450px) {
-    .column{
+    .container_column{
       width: 90vw;
+    }
+    .money_container{
+      width: auto;
+      overflow: hidden;
     }
   }
