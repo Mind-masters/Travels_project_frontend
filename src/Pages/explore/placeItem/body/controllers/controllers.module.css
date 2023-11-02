@@ -1,10 +1,7 @@
 .container{
     display: flex;
     width: 100%;
-    background-color: rgb(255, 255, 255);
-    z-index: 0;
-    border-radius: 0% 0% 18px 18px;
-    padding: 7px 0;
+
     justify-content: space-around;
 }
 
@@ -16,7 +13,7 @@
 
 .map_btn{
     background-color: rgb(255, 255, 255);
-    border: 2px solid #F5C69B;
+    border: 2px solid #e68b36;
     border-radius: 40px;
     font-size: 1rem;
     padding: 2px 1rem;
@@ -28,7 +25,7 @@
     font-size: 18.5px;
     font-weight: 800;
     justify-content: space-around;
-    color: #F5C69B;
+    color: #e68b36;
     align-items: center;
 }
 

@@ -1,10 +1,8 @@
 import React,{ useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
 import styles from "./comments.module.css";
-import commentsLogo from "../../../../../assets/explore/send_vector.png";
 import Popup from './popup';
 import Modal from '../../../../../components/shared/UI/Modal';
-import AuthRequired from '../../../../../components/shared/layouts/AuthRequired';
 import { OnComment } from '../../../../../components/utils/places/comment';
 import io from 'socket.io-client';
 import { notify } from '../../../../../components/shared/UI/toast';
@@ -92,14 +90,6 @@ const Comments = ({item}) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.comm_info_header} onClick={expandCommentsHandler}>{`${commentsCount ? `View ${commentsCount} comments` : "No Comments Yet"}`}</h1>
-      <h1 className={styles.comm_info_header_mobiles} onClick={expandCommentsHandler}>View comments</h1>
-
-      <AuthRequired>
-        <div className={styles.input_container}>
-          <input value={commentValue} onChange={onChangeInputValue} className={styles.input} placeholder='Write your comment' />
-          <img onClick={()=>{onCommentSubmitHandler(item._id)}} src={commentsLogo} alt='' />
-        </div>
-      </AuthRequired>
 
       <Modal 
         show={expandComments}

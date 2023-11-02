@@ -12,9 +12,10 @@
     width:100%;
     display:block;
     position: relative;
-    border-radius: 11px;
     overflow: hidden;
     margin: 0 auto;
+    border-radius: 11px;
+
 }
 
 .btn
@@ -34,6 +35,8 @@
     padding:0 20px;
     height: 50px;
     width:100%;
+    border-radius: 11px;
+
 }
 
 

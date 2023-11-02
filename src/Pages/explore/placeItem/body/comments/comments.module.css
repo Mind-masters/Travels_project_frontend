@@ -2,58 +2,10 @@
     width: 100%;
 }
 
-.comm_info_header, .comm_info_header_mobiles{
+.comm_info_header{
     color: rgba(83, 81, 81, 0.7);
-    text-align: left;
+    text-align: center;
     font-size: 19px;
     padding: 0.8rem 0;
     cursor: pointer;
 }
-
-.comm_info_header_mobiles{
-    display: none;
-}
-
-
-.input_container{
-    padding: 0.5rem;
-    display: flex;
-    border: 1px solid #E6E6E6;
-    border-radius: 10px;
-}
-
-.input_container img{
-    width: 1.5rem;
-    cursor: pointer;
-
-}
-
-.input{
-    color: #7B7B7B;
-    width: 100%;
-    background-color: transparent;
-}
-
-.input::placeholder{
-    font-style: normal;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-
-@media (max-width: 850px) {
-
-    .comm_info_header{
-        display: none;
-    }
-    .comm_info_header_mobiles{
-        display: inline-block;
-        padding: 1.2rem;
-        padding-bottom: 0.8rem;
-        font-weight: 800;
-
-    }
-
-    .input_container{
-        display: none;
-    }
-}
-

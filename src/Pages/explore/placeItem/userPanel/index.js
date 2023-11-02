@@ -57,6 +57,7 @@ const UserPanel = ({user, place, onFilter, onShowMap}) => {
     console.log("on profile")
   }
 
+
   return (
     <div className={styles.user_panel}>
         
@@ -79,12 +80,12 @@ const UserPanel = ({user, place, onFilter, onShowMap}) => {
         >
           <div className={styles.expanded_container}>
             <div className={styles.expanded_content}>
-              {
+              {/* {
                 Auth && Auth.data && Auth.data._id === place.user_id._id ?
                 <h1 onClick={onDeletePlaceHandler} style={{ color: "#f63939" }}>Delete</h1>
                 :
                 <h1 onClick={onReportPlaceHandler} style={{ color: "#f63939" }}>Report</h1>
-              }
+              } */}
               <h1 onClick={onViewOnMapHandler}>View on map</h1>
               <h1 onClick={onUserProfileHandler}>About this account</h1>
               <h1 onClick={()=>setExpandedOptions(false)} style={{ backgroundColor: "#f63939", color: "white", margin: "0" }}>Cancel</h1>
