@@ -25,7 +25,7 @@ const MakeMoney = () => {
             <h3 className={styles.earn_point}>Beginner</h3>
             <div className={styles.description}>
             <p>Once you sign in you </p>
-            <p>became 1 level</p>
+            <p>become 1 level</p>
             </div>
           </div>
         </div> 
