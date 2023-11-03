@@ -11,7 +11,7 @@ import gift_logo from "../../../../assets/signs/gifts.png";
 import places_icon from "../../../../assets/signs/map_pin.png";
 import shop_white_logo_logo from "../../../../assets/signs/white_shop_icon.png";
 import shop_colorful_logo_logo from "../../../../assets/signs/shop_2.png";
-import map_pin_logo from "../../../../assets/signs/map_pin.png";
+import admin_logo from "../../../../assets/signs/admin.png";
 
 
 const TopBar = () => 
@@ -42,8 +42,8 @@ const TopBar = () =>
   
     const closeAuthenticationForm = () => setAuthenticationIsOpen(false);
 
-    const imageClickHandler = () => {
-        if(User.isLoggedIn && User.authenticatedUser.data){
+    const adminClickHandler = () => {
+        if(User.authenticatedUser.data){
             navigate(`/profile/${User.authenticatedUser.data._id}`)
         }
         else{
@@ -83,6 +83,7 @@ const TopBar = () =>
                     <h1 style={{ color:"#FFFFFF", padding:"6px 12px" }}>{User.isLoggedIn?"Logout":"Join us"}</h1>
                 </Button>
             </div>
+            {User.isLoggedIn && <img style={{ marginLeft: "1rem" }} onClick={adminClickHandler} className={styles.admin_logo} src={admin_logo} alt='' />}
         </div>
     )
 }
