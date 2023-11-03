@@ -1,5 +1,5 @@
 .money_container{
-    border: solid red;
+    /* border: solid red; */
     width: 100%;
     overflow: hidden;
   }
@@ -9,6 +9,10 @@
     text-align: center;
     font-size: 30px;
   }
+  .text_heading h2 span{
+    color: #F08D32;
+  }
+
   .text_heading p{
     margin: 24px;
     text-align: center;
@@ -52,9 +56,9 @@
   .earn_point {
     font-size: 25px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: bold;
     margin: 1em 0;
-    color: #615e5e;
+    color: #141010;
     line-height: 37.89px;
   }
 
@@ -70,6 +74,10 @@
     font-size: 20px;
     line-height: 34.89px;
     font-weight: 400;
+  }
+
+  .description p span{
+    color: #F08D32;
   }
 
   .icon_wrapper {
@@ -105,7 +113,17 @@
   .point_details{
     margin: 20px;
   }
+  .upgrade{
+    width: 272px;
+    margin: auto;
+    height: 70px;
+    margin-top: 23px;
+  }
 
+  .upgrade h2{
+    color: #ffffff;
+    margin: 5px;
+  }
   /* .card:hover {
     background-position: 0 100%;
   }
@@ -156,9 +174,6 @@
       flex-wrap: wrap;
       margin: 23px;
     }
-    /* .container_column{
-      width: 60rem;
-    } */
 
     .expert{
       margin-left: 5rem;

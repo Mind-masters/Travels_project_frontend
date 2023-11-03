@@ -4,14 +4,16 @@ import Beginner from '../../assets/benefits/beginner.png';
 import Expert from '../../assets/benefits/expert.png';
 import Guru from '../../assets/benefits/guru.png';
 import Master from '../../assets/benefits/master.png';
+import Button from '../../components/shared/UI/button/Button';
+import Upgrade from '../../assets/benefits/upgrade.png';
 
 
 const MakeMoney = () => {
   return (
     <div className={styles.money_container}>
     <div className={styles.text_heading}>
-      <h2 >Ways To make Money with TripWhoop</h2>
-      <p>There is always something interested near you. Share unique places and make money</p>
+      <h2 >Ways To make Money with <span>Trip</span>Whoop</h2>
+      <p>There is always something interesting near you. Share unique place and make money</p>
     </div>
 
     <div className={styles.row}>
@@ -38,7 +40,7 @@ const MakeMoney = () => {
             <div className={styles.description}>
             <p>Allows you to put price </p>
             <p>on your sharing </p>
-            <p>between 0.5$ to 2$</p>
+            <p>between<span> 0.5$ </span>to <span> 2$</span></p>
             </div>
           </div>
         </div>
@@ -53,7 +55,7 @@ const MakeMoney = () => {
             <div className={styles.description}>
             <p>Allows you to put price </p>
             <p>on your sharing </p>
-            <p>between 2$ to 5$</p>
+            <p>between <span>2$</span> to <span>5$</span></p>
             </div>
           </div>
         </div>
@@ -68,11 +70,17 @@ const MakeMoney = () => {
             <div className={styles.description}>
             <p>Allows you to sell high </p>
             <p>quality place for </p>
-            <p>as much as you want</p>
+            <p><span>as much as you want</span></p>
             </div>
             </div>
           </div>
         </div>
+    </div>
+    <div className={styles.upgrade}>
+    <Button color="#EE7D15">
+      <span><img src={Upgrade} alt='upgrade'/></span>
+      <h2>Upgrade to new level</h2>
+    </Button>
     </div>
 </div>
   )
