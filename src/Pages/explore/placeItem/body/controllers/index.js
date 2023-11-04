@@ -1,13 +1,16 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import Like from '../../../../../components/shared/UI/Ratings/like';
 import styles from "./controllers.module.css";
 import Ripple from '../../../../../components/shared/UI/ripple';
 import AuthRequired from '../../../../../components/shared/layouts/AuthRequired';
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
 import gift_icon from "../../../../../assets/gift_icon.png"
+import GiftsPopUp from './giftsPopUp';
 
 const Controllers = (props) => {
   const Auth = useContext(AuthContext);
+  const [showGiftsPopUp, setShowGiftsPopUp] = useState(false);
+  const [jumpingIcon, setJumpingIcon] = useState(false);
 
   const item = props.item;
 
@@ -39,8 +42,12 @@ const Controllers = (props) => {
         </AuthRequired>
       </div>
 
-      <img alt='' className={styles.gift_icon} src={gift_icon} />
+      <img onClick={()=>{setShowGiftsPopUp(true)}} alt='' className={styles.gift_icon} src={gift_icon} />
 
+      <GiftsPopUp 
+        show={true}
+        onClose={()=>{setShowGiftsPopUp(false)}}
+      />
     </div>
   )
 
