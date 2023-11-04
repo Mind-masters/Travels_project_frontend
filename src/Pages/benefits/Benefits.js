@@ -12,6 +12,7 @@ import MakeMoney from './MakeMoney';
 import PlaceIcon from '../../assets/benefits/location.png';
 import Envelope from '../../assets/benefits/envelope.png';
 import Carlendar from '../../assets/benefits/carlendar.png';
+import Button from '../../components/shared/UI/button/Button';
 
 
 const Benefits = () => {
@@ -55,7 +56,7 @@ const Benefits = () => {
       
       <div className={styles.row}>
         <div className={styles.column}>
-          <div className={styles.card} onClick={()=>setShowLikesModal(true)}>
+          <div className={styles.card}>
             <div className={styles.icon_wrapper}>
               <img src={PlaceIcon} alt='sahre place'/>
             </div>
@@ -65,23 +66,33 @@ const Benefits = () => {
               <p>you share new place</p>
               </div> 
           </div>
+          <div className={styles.share_place} onClick={()=>setShowLikesModal(true)}>
+              <Button color="#EE7D15">
+                <h2>Share Place</h2>
+              </Button> 
+          </div>
         </div>
 
         <div className={styles.column}>
-          <div className={styles.card} onClick={()=>setShowInvitingsModal(true)}>
+          <div className={styles.card}>
             <div className={styles.icon_wrapper}>
             <img src={Envelope} alt='invite people'/>
             </div>
             <h3 className={styles.earn_point}>Invite new people</h3>
             <div className={styles.point_description}>
               <p>Get points for inviting new people</p>
-              <p> to join TripWhoop</p>
+              <p> to join <span>TripWhoop</span></p>
               </div>
+          </div>
+          <div className={styles.share_place} onClick={()=>setShowInvitingsModal(true)}>
+              <Button color="#EE7D15">
+                <h2>Invite Friends</h2>
+              </Button> 
           </div>
         </div>
 
         <div className={styles.column}>
-          <div className={styles.card} onClick={()=>setShowBookingsModal(true)}>
+          <div className={styles.card}>
             <div className={styles.icon_wrapper}>
             <img src={Carlendar} alt='login Everyday'/>
             </div>
@@ -91,12 +102,14 @@ const Benefits = () => {
               <p> through this platform.</p>
               </div>
           </div>
+          <div className={styles.share_place} onClick={()=>setShowBookingsModal(true)}>
+              <Button color="#EE7D15">
+                <h2>login Now</h2>
+              </Button> 
+          </div>
         </div>
-
       </div>
       </div>
-
-
     </section>
   )
 }

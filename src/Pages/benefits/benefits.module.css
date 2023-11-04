@@ -1,8 +1,11 @@
 
   .container{
     width: 100%;
+    height: 100%;
     padding: 5rem 10px;
     display: grid;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   
@@ -32,13 +35,12 @@
     margin: 24px;
     text-align: center;
     font-size: 18px;
-    color: #AAAAAA;
+    color: #5a5757;
     font-weight: 500;
     line-height: 27px;
   }
   .main_box{
     background:  rgba(248, 183, 157, 0.3);
-    border: solid green;
   }
   .row {
     display: flex;
@@ -70,21 +72,35 @@
     font-size: 20px;
     font-weight: 600;
     margin: 1em 0;
-    color: #615e5e;
-
+    color: #0a0909;
+    text-transform: capitalize;
   }
 
   .point_description {
     color: #575a7b;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.6;
     letter-spacing: 0.03em;
   }
-  
+  .point_description p span{
+    color: #F08D32;
+  }
   .description{
     color: #575a7b;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.4;
+  }
+
+  .share_place{
+    width: 179px;
+    margin: auto;
+    height: 70px;
+    margin-top: 23px;
+  }
+
+  .share_place h2{
+    color: #ffffff;
+    margin: 5px;
   }
 
   .icon_wrapper {

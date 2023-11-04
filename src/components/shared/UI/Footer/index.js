@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
       </Modal>
     </>
-    <img className={styles.top_background_image} src={Background} alt=''/>
+    {/* <img className={styles.top_background_image} src={Background} alt=''/> */}
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.column_about}>
