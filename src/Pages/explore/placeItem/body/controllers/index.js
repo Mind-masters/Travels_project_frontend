@@ -11,7 +11,7 @@ const Controllers = (props) => {
   const Auth = useContext(AuthContext);
   const [showGiftsPopUp, setShowGiftsPopUp] = useState(false);
   const [jumpingIcon, setJumpingIcon] = useState(false);
-
+  
   const item = props.item;
 
   const showOnMapHandler = () => {
@@ -45,7 +45,7 @@ const Controllers = (props) => {
       <img onClick={()=>{setShowGiftsPopUp(true)}} alt='' className={styles.gift_icon} src={gift_icon} />
 
       <GiftsPopUp 
-        show={true}
+        show={showGiftsPopUp}
         onClose={()=>{setShowGiftsPopUp(false)}}
       />
     </div>
