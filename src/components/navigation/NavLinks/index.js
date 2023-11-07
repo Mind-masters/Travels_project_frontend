@@ -50,12 +50,12 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
-    <li className="onFocus">
+    {/* <li className="onFocus">
       <NavLink  to="/benefits" >
        Benefits
         <hr />
       </NavLink>
-    </li>
+    </li> 
 
     <li className="onFocus">
       <NavLink  to="/shopcart" >
@@ -65,7 +65,7 @@ const NavLinks = (props) => {
         <hr />
 
       </NavLink>
-    </li>
+    </li> */}
 
 
   </ul>

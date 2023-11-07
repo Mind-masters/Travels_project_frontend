@@ -57,13 +57,13 @@
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
+  cursor: pointer;
 }
 
-.gift_icon:hover {
-    cursor: pointer;
+/* .gift_icon:hover {
     animation-name: bounce;
     -moz-animation-name: bounce;
-}
+} */
 
 
 @media (max-width: 300px) {

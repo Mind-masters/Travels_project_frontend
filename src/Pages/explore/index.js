@@ -38,7 +38,6 @@ const Explore = (props) => {
     const fetchData = async() => {
       setIsLoading(true)
       const placesData = await fetchAllPlaces();
-      console.log("labuka")
       setIsLoading(false);
       if(!placesData.status)notify(placesData.message, "error")
 

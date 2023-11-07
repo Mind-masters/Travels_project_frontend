@@ -3,11 +3,9 @@ import styles from "./social.module.css"
 import { useState } from 'react';
 import InvitorsList from "./invitorsList";
 import Controllers from './controllers';
-import card_image_1 from "../../assets/your-trip/card_image_1.png";
-import card_image_2 from "../../assets/your-trip/card_image_2.png";
 import Card from '../../components/shared/UI/Card';
 import MainHeader from '../../components/shared/UI/pagesHeaders';
-import io from 'socket.io-client';
+import socket from '../../components/utils/SocketService';
 import { useEffect } from 'react';
 import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
 import { fetchAllInvitings } from '../../components/utils/invitings/fetchInvitings';
@@ -16,7 +14,6 @@ import { fetchAllInvitings } from '../../components/utils/invitings/fetchInvitin
 
 const FellowTraveler = () => {
     
-    const socket = io('https://mind-master-backend-production.up.railway.app', {transports: ['websocket', 'polling', 'flashsocket']});
     const [isLoading, setIsLoading] = useState(true);
     const [invitingsData, setInvitingsData] = useState(null);
     

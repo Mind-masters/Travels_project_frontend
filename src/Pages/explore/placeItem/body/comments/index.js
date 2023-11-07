@@ -4,11 +4,10 @@ import styles from "./comments.module.css";
 import Popup from './popup';
 import Modal from '../../../../../components/shared/UI/Modal';
 import { OnComment } from '../../../../../components/utils/places/comment';
-import io from 'socket.io-client';
+import socket from '../../../../../components/utils/SocketService';
 import { notify } from '../../../../../components/shared/UI/toast';
 
 const Comments = ({item}) => {
-  const socket = io('https://mind-master-backend-production.up.railway.app/', {transports: ['websocket', 'polling', 'flashsocket']});
 
   const User = useContext(AuthContext);
   const token = User.authenticatedUser ? User.authenticatedUser.token.access_token : null
@@ -21,20 +20,17 @@ const Comments = ({item}) => {
   useEffect(() => {
 
     socket.on('place_comments', (data) => {
-      
       if(item._id === data.savedPlace._id){
         setCommentsData(data.savedPlace.comments)
         setCommentsCount(data.savedPlace.comments.length);
         setPlaceLikesCount(data.savedPlace.likes.length)
       }
-      
     });
 
     // // Clean up the socket event listeners when the component unmounts
     return () => {
       socket.off('place_comments');
     };
-
 
   });
 

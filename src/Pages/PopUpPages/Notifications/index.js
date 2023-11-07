@@ -13,9 +13,7 @@ const Notifications = (props) => {
   const Auth = useContext(AuthContext).authenticatedUser;
 
   const onCloseHandler = () => {
-
     props.onClose();
-
     const deleteAllNotifications = async()=>{
       if(!Auth || !Auth.token)return;
       try {

@@ -4,8 +4,8 @@ export const OnComment = async(data, token) => {
 
     if(!data || !token)return {message: "Something is missing"};
 
-    const url = `https://mind-master-backend-production.up.railway.app/api/v1/user/places/comment`;
-    // const url = "http://localhost:5000/api/v1/user/places/comment"
+    // const url = `https://mind-master-backend-production.up.railway.app/api/v1/user/places/comment`;
+    const url = "http://localhost:5000/api/v1/user/places/comment"
 
 
     const method = "POST";

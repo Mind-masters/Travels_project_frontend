@@ -12,8 +12,7 @@ root.render(
   <BrowserRouter>
     <ScrollToTop />
     <ShopContextProvider>
-
-    <App />
+      <App />
     </ShopContextProvider>
   </BrowserRouter>
 );

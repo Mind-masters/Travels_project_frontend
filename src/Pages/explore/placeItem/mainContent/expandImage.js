@@ -3,7 +3,6 @@ import styles from "./expandImage.module.css";
 import Modal from '../../../../components/shared/UI/Modal';
 
 const ExpandImage = (props) => {
-  console.log("kazkas: ", props.item)
   return (
     <div>
       <Modal

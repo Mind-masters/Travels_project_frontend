@@ -5,7 +5,7 @@ import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from '../shared/UI/Backdrop';
 import styles from './navigation.module.css';
 import {AuthContext} from "../../contextAPI/AuthContext"
-import { io } from 'socket.io-client';
+import socket from '../utils/SocketService';
 import { notify } from '../shared/UI/toast';
 
 
@@ -14,17 +14,14 @@ const MainNavigation = props => {
   const updateUser = useContext(AuthContext);
   const Auth = updateUser.authenticatedUser;
 
-  const socket = io('https://mind-master-backend-production.up.railway.app/', {transports: ['websocket', 'polling', 'flashsocket']});
-  // const socket = io('http://localhost:5000/', {transports: ['websocket', 'polling', 'flashsocket']});
-
   const [notifications, setNotifications] = useState(null);
 
   useEffect(() => {
 
     socket.on('notifications', (data) => {
-
+      
       if(Auth && Auth.data._id === data.uid){
-        if(data.updated_user){
+        if(data.updated_user){ // needs to be reviewed and fixed (WTF..)
           updateUser.update({
             data: data.updated_user, 
             token: 
@@ -35,6 +32,7 @@ const MainNavigation = props => {
           });
         }
         setNotifications(data.notifications.messages)
+        if(data.delete)return;
         notify("New notification", "success")
       }
     });

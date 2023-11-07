@@ -1,5 +1,4 @@
 import styles from "./body.module.css";
-import UserPanel from "../userPanel";
 import Controllers from "./controllers";
 import Comments from "./comments";
 
@@ -13,6 +12,7 @@ const Body = (props) => {
         <Controllers
           item={props.item}
           onShowMap={props.onShowMap}
+          onFilter={props.onFilter}
         />
 
         <Comments item={props.item} />

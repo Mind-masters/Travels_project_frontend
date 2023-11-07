@@ -6,16 +6,33 @@ import AuthRequired from '../../../../../components/shared/layouts/AuthRequired'
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
 import gift_icon from "../../../../../assets/gift_icon.png"
 import GiftsPopUp from './giftsPopUp';
+import delete_icon from "../../../../../assets/explore/delete_icon.png";
+import { deletePlaceById } from '../../../../../components/utils/places/delete';
+import { notify } from '../../../../../components/shared/UI/toast';
+
 
 const Controllers = (props) => {
-  const Auth = useContext(AuthContext);
+  const Auth = useContext(AuthContext).authenticatedUser;
   const [showGiftsPopUp, setShowGiftsPopUp] = useState(false);
-  const [jumpingIcon, setJumpingIcon] = useState(false);
-  
+
+  const onDeletePlaceHandler = async() => {
+    if(!Auth)return
+    
+    try {
+      const deletePlaceReq = await deletePlaceById(props.item._id, Auth.token.access_token);
+      if(!deletePlaceReq.status) throw new Error(deletePlaceReq.message);
+      notify("Place deleted", "success")
+      return props.onFilter ? props.onFilter(props.item._id) : null;
+
+    } catch (error) {
+      return notify(error.message || "Cannot delete place", "error");
+    }
+  }
+
   const item = props.item;
 
   const showOnMapHandler = () => {
-    if(!Auth.authenticatedUser)return
+    if(!Auth)return
     return props.onShowMap && props.onShowMap(true)
   }
 
@@ -42,7 +59,13 @@ const Controllers = (props) => {
         </AuthRequired>
       </div>
 
-      <img onClick={()=>{setShowGiftsPopUp(true)}} alt='' className={styles.gift_icon} src={gift_icon} />
+
+      {
+        Auth && Auth.data && Auth.data._id === props.item.user_id._id ?
+        <img onClick={onDeletePlaceHandler} alt='' className={styles.gift_icon} src={delete_icon} />
+        :
+        <img onClick={()=>{setShowGiftsPopUp(true)}} alt='' className={styles.gift_icon} src={gift_icon} />
+      }
 
       <GiftsPopUp 
         show={showGiftsPopUp}
