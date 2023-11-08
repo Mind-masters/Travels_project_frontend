@@ -68,6 +68,7 @@ const Controllers = (props) => {
       }
 
       <GiftsPopUp 
+        item={props.item}
         show={showGiftsPopUp}
         onClose={()=>{setShowGiftsPopUp(false)}}
       />

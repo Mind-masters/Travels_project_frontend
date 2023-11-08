@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Modal from '../../../../../../components/shared/UI/Modal'
 import styles from "./giftsPopUp.module.css";
 import header_icon from "../../../../../../assets/explore/gifts_header.png";
@@ -9,11 +9,52 @@ import active_bonus_star from "../../../../../../assets/explore/active_star.png"
 import not_active_bonus_star from "../../../../../../assets/explore/not_active_star.png"
 
 import { useState } from 'react';
+import { Donate } from '../../../../../../components/utils/places/donate';
+import { useContext } from 'react';
+import { AuthContext } from '../../../../../../contextAPI/AuthContext';
+import { notify } from '../../../../../../components/shared/UI/toast';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 const GiftsPopUp = (props) => {
-
+  const [isSubmited, setIsSubmited] = useState(false);
   const [isSelected, setIsSelected] = useState(1);
   const options = [4,9,13,17]
+  const Auth = useContext(AuthContext);
+  const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null
+
+  const SubmitDonation = async() => {
+    if(!token || !props.item.user_id._id)return
+
+    setIsSubmited(true);
+
+  }
+
+  useEffect(()=>{
+
+    const onCompleteHandler = async()=>{
+      const create_new_donation = await Donate({
+        donating_to: props.item.user_id._id,
+        amount: 5
+      }, token)
+  
+      if(!create_new_donation.status)return notify(create_new_donation.message, "error")
+      notify(create_new_donation.message, "success")
+      
+      Auth.update({
+        data: create_new_donation.data, 
+        token: 
+        {
+          access_token: create_new_donation.data.access_token,
+          refresh_token: create_new_donation.data.refresh_token
+        } 
+      })
+    }
+
+    if(isSubmited){
+      setTimeout(() => {
+        onCompleteHandler();
+    }, 1000)};
+  })
 
   const DonateOptions = ({options}) => {
     return <div className={styles.options_container}>
@@ -59,9 +100,12 @@ const GiftsPopUp = (props) => {
                 </p>
               </div>
 
+              {isSubmited && <ConfettiExplosion zIndex={5} />}
+
+
               <DonateOptions options={options} />
 
-              <Button onSubmit={()=>{alert(`donating amount: ${options[isSelected]}`)}} height="auto" color="#EE7D15">
+              <Button onSubmit={SubmitDonation} height="auto" color="#EE7D15">
                 <div className={styles.donate_btn_container}>
                   <img src={donate_icon} style={{ width: "28px", height: "28px" }} alt='' />
                   <h1>Donate</h1>
