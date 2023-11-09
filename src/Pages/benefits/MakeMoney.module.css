@@ -124,22 +124,7 @@
     color: #ffffff;
     margin: 5px;
   }
-  /* .card:hover {
-    background-position: 0 100%;
-  }
-
-  .card:hover .icon_wrapper {
-    background-color: #ffffff;
-    color: #F08D32;
-  }
-
-  .card:hover h3 {
-    color: #ffffff;
-  }
-
-  .card:hover p {
-    color: #f0f0f0;
-  } */
+  
 
   @media screen and (min-width: 768px) {
     .container_column {
@@ -156,7 +141,7 @@
     
   }
   @media screen and (max-width: 700px) {
-    .conatiner_column{
+    .container_column{
       margin: 1.5rem auto;
       width: 25rem;
     }
@@ -167,26 +152,53 @@
       margin-left: 0;
       margin-top: 0;
     }
+    .point_card{
+      width: 60vw;
+    }
   }
 
+  
   @media screen and (max-width:986px) {
     .row{
+      width: 90vw;
       flex-wrap: wrap;
       margin: 23px;
+     
     }
-
+    
     .expert{
-      margin-left: 5rem;
+      margin-left: 4rem;
+      margin-top: 0;
+    }
+    .container_column{
+      margin: 0;
     }
   }
+/*start here*/
+  /* @media screen and (max-width: 1147px) {
+    .row{
+      flex-wrap: wrap;
+      margin: auto;
+    }
+    .container_column{
+      margin: 30px;
+    }
+    .expert{
+      margin: 0;
+    }
+  } */
 
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 750px) {
     .modal_wrapper{
       width: 90vw;
     }
     .expert{
       margin-left: 0;
       margin-top: 0;
+    }
+
+    .point_card{
+      margin: auto;
     }
   }
 
