@@ -28,8 +28,7 @@
 }
 
 .wrapper{
-  /* background: #2C2B2A; */
-  background: #111111;
+  background: #2C2B2A;
   width: 100%;
   color: #e0dbd6;
   min-height: 12rem;
@@ -37,13 +36,12 @@
   flex-direction: column;
   align-items: center;
   padding-bottom: 2rem;
-  /* border: solid red; */
 }
 
 .container{
   width: 70rem;
   display: flex;
-  padding-top: 43px;
+  /* padding-top: 43px; */
 }
 
 .link_logo{

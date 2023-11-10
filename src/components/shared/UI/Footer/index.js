@@ -61,35 +61,21 @@ const Footer = () => {
         </div>
         <div className={styles.links_box}>
         <div className={styles.column_links}>
-            <h1>About Us</h1>
-                            
-            <ul className={styles.links}>
-              <span className={styles.link_logo}>
-                {/* <h2>hhh</h2> */}
-              <li onClick={()=>setShowAbout(true)}>Legal</li>
-              </span>
-              <li>Privacy Policy</li>
-              <li>Terms and Conditions</li>
-            </ul>
-          </div>
-
-          <div className={styles.column_links}>
             <h1>Quick Links</h1>
                             
             <ul className={styles.links}>
+              
               <li onClick={()=>setShowHow(true)}>How It Works</li>
               <li onClick={()=>setShowContactForm(true)}>Contact Us</li>
-              <li onClick={()=>setShowFAQ(true)}>FAQ</li>
             </ul>
           </div>
 
           <div className={styles.column_links}>
-            <h1>Follow Us</h1>
+            <h1>About</h1>
                             
             <ul className={styles.links}>
-              <li >Facebook</li>
-              <li >Instagram</li>
-              <li >Twitter</li>
+              <li onClick={()=>setShowFAQ(true)}>Frequently Asked Questions</li>
+              <li onClick={()=>setShowAbout(true)}>About Us</li>
             </ul>
           </div>
         </div>
