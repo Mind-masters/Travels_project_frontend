@@ -12,7 +12,10 @@ import { useNavigate } from 'react-router-dom';
 import user_logo from "../../../../assets/dropDown/user_logo.png"
 import messages_logo from "../../../../assets/dropDown/messages.png"
 import notification_logo from "../../../../assets/dropDown/notifications.png"
-
+import level_1_logo from "../../../../assets/level_1.png"
+import level_2_logo from "../../../../assets/level_2.png"
+import level_3_logo from "../../../../assets/level_3.png"
+import level_4_logo from "../../../../assets/level_4.png"
 import Notifications from '../../../../Pages/PopUpPages/Notifications';
 
 
@@ -59,6 +62,18 @@ export default function AccountMenu(props) {
     return (
         <>
             <Box sx={{ display: 'flex', justifyContent:"right", alignItems: 'center', textAlign: 'center' }}>
+                { UserData &&
+                    <>
+                        <div onClick={()=>{navigate(`/benefits`)}} className={styles.level_bar}>
+                            Level
+                            <img src={require(`../../../../assets/level_${UserData.level}.png`)} alt="" />
+                        </div>
+
+                        <div onClick={()=>{navigate(`/profile/${UserData._id}`)}} className={styles.user_name}>
+                            {UserData.name}
+                        </div>
+                    </>
+                }
                 <Tooltip title="Account menu">
                 <IconButton
                     onClick={handleClick}
@@ -68,7 +83,7 @@ export default function AccountMenu(props) {
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
                 >
-                    <img className={styles.logo} src={user_logo} alt="logo" />
+                    <img className={styles.logo} src={UserData.avatar} alt="logo" />
                     {
                         props.notifications && props.notifications.length > 0 &&
                         <span className={styles.notifications_bell_amount}>{props.notifications.length}</span>

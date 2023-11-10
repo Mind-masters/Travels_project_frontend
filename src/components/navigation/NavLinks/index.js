@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import homeLinkLogo from "../../../assets/home-link-logo.png"
 import styles from './NavLinks.module.css';
-import {BsCart4} from 'react-icons/bs';
 import "./onFocusStyles.css"
 
 
@@ -24,8 +23,8 @@ const NavLinks = (props) => {
     </li>
 
     <li className="onFocus">
-      <NavLink to="/shop" >
-        Products
+      <NavLink to="/uploads" >
+        Uploads
         <hr />
       </NavLink>
     </li>

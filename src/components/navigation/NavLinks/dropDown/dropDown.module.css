@@ -8,6 +8,31 @@
       transition-duration: 0.2s;
    }
 
+   .level_bar{
+      display: flex;
+      font-size: 18px;
+      border: 2px solid #ee7d15;
+      border-radius: 50px;
+      align-items: center;
+      overflow: hidden;
+      padding-left: 8px;
+      cursor: pointer;
+      color: rgb(137, 137, 137);
+   }
+   .level_bar img{
+      width: 23px;
+      margin: 3px;
+      margin-left: 10px;
+   }
+
+   .user_name{
+      font-size: 18px;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      cursor: pointer;
+      color: rgb(137, 137, 137);
+   }
+
    .logo:hover{
       transform: translateY(-5px);
    }
