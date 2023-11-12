@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../../contextAPI/AuthContext';
 import styles from "./NavHeader.module.css";
-import UserDropDown from '../NavLinks/dropDown';
 import Authentication from '../../../Pages/PopUpPages/Authentication';
 import MobileNavButton from '../Mobile';
 import Button from '../../shared/UI/button/Button';
 import NavLinks from '../NavLinks';
 import { useNavigate } from 'react-router-dom';
+import AuthNavPanel from '../../AuthNavPanel';
 
 
 const NavHeader = (props) => {
@@ -50,7 +50,7 @@ const NavHeader = (props) => {
             <h1>Login</h1>
           </Button>
           :
-          <UserDropDown notifications={props.notifications}  />
+          <AuthNavPanel notifications={props.notifications} />
         }
       </div>
     </div>

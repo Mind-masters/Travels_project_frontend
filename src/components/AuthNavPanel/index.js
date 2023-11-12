@@ -4,22 +4,17 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import styles from './dropDown.module.css';
-import { AuthContext } from '../../../../contextAPI/AuthContext';
+import styles from './authNavPanel.module.css';
+import { AuthContext } from '../../contextAPI/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 // logos
-import user_logo from "../../../../assets/dropDown/user_logo.png"
-import messages_logo from "../../../../assets/dropDown/messages.png"
-import notification_logo from "../../../../assets/dropDown/notifications.png"
-import level_1_logo from "../../../../assets/level_1.png"
-import level_2_logo from "../../../../assets/level_2.png"
-import level_3_logo from "../../../../assets/level_3.png"
-import level_4_logo from "../../../../assets/level_4.png"
-import Notifications from '../../../../Pages/PopUpPages/Notifications';
+import messages_logo from "../../assets/dropDown/messages.png"
+import notification_logo from "../../assets/dropDown/notifications.png"
+import Notifications from '../../Pages/PopUpPages/Notifications';
 
 
-export default function AccountMenu(props) {
+export default function AuthNavPanel(props) {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const [showNavModal, setShowNavModal] = useState(false);
@@ -58,27 +53,33 @@ export default function AccountMenu(props) {
         return setShowNavModal(true);
     }
 
+    console.log("heyy: ", props.notifications)
 
     return (
-        <>
+        <div className={styles.container}>
             <Box sx={{ display: 'flex', justifyContent:"right", alignItems: 'center', textAlign: 'center' }}>
                 { UserData &&
                     <>
                         <div onClick={()=>{navigate(`/benefits`)}} className={styles.level_bar}>
                             Level
-                            <img src={require(`../../../../assets/level_${UserData.level}.png`)} alt="" />
+                            <img src={require(`../../assets/level_${UserData.level}.png`)} alt="" />
                         </div>
 
-                        <div onClick={()=>{navigate(`/profile/${UserData._id}`)}} className={styles.user_name}>
-                            {UserData.name}
+                        <div onClick={()=>{navigate(`/benefits`)}} className={styles.bonus_bar}>
+                            Points
+                            <span style={{ color:"rgba(238, 125, 21, 1)", margin: "0 10px" }}>{UserData.points || 0}</span>
                         </div>
+
+                        {/* <div onClick={()=>{navigate(`/profile/${UserData._id}`)}} className={styles.user_name}>
+                            Hi {UserData.name}!
+                        </div> */}
                     </>
                 }
                 <Tooltip title="Account menu">
                 <IconButton
                     onClick={handleClick}
                     size="small"
-                    sx={{ ml: 2 }}
+                    sx={{ ml: 2, backgroundColor: "white"}}
                     aria-controls={open ? 'account-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
@@ -177,6 +178,6 @@ export default function AccountMenu(props) {
                 </div>
 
             </Menu>
-        </>
+        </div>
     );
 }
