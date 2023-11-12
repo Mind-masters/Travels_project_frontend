@@ -1,13 +1,14 @@
 
 .nav_links_container{
   display: flex;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
 .nav_links_container a{
   font-size: 1.4rem;
   position: relative;
+  margin-right: 2rem;
 }
 
 
@@ -18,7 +19,7 @@
 /* navigation links styles for desktop screen */
 @media (min-width: 1000px) {
   .nav_links_container{ 
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
   }
 }

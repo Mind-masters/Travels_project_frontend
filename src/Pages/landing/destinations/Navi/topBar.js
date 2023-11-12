@@ -12,6 +12,7 @@ import places_icon from "../../../../assets/signs/map_pin.png";
 import shop_white_logo_logo from "../../../../assets/signs/white_shop_icon.png";
 import shop_colorful_logo_logo from "../../../../assets/signs/shop_2.png";
 import admin_logo from "../../../../assets/signs/admin.png";
+import AuthNavPanel from '../../../../components/AuthNavPanel';
 
 
 const TopBar = () => 
@@ -77,13 +78,16 @@ const TopBar = () =>
 
             
 
-            <div className={styles.login_btn}>
-                <img onClick={()=>navigate("/shop")} src={visible ? shop_colorful_logo_logo : shop_white_logo_logo} alt='' />
-                <Button color={visible && "#EE7D15"} onSubmit={User.isLoggedIn?User.logout:openAuthenticationForm} border={!visible? "2px solid #FFFFFF": "2px solid #EE7D15"} height="auto" >
-                    <h1 style={{ color:"#FFFFFF", padding:"6px 12px" }}>{User.isLoggedIn?"Logout":"Join us"}</h1>
-                </Button>
-            </div>
-            {User.isLoggedIn && <img style={{ marginLeft: "1rem" }} onClick={adminClickHandler} className={styles.admin_logo} src={admin_logo} alt='' />}
+            {   User.isLoggedIn ?
+                <AuthNavPanel />
+                :
+                <div className={styles.login_btn}>
+                    <Button color={visible && "#EE7D15"} onSubmit={User.isLoggedIn?User.logout:openAuthenticationForm} border={!visible? "2px solid #FFFFFF": "2px solid #EE7D15"} height="auto" >
+                        <h1 style={{ color:"#FFFFFF", padding:"6px 12px" }}>{User.isLoggedIn?"Logout":"Join us"}</h1>
+                    </Button>
+                </div>
+            }
+            {/* {User.isLoggedIn && <img style={{ marginLeft: "1rem" }} onClick={adminClickHandler} className={styles.admin_logo} src={admin_logo} alt='' />} */}
         </div>
     )
 }

@@ -29,11 +29,11 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
-    <li className={`onFocus ${styles.home_middle}`}>
+    {/* <li className={`onFocus ${styles.home_middle}`}>
       <NavLink to="/" >
         <img alt='home-logo' src={homeLinkLogo} />
       </NavLink>
-    </li>
+    </li> */}
 
     <li className="onFocus">
       <NavLink  to="/social" >
@@ -48,23 +48,6 @@ const NavLinks = (props) => {
         <hr />
       </NavLink>
     </li>
-
-    {/* <li className="onFocus">
-      <NavLink  to="/benefits" >
-       Benefits
-        <hr />
-      </NavLink>
-    </li> 
-
-    <li className="onFocus">
-      <NavLink  to="/shopcart" >
-
-        
-       <BsCart4/>
-        <hr />
-
-      </NavLink>
-    </li> */}
 
 
   </ul>
