@@ -35,11 +35,6 @@ const NavHeader = (props) => {
       <NavLinks />
     </div>
 
-    <div className={styles.header_logo}>
-      <div className={`${styles.header_text}`}>
-        <h1><span>Trip</span>Whoop</h1>
-      </div>
-    </div>
 
     <div className={`${styles.header_login}`}>
       <div className={styles.login_btn}>
