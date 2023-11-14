@@ -29,12 +29,6 @@ const NavLinks = (props) => {
       </NavLink>
     </li>
 
-    {/* <li className={`onFocus ${styles.home_middle}`}>
-      <NavLink to="/" >
-        <img alt='home-logo' src={homeLinkLogo} />
-      </NavLink>
-    </li> */}
-
     <li className="onFocus">
       <NavLink  to="/social" >
         Social

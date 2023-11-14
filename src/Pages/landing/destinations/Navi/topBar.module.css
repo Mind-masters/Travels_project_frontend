@@ -100,3 +100,10 @@
     width: 2rem;
     margin-right: 1rem;
 }
+
+@media (max-width: 1000px) {
+
+    .header_text{
+      display: none;
+    }
+  }
