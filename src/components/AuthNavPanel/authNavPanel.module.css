@@ -36,6 +36,9 @@
    margin-left: 1rem;
  }
 
+
+ 
+
  .user_name{
     font-size: 18px;
     margin-left: 1rem;
@@ -140,3 +143,27 @@
        font-size: 20px;
     }
  }
+
+ @media(max-width: 450px){
+   .bonus_bar p{
+      display: none;
+   }
+
+   .bonus_bar{
+      margin: 0 5px;
+   }
+
+   .bonus_bar img{
+      margin: 0;
+   }
+}
+
+@media(max-width: 380px){
+   .level_bar{
+      display: none;
+   }
+
+   .bonus_bar p{
+      display: inline;
+   }
+}

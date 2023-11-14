@@ -61,13 +61,13 @@ export default function AuthNavPanel(props) {
                 { UserData &&
                     <>
                         <div onClick={()=>{navigate(`/benefits`)}} className={styles.level_bar}>
-                            Level
+                            <p>Level</p>
                             <img src={require(`../../assets/level_${UserData.level}.png`)} alt="" />
                         </div>
 
                         <div onClick={()=>{navigate(`/benefits`)}} className={styles.bonus_bar}>
                             <img src={require("../../assets/trophy.png")} alt='' style={{ marginRight: "10px" }}/>
-                            Points
+                            <p>Points</p>
                             <span style={{ color:"rgba(238, 125, 21, 1)", margin: "0 10px" }}>{UserData.points || 0}</span>
                         </div>
 
@@ -134,7 +134,7 @@ export default function AuthNavPanel(props) {
                 <div className={styles.dropDownContainer}>
                     <MenuItem onClick={navigateToProfile}>
                         <div className={styles.profile_link}>
-                            <a href={"#"}>Visit your profile</a>
+                            <a href={false}>Visit your profile</a>
                         </div>
                     </MenuItem>
 
