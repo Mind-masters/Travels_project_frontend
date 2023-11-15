@@ -5,17 +5,16 @@ import styles from "./balance.module.css";
 import boost_icon from "../../../../../../assets/explore/gifts_boost.png";
 import { useNavigate } from 'react-router-dom';
 
-const Balance = () => {
+const Balance = ({error}) => {
 
     const Auth = useContext(AuthContext).authenticatedUser;
     const navigate = useNavigate();
-    console.log("auth: ", Auth)
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.balance_header}>Your Balance:</h1>
+            <h1 style={{ color: error && "red" }}  className={styles.balance_header}>Your Balance:</h1>
             <div className={styles.auth_info}>
-                <span>{Auth ? Auth.data.points : 0}</span>
+                <span style={{ color: error && "red" }} >{Auth ? Auth.data.points : 0}</span>
                 <button onClick={()=>{navigate("/benefits")}} className={styles.btn_wrapper} color="#EE7D15">
                     <div className={styles.boost_btn}>
                         <div className={styles.boost_icon_wrapper}>

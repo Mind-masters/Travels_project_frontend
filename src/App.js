@@ -8,6 +8,9 @@ import Footer from './components/shared/UI/Footer';
 import ReactGA from "react-ga4";
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import socket from './components/utils/SocketService';
+import Modal from './components/shared/UI/Modal';
+import Congratulations from './components/shared/UI/Popups/Congratulations';
 
 
 
@@ -18,6 +21,7 @@ function App() {
 
   // ReactGA.initialize(TRACKING_ID);
   ReactGA.send("pageview");
+  const [showPopUp, setShowPopUp] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [authenticatedUser, setAuthenticatedUser] = useState();
@@ -48,6 +52,7 @@ function App() {
     }
     const {response, token} = user.data;
     setIsLoggedIn(true)
+    if(response.popups)setShowPopUp(true)
     setAuthenticatedUser({data: response, token: token})
   }, [])
 
@@ -77,6 +82,22 @@ function App() {
   }, [])
 
 
+  useEffect(() => {
+
+    if(!isLoggedIn || !authenticatedUser.data)return
+    console.log("Popups: ", authenticatedUser.data.popups)
+    socket.on('donations', (data) => {
+      console.log("Donating... ", data);
+    });
+
+    // // Clean up the socket event listeners when the component unmounts
+    return () => {
+      socket.off('notifications');
+    };
+  
+  }, [isLoggedIn]);
+
+
   return (
     <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, registrationData, login, signup, logout, update }}>
       {
@@ -87,6 +108,12 @@ function App() {
       }
       <Routing />
       <Footer />
+      <Modal 
+        show={showPopUp && authenticatedUser}
+        onClose={()=>setShowPopUp(false)}
+      >
+        <Congratulations message={authenticatedUser.data.popups[0]} />
+      </Modal>
       <ToastContainer />
     </AuthContext.Provider>
   )
