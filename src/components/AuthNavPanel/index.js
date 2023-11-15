@@ -19,7 +19,7 @@ export default function AuthNavPanel(props) {
     const [anchorEl, setAnchorEl] = useState(null);
     const [showNavModal, setShowNavModal] = useState(false);
     const open = Boolean(anchorEl);
-
+    
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -53,7 +53,7 @@ export default function AuthNavPanel(props) {
         return setShowNavModal(true);
     }
 
-    console.log("heyy: ", props.notifications)
+    console.log("notifications in authNav: ", props.notifications)
 
     return (
         <div className={styles.container}>

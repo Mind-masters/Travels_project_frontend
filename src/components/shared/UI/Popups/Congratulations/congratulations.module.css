@@ -1,0 +1,15 @@
+.container{
+    text-align: center;
+}
+
+
+.container h1{
+    color: aquamarine;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container p{
+    color: azure;
+    font-size: 20px;
+}

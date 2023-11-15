@@ -18,23 +18,27 @@ import ConfettiExplosion from 'react-confetti-explosion';
 const GiftsPopUp = (props) => {
   const [isSubmited, setIsSubmited] = useState(false);
   const [isSelected, setIsSelected] = useState(1);
+  const [notEnoughPoints, setNotEnoughPoints] = useState(false);
   const options = [4,9,13,17]
   const Auth = useContext(AuthContext);
   const token = Auth.isLoggedIn ? Auth.authenticatedUser.token.access_token : null
 
   const SubmitDonation = async() => {
     if(!token || !props.item.user_id._id)return
+    if(options[isSelected] > Auth.authenticatedUser.data.points)return setNotEnoughPoints(true)
+    setNotEnoughPoints(false);
 
-    setIsSubmited(true);
+    return setIsSubmited(true);
 
   }
 
   useEffect(()=>{
 
     const onCompleteHandler = async()=>{
+
       const create_new_donation = await Donate({
         donating_to: props.item.user_id._id,
-        amount: 5
+        amount: options[isSelected]
       }, token)
   
       if(!create_new_donation.status)return notify(create_new_donation.message, "error")
@@ -53,6 +57,8 @@ const GiftsPopUp = (props) => {
     if(isSubmited){
       setTimeout(() => {
         onCompleteHandler();
+        setIsSubmited(false)
+        return props.onClose()
     }, 1000)};
   })
 
@@ -76,43 +82,42 @@ const GiftsPopUp = (props) => {
   return (
     <>
         <Modal 
-            show={props.show}
-            onClose={props.onClose}
+          show={props.show}
+          onClose={props.onClose}
         >
-            <div className={styles.container}>
-              <div className={styles.header}>
-                <img src={header_icon} alt=''/>
-                <h1>Make an impact!</h1>
-              </div>
-
-              <div className={styles.paragraph}>
-                <p>
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 
-                </p>
-              </div>
-
-              <Balance />
-
-              
-              <div className={styles.paragraph}>
-                <p>
-                  Decide which amount to donate:
-                </p>
-              </div>
-
-              {isSubmited && <ConfettiExplosion zIndex={5} />}
-
-
-              <DonateOptions options={options} />
-
-              <Button onSubmit={SubmitDonation} height="auto" color="#EE7D15">
-                <div className={styles.donate_btn_container}>
-                  <img src={donate_icon} style={{ width: "28px", height: "28px" }} alt='' />
-                  <h1>Donate</h1>
-                </div>
-              </Button>
-
+          <div className={styles.container}>
+            <div className={styles.header}>
+              <img src={header_icon} alt=''/>
+              <h1>Make an impact!</h1>
             </div>
+
+            {isSubmited && !notEnoughPoints && <ConfettiExplosion zIndex={5} />}
+
+            <div className={styles.paragraph}>
+              <p>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 
+              </p>
+            </div>
+
+            <Balance error={notEnoughPoints} />
+
+            
+            <div className={styles.paragraph}>
+              <p>
+                Decide which amount to donate:
+              </p>
+            </div>
+
+            <DonateOptions options={options} />
+
+            <Button onSubmit={SubmitDonation} height="auto" color="#EE7D15">
+              <div className={styles.donate_btn_container}>
+                <img src={donate_icon} style={{ width: "28px", height: "28px" }} alt='' />
+                <h1>Donate</h1>
+              </div>
+            </Button>
+
+          </div>
         </Modal>
     </>
   )
