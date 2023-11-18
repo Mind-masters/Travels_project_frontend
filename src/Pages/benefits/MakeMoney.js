@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './MakeMoney.module.css';
 import Beginner from '../../assets/benefits/beginner.png';
 import Expert from '../../assets/benefits/expert.png';
@@ -6,15 +6,35 @@ import Guru from '../../assets/benefits/guru.png';
 import Master from '../../assets/benefits/master.png';
 import Button from '../../components/shared/UI/button/Button';
 import Upgrade from '../../assets/benefits/upgrade.png';
+import Modal from '../../components/shared/UI/Modal';
+import ModalLevels from './LevelsModal/ModalLevels.Js';
 
 
 const MakeMoney = () => {
+const [showLevels, setShowLevels] = useState(false);
+
+const closeModalHandler = ()=>{
+  setShowLevels(false);
+}
+
   return (
     <div className={styles.money_container}>
+        {
+
+        <Modal show={showLevels}
+        onClose ={closeModalHandler}
+        >
+          <div>
+          {showLevels && <ModalLevels onClose={closeModalHandler}/>}
+          </div>
+        </Modal>
+      }
     <div className={styles.text_heading}>
       <h2 >Ways To make Money with <span>Trip</span>Whoop</h2>
       <p>There is always something interesting near you. Share unique place and make money</p>
     </div>
+
+      
 
     <div className={styles.row}>
         <div className={styles.container_column}>
@@ -77,7 +97,7 @@ const MakeMoney = () => {
         </div>
     </div>
     <div className={styles.upgrade}>
-    <Button color="#EE7D15">
+    <Button color="#EE7D15" onClick={()=>setShowLevels(true)}>
       <span><img src={Upgrade} alt='upgrade'/></span>
       <h2>Upgrade to new level</h2>
     </Button>
