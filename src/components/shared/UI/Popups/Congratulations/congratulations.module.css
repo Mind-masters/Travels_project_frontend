@@ -1,15 +1,35 @@
 .container{
     text-align: center;
+    background-color: aliceblue;
+    border-radius: 50px;
+    min-height: 40vh;
+    width: 30rem;
+    position: relative;
+    padding: 3rem;
+    padding-bottom: 1rem;
 }
 
+.middle_anime{
+    width: 1rem;
+    margin: 0 auto;
+}
 
 .container h1{
-    color: aquamarine;
+    color: #EE7D15;
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
 .container p{
-    color: azure;
+    color: rgb(62, 62, 62);
     font-size: 20px;
+}
+
+.close_label{
+    position: absolute;
+    bottom: 1rem;
+    color: rgb(180, 82, 82);
+    font-size: 15px;
+    text-align: right;
+    padding-left: 1rem;
 }

@@ -5,6 +5,8 @@ import Form from './form'
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
+import { NotificationManager } from 'react-notifications';
+
 import { useContext } from "react";
 import {AuthContext} from "../../../contextAPI/AuthContext";
 import { Auth_Login, Auth_Signup } from "../../../components/utils/client/authenticate";
@@ -73,8 +75,8 @@ const Authentication = (props) => {
 
             if(!isLoginMode) return navigation("/new-member")
 
-            notify("logged In", "success");
-            
+            // notify("logged In", "success");
+
             if(props.redirect){
                 return navigation("/my-places")
             }
@@ -95,6 +97,7 @@ const Authentication = (props) => {
 
     return (
         <>
+        
             {
                 isLoading ? <LoadingSpinner /> :
                 <Modal

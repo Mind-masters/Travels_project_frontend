@@ -77,7 +77,7 @@ export default function AuthNavPanel(props) {
                 <IconButton
                     onClick={handleClick}
                     size="small"
-                    sx={{ ml: 2, backgroundColor: "white"}}
+                    sx={{ ml: 2, backgroundColor: "white", overflow:"hidden"}}
                     aria-controls={open ? 'account-menu' : undefined}
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
