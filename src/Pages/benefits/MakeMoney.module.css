@@ -2,6 +2,7 @@
     /* border: solid red; */
     width: 100%;
     overflow: hidden;
+    margin-top: 34px;
   }
 
   .text_heading h2{
@@ -140,10 +141,11 @@
     }
     
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 764px) {
     .container_column{
       margin: 1.5rem auto;
-      width: 25rem;
+      width: 30rem;
+      margin: auto;
     }
     .point_description{
       padding: 15px;
@@ -167,11 +169,11 @@
     }
     
     .expert{
-      margin-left: 4rem;
+      margin-left: 1rem;
       margin-top: 0;
     }
     .container_column{
-      margin: 0;
+      margin: auto;
     }
   }
 /*start here*/
@@ -209,5 +211,8 @@
     .money_container{
       width: auto;
       overflow: hidden;
+    }
+    .point_card{
+      width: 80vw;
     }
   }
