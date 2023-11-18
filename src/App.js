@@ -108,12 +108,14 @@ function App() {
       }
       <Routing />
       <Footer />
-      <Modal 
-        show={showPopUp && authenticatedUser}
-        onClose={()=>setShowPopUp(false)}
-      >
-        <Congratulations message={authenticatedUser.data.popups[0]} />
-      </Modal>
+      {authenticatedUser && authenticatedUser.data.popups.length > 0 &&
+        <Modal 
+          show={showPopUp}
+          onClose={false}
+        >
+          <Congratulations onClose={()=>setShowPopUp(false)} message={authenticatedUser.data.popups[0]} />
+        </Modal>
+      }
       <ToastContainer />
     </AuthContext.Provider>
   )
