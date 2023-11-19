@@ -32,8 +32,8 @@ const TypesOfInterests = (props) => {
         }) ;
 
     
-        return <div onClick={ItemClickHandler} className={`${styles.fl_box}`}>
-            <div className={`${styles.flex_item} ${isSelected[0] && styles.flex_item_selected}`}>
+        return <div onClick={ItemClickHandler} className={`${styles.fls_box}`}>
+            <div className={`${styles.flexx_item} ${isSelected[0] && styles.flex_itesm_selected}`}>
                 <img src={item.icon} alt='' />
                 <p>{item && item.value}</p>
             </div>

@@ -1,10 +1,9 @@
-import React,{ useContext, useEffect, useState } from 'react';
+import React,{ useContext, useState } from 'react';
 import { AuthContext } from '../../../../../contextAPI/AuthContext';
 import styles from "./comments.module.css";
 import Popup from './popup';
 import Modal from '../../../../../components/shared/UI/Modal';
 import { OnComment } from '../../../../../components/utils/places/comment';
-import socket from '../../../../../components/utils/SocketService';
 import { notify } from '../../../../../components/shared/UI/toast';
 
 const Comments = ({item}) => {
@@ -15,24 +14,7 @@ const Comments = ({item}) => {
   const [commentsCount, setCommentsCount] = useState(item.comments ? item.comments.length : 0);
   const [expandComments, setExpandComments] = useState(false);
   const [commentsData, setCommentsData] = useState(item.comments);
-  const [placeLikesCount, setPlaceLikesCount] = useState(item.likes.length)
 
-  useEffect(() => {
-
-    socket.on('place_comments', (data) => {
-      if(item._id === data.savedPlace._id){
-        setCommentsData(data.savedPlace.comments)
-        setCommentsCount(data.savedPlace.comments.length);
-        setPlaceLikesCount(data.savedPlace.likes.length)
-      }
-    });
-
-    // // Clean up the socket event listeners when the component unmounts
-    return () => {
-      socket.off('place_comments');
-    };
-
-  });
 
   const onChangeInputValue = (e) => {
     if(!token)return 
@@ -93,7 +75,7 @@ const Comments = ({item}) => {
       >
         <Popup 
           item={item}
-          likes={placeLikesCount}
+          likes={3}
           comments={commentsCount}
           onClose={collapseCommentsHandler} 
           onChange={onChangeInputValue} 

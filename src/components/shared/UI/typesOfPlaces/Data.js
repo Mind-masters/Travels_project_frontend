@@ -2,7 +2,7 @@ export const DEFAULT_OPTIONS = [
     {
         key: 1,
         icon: require("../../../../assets/registration-modals/1_scary.png"),
-        value: "Mystery places"
+        value: "places"
     },
     {
         key: 2,
