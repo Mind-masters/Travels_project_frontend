@@ -1,16 +1,7 @@
-import Routing from './routers';
-import React from "react";
-import {AuthContext} from "./contextAPI/AuthContext";
-import { useState, useCallback } from 'react'
-import MainNavigation from "./components/navigation";
-import { ToastContainer } from 'react-toastify';
-import Footer from './components/shared/UI/Footer';
-import ReactGA from "react-ga4";
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import Modal from './components/shared/UI/Modal';
-import Congratulations from './components/shared/UI/Popups/Congratulations';
+import Routing from './routers';import React from "react";import {AuthContext} from "./contextAPI/AuthContext";import { BuaashContext } from './contextAPI/shopContext/BuaashContext';import { useState, useCallback } from 'react'
+import { ToastContainer } from 'react-toastify';import Footer from './components/shared/UI/Footer';import ReactGA from "react-ga4";import { useLocation } from 'react-router-dom';import { useEffect } from 'react';import Modal from './components/shared/UI/Modal';import Congratulations from './components/shared/UI/Popups/Congratulations';import { useContext } from 'react';import MainNavigation from "./components/navigation";
 function App() {
+const boom=!useContext(BuaashContext).serverReady;
 const location = useLocation();
 ReactGA.send("pageview");
 const [showPopUp, setShowPopUp] = useState(false);
@@ -48,6 +39,7 @@ setRegistrationData({data: response, token: token})
 }, [])
 const update = useCallback(() => {}, [])
 const logout = useCallback(() => {}, [])
+if(boom)return <></>
 return (
 <AuthContext.Provider value={{ isLoggedIn, authenticatedUser, registrationData, login, signup, logout, update }}>
 {

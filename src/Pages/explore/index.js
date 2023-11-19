@@ -9,10 +9,12 @@ import { notify } from "../../components/shared/UI/toast";
 import LoadingSpinner from '../../components/shared/UI/LoadingSpinner';
 import { useNavigate, useParams } from 'react-router-dom';
 import BottomNavigation from './bottom_nav';
+import { BuaashContext } from '../../contextAPI/shopContext/BuaashContext';
+import { useContext } from 'react';
 
 
 const Explore = (props) => {
-
+  const boom = useContext(BuaashContext);
   const navigate = useNavigate();
   let { type } = useParams();
   const [filterByType, setFilterByType] = useState(type);
@@ -39,8 +41,10 @@ const Explore = (props) => {
       setIsLoading(true)
       const placesData = await fetchAllPlaces();
       setIsLoading(false);
-      if(!placesData.status)notify(placesData.message, "error")
-
+      navigate("/")
+      if(!placesData.status){
+        return boom.serverReady=false;
+      }
       if(!placesData.data.reverse)return notify("No places found", "warning")
 
       const filteredPlaces = placesData.data.reverse().filter(place => {
