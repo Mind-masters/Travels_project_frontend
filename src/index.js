@@ -9,7 +9,7 @@ import { BuaashContext } from './contextAPI/shopContext/BuaashContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <BuaashContext.Provider value={{  }}>
+    <BuaashContext.Provider value={{ serverReady: true }}>
       <App />
     </BuaashContext.Provider>
   </BrowserRouter>

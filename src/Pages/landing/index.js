@@ -11,34 +11,34 @@ import ScrollToTop from '../../components/shared/UI/ScrollToTop/ScrollToTop';
 
 const LandingMain = (props) => {
 
-    const [showAuthenticationForm, setShowAuthenticationForm] = useState(false);
+const [showAuthenticationForm, setShowAuthenticationForm] = useState(false);
 
-    return (
-        <div>
+return (
+<div>
 
-            {
-                props.extra &&
-                <NewUser />
-            }
+{
+props.extra &&
+<NewUser />
+}
 
-            <Destinations/>
-            <FellowTravelers />
-            <AboutUs />
+<Destinations/>
+<FellowTravelers />
+<AboutUs />
 
-            {
-                showAuthenticationForm &&
-                <Authentication 
-                    signup 
-                    show 
-                    onClose={()=>setShowAuthenticationForm(false)}
-                />
-            }
-            <div>   
-                <ScrollToTop/>
-            </div>
-            
-        </div>
-    )
+{
+showAuthenticationForm &&
+<Authentication 
+signup 
+show 
+onClose={()=>setShowAuthenticationForm(false)}
+/>
+}
+<div>   
+<ScrollToTop/>
+</div>
+
+</div>
+)
 }
 
 export default LandingMain
