@@ -38,9 +38,6 @@ const BottomNavigation = (props) => {
 
             {showFilterDrawer && <Backdrop onClick={()=>setShowFilterDrawer(false)} />}
 
-            <SideDrawer color="rgba(255, 255, 255, 1)" show={showFilterDrawer} >
-                <Filter onClick={()=>setShowFilterDrawer(false)}/>
-            </SideDrawer>
 
             <div className={styles.filter_section_button}>
                 <Button height="auto" color="#EE7D15" onSubmit={()=>{navigate("/uploads")}}>

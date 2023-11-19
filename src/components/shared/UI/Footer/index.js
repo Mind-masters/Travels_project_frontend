@@ -35,18 +35,14 @@ const Footer = () => {
         onClose={onCloseModal}
       >
         <div className={styles.modal_wrapper}>
-          <div className={styles.modal_wrapper_header} onClick={onCloseModal}>
-            Close
-          </div>
-          {showFAQ && <Faq />}
-          {showAbout && <AboutUs />}
-          {showContactForm && <ContactUs onClose={onCloseModal} />}
-          {showHow && <HowItWorks />}
-          {ShowPrivacyP && <PrivacyPolicy />}
+          {showFAQ && <h1>Loading...</h1>}
+          {showAbout && <h1>Loading...</h1>}
+          {showContactForm && <h1>Loading...</h1>}
+          {showHow && <h1>Loading...</h1>}
+          {ShowPrivacyP && <h1>Loading...</h1>}
         </div>
       </Modal>
     </>
-    {/* <img className={styles.top_background_image} src={Background} alt=''/> */}
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.column_about}>
@@ -56,7 +52,6 @@ const Footer = () => {
           <p>
             Discover the world with ease, connect with fellow travelers,and create
             unforgettable memories. Start your extraordinary adventure today!
-              {/* Welcome to TripWhoop, the ultimate platform for passionate travelers to connect, share their experiences, and embark on exciting journeys together. */}
           </p>
         </div>
         <div className={styles.links_box}>

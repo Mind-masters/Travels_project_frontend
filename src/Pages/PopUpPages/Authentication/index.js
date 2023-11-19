@@ -5,7 +5,6 @@ import Form from './form'
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { notify } from "../../../components/shared/UI/toast";
-import { NotificationManager } from 'react-notifications';
 
 import { useContext } from "react";
 import {AuthContext} from "../../../contextAPI/AuthContext";

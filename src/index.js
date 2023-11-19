@@ -4,15 +4,13 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import ScrollToTop from './scrollToTheTop';
-import { ShopContextProvider } from './contextAPI/shopContext/ShopContextProvider';
+import { BuaashContext } from './contextAPI/shopContext/BuaashContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <ScrollToTop />
-    <ShopContextProvider>
+    <BuaashContext.Provider value={{  }}>
       <App />
-    </ShopContextProvider>
+    </BuaashContext.Provider>
   </BrowserRouter>
 );

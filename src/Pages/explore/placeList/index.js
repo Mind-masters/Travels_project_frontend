@@ -24,14 +24,7 @@ const PlaceList = ({data}) => {
   const ListItemElement = () => (
     <Grid className={styles.list_container}>
       {
-        filteredData && filteredData.length > 0?
         filteredData.map(item => <PlaceItem onFilter={onFilterHandler} key={item._id} item={item} />)
-        :
-        <div className={styles.no_places}>
-          {/* <h1>Ready to bring your placelist to life? Add your cherished places and let the magic unfold before your eyes.</h1> */}
-          <h1>Share your places, earn bonus points, and inspire fellow travelers!</h1>
-          <p onClick={()=>navigate("/uploads")}>Create place</p>
-        </div>
       }
     </Grid>
   )
