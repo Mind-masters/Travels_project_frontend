@@ -112,7 +112,7 @@ function App() {
         show={showPopUp && authenticatedUser}
         onClose={()=>setShowPopUp(false)}
       >
-        <Congratulations message={authenticatedUser.data.popups[0]} />
+        {/* <Congratulations message={authenticatedUser.data.popups[0]} /> */}
       </Modal>
       <ToastContainer />
     </AuthContext.Provider>
