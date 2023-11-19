@@ -36,7 +36,6 @@ onClose={()=>setShowAuthenticationForm(false)}
 <div>   
 <ScrollToTop/>
 </div>
-
 </div>
 )
 }
