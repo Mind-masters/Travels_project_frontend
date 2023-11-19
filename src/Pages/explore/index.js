@@ -41,8 +41,9 @@ const Explore = (props) => {
       setIsLoading(true)
       const placesData = await fetchAllPlaces();
       setIsLoading(false);
-      navigate("/")
+      
       if(!placesData.status){
+        navigate("/")
         return boom.serverReady=false;
       }
       if(!placesData.data.reverse)return notify("No places found", "warning")
